@@ -4,9 +4,13 @@ import java.util.List;
 
 import com.m2gi.movieMarket.domain.entity.Movie;
 import javax.persistence.PersistenceContext;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 
-public class MovieFacade implements MovieFacadeLocal, MovieFacadeRemote {
+@Stateless
+@LocalBean
+public class MovieFacade implements MovieFacadeLocal {
 	
 	@PersistenceContext
 	private EntityManager em;
