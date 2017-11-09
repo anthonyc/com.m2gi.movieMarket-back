@@ -12,7 +12,7 @@ import javax.persistence.EntityManager;
 @LocalBean
 public class MovieFacade implements MovieFacadeLocal {
 	
-	@PersistenceContext
+	@PersistenceContext()
 	private EntityManager em;
 
 	public void create(Movie movie) {
@@ -28,7 +28,9 @@ public class MovieFacade implements MovieFacadeLocal {
 	}
 
 	public Movie find(Object id) {
-		return this.em.find(Movie.class, id);
+		Movie res = this.em.find(Movie.class, id);
+		System.out.println("my " + id);
+		return res;
 	}
 
 	public List<Movie> findAll() {
