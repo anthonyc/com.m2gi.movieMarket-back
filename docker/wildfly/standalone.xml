@@ -141,7 +141,7 @@
         <subsystem xmlns="urn:jboss:domain:datasources:5.0">
             <datasources>
                 <datasource jndi-name="java:jboss/datasources/MovieMarketDS" pool-name="MovieMarketDS" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:mysql://${env.APP_DB_HOST}/movieMarket</connection-url>
+                    <connection-url>jdbc:mysql://${env.APP_DB_HOST}/movieMarket?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10</connection-url>
                     <driver>mysql</driver>
                     <security>
                         <user-name>root</user-name>
