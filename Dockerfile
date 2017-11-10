@@ -3,18 +3,18 @@ FROM aallam/oracle-java:8
 WORKDIR /tmp
 
 RUN apt-get -y update && \
-	apt-get install -yq make maven && \
+	apt-get install -yq make maven ca-certificates && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 	
-COPY ./docker/wildfly/wildfly-11.0.0.Final.tar.gz .
 COPY ./docker/mysql-connector/mysql-connector-java-6.0.6-bin.jar .
 COPY ./docker/wildfly/standalone.xml .
 COPY ./docker/mysql-connector/module.xml .
 
 ENV JBOSS_HOME /opt/wildfly-11.0.0.Final
 
-RUN	tar xzf wildfly-11.0.0.Final.tar.gz && \
+RUN	wget http://download.jboss.org/wildfly/11.0.0.Final/wildfly-11.0.0.Final.tar.gz && \
+	tar xzf wildfly-11.0.0.Final.tar.gz && \
 	mv wildfly-11.0.0.Final $JBOSS_HOME && \
 	rm wildfly-11.0.0.Final.tar.gz* && \
 	cp standalone.xml $JBOSS_HOME/standalone/configuration/
