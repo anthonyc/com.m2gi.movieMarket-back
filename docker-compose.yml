@@ -1,0 +1,18 @@
+version: '2'
+services:
+  webapp:
+    build:
+      context: .
+    #volumes:
+     # - ./target/movieMarket-0.0.1.war:/opt/wildfly-11.0.0.Final/standalone/deployments/movieMarket-0.0.1.war
+    ports:
+      - "8080:8080"
+    environment:
+      APP_DB_HOST: db
+      
+  db:
+    image: mariadb:10.1
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      MYSQL_ROOT_PASSWORD: root
