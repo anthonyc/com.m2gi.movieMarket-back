@@ -28,13 +28,11 @@ public class MovieFacade implements MovieFacadeLocal {
 	}
 
 	public Movie find(Object id) {
-		Movie res = this.em.find(Movie.class, id);
-		System.out.println("my " + id);
-		return res;
+		return this.em.find(Movie.class, id);
 	}
 
 	public List<Movie> findAll() {
-		return this.em.createQuery("select object(o) from Movie as o").getResultList();
+		return (List<Movie>) this.em.createQuery("select m from Movie as m").getResultList();
 	}
 
 }
