@@ -3,7 +3,7 @@ FROM aallam/oracle-java:8
 WORKDIR /tmp
 
 RUN apt-get -y update && \
-	apt-get install -yq make maven ca-certificates && \
+	apt-get install -yq make maven ca-certificates mysql-client && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 	
@@ -28,7 +28,9 @@ RUN	mkdir -p $JBOSS_HOME/modules/system/layers/base/com/mysql/driver/main && \
 	cp module.xml $JBOSS_HOME/modules/system/layers/base/com/mysql/driver/main/ &&\
 	rm mysql-connector-java-6.0.6-bin.jar && rm module.xml
 	
-ADD ./ /tmp
+RUN mkdir -p /dev/movieMarket
 
+WORKDIR /dev/movieMarket
+	
 CMD ["/opt/wildfly-11.0.0.Final/bin/standalone.sh", "-b", "0.0.0.0"]
 	

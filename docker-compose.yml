@@ -3,8 +3,8 @@ services:
   webapp:
     build:
       context: .
-    #volumes:
-     # - ./target/movieMarket-0.0.1.war:/opt/wildfly-11.0.0.Final/standalone/deployments/movieMarket-0.0.1.war
+    volumes:
+      - .:/dev/movieMarket
     ports:
       - "8080:8080"
     environment:
