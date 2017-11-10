@@ -12,6 +12,11 @@ docker-compose up -d
 This command download wildfly 11. It make take time <br />
 Now you have a wildfly container with a mysql datastore configured which run on localhost:8080.
 
+### Init Project
+```bash
+docker-compose exec webapp make init
+```
+## Utils
 ### Deploy the application
 
 ```bash
@@ -23,4 +28,9 @@ You can see when wildfly see the application with
 
 ```bash
 docker-compose logs -f webapp
+```
+
+### Init db
+```bash
+docker-compose exec webapp make init-db
 ```

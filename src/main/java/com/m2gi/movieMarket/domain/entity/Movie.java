@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Movie implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private int id;
 	
 	@Column(name="name")
 	private String name;

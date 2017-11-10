@@ -1,7 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.6.6deb5
--- https://www.phpmyadmin.net/
---
 -- Client :  localhost:3306
 -- Généré le :  Ven 10 Novembre 2017 à 13:01
 -- Version du serveur :  5.7.20-0ubuntu0.17.10.1
@@ -27,8 +23,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `movie` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL
+  `id` BIGINT NOT NULL,
+  `name` varchar(255)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
