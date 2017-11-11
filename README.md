@@ -2,7 +2,7 @@
 
 ## Setup project
 
-You need docker see [https://github.com/docker/docker-install](https://github.com/docker/docker-install)
+You need docker
 
 ### Launch server
 ``` bash
