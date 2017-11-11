@@ -1,0 +1,18 @@
+version: '2'
+services:
+  webapp:
+    build:
+      context: .
+    volumes:
+      - .:/dev/movieMarket
+    ports:
+      - "8080:8080"
+    environment:
+      APP_DB_HOST: db
+      
+  db:
+    image: mariadb:10.1
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      MYSQL_ROOT_PASSWORD: root
