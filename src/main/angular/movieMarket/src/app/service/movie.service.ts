@@ -12,11 +12,8 @@ export class MovieService {
 
   public all(): Observable<Movie[]> {
     return this.http.get (
-      'http://localhost:8080/movieMarket-0.0.1/ws/movies')
-      .map(res => {
-        let resultat = res.json();
-
-        return resultat._embedded.movies;
-      });
+      '/ws/movies')
+      .map(res => res.json()
+    );
   }
 }

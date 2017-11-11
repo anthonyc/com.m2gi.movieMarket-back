@@ -9,7 +9,7 @@ import { MovieListComponent } from './component/movie-list/movie-list.component'
 import { MovieService } from './service/movie.service';
 
 export const appRoutes: Routes = [
-  { path: 'listMovie', component: MovieListComponent }
+  { path: 'ws/movies', component: MovieListComponent }
 ];
 
 @NgModule({
@@ -21,7 +21,7 @@ export const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, { useHash: true })
   ],
   providers: [
     MovieService

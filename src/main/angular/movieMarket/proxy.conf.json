@@ -1,9 +1,7 @@
 {
-	"/": {
-		"target":"http://localhost:8080",
+	"/ws/*": {
+		"target":"http://localhost:8080/movieMarket-0.0.1",
 		"secure": false,
-		"pathRewrite": { "^/movies": "/movies" },
-		"changeOrigin": true,
 		"logLevel": "debug"
 	}
 }
