@@ -43,7 +43,7 @@ public class MovieWs {
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Movie find(@PathParam("id") Long id) {
+	public Movie find(@PathParam("id") int id) {
 		return this.movieReference.find((Object) id);
 	}
 	
