@@ -1,12 +1,19 @@
-<div style="text-align:center">
-  <h1>
-    {{title}}!
-  </h1>
-</div>
-<h2>Menu: </h2>
-<ul>
-  <li>
-    <h2><a routerLink="/ws/movies">Liste de film</a></h2>
-  </li>
-</ul>
-<router-outlet></router-outlet>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">
+    <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">{{title}}
+  </a>
+
+  <div class="collapse navbar-collapse" id="menu">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a routerLink="/ws/movies">Liste de film</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<main role="main" class="container">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
