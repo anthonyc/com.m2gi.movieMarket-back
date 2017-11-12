@@ -16,13 +16,39 @@ public class Movie implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
+	@Column(name="img")
+	private String img;
+	
 	@Column(name="name")
 	private String name;
+	
+	@Column(name="description")
+	private String description;
 	
 	public int getId() {
 		return this.id;
 	}
 	
+	public String getImg() {
+		return img;
+	}
+
+	public Movie setImg(String img) {
+		this.img = img;
+		
+		return this;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public Movie setDescription(String description) {
+		this.description = description;
+		
+		return this;
+	}
+
 	public String getName() {
 		return this.name;
 	}
