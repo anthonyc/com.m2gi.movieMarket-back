@@ -1,7 +1,7 @@
 build:
 	rm -f src/main/webapp/*
 	cd src/main/angular/movieMarket && \
- 		npm install && \
+		npm install && \
 		ng build --prod
 	cp src/main/angular/movieMarket/dist/* src/main/webapp/
 	mvn clean package
