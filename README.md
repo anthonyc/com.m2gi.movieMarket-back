@@ -17,7 +17,7 @@ Now you have a wildfly container with a mysql datastore configured which run on 
 docker-compose exec webapp make init
 ```
 
-Check in go to [http://localhost:8080/movieMarket-0.0.1/ws/movies](http://localhost:8080/movieMarket-0.0.1/ws/movies)
+Check in go to [http://localhost:8080](http://localhost:8080)
 ## Utils
 ### Deploy the application
 
