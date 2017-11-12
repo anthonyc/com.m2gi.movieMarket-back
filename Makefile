@@ -7,4 +7,4 @@ init-db:
 	mysql -hdb -uroot -proot -e "CREATE DATABASE movieMarket"
 	mysql -hdb -uroot -proot movieMarket < ./fixture/movieMarket.sql
 	
-init: deploy-dev init-db
+init: init-db deploy-dev
