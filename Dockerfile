@@ -13,9 +13,6 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - &&\
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 	
-RUN npm install -g @angular/cli && \
-	npm install -g typescript
-	
 COPY ./docker/mysql-connector/mysql-connector-java-6.0.6-bin.jar .
 COPY ./docker/wildfly/standalone.xml .
 COPY ./docker/mysql-connector/module.xml .
