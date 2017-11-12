@@ -1,9 +1,11 @@
 build:
-	rm -f src/main/webapp/*
+	rm -rf src/main/webapp/* && \
 	cd src/main/angular/movieMarket && \
 		npm install && \
+		npm install jquery@1.9.1 --save &&\
 		ng build --prod
-	cp src/main/angular/movieMarket/dist/* src/main/webapp/
+	mkdir -p src/main/webapp
+	cp -R src/main/angular/movieMarket/dist/* src/main/webapp/
 	mvn clean package
 	cp target/movieMarket-0.0.1.war /opt/wildfly-11.0.0.Final/standalone/deployments/
 	
