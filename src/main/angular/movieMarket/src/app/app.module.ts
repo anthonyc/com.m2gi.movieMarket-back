@@ -7,16 +7,19 @@ import { AppComponent } from './app.component';
 import { MovieComponent } from './component/movie/movie.component';
 import { MovieListComponent } from './component/movie-list/movie-list.component';
 import { MovieService } from './service/movie.service';
+import { MovieDetailComponent } from './component/movie-detail/movie-detail.component';
 
 export const appRoutes: Routes = [
-  { path: 'ws/movies', component: MovieListComponent }
+  { path: 'ws/movies', component: MovieListComponent },
+  { path: 'ws/movies/:id', component: MovieDetailComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieComponent,
-    MovieListComponent
+    MovieListComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,

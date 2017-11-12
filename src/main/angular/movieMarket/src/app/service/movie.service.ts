@@ -11,9 +11,20 @@ export class MovieService {
   constructor(private http: Http) { }
 
   public all(): Observable<Movie[]> {
-    return this.http.get (
+    return this.http.get(
       '/ws/movies')
       .map(res => res.json()
+    );
+  }
+
+  public find(id: string): Observable<Movie> {
+    return this.http.get(
+      'ws/movies/' + id)
+      .map(res => {
+        let resu = res.json();
+        console.log(resu);
+        return resu;
+      }
     );
   }
 }

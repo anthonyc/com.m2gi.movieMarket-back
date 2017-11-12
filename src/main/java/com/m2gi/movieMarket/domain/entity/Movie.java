@@ -19,6 +19,10 @@ public class Movie implements Serializable {
 	@Column(name="name")
 	private String name;
 	
+	public int getId() {
+		return this.id;
+	}
+	
 	public String getName() {
 		return this.name;
 	}
