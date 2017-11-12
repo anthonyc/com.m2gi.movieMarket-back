@@ -3,9 +3,18 @@ FROM aallam/oracle-java:8
 WORKDIR /tmp
 
 RUN apt-get -y update && \
-	apt-get install -yq make maven ca-certificates mysql-client && \
+	apt-get install -yq curl sudo make maven ca-certificates mysql-client && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+	
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - &&\
+	apt-get -y update && \
+	apt-get install -yq nodejs &&\
+	apt-get clean && \
+	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+	
+RUN npm install -g @angular/cli && \
+	npm install -g typescript
 	
 COPY ./docker/mysql-connector/mysql-connector-java-6.0.6-bin.jar .
 COPY ./docker/wildfly/standalone.xml .
