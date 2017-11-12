@@ -22,7 +22,7 @@ Check in go to [http://localhost:8080](http://localhost:8080)
 ### Deploy the application
 
 ```bash
-docker-compose exec webapp make deploy-dev
+docker-compose exec webapp make build
 ```
 This command run mvn clean package inside the container and deploy the war
 
