@@ -24,17 +24,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `movie` (
   `id` BIGINT NOT NULL,
-  `name` varchar(255)
+  `img` varchar(255),
+  `name` varchar(255),
+  `description` varchar(255)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `Movie`
 --
 
-INSERT INTO `movie` (`id`, `name`) VALUES
-(0, 'test1'),
-(1, 'test2'),
-(2, 'test3');
+INSERT INTO `movie` (`id`, `name`, `img`, `description`) VALUES
+(0, 'Oblivion', 'oblivion.jpg', 'Après des décennies de guerre contre la terrible menace dénommée les Scavs, les humains ont quittés la Terre. Jack Harper, qui vit sur une station située dans les nuages, a pour mission d\'extraire des ressources vitales nécessaires aux humains expatriés. Son existence est bouleversée lorsqu\'il sauve une belle inconnue d\'un vaisseau en déperdition. Son arrivée va déclencher une série d\'évènements qui vont le forcer à remettre en question tout ce qu\'il connaissait.'),
+(1, 'Wonder Women', 'wonder-woman.jpg', 'test'),
+(2, 'oblivion', 'oblivion.jpg', 'test');
 
 --
 -- Index pour les tables exportées
