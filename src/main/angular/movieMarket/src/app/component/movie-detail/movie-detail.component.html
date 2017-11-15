@@ -1,3 +1,11 @@
-<p>
-  {{ movie.name }}
-</p>
+<div class="row">
+  <div class="col-sm-6 col-md-3 ">
+    <figure>
+      <img src="assets/img/movies/{{ movie.img }}" width="130">
+    </figure>
+  </div>
+  <div class="col-sm-6 col-md-9">
+    <h4>{{ movie.name }}</h4>
+    <p>{{ movie.description }}</p>
+  </div>
+</div>
