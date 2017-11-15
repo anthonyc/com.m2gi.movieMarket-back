@@ -32,7 +32,10 @@ public class MovieFacade implements MovieFacadeLocal {
 	}
 
 	public List<Movie> findAll() {
-		return (List<Movie>) this.em.createQuery("select m from Movie as m").getResultList();
+		return this.em.createQuery("select m from Movie as m")
+				.setMaxResults(20)
+				.getResultList()
+		;
 	}
 
 }
