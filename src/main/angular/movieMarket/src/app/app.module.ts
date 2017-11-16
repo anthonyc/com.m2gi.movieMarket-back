@@ -8,6 +8,7 @@ import { MovieComponent } from './component/movie/movie.component';
 import { MovieListComponent } from './component/movie-list/movie-list.component';
 import { MovieService } from './service/movie.service';
 import { MovieDetailComponent } from './component/movie-detail/movie-detail.component';
+import { TopNavBarComponent } from './component/top-nav-bar/top-nav-bar.component';
 
 export const appRoutes: Routes = [
   { path: 'movies', component: MovieListComponent },
@@ -19,7 +20,8 @@ export const appRoutes: Routes = [
     AppComponent,
     MovieComponent,
     MovieListComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    TopNavBarComponent
   ],
   imports: [
     BrowserModule,
