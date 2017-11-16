@@ -2,6 +2,7 @@ build:
 	rm -rf src/main/webapp/* && \
 	cd src/main/angular/movieMarket && \
 		npm install && \
+		npm install @angular/cli -g &&\
 		npm install jquery@1.9.1 --save &&\
 		ng build --prod
 	mkdir -p src/main/webapp
