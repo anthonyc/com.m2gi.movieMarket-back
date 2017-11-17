@@ -10,7 +10,7 @@ build-front:
 	rm -rf src/main/webapp/* && \
 	cd src/main/angular/movieMarket && \
 		npm install && \
-		ng build --prod
+		node_modules/@angular/cli/bin/ng build --prod
 	mkdir -p src/main/webapp
 	cp -R src/main/angular/movieMarket/dist/* src/main/webapp/
 	
