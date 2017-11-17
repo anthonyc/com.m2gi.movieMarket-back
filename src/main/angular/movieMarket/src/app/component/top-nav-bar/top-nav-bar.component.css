@@ -45,3 +45,16 @@
         margin: 0 !important;
     }
 }
+
+.dropdown:hover>.dropdown-menu,
+.dropdown:hover>.dropdown-menu:hover {
+    display: block;
+    visibility: visible !important;
+    transition: visibility 0s 0.2s !important;
+}
+
+.dropdown>.dropdown-menu {
+    display: block;
+    visibility: hidden !important;
+    transition: visibility 0s 0.3s !important;
+}
