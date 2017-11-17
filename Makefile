@@ -10,9 +10,6 @@ build-front:
 	rm -rf src/main/webapp/* && \
 	cd src/main/angular/movieMarket && \
 		npm install && \
-		npm install @angular/cli -g &&\
-		npm install jquery@1.9.1 --save &&\
-		npm install @angular-devkit/schematics@0.0.34 &&\
 		ng build --prod
 	mkdir -p src/main/webapp
 	cp -R src/main/angular/movieMarket/dist/* src/main/webapp/

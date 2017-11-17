@@ -1,0 +1,34 @@
+#rechercheForm {
+    margin: 0 !important
+}
+
+#searchButton {
+    width: 35px;
+    height: 35px;
+    border: none;
+    position: relative;
+    top: -3px;
+    background: url("../../../assets/img/css/search_icon.svg") no-repeat 0px 2px;
+    cursor: pointer;
+    box-shadow: none !important
+}
+
+#searchInput {
+    width: calc(100% - 45px);
+    height: 38px;
+    border: none;
+    background: transparent;
+    position: relative;
+    top: -2px;
+}
+
+#wrapperSearch {
+    height: 38px;
+    padding: 0px 0px 0px 5px;
+}
+
+@media only screen and (max-width: 575px) {
+    #searchButton {
+        margin: 0 !important;
+    }
+}
