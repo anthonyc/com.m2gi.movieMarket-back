@@ -8,14 +8,14 @@ import javax.ws.rs.core.Application;
 
 import io.swagger.jaxrs.config.BeanConfig;
 
-@ApplicationPath("/ws")
+@ApplicationPath("/api")
 public class ApplicationConfig extends Application {
 	public ApplicationConfig() {
         BeanConfig beanConfig = new BeanConfig();
         beanConfig.setVersion("1.0.3");
         beanConfig.setSchemes(new String[]{"http"});
         beanConfig.setHost("localhost:8080");
-        beanConfig.setBasePath("http://localhost:8080/ws");
+        beanConfig.setBasePath("/api");
         beanConfig.setResourcePackage("com.m2gi.movieMarket.services");
         beanConfig.setScan(true);
     }

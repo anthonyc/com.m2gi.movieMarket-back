@@ -12,14 +12,14 @@ export class MovieService {
 
   public all(): Observable<Movie[]> {
     return this.http.get(
-      '/ws/movies')
+      '/api/movies')
       .map(res => res.json()
     );
   }
 
   public find(id: string): Observable<Movie> {
     return this.http.get(
-      'ws/movies/' + id)
+      'api/movies/' + id)
       .map(res => {
         let resu = res.json();
         console.log(resu);
