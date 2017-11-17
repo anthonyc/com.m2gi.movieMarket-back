@@ -15,8 +15,13 @@ import javax.ws.rs.core.MediaType;
 import com.m2gi.movieMarket.domain.entity.Movie;
 import com.m2gi.movieMarket.domain.repository.MovieFacadeLocal;
 
+import io.swagger.annotations.Api;
+
 @Stateless
 @Path("/movies")
+@Api(
+	value = "Movies Entity"
+)
 public class MovieWs {
 	
 	@EJB

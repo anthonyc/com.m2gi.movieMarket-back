@@ -1,6 +1,8 @@
 build: build-front build-back
 
 build-back:
+	mkdir -p src/main/webapp/swagger-ui
+	cp swagger/dist/* src/main/webapp/swagger-ui/
 	mvn clean package
 	cp target/movieMarket-0.0.1.war /opt/wildfly-11.0.0.Final/standalone/deployments/
 
