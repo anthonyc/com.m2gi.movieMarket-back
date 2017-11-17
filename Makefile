@@ -10,6 +10,7 @@ build-front:
 		npm install && \
 		npm install @angular/cli -g &&\
 		npm install jquery@1.9.1 --save &&\
+		npm install popper.js@1.12.7 --save &&\
 		npm install @angular-devkit/schematics@0.0.34 &&\
 		ng build --prod
 	mkdir -p src/main/webapp

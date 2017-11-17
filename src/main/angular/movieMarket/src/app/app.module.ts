@@ -31,6 +31,6 @@ export const appRoutes: Routes = [
   providers: [
     MovieService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, TopNavBarComponent]
 })
 export class AppModule { }

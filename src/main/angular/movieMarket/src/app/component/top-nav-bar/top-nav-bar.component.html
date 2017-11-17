@@ -3,10 +3,27 @@
         {{title}}
     </a>
 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
     <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a routerLink="/movies">Liste de film</a>
+                <a class="nav-link" routerLink="/movies">Recent</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/deals">Deals !</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="categorieDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="categorieDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Science Fiction</a>
+                    <a class="dropdown-item" href="#">Comédie gold</a>
+                </div>
             </li>
         </ul>
     </div>
