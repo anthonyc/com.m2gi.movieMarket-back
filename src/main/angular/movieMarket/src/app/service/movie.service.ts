@@ -21,7 +21,7 @@ export class MovieService {
     return this.http.get(
       'api/movies/' + id)
       .map(res => {
-        let resu = res.json();
+        const resu = res.json();
         console.log(resu);
         return resu;
       }

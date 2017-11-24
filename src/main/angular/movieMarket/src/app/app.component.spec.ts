@@ -1,4 +1,3 @@
-import { TopNavBarComponent } from './component/top-nav-bar/top-nav-bar.component';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 describe('AppComponent', () => {

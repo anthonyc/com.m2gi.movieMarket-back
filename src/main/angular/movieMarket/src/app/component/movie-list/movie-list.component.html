@@ -1,5 +1,12 @@
-<div class="row">
-  <div class="col" *ngFor="let m of movies; let i = index;">
-      <app-movie [movie]="m"></app-movie>
-  </div>
+<div>
+    <h2>{{titre}}</h2>
+    <div class="panel panel-default">
+        <div class="panel-body" *ngFor="let i of iteratorLines">
+            <div class="row">
+                <div *ngFor="let j of columnLength[i]">
+                    <app-movie [movie]="movies[j]"></app-movie>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

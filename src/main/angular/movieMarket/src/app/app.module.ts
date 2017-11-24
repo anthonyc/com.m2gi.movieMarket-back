@@ -12,9 +12,10 @@ import { TopNavBarComponent } from './component/top-nav-bar/top-nav-bar.componen
 import { HomePageContentComponent } from './component/home-page-content/home-page-content.component';
 import { ArianeComponent } from './component/ariane/ariane.component';
 import { BlocFilmComponent } from './component/bloc-film/bloc-film.component';
+import { SearchResultContentComponent } from './component/search-result-content/search-result-content.component';
 
 export const appRoutes: Routes = [
-  { path: 'movies', component: MovieListComponent },
+  { path: 'movies', component: SearchResultContentComponent },
   { path: 'movies/:id', component: MovieDetailComponent },
   { path: 'home', component: HomePageContentComponent }
 ];
@@ -28,7 +29,8 @@ export const appRoutes: Routes = [
     TopNavBarComponent,
     HomePageContentComponent,
     ArianeComponent,
-    BlocFilmComponent
+    BlocFilmComponent,
+    SearchResultContentComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,6 @@ export const appRoutes: Routes = [
   providers: [
     MovieService
   ],
-  bootstrap: [AppComponent, TopNavBarComponent, HomePageContentComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
