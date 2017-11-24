@@ -18,21 +18,6 @@ docker-compose exec webapp make init
 ```
 
 Check in go to [http://localhost:8080](http://localhost:8080)
-## Utils
-### Deploy the application
 
-```bash
-docker-compose exec webapp make build
-```
-This command run mvn clean package inside the container and deploy the war
-
-You can see when wildfly see the application with
-
-```bash
-docker-compose logs -f webapp
-```
-
-### Init db
-```bash
-docker-compose exec webapp make init-db
-```
+## View documentations
+[documentation](docs/docs.md)

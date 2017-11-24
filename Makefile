@@ -17,6 +17,5 @@ build-front:
 init-db:
 	mysql -hdb -uroot -proot -e "DROP DATABASE IF EXISTS movieMarket"
 	mysql -hdb -uroot -proot -e "CREATE DATABASE movieMarket"
-	mysql -hdb -uroot -proot movieMarket < ./fixture/movieMarket.sql
 	
 init: init-db build
