@@ -41,7 +41,6 @@ export class HomePageContentComponent implements OnInit, ContentSpace {
             error => this.error = 'movieService.all error',
             () => this.finished = true
           );
-          while (!this.finished) {} // Maybe unnecessary
           */
 
           // Cut the list into smaller sub arrays to feed to sections for testing purposes

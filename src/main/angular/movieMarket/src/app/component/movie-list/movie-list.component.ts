@@ -24,8 +24,9 @@ export class MovieListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.nbColumns = this.movies.length / this.nbLines;
-    // console.log('');
+    this.nbColumns = Math.round(this.movies.length / this.nbLines);
+
+    console.log(this.titre + ' ' + this.movies.length.toString());
     for (let i = 0; i < this.nbLines; i++) {
       this.iteratorLines[i] = i;
       this.columnLength[i] = new Array();
@@ -33,7 +34,7 @@ export class MovieListComponent implements OnInit {
 
     for (let i = 0; i < this.movies.length; i++) {
       const line = Math.trunc(i / this.nbColumns);
-      console.log(line);
+      // console.log('i = ' + i.toString() + ' ; nbCol = ' + this.nbColumns.toString());
       this.columnLength[line][i % this.nbColumns] = i;
       console.log(this.columnLength[line]);
     }
