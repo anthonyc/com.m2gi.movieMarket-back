@@ -16,4 +16,6 @@ public interface MovieFacadeLocal {
 	Movie find(Object id);
 	
 	List<Movie> findAll(int from, int to);
+
+	List<Movie> findAllByCategory(String Category, int from, int to);
 }

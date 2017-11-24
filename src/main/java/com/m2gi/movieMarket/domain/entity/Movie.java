@@ -19,7 +19,7 @@ public class Movie implements Serializable {
 	private int id;
 	
 	@OneToOne()
-	@JoinColumn(name="id")
+	@JoinColumn(name="category_id")
 	private Category category;
 	
 	@Column(name="img")

@@ -3,8 +3,6 @@ package com.m2gi.movieMarket.services;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
@@ -65,8 +63,14 @@ public class MovieWs {
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Movie> findAll(
+			@DefaultValue("") @QueryParam("category") String category,
 			@DefaultValue("0") @QueryParam("from") int from,
 			@DefaultValue("20") @QueryParam("to") int to) {
-		return this.movieReference.findAll(from, to);
+
+		if (category.isEmpty()) {
+			return this.movieReference.findAll(from, to);
+		}
+
+		return this.movieReference.findAllByCategory(category, from, to);
 	}
 }

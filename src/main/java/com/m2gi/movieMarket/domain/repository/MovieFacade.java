@@ -38,4 +38,13 @@ public class MovieFacade implements MovieFacadeLocal {
 		;
 	}
 
+	public List<Movie> findAllByCategory(String category, int from, int to) {
+		System.out.println("cat : " + category);
+		return this.em.createQuery("select m from Movie m join m.category c where c.name = :category")
+				.setParameter("category", category)
+				.setFirstResult(from)
+				.setMaxResults(to)
+				.getResultList()
+		;
+	}
 }
