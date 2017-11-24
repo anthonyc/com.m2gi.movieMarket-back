@@ -11,7 +11,6 @@ import { MovieDetailComponent } from './component/movie-detail/movie-detail.comp
 import { TopNavBarComponent } from './component/top-nav-bar/top-nav-bar.component';
 import { HomePageContentComponent } from './component/home-page-content/home-page-content.component';
 import { ArianeComponent } from './component/ariane/ariane.component';
-import { BlocFilmComponent } from './component/bloc-film/bloc-film.component';
 import { SearchResultContentComponent } from './component/search-result-content/search-result-content.component';
 
 export const appRoutes: Routes = [
@@ -29,7 +28,6 @@ export const appRoutes: Routes = [
     TopNavBarComponent,
     HomePageContentComponent,
     ArianeComponent,
-    BlocFilmComponent,
     SearchResultContentComponent
   ],
   imports: [
