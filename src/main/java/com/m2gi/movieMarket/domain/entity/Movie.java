@@ -74,9 +74,4 @@ public class Movie implements Serializable {
 		
 		return this;
 	}
-	
-	@Override
-	public String toString() {
-		return "com.m2gi.movieMarket.domaine.entity.Movie[id=" + id + "]";
-	}
 }
