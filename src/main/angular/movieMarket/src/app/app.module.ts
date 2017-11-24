@@ -16,7 +16,7 @@ import { SearchResultContentComponent } from './component/search-result-content/
 export const appRoutes: Routes = [
   { path: 'movies', component: SearchResultContentComponent },
   { path: 'movies/:id', component: MovieDetailComponent },
-  { path: 'home', component: HomePageContentComponent }
+  { path: '', component: HomePageContentComponent }
 ];
 
 @NgModule({
