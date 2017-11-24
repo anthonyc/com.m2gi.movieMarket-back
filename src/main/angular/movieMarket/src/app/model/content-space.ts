@@ -1,6 +1,6 @@
-import { ArianeComponent } from '../component/ariane/ariane.component';
+import { BreadcrumbComponent } from '../component/breadcrumb/breadcrumb.component';
 
 export interface ContentSpace {
-    ariane: ArianeComponent;
+    breadcrumb: BreadcrumbComponent;
     name: String;
 }

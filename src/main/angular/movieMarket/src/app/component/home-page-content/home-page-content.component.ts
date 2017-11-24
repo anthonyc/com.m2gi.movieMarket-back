@@ -1,8 +1,6 @@
 import { Movie } from './../../model/movie';
 import { MovieService } from './../../service/movie.service';
 import { ContentSpace } from './../../model/content-space';
-import { ArianeComponent } from './../ariane/ariane.component';
-import { TopNavBarComponent } from '../top-nav-bar/top-nav-bar.component';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page-content.component.css']
 })
 export class HomePageContentComponent implements OnInit, ContentSpace {
-    ariane: ArianeComponent;
     name: String;
 
     all_movies: Movie[] = [];
