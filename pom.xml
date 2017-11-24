@@ -9,6 +9,9 @@
 	<properties>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 		<swaggerVersion>1.5.16</swaggerVersion>
+		<dbHost>${env.APP_DB_HOST}</dbHost>
+		<dbUsername>root</dbUsername>
+		<dbPassw>root</dbPassw>
 	</properties>
 
 	<dependencies>
@@ -92,7 +95,10 @@
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
 				<version>3.5.3</version>
-				<configuration>                  
+				<configuration>
+					<url>jdbc:mysql://${dbHost}/movieMarket?nullNamePatternMatchesAll=true</url>
+					<username>${dbUsername}</username>
+					<password>${dbPassw}</password>
 					<propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
 					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
 				</configuration>                

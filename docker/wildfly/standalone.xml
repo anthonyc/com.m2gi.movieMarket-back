@@ -145,7 +145,7 @@
                     <driver>mysql</driver>
                     <security>
                         <user-name>root</user-name>
-                        <password>root</password>
+                        <password>${env.MYSQL_ROOT_PASSWORD}</password>
                     </security>
                     <validation>
 		              <check-valid-connection-sql>select 1</check-valid-connection-sql>
