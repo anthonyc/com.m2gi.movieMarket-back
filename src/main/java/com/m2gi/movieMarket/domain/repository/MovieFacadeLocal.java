@@ -15,5 +15,5 @@ public interface MovieFacadeLocal {
 	
 	Movie find(Object id);
 	
-	List<Movie> findAll();
+	List<Movie> findAll(int from, int to);
 }
