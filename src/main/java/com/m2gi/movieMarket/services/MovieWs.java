@@ -3,6 +3,7 @@ package com.m2gi.movieMarket.services;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
@@ -13,13 +14,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.m2gi.movieMarket.domain.entity.Movie;
 import com.m2gi.movieMarket.domain.repository.MovieFacadeLocal;
 
 import io.swagger.annotations.Api;
 
-@Stateless
 @Path("/movies")
 @Api(
 	value = "Movies Entity"
@@ -50,8 +51,14 @@ public class MovieWs {
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Movie find(@PathParam("id") int id) {
-		return this.movieReference.find((Object) id);
+	public Response find(@PathParam("id") int id) {
+		Movie movie = this.movieReference.find((Object) id);
+		
+		if (movie == null) {
+			throw new NotFoundException("Entity not found for id : " + id);
+		}
+		
+		return Response.ok(movie).build();
 	}
 	
 	@GET

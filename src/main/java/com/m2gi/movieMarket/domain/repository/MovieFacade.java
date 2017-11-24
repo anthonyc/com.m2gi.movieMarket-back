@@ -9,7 +9,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 
 @Stateless
-@LocalBean
 public class MovieFacade implements MovieFacadeLocal {
 	
 	@PersistenceContext()
