@@ -9,10 +9,14 @@ import { MovieListComponent } from './component/movie-list/movie-list.component'
 import { MovieService } from './service/movie.service';
 import { MovieDetailComponent } from './component/movie-detail/movie-detail.component';
 import { TopNavBarComponent } from './component/top-nav-bar/top-nav-bar.component';
+import { HomePageContentComponent } from './component/home-page-content/home-page-content.component';
+import { ArianeComponent } from './component/ariane/ariane.component';
+import { BlocFilmComponent } from './component/bloc-film/bloc-film.component';
 
 export const appRoutes: Routes = [
   { path: 'movies', component: MovieListComponent },
-  { path: 'movies/:id', component: MovieDetailComponent }
+  { path: 'movies/:id', component: MovieDetailComponent },
+  { path: 'home', component: HomePageContentComponent }
 ];
 
 @NgModule({
@@ -21,7 +25,10 @@ export const appRoutes: Routes = [
     MovieComponent,
     MovieListComponent,
     MovieDetailComponent,
-    TopNavBarComponent
+    TopNavBarComponent,
+    HomePageContentComponent,
+    ArianeComponent,
+    BlocFilmComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +38,6 @@ export const appRoutes: Routes = [
   providers: [
     MovieService
   ],
-  bootstrap: [AppComponent, TopNavBarComponent]
+  bootstrap: [AppComponent, TopNavBarComponent, HomePageContentComponent]
 })
 export class AppModule { }

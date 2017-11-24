@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
   movies: Movie[] = [];
-  finished: boolean = false;
+  finished = false;
   error: string;
 
   constructor(private movieService: MovieService) { }
@@ -17,7 +17,7 @@ export class MovieListComponent implements OnInit {
   ngOnInit() {
     this.movieService.all().subscribe(
       value => this.movies = value,
-      error => this.error = "movieService.all error",
+      error => this.error = 'movieService.all error',
       () => this.finished = true
     );
   }
