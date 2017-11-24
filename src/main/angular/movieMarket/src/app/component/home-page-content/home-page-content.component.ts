@@ -1,6 +1,5 @@
 import { Movie } from './../../model/movie';
 import { MovieService } from './../../service/movie.service';
-import { ContentSpace } from './../../model/content-space';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home-page-content.component.html',
   styleUrls: ['./home-page-content.component.css']
 })
-export class HomePageContentComponent implements OnInit, ContentSpace {
+export class HomePageContentComponent implements OnInit {
     name: String;
 
     all_movies: Movie[] = [];

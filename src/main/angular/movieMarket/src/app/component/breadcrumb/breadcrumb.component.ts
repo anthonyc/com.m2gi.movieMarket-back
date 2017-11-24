@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-breadcrumbs',
+  selector: 'app-breadcrumb',
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.css']
 })
@@ -11,12 +11,12 @@ export class BreadcrumbComponent implements OnInit {
 
   constructor() {
     this.breadcrumbs = [
-      'MON',
-      'FIL',
-      'D\'ARIANE',
-      'EST',
-      'NON',
-      'FONCTIONNEL'
+      'mon',
+      'fil',
+      'd\'ariane',
+      'est',
+      'non',
+      'fonctionnel'
     ];
    }
 
