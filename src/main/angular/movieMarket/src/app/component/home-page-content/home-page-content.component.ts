@@ -43,12 +43,11 @@ export class HomePageContentComponent implements OnInit, ContentSpace {
           );
           */
 
-          // Cut the list into smaller sub arrays to feed to sections for testing purposes
-          const nb_movie_per_section = 10;
-          for (let i = 0, j = all_movies.length; i * nb_movie_per_section < j; i++) {
-            this.section_movies[i] = all_movies.slice(i * nb_movie_per_section,
-                Math.min((i + 1) * nb_movie_per_section, all_movies.length));
-          }
+        // Cut the list into smaller sub arrays to feed to sections for testing purposes
+        const nb_movie_per_section = 10;
+        for (let i = 0, j = all_movies.length; i * nb_movie_per_section < j; i++) {
+        this.section_movies[i] = all_movies.slice(i * nb_movie_per_section,
+            Math.min((i + 1) * nb_movie_per_section, all_movies.length));
+        }
     }
-
 }

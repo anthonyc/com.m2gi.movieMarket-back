@@ -1,11 +1,9 @@
 <div>
     <h2>{{titre}}</h2>
     <div class="panel panel-default">
-        <div class="panel-body" *ngFor="let i of iteratorLines">
+        <div class="panel-body">
             <div class="row">
-                <div *ngFor="let j of columnLength[i]">
-                    <app-movie [movie]="movies[j]"></app-movie>
-                </div>
+                <app-movie *ngFor="let i of iteratorCol" [movie]="movies[i]"></app-movie>
             </div>
         </div>
     </div>
