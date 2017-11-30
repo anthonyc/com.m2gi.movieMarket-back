@@ -4,3 +4,5 @@
 .settings
 target/
 src/main/webapp
+.idea
+*.iml

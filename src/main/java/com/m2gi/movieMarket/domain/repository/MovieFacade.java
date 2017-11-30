@@ -9,7 +9,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 
 @Stateless
-@LocalBean
 public class MovieFacade implements MovieFacadeLocal {
 	
 	@PersistenceContext()
@@ -30,12 +29,22 @@ public class MovieFacade implements MovieFacadeLocal {
 	public Movie find(Object id) {
 		return this.em.find(Movie.class, id);
 	}
-
-	public List<Movie> findAll() {
+	
+	public List<Movie> findAll(int from, int to) {
 		return this.em.createQuery("select m from Movie as m")
-				.setMaxResults(20)
+				.setFirstResult(from)
+				.setMaxResults(to)
 				.getResultList()
 		;
 	}
 
+	public List<Movie> findAllByCategory(String category, int from, int to) {
+		System.out.println("cat : " + category);
+		return this.em.createQuery("select m from Movie m join m.category c where c.name = :category")
+				.setParameter("category", category)
+				.setFirstResult(from)
+				.setMaxResults(to)
+				.getResultList()
+		;
+	}
 }

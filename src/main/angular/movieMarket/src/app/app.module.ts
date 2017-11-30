@@ -10,13 +10,13 @@ import { MovieService } from './service/movie.service';
 import { MovieDetailComponent } from './component/movie-detail/movie-detail.component';
 import { TopNavBarComponent } from './component/top-nav-bar/top-nav-bar.component';
 import { HomePageContentComponent } from './component/home-page-content/home-page-content.component';
-import { ArianeComponent } from './component/ariane/ariane.component';
+import { BreadcrumbComponent } from './component/breadcrumb/breadcrumb.component';
 import { SearchResultContentComponent } from './component/search-result-content/search-result-content.component';
 
 export const appRoutes: Routes = [
   { path: 'movies', component: SearchResultContentComponent },
   { path: 'movies/:id', component: MovieDetailComponent },
-  { path: 'home', component: HomePageContentComponent }
+  { path: '', component: HomePageContentComponent }
 ];
 
 @NgModule({
@@ -27,7 +27,7 @@ export const appRoutes: Routes = [
     MovieDetailComponent,
     TopNavBarComponent,
     HomePageContentComponent,
-    ArianeComponent,
+    BreadcrumbComponent,
     SearchResultContentComponent
   ],
   imports: [
