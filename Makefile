@@ -6,7 +6,7 @@ build-back:
 	mvn clean package
 	cp target/movieMarket-0.0.1.war /opt/wildfly-11.0.0.Final/standalone/deployments/
 	mvn liquibase:update
-	mysql -hdb -uroot -proot movieMarket < ./fixture/movieMarket.sql
+	#mysql -hdb -uroot -proot movieMarket < ./fixture/movieMarket.sql
 
 build-front:
 	rm -rf src/main/webapp/* && \
