@@ -1,6 +1,7 @@
 package com.m2gi.movieMarket.domain.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,13 +33,13 @@ public class Movie implements Serializable {
 	private String description;
 
 	@Column(name="price")
-	private int price;
+	private float price;
 
 	@Column(name="quantity")
 	private int quantity;
 
 	@Column(name="releaseYear")
-	private int releaseYear;
+	private Date releaseYear;
 	
 	public int getId() {
 		return this.id;
@@ -84,31 +85,31 @@ public class Movie implements Serializable {
 		return this;
 	}
 
-	public String getPrice() {
+	public float getPrice() {
 		return this.price;
 	}
 	
-	public Movie setPrice(String price) {
+	public Movie setPrice(float price) {
 		this.price = price;
 		
 		return this;
 	}
 
-	public String getQuantity() {
+	public int getQuantity() {
 		return this.quantity;
 	}
 	
-	public Movie setQuantity(String quantity) {
+	public Movie setQuantity(int quantity) {
 		this.quantity = quantity;
 		
 		return this;
 	}
 
-	public String getReleaseYear() {
+	public Date getReleaseYear() {
 		return this.releaseYear;
 	}
 	
-	public Movie setReleaseYear(String releaseYear) {
+	public Movie setReleaseYear(Date releaseYear) {
 		this.releaseYear = releaseYear;
 		
 		return this;
