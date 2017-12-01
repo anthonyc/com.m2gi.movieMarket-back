@@ -30,6 +30,15 @@ public class Movie implements Serializable {
 	
 	@Column(name="description")
 	private String description;
+
+	@Column(name="price")
+	private int price;
+
+	@Column(name="quantity")
+	private int quantity;
+
+	@Column(name="releaseYear")
+	private int releaseYear;
 	
 	public int getId() {
 		return this.id;
@@ -71,6 +80,36 @@ public class Movie implements Serializable {
 	
 	public Movie setName(String name) {
 		this.name = name;
+		
+		return this;
+	}
+
+	public String getPrice() {
+		return this.price;
+	}
+	
+	public Movie setPrice(String price) {
+		this.price = price;
+		
+		return this;
+	}
+
+	public String getQuantity() {
+		return this.quantity;
+	}
+	
+	public Movie setQuantity(String quantity) {
+		this.quantity = quantity;
+		
+		return this;
+	}
+
+	public String getReleaseYear() {
+		return this.releaseYear;
+	}
+	
+	public Movie setReleaseYear(String releaseYear) {
+		this.releaseYear = releaseYear;
 		
 		return this;
 	}
