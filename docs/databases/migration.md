@@ -13,7 +13,8 @@ For ever build with maven, only the newest migrations has execute.
 ## Normal workflow
 
 1. Edit your Hibernate mapped classes as needed (add and remove classes and attributes)
-2. Run `docker-compose exec webapp mvn liquibase:diff`
-3. Check that the modified changelog.xml does what you expect, edit it if it does not
-4. Run liquibase `docker-compose exec webapp mvn liquibase:update`
-5. Repeat
+2. Run `docker-compose exex webapp make build` 
+3. Run `docker-compose exec webapp mvn liquibase:diff`
+4. Check that the modified changelog.xml does what you expect, edit it if it does not
+5. Run liquibase `docker-compose exec webapp mvn liquibase:update`
+6. Repeat
