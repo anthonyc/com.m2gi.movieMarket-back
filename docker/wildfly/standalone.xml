@@ -144,8 +144,8 @@
                     <connection-url>jdbc:mysql://${env.APP_DB_HOST}/movieMarket?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10</connection-url>
                     <driver>mysql</driver>
                     <security>
-                        <user-name>root</user-name>
-                        <password>${env.MYSQL_ROOT_PASSWORD}</password>
+                        <user-name>${env.MYSQL_USER}</user-name>
+                        <password>${env.MYSQL_PASSWORD}</password>
                     </security>
                     <validation>
 		              <check-valid-connection-sql>select 1</check-valid-connection-sql>

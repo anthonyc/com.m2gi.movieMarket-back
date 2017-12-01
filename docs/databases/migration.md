@@ -10,15 +10,10 @@ Summary after having make `docker-compose exec webapp make init` when you has in
 
 For ever build with maven, only the newest migrations has execute.
 
-## Add new migration
+## Normal workflow
 
-When you need to create a new migration, you have just to add you file migration in `src/main/resources/liquibase/changelogs/`. You should respect naming convention.
-
-The naming pattern is `db.changelog-version.xml`.
-If your migration change the schema, you should update the latest `1.x` version.
-If your migration add fixture, you should update the latest `2.x` version.
-
-<aside class="notice">
-	This naming convention is not a good way for manage fixture.
-	It is bring to change 
-</aside> 
+1. Edit your Hibernate mapped classes as needed (add and remove classes and attributes)
+2. Run `docker-compose exec webapp mvn liquibase:diff`
+3. Check that the modified changelog.xml does what you expect, edit it if it does not
+4. Run liquibase `docker-compose exec webapp mvn liquibase:update`
+5. Repeat

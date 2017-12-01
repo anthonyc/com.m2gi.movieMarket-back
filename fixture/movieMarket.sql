@@ -19,17 +19,6 @@ SET time_zone = "+00:00";
 -- Structure de la table `Movie`
 --
 
-CREATE TABLE `movie` (
-  `id` BIGINT NOT NULL,
-  `img` varchar(255),
-  `name` varchar(255),
-  `description` varchar(255)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `Movie`
---
-
 INSERT INTO `movie` (`id`, `name`, `img`, `description`) VALUES
 (0, "Oblivion", "oblivion.jpg", "Après des décennies de guerre contre la terrible menace dénommée les Scavs, les humains ont quittés la Terre. Jack Harper, qui vit sur une station située dans les nuages, a pour mission d'extraire des ressources vitales nécessaires aux humains expatriés. Son existence est bouleversée lorsqu'il sauve une belle inconnue d'un vaisseau en déperdition. Son arrivée va déclencher une série d'évènements qui vont le forcer à remettre en question tout ce qu'il connaissait."),
 (1, "Wonder Women", "wonder-woman.jpg", "C'était avant qu'elle ne devienne Wonder Woman, à l'époque où elle était encore Diana, princesse des Amazones et combattante invincible. Un jour, un pilote américain s'écrase sur l'île paradisiaque où elle vit, à l'abri des fracas du monde. Lorsqu'il lui raconte qu'une guerre terrible fait rage à l'autre bout de la planète, Diana quitte son havre de paix, convaincue qu'elle doit enrayer la menace. En s'alliant aux hommes dans un combat destiné à mettre fin à la guerre, Diana découvrira toute l'étendue de ses pouvoirs… et son véritable destin."),
