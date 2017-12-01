@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
-    <changeSet author="root (generated)" id="1512136065892-1">
+    <changeSet author="root (generated)" id="1512141831408-1">
         <createTable tableName="category">
             <column name="id" type="INT">
                 <constraints nullable="false"/>
@@ -8,7 +8,7 @@
             <column name="name" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
-    <changeSet author="root (generated)" id="1512136065892-2">
+    <changeSet author="root (generated)" id="1512141831408-2">
         <createTable tableName="movie">
             <column name="id" type="INT">
                 <constraints nullable="false"/>
@@ -19,13 +19,13 @@
             <column name="category_id" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="root (generated)" id="1512136065892-3">
+    <changeSet author="root (generated)" id="1512141831408-3">
         <addPrimaryKey columnNames="id" constraintName="categoryPK" tableName="category"/>
     </changeSet>
-    <changeSet author="root (generated)" id="1512136065892-4">
+    <changeSet author="root (generated)" id="1512141831408-4">
         <addPrimaryKey columnNames="id" constraintName="moviePK" tableName="movie"/>
     </changeSet>
-    <changeSet author="root (generated)" id="1512136065892-5">
+    <changeSet author="root (generated)" id="1512141831408-5">
         <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="movie" constraintName="FK_dwm65tb1coltr8gwc6at24jrm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category"/>
     </changeSet>
 </databaseChangeLog>
