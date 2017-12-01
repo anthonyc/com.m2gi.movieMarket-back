@@ -55,7 +55,7 @@ public class MovieWs {
 		if (movie == null) {
 			throw new NotFoundException("Entity not found for id : " + id);
 		}
-		
+		System.out.println(movie.getDescription());
 		return Response.ok(movie).build();
 	}
 	

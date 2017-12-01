@@ -9,6 +9,10 @@
 		<jta-data-source>java:jboss/datasources/MovieMarketDS</jta-data-source>
 		<properties>
 			<property name="dialect" value="org.hibernate.dialect.MySQLDialect" />
+			
+			<property name="hibernate.connection.characterEncoding" value="utf8"/>
+        	<property name="hibernate.connection.useUnicode" value="true"/>
+        	<property name="hibernate.connection.charSet" value="UTF-8"/>
 		</properties>
 	</persistence-unit>
 </persistence>

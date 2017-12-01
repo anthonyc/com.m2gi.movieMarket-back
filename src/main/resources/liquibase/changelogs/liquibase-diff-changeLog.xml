@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
-    <changeSet author="root (generated)" id="1512149379846-1">
+    <changeSet author="root (generated)" id="1512164138972-1">
         <createTable tableName="category">
             <column name="id" type="INT">
                 <constraints nullable="false"/>
@@ -8,27 +8,20 @@
             <column name="name" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
-    <changeSet author="root (generated)" id="1512149379846-2">
+    <changeSet author="root (generated)" id="1512164138972-2">
         <createTable tableName="movie">
             <column name="id" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="description" type="VARCHAR(255)"/>
+            <column name="description" type="CLOB"/>
             <column name="img" type="VARCHAR(255)"/>
             <column name="name" type="VARCHAR(255)"/>
-            <column name="category_id" type="INT"/>
+            <column name="price" type="FLOAT"/>
+            <column name="quantity" type="INT"/>
+            <column name="releaseYear" type="timestamp"/>
         </createTable>
     </changeSet>
-    <changeSet author="root (generated)" id="1512149379846-3">
-        <addPrimaryKey columnNames="id" constraintName="categoryPK" tableName="category"/>
-    </changeSet>
-    <changeSet author="root (generated)" id="1512149379846-4">
-        <addPrimaryKey columnNames="id" constraintName="moviePK" tableName="movie"/>
-    </changeSet>
-    <changeSet author="root (generated)" id="1512149379846-5">
-        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="movie" constraintName="FK_dwm65tb1coltr8gwc6at24jrm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category"/>
-    </changeSet>
-    <changeSet author="root (generated)" id="1512151546528-1">
+    <changeSet author="root (generated)" id="1512164138972-3">
         <createTable tableName="movie_category">
             <column name="movie_id" type="INT">
                 <constraints nullable="false"/>
@@ -38,34 +31,19 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="root (generated)" id="1512151546528-2">
-        <addColumn tableName="movie">
-            <column name="price" type="float"/>
-        </addColumn>
-    </changeSet>
-    <changeSet author="root (generated)" id="1512151546528-3">
-        <addColumn tableName="movie">
-            <column name="quantity" type="integer"/>
-        </addColumn>
-    </changeSet>
-    <changeSet author="root (generated)" id="1512151546528-4">
-        <addColumn tableName="movie">
-            <column name="releaseYear" type="timestamp"/>
-        </addColumn>
-    </changeSet>
-    <changeSet author="root (generated)" id="1512151546528-5">
+    <changeSet author="root (generated)" id="1512164138972-4">
         <addPrimaryKey columnNames="movie_id, category_id" tableName="movie_category"/>
     </changeSet>
-    <changeSet author="root (generated)" id="1512151546528-6">
+    <changeSet author="root (generated)" id="1512164138972-5">
+        <addPrimaryKey columnNames="id" constraintName="categoryPK" tableName="category"/>
+    </changeSet>
+    <changeSet author="root (generated)" id="1512164138972-6">
+        <addPrimaryKey columnNames="id" constraintName="moviePK" tableName="movie"/>
+    </changeSet>
+    <changeSet author="root (generated)" id="1512164138972-7">
         <addForeignKeyConstraint baseColumnNames="movie_id" baseTableName="movie_category" constraintName="FK_ftakch9ptobhrwaatfovr4nk6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="movie"/>
     </changeSet>
-    <changeSet author="root (generated)" id="1512151546528-7">
+    <changeSet author="root (generated)" id="1512164138972-8">
         <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="movie_category" constraintName="FK_ktxsmjb8vqj36krhr5typ3a2p" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category"/>
-    </changeSet>
-    <changeSet author="root (generated)" id="1512151546528-8">
-        <dropForeignKeyConstraint baseTableName="movie" constraintName="FK_dwm65tb1coltr8gwc6at24jrm"/>
-    </changeSet>
-    <changeSet author="root (generated)" id="1512151546528-9">
-        <dropColumn columnName="category_id" tableName="movie"/>
     </changeSet>
 </databaseChangeLog>
