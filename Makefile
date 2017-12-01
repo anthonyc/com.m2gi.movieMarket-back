@@ -5,6 +5,7 @@ build-back:
 	cp swagger/dist/* src/main/webapp/swagger-ui/
 	mvn clean package
 	cp target/movieMarket-0.0.1.war /opt/wildfly-11.0.0.Final/standalone/deployments/
+	#mysql -hdb -uroot -proot movieMarket < ./fixture/movieMarket.sql
 
 build-front:
 	rm -rf src/main/webapp/* && \
@@ -17,5 +18,5 @@ build-front:
 init-db:
 	mysql -hdb -uroot -proot -e "DROP DATABASE IF EXISTS movieMarket"
 	mysql -hdb -uroot -proot -e "CREATE DATABASE movieMarket"
-	
+
 init: init-db build
