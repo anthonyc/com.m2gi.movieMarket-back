@@ -18,7 +18,7 @@
             <column name="name" type="VARCHAR(255)"/>
             <column name="price" type="FLOAT"/>
             <column name="quantity" type="INT"/>
-            <column name="releaseYear" type="timestamp"/>
+            <column name="releaseYear" type="datetime"/>
         </createTable>
     </changeSet>
     <changeSet author="root (generated)" id="1512164138972-3">

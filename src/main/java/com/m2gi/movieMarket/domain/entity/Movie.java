@@ -1,6 +1,10 @@
 package com.m2gi.movieMarket.domain.entity;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
 
@@ -37,7 +41,8 @@ public class Movie implements Serializable {
 	@Column(name = "quantity")
 	private int quantity;
 
-	@Column(name = "releaseYear")
+	@Column(name = "releaseYear", columnDefinition = "DATETIME")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date releaseYear;
 	
 	public int getId() {
@@ -104,13 +109,22 @@ public class Movie implements Serializable {
 		return this;
 	}
 
-	public Date getReleaseYear() {
-		return this.releaseYear;
+	public int getReleaseYear() {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(this.releaseYear);
+
+		return calendar.get(Calendar.YEAR);
 	}
 	
-	public Movie setReleaseYear(Date releaseYear) {
-		this.releaseYear = releaseYear;
-		
+	public Movie setReleaseYear(int year) throws InvalidParameterException {
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+
+		try {
+			this.releaseYear = format.parse(String.valueOf(year) + "-01-01 00:00:00");
+		} catch (ParseException e) {
+			throw new InvalidParameterException("The expected paramter is a integer year");
+		}
+
 		return this;
 	}
 }
