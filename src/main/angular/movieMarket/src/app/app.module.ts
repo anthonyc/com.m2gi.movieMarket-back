@@ -12,6 +12,9 @@ import { TopNavBarComponent } from './component/top-nav-bar/top-nav-bar.componen
 import { HomePageContentComponent } from './component/home-page-content/home-page-content.component';
 import { BreadcrumbComponent } from './component/breadcrumb/breadcrumb.component';
 import { SearchResultContentComponent } from './component/search-result-content/search-result-content.component';
+import { MovieHorizontalScrollComponent } from './component/movie-horizontal-scroll/movie-horizontal-scroll.component';
+import { NgxCarouselModule } from 'ngx-carousel';
+import 'hammerjs';
 
 export const appRoutes: Routes = [
   { path: 'movies', component: SearchResultContentComponent },
@@ -28,12 +31,14 @@ export const appRoutes: Routes = [
     TopNavBarComponent,
     HomePageContentComponent,
     BreadcrumbComponent,
-    SearchResultContentComponent
+    SearchResultContentComponent,
+    MovieHorizontalScrollComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgxCarouselModule
   ],
   providers: [
     MovieService

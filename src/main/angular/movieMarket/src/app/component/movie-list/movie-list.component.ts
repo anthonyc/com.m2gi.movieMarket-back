@@ -1,6 +1,6 @@
 import { Movie } from '../../model/movie';
 import { MovieService } from '../../service/movie.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-movie-list',
@@ -8,21 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  finished = false;
+  
+  movies: Movie[] = [];
+  finished: boolean = false;
   error: string;
 
-  @Input() public titre: String;
-  @Input() public movies: Array<Movie>;
-
-  // @Input() public nbLines: number;
-  public iteratorCol: number[] = [];
-
-  constructor() {
+  constructor(private movieService: MovieService) {
   }
 
   ngOnInit() {
-    for (let i = 0; i < this.movies.length; i++) {
-      this.iteratorCol[i] = i;
-    }
+    
   }
 }

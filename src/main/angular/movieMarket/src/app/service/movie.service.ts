@@ -10,9 +10,9 @@ export class MovieService {
 
   constructor(private http: Http) { }
 
-  public all(): Observable<Movie[]> {
+  public all(from: number = 0, to: number = 20): Observable<Movie[]> {
     return this.http.get(
-      '/api/movies')
+      '/api/movies?' + String(from) + "&" + String(to))
       .map(res => res.json()
     );
   }
