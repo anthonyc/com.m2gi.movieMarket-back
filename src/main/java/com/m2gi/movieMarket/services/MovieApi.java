@@ -23,7 +23,7 @@ import io.swagger.annotations.Api;
 @Api(
 	value = "Movies Entity"
 )
-public class MovieWs {
+public class MovieApi {
 	
 	@EJB
 	private MovieFacadeLocal movieReference;

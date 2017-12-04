@@ -6,6 +6,8 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
+import com.m2gi.movieMarket.services.CategoryApi;
+import com.m2gi.movieMarket.services.MovieApi;
 import io.swagger.jaxrs.config.BeanConfig;
 
 @ApplicationPath("/api")
@@ -24,7 +26,8 @@ public class ApplicationConfig extends Application {
     public Set<Class<?>> getClasses() {
         Set<Class<?>> resources = new HashSet();
         
-        resources.add(com.m2gi.movieMarket.services.MovieWs.class);
+        resources.add(MovieApi.class);
+        resources.add(CategoryApi.class);
         resources.add(io.swagger.jaxrs.listing.ApiListingResource.class);
         resources.add(io.swagger.jaxrs.listing.SwaggerSerializers.class);
 

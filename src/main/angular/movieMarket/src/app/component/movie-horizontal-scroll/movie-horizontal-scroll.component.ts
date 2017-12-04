@@ -9,6 +9,7 @@ import { NgxCarousel } from 'ngx-carousel';
   styleUrls: ['./movie-horizontal-scroll.component.css']
 })
 export class MovieHorizontalScrollComponent implements OnInit {
+  @Input() categoryName: String;
   @Input() from: number;
   @Input() to: number;
   @Input() title: String;
@@ -36,7 +37,7 @@ export class MovieHorizontalScrollComponent implements OnInit {
       easing: 'ease'
     }
     
-    this.movieService.all(this.from, this.to).subscribe(
+    this.movieService.allByCategory(this.categoryName, this.from, this.to).subscribe(
       value => this.movies = value,
       error => this.error = 'movieService.all error',
       () => this.finished = true

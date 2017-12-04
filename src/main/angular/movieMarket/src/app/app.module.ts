@@ -15,6 +15,7 @@ import { SearchResultContentComponent } from './component/search-result-content/
 import { MovieHorizontalScrollComponent } from './component/movie-horizontal-scroll/movie-horizontal-scroll.component';
 import { NgxCarouselModule } from 'ngx-carousel';
 import 'hammerjs';
+import { CategoryService } from './service/category.service';
 
 export const appRoutes: Routes = [
   { path: 'movies', component: SearchResultContentComponent },
@@ -41,7 +42,8 @@ export const appRoutes: Routes = [
     NgxCarouselModule
   ],
   providers: [
-    MovieService
+    MovieService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

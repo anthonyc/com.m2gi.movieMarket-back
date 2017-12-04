@@ -81,13 +81,19 @@ Cet artefact égyptien serait en effet un premier pas sur le chemin de l'Arche d
 ", 14.99, 50, "1984-01-01 00:00:00"),
 (36, "Indiana Jones et la Dernière Croisade", "indiana-jones-3.jpg", "L'archéologue aventurier Indiana Jones se retrouve aux prises avec un maléfique milliardaire. Aux côtés de la cupide Elsa et de son père, il part à la recherche du Graal.", 14.99, 50, "1989-01-01 00:00:00"),
 (37, "Indiana Jones et le Crane de Crystal", "indiana-jones-4.jpg", "La nouvelle aventure d'Indiana Jones débute dans un désert du sud-ouest des Etats-Unis. Nous sommes en 1957, en pleine Guerre Froide. Indy et son copain Mac viennent tout juste d'échapper à une bande d'agents soviétiques à la recherche d'une mystérieuse relique surgie du fond des temps. De retour au Marshall College, le Professeur Jones apprend une très mauvaise nouvelle : ses récentes activités l'ont rendu suspect aux yeux du gouvernement américain. Le doyen Stanforth, qui est aussi un proche ami, se voit contraint de le licencier. A la sortie de la ville, Indiana fait la connaissance d'un jeune motard rebelle, Mutt, qui lui fait une proposition inattendue. En échange de son aide, il le mettra sur la piste du Crâne de Cristal d'Akator, relique mystérieuse qui suscite depuis des siècles autant de fascination que de craintes. Ce serait à coup sûr la plus belle trouvaille de l'histoire de l'archéologie. Indy et Mutt font route vers le Pérou, terre de mystères et de superstitions, où tant d'explorateurs ont trouvé la mort ou sombré dans la folie, à la recherche d'hypothétiques et insaisissables trésors. Mais ils réalisent très vite qu'ils ne sont pas seuls dans leur quête : les agents soviétiques sont eux aussi à la recherche du Crâne de Cristal, car il est dit que celui qui possède le Crâne et en déchiffre les énigmes s'assure du même coup le contrôle absolu de l'univers. Le chef de cette bande est la cruelle et somptueuse Irina Spalko. Indy n'aura jamais d'ennemie plus implacable... Indy et Mutt réuissiront-ils à semer leurs poursuivants, à déjouer les pièges de leurs faux amis et surtout à éviter que le Crâne de Cristal ne tombe entre les mains avides d'Irina et ses sinistres sbires ?
-", 14.99, 50, "2008-01-01 00:00:00");
+", 14.99, 50, "2008-01-01 00:00:00"),
+(38, "Coexister", "Coexister.jpg", "Un producteur de musique à la dérive décide de monter un groupe constitué d'un rabbin, un curé et un imam afin de leur faire chanter le vivre-ensemble. Mais les religieux qu’il recrute sont loin d’être des saints…", 10.99, 40, "2017-01-01 00:00:00"),
+(39, "Embrasse-moi !", "Embrasse-moi.jpg", "Océanerosemarie déborde de vie, d’amis et surtout d’ex-petites amies. Mais elle vient de rencontrer Cécile, la \"cette-fois-c'est-vraiment-la-bonne\" femme de sa vie ! Même si elle ne lui a pas vraiment demandé son avis... Il est temps pour Océanerosemarie de grandir un peu pour réussir à la conquérir. En sera-t-elle seulement capable ?", 14.99, 30, "2017-01-01 00:00:00")
+;
 
 --
 -- Contenu de la table `category`
 --
 
-INSERT INTO `category` (`id`, `name`) VALUES (1, "Fantastique, Science-fiction");
+INSERT INTO `category` (`id`, `name`) VALUES
+(1, "Fantastique, Science-fiction"),
+(2, "Comédie")
+;
 
 --
 -- Contenu de la table `movie_category`
@@ -130,5 +136,7 @@ INSERT INTO `movie_category` (`movie_id`, `category_id`) VALUES
 (34, 1),
 (35, 1),
 (36, 1),
-(37, 1);
+(37, 1),
+(38, 2),
+(39, 2);
 
