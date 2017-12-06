@@ -12,10 +12,6 @@
 
 charset utf8;
 
-ALTER TABLE `movie` CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-ALTER TABLE `category` CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-ALTER TABLE `movie_category` CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
 --
 -- Contenu de la table `movie`
 --
