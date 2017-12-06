@@ -46,4 +46,28 @@
     <changeSet author="root (generated)" id="1512164138972-8">
         <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="movie_category" constraintName="FK_ktxsmjb8vqj36krhr5typ3a2p" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category"/>
     </changeSet>
+    <changeSet author="root (generated)" id="1512567711640-1">
+        <createTable tableName="person">
+            <column name="DTYPE" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birthday" type="date"/>
+            <column name="firstname" type="VARCHAR(255)"/>
+            <column name="gender" type="INT"/>
+            <column name="lastname" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="password" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="root (generated)" id="1512567711640-2">
+        <addPrimaryKey columnNames="id" constraintName="personPK" tableName="person"/>
+    </changeSet>
+    <changeSet author="root (generated)" id="1512568521303-1">
+        <addColumn tableName="person">
+            <column name="username" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
