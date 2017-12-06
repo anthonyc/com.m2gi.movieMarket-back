@@ -1,7 +1,7 @@
 package com.m2gi.movieMarket.services;
 
-import com.m2gi.movieMarket.domain.entity.Category;
-import com.m2gi.movieMarket.domain.repository.CategoryFacadeLocal;
+import com.m2gi.movieMarket.domain.entity.movie.Category;
+import com.m2gi.movieMarket.domain.repository.movie.CategoryFacadeLocal;
 import io.swagger.annotations.Api;
 
 import javax.ejb.EJB;

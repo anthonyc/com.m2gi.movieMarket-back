@@ -1,4 +1,4 @@
-package com.m2gi.movieMarket.domain.repository;
+package com.m2gi.movieMarket.domain.repository.person;
 
 import com.m2gi.movieMarket.domain.entity.person.User;
 

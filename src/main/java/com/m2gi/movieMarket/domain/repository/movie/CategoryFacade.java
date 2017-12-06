@@ -1,6 +1,6 @@
-package com.m2gi.movieMarket.domain.repository;
+package com.m2gi.movieMarket.domain.repository.movie;
 
-import com.m2gi.movieMarket.domain.entity.Category;
+import com.m2gi.movieMarket.domain.entity.movie.Category;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

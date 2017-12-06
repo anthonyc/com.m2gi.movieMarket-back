@@ -1,10 +1,10 @@
-package com.m2gi.movieMarket.domain.repository;
+package com.m2gi.movieMarket.domain.repository.movie;
 
 import java.util.List;
 
-import com.m2gi.movieMarket.domain.entity.Movie;
+import com.m2gi.movieMarket.domain.entity.movie.Movie;
+
 import javax.persistence.PersistenceContext;
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 

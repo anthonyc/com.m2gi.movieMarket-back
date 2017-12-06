@@ -14,8 +14,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.m2gi.movieMarket.domain.entity.Movie;
-import com.m2gi.movieMarket.domain.repository.MovieFacadeLocal;
+import com.m2gi.movieMarket.domain.entity.movie.Movie;
+import com.m2gi.movieMarket.domain.repository.movie.MovieFacadeLocal;
 
 import io.swagger.annotations.Api;
 

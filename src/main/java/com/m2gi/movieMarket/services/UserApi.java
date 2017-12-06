@@ -1,7 +1,7 @@
 package com.m2gi.movieMarket.services;
 
 import com.m2gi.movieMarket.domain.entity.person.User;
-import com.m2gi.movieMarket.domain.repository.UserFacadeLocal;
+import com.m2gi.movieMarket.domain.repository.person.UserFacadeLocal;
 import io.swagger.annotations.Api;
 
 import javax.ejb.EJB;
