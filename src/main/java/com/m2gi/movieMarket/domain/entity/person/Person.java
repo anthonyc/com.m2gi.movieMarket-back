@@ -15,17 +15,27 @@ public class Person implements Serializable {
     private Gender gender;
 
     @Column(name = "firstname")
-    private String firstname;
+    private String firstName;
 
     @Column(name = "lastname")
     private String lastName;
 
     @Column(name = "birthday")
     @Temporal(TemporalType.DATE)
-    private Date Birthday;
+    private Date birthday;
+
+    public int getId() {
+        return this.id;
+    }
+
+    public Person setId(int id) {
+        this.id = id;
+
+        return this;
+    }
 
     public Gender getGender() {
-        return gender;
+        return this.gender;
     }
 
     public Person setGender(Gender gender) {
@@ -34,18 +44,18 @@ public class Person implements Serializable {
         return this;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return this.firstName;
     }
 
-    public Person setFirstname(String firstname) {
-        this.firstname = firstname;
+    public Person setFirstName(String firstName) {
+        this.firstName = firstName;
 
         return this;
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
 
     public Person setLastName(String lastName) {
@@ -55,11 +65,11 @@ public class Person implements Serializable {
     }
 
     public Date getBirthday() {
-        return Birthday;
+        return this.birthday;
     }
 
     public Person setBirthday(Date birthday) {
-        Birthday = birthday;
+        this.birthday = birthday;
 
         return this;
     }

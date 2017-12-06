@@ -2,7 +2,6 @@ package com.m2gi.movieMarket.domain.entity.person;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
@@ -27,7 +26,7 @@ public class User extends Person implements Serializable {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public User setEmail(String email) {
@@ -37,7 +36,7 @@ public class User extends Person implements Serializable {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public User setPassword(String password) {
