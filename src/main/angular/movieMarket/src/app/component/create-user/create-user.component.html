@@ -2,9 +2,9 @@
 <form (ngSubmit)="create()">
   <div class="form-group">
       <select class="form-control" id="gender" required>
-          <option [value]="0">Mr</option>
-          <option [value]="0">Mrs</option>
-          <option [value]="0">Miss</option>
+          <option [value]="MR">Mr</option>
+          <option [value]="MRS">Mme</option>
+          <option [value]="MISS">Mlle</option>
       </select>
   </div>
   <div class="form-group">
@@ -19,6 +19,11 @@
     <label for="username">Nom d'utilisateur</label>
     <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username">
   </div>
+  <div class="form-group">
+    <label for="birthday">Date de naissance</label>
+    <input type="date" class="form-control" id="birthday" name="birthday" [(ngModel)]="user.birthday">
+  </div>
+  
   <div class="form-group">
     <label for="username">Email</label>
     <input type="text" class="form-control" id="email" name="email" [(ngModel)]="user.email">

@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { catchError, map, tap } from 'rxjs/operators';
+import { User } from '../model/user';
+import { Response } from '@angular/http/src/static_response';
+import { RequestOptions } from '@angular/http/src/base_request_options';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable()
 export class UserService {
 
-  constructor(private http:Http) { }
+  constructor(private http:HttpClient) { }
 
-  public create() {
-    this.http.put(
-      '/api/user', {
-        'gender': 0,
-        'lastname': 'toto',
-        'firstname': 'totof',
-        'username': 'username',
-        'email': 'email',
-        'password': 'monpass'
-      });
+  public create(user: User): Observable<any> {
+    return this.http.put(
+      '/api/user', user,
+      httpOptions)
+      .map(res => res
+    );
   }
 
 }

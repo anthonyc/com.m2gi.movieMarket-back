@@ -15,10 +15,10 @@ public class Person implements Serializable {
     private Gender gender;
 
     @Column(name = "firstname")
-    private String firstName;
+    private String firstname;
 
     @Column(name = "lastname")
-    private String lastName;
+    private String lastname;
 
     @Column(name = "birthday")
     @Temporal(TemporalType.DATE)
@@ -44,22 +44,22 @@ public class Person implements Serializable {
         return this;
     }
 
-    public String getFirstName() {
-        return this.firstName;
+    public String getFirstname() {
+        return this.firstname;
     }
 
-    public Person setFirstName(String firstName) {
-        this.firstName = firstName;
+    public Person setFirstname(String firstname) {
+        this.firstname = firstname;
 
         return this;
     }
 
-    public String getLastName() {
-        return this.lastName;
+    public String getLastname() {
+        return this.lastname;
     }
 
-    public Person setLastName(String lastName) {
-        this.lastName = lastName;
+    public Person setLastname(String lastname) {
+        this.lastname = lastname;
 
         return this;
     }

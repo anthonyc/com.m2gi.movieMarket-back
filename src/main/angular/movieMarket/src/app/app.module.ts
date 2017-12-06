@@ -18,6 +18,8 @@ import { NgxCarouselModule } from 'ngx-carousel';
 import { CategoryService } from './service/category.service';
 import { CreateUserComponent } from './component/create-user/create-user.component';
 import 'hammerjs';
+import { UserService } from './service/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 export const appRoutes: Routes = [
   { path: '', component: HomePageContentComponent },
@@ -42,13 +44,15 @@ export const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
     NgxCarouselModule
   ],
   providers: [
     MovieService,
-    CategoryService
+    CategoryService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

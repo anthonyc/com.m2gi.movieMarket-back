@@ -27,11 +27,7 @@ export class MovieService {
   public find(id: string): Observable<Movie> {
     return this.http.get(
       'api/movies/' + id)
-      .map(res => {
-        const resu = res.json();
-        console.log(resu);
-        return resu;
-      }
+      .map(res => res.json()
     );
   }
 }

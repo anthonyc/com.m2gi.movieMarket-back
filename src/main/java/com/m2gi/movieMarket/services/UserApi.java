@@ -21,7 +21,6 @@ public class UserApi {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(User user, @Context UriInfo uriInfo) {
-        System.out.println("plop");
         int id = this.userReference.create(user);
         UriBuilder builder = uriInfo.getAbsolutePathBuilder();
         builder.path(Integer.toString(id));
