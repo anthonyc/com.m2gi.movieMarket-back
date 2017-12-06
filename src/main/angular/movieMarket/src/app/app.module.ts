@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Http, HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MovieComponent } from './component/movie/movie.component';
@@ -14,13 +15,15 @@ import { BreadcrumbComponent } from './component/breadcrumb/breadcrumb.component
 import { SearchResultContentComponent } from './component/search-result-content/search-result-content.component';
 import { MovieHorizontalScrollComponent } from './component/movie-horizontal-scroll/movie-horizontal-scroll.component';
 import { NgxCarouselModule } from 'ngx-carousel';
-import 'hammerjs';
 import { CategoryService } from './service/category.service';
+import { CreateUserComponent } from './component/create-user/create-user.component';
+import 'hammerjs';
 
 export const appRoutes: Routes = [
+  { path: '', component: HomePageContentComponent },
   { path: 'movies', component: SearchResultContentComponent },
   { path: 'movies/:id', component: MovieDetailComponent },
-  { path: '', component: HomePageContentComponent }
+  { path: 'user/create', component: CreateUserComponent }
 ];
 
 @NgModule({
@@ -33,12 +36,14 @@ export const appRoutes: Routes = [
     HomePageContentComponent,
     BreadcrumbComponent,
     SearchResultContentComponent,
-    MovieHorizontalScrollComponent
+    MovieHorizontalScrollComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
+    FormsModule,
     NgxCarouselModule
   ],
   providers: [
