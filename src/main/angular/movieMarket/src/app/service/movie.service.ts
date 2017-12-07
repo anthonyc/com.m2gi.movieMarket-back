@@ -12,14 +12,14 @@ export class MovieService {
 
   public all(from: number = 0, to: number = 20): Observable<Movie[]> {
     return this.http.get(
-      '/api/movies?from=' + String(from) + "&to=" + String(to))
+      '/api/movies?from=' + String(from) + '&to=' + String(to))
       .map(res => res.json()
     );
   }
 
   public allByCategory(category: String, from: number = 0, to: number = 20): Observable<Movie[]> {
     return this.http.get(
-      '/api/movies?category=' + category +'&from=' + String(from) + "&to=" + String(to))
+      '/api/movies?category=' + category + '&from=' + String(from) + '&to=' + String(to))
       .map(res => res.json()
     );
   }

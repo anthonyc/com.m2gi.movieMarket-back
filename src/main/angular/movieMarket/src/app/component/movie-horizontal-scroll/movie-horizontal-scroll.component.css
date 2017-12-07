@@ -1,10 +1,11 @@
 .ngx-elements {
-  height: 200px;
-  background-color: #ccc;
-  margin: auto;
-  display: block;
+    height: 200px;
+    background-color: #ccc;
+    margin: auto;
+    display: block;
 }
 
+.rightRs,
 .leftRs {
     position: absolute;
     margin: auto;
@@ -14,17 +15,50 @@
     height: 50px;
     box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
     border-radius: 999px;
+}
+
+.rightRs:hover,
+.leftRs:hover {
+    background-color: #bfbfbf;
+    cursor: pointer;
+}
+
+.leftRs {
     left: 0;
 }
 
 .rightRs {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    width: 50px;
-    height: 50px;
-    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
-    border-radius: 999px;
     right: 0;
+}
+
+.blockMovieInfo {
+    height: 5em;
+    width: 100%;
+    line-height: 1.25em;
+    padding-top: .5em;
+    padding-left: .8em;
+    padding-right: .8em;
+    padding-bottom: .5em;
+    overflow: hidden;
+}
+
+.blockMovieTitle {
+    width: 70% !important;
+    height: calc(5em - .5em - .5em);
+    float: left;
+    overflow: hidden;
+}
+
+.blockMovieTitle a {
+    overflow: hidden;
+}
+
+.blockMovieCart {
+    font-size: 1.2em;
+    width: 20%;
+    float: right;
+}
+
+.blockMoviePrice:after {
+    content: '€';
 }
