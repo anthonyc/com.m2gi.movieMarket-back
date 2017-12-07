@@ -1,0 +1,14 @@
+<h2>{{ categoryName }}</h2>
+<ngx-carousel
+[inputs]="carouselTile"
+(carouselLoad)="carouselTileLoad($event)">
+
+    <ngx-tile NgxCarouselItem *ngFor="let movie of movies">
+        <a [routerLink]="['/movies', movie.id]">
+            <img src="assets/img/movies/{{ movie.img }}" class="ngx-elements">
+        </a>
+    </ngx-tile>
+
+    <button NgxCarouselPrev class='leftRs'>&lt;</button>
+    <button NgxCarouselNext class='rightRs'>&gt;</button>
+</ngx-carousel>

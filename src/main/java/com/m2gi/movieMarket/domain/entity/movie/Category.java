@@ -1,4 +1,4 @@
-package com.m2gi.movieMarket.domain.entity;
+package com.m2gi.movieMarket.domain.entity.movie;
 
 import java.io.Serializable;
 import java.util.Set;

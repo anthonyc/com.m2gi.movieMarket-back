@@ -10,9 +10,16 @@ export class MovieService {
 
   constructor(private http: Http) { }
 
-  public all(): Observable<Movie[]> {
+  public all(from: number = 0, to: number = 20): Observable<Movie[]> {
     return this.http.get(
-      '/api/movies')
+      '/api/movies?from=' + String(from) + "&to=" + String(to))
+      .map(res => res.json()
+    );
+  }
+
+  public allByCategory(category: String, from: number = 0, to: number = 20): Observable<Movie[]> {
+    return this.http.get(
+      '/api/movies?category=' + category +'&from=' + String(from) + "&to=" + String(to))
       .map(res => res.json()
     );
   }
@@ -20,11 +27,7 @@ export class MovieService {
   public find(id: string): Observable<Movie> {
     return this.http.get(
       'api/movies/' + id)
-      .map(res => {
-        let resu = res.json();
-        console.log(resu);
-        return resu;
-      }
+      .map(res => res.json()
     );
   }
 }

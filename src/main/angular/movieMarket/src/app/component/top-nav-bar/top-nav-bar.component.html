@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" routerLink="/">
         {{title}}
     </a>
 
@@ -16,7 +16,7 @@
                 <a class="nav-link" routerLink="/deals">Deals !</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="categorieDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="categorieDropdown" role="button" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" aria-haspopup="true" aria-expanded="false">
                     Categories
                 </a>
                 <div class="dropdown-menu" aria-labelledby="categorieDropdown">
@@ -29,7 +29,7 @@
         <form class="form-inline my-2 my-lg-0" id="rechercheForm">
             <div class="form-control mr-sm-2" id="wrapperSearch">
                 <input class="" type="search" placeholder="Search" aria-label="Search" id="searchInput">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchButton"></button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchButton"><i class="fa fa-search" aria-hidden="true"></i></button>
             </div>
         </form>
         <ul class="navbar-nav">

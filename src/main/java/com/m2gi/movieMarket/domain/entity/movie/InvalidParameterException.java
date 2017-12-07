@@ -1,4 +1,4 @@
-package com.m2gi.movieMarket.domain.entity;
+package com.m2gi.movieMarket.domain.entity.movie;
 
 public class InvalidParameterException extends Exception {
     /**

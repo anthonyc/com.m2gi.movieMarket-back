@@ -1,10 +1,10 @@
-package com.m2gi.movieMarket.domain.repository;
+package com.m2gi.movieMarket.domain.repository.movie;
 
 import java.util.List;
 
-import com.m2gi.movieMarket.domain.entity.Movie;
+import com.m2gi.movieMarket.domain.entity.movie.Movie;
+
 import javax.persistence.PersistenceContext;
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 
@@ -39,7 +39,7 @@ public class MovieFacade implements MovieFacadeLocal {
 	}
 
 	public List<Movie> findAllByCategory(String category, int from, int to) {
-		return this.em.createQuery("select m from Movie m join m.category c where c.name = :category")
+		return this.em.createQuery("select m from Movie m join m.categories c where c.name = :category")
 				.setParameter("category", category)
 				.setFirstResult(from)
 				.setMaxResults(to)

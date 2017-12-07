@@ -1,0 +1,36 @@
+<h2>Sign up template form</h2>
+<form (ngSubmit)="create()">
+  <div class="form-group">
+      <select class="form-control" id="gender" required>
+          <option [value]="MR">Mr</option>
+          <option [value]="MRS">Mme</option>
+          <option [value]="MISS">Mlle</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="lastname">Nom</label>
+      <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="user.lastname">
+  </div>
+  <div class="form-group">
+      <label for="firstname">Prénom</label>
+      <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="user.firstname">
+  </div>
+  <div class="form-group">
+    <label for="username">Nom d'utilisateur</label>
+    <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username">
+  </div>
+  <div class="form-group">
+    <label for="birthday">Date de naissance</label>
+    <input type="date" class="form-control" id="birthday" name="birthday" [(ngModel)]="user.birthday">
+  </div>
+  
+  <div class="form-group">
+    <label for="username">Email</label>
+    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="user.email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password">
+  </div>
+  <button type="submit">Créer l'utilisateur</button>
+</form>

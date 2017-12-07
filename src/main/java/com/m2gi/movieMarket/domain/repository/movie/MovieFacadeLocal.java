@@ -1,6 +1,6 @@
-package com.m2gi.movieMarket.domain.repository;
+package com.m2gi.movieMarket.domain.repository.movie;
 
-import com.m2gi.movieMarket.domain.entity.Movie;
+import com.m2gi.movieMarket.domain.entity.movie.Movie;
 import java.util.List;
 import javax.ejb.Local;
 
