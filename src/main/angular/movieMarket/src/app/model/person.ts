@@ -1,8 +1,8 @@
 export  enum Gender {
-    Mr = 0,
-    Mrs = 1,
-    Miss = 2
-};
+    MR = 0,
+    MRS = 1,
+    MISS = 2
+}
 
 export class Person {
     id: number;

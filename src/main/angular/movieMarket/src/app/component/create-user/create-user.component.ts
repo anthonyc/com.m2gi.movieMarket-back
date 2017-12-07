@@ -10,8 +10,6 @@ import { UserService } from '../../service/user.service';
 })
 export class CreateUserComponent implements OnInit {
   user: User = new User();
-  genders: String[];
-  gender: Gender;
   error = null;
   finished = false;
 
@@ -27,6 +25,5 @@ export class CreateUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    
   }
 }
