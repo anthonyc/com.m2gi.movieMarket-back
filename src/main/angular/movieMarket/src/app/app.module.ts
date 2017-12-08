@@ -20,6 +20,7 @@ import { CreateUserComponent } from './component/create-user/create-user.compone
 import 'hammerjs';
 import { UserService } from './service/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreButtonComponentComponent } from './component/store-button-component/store-button-component.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomePageContentComponent },
@@ -39,7 +40,8 @@ export const appRoutes: Routes = [
     BreadcrumbComponent,
     SearchResultContentComponent,
     MovieHorizontalScrollComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    StoreButtonComponentComponent
   ],
   imports: [
     BrowserModule,
