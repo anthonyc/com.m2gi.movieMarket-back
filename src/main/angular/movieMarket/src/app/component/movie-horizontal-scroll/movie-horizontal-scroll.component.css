@@ -31,8 +31,13 @@
     right: 0;
 }
 
+.carouselMovies .ngx-elements {
+    position: relative;
+    top: .3em;
+}
+
 .blockMovieInfo {
-    height: 5em;
+    height: calc(5em + .6em + 2em + 5px + 5px);
     width: 100%;
     line-height: 1.25em;
     padding-top: .5em;
@@ -43,9 +48,9 @@
 }
 
 .blockMovieTitle {
-    width: 70% !important;
-    height: calc(5em - .5em - .5em);
-    float: left;
+    width: 100% !important;
+    padding: .3em;
+    height: calc(5em - .5em - .5em + .6em);
     overflow: hidden;
 }
 
@@ -54,11 +59,29 @@
 }
 
 .blockMovieCart {
+    height: 2em;
     font-size: 1.2em;
-    width: 20%;
-    float: right;
+    width: 100%;
+    padding: .3em;
+    text-align: center;
+}
+
+.blockMovieStoreButton {
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    background-color: #178826;
+    border: solid 1px rgba(102, 102, 102, 0.5);
+    text-decoration: none;
+    color: white;
+}
+
+.blockMovieStoreButton:hover {
+    background-color: #126d1c;
 }
 
 .blockMoviePrice:after {
     content: '€';
+    margin-right: 5px;
 }

@@ -1,5 +1,5 @@
 <h2>{{ categoryName }}</h2>
-<ngx-carousel [inputs]="carouselTile" (carouselLoad)="carouselTileLoad($event)">
+<ngx-carousel [inputs]="carouselTile" (carouselLoad)="carouselTileLoad($event)" class="carouselMovies">
 
     <ngx-tile NgxCarouselItem *ngFor="let movie of movies">
         <a [routerLink]="['/movies', movie.id]">
@@ -10,8 +10,9 @@
                 <a [routerLink]="['/movies', movie.id]" title="{{movie.name}}" class="movieTitle">{{ movie.name }}</a>
             </div>
             <div class="blockMovieCart">
-                <a href="eeee"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
-                <span class="blockMoviePrice">15</span>
+                <a class="blockMovieStoreButton" href="eeee">
+                    <span class="blockMoviePrice">15</span><i class="fa fa-cart-plus" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
     </ngx-tile>
