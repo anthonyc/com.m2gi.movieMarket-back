@@ -2,19 +2,19 @@
 <ngx-carousel [inputs]="carouselTile" (carouselLoad)="carouselTileLoad($event)" class="carouselMovies">
 
     <ngx-tile NgxCarouselItem *ngFor="let movie of movies">
-        <a [routerLink]="['/movies', movie.id]">
+        <a [routerLink]="['/movies', movie.id]" class="test">
             <img src="assets/img/movies/{{ movie.img }}" class="ngx-elements">
+            <div class="blockMovieInfo">
+                <div class="blockMovieTitle">
+                    <a title="{{movie.name}}" class="movieTitle">{{ movie.name }}</a>
+                </div>
+                <div class="blockMovieCart">
+                    <a class="blockMovieStoreButton" href="eeee">
+                        <span class="blockMoviePrice">15</span><i class="fa fa-cart-plus" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
         </a>
-        <div class="blockMovieInfo">
-            <div class="blockMovieTitle">
-                <a [routerLink]="['/movies', movie.id]" title="{{movie.name}}" class="movieTitle">{{ movie.name }}</a>
-            </div>
-            <div class="blockMovieCart">
-                <a class="blockMovieStoreButton" href="eeee">
-                    <span class="blockMoviePrice">15</span><i class="fa fa-cart-plus" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
     </ngx-tile>
 
     <button NgxCarouselPrev class='leftRs'>&lt;</button>
