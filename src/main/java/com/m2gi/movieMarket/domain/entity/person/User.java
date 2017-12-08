@@ -1,5 +1,7 @@
 package com.m2gi.movieMarket.domain.entity.person;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.io.Serializable;
@@ -35,12 +37,16 @@ public class User extends Person implements Serializable {
         return this;
     }
 
-    public String getPassword() {
-        return this.password;
+    public boolean checkPassword(String password) {
+        //String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
+        System.out.println(this.password);
+        return BCrypt.checkpw(password, this.password);
     }
 
     public User setPassword(String password) {
-        this.password = password;
+        String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
+
+        this.password = hashed;
 
         return this;
     }
