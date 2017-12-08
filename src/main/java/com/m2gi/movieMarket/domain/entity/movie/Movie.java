@@ -7,14 +7,19 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
+import java.util.Collection;
 
 import javax.persistence.*;
+
+import com.m2gi.movieMarket.domain.entity.cart.*;
+import com.m2gi.movieMarket.domain.entity.order.*;
 
 @Entity
 @Table(name = "movie")
 public class Movie implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="movie_id")
 	private int id;
 	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
@@ -24,6 +29,12 @@ public class Movie implements Serializable {
 		inverseJoinColumns = { @JoinColumn(name = "category_id") }
 	)
 	private Set<Category> categories;
+
+	@OneToMany(mappedBy = "movie")
+	private Collection<CartDetail> cartDetailCollection;
+
+	@OneToMany(mappedBy = "movie")
+	private Collection<OrderDetail> orderDetailCollection;
 	
 	@Column(name = "img")
 	private String img;

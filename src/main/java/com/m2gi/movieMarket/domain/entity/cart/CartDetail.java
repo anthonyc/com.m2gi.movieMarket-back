@@ -1,4 +1,4 @@
-package com.m2gi.movieMarket.domain.entity;
+package com.m2gi.movieMarket.domain.entity.cart;
 
 import java.io.Serializable;
 import java.text.DateFormat;
@@ -10,15 +10,23 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.m2gi.movieMarket.domain.entity.movie.*;
 @Entity
 @Table(name="cartDetail")
 public class CartDetail implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue( strategy = GenerationType.AUTO )
     private int id;
 
-    @ManyToOne(optionnal = false, targetEntity = Cart.Class);
-    @ManyToOne(optionnal = false, targetEntity = Movie.Class);
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "cart", referencedColumnName = "cart_id")
+    private Cart cart;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "movie", referencedColumnName = "movie_id")
+    private Movie movie;
+
+    // @ManyToOne(optionnal = false, targetEntity = Movie.Class);
 
     @Column(name = "quantity")
     private int quantity;
@@ -31,7 +39,7 @@ public class CartDetail implements Serializable {
         return this.quantity;
     }
     
-    public Movie setQuantity(int quantity) {
+    public CartDetail setQuantity(int quantity) {
         this.quantity = quantity;
         
         return this;
