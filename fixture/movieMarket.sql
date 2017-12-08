@@ -77,9 +77,8 @@ Cet artefact égyptien serait en effet un premier pas sur le chemin de l'Arche d
 ", 14.99, 50, "1984-01-01 00:00:00"),
 (36, "Indiana Jones et la Dernière Croisade", "indiana-jones-3.jpg", "L'archéologue aventurier Indiana Jones se retrouve aux prises avec un maléfique milliardaire. Aux côtés de la cupide Elsa et de son père, il part à la recherche du Graal.", 14.99, 50, "1989-01-01 00:00:00"),
 (37, "Indiana Jones et le Crane de Crystal", "indiana-jones-4.jpg", "La nouvelle aventure d'Indiana Jones débute dans un désert du sud-ouest des Etats-Unis. Nous sommes en 1957, en pleine Guerre Froide. Indy et son copain Mac viennent tout juste d'échapper à une bande d'agents soviétiques à la recherche d'une mystérieuse relique surgie du fond des temps. De retour au Marshall College, le Professeur Jones apprend une très mauvaise nouvelle : ses récentes activités l'ont rendu suspect aux yeux du gouvernement américain. Le doyen Stanforth, qui est aussi un proche ami, se voit contraint de le licencier. A la sortie de la ville, Indiana fait la connaissance d'un jeune motard rebelle, Mutt, qui lui fait une proposition inattendue. En échange de son aide, il le mettra sur la piste du Crâne de Cristal d'Akator, relique mystérieuse qui suscite depuis des siècles autant de fascination que de craintes. Ce serait à coup sûr la plus belle trouvaille de l'histoire de l'archéologie. Indy et Mutt font route vers le Pérou, terre de mystères et de superstitions, où tant d'explorateurs ont trouvé la mort ou sombré dans la folie, à la recherche d'hypothétiques et insaisissables trésors. Mais ils réalisent très vite qu'ils ne sont pas seuls dans leur quête : les agents soviétiques sont eux aussi à la recherche du Crâne de Cristal, car il est dit que celui qui possède le Crâne et en déchiffre les énigmes s'assure du même coup le contrôle absolu de l'univers. Le chef de cette bande est la cruelle et somptueuse Irina Spalko. Indy n'aura jamais d'ennemie plus implacable... Indy et Mutt réuissiront-ils à semer leurs poursuivants, à déjouer les pièges de leurs faux amis et surtout à éviter que le Crâne de Cristal ne tombe entre les mains avides d'Irina et ses sinistres sbires ?
-", 14.99, 50, "2008-01-01 00:00:00");
+", 14.99, 50, "2008-01-01 00:00:00"),
 (38, "Coexister", "Coexister.jpg", "Un producteur de musique à la dérive décide de monter un groupe constitué d'un rabbin, un curé et un imam afin de leur faire chanter le vivre-ensemble. Mais les religieux qu’il recrute sont loin d’être des saints…", 10.99, 40, "2017-01-01 00:00:00"),
-(39, "Embrasse-moi !", "Embrasse-moi.jpg", "Océanerosemarie déborde de vie, d’amis et surtout d’ex-petites amies. Mais elle vient de rencontrer Cécile, la \"cette-fois-c'est-vraiment-la-bonne\" femme de sa vie ! Même si elle ne lui a pas vraiment demandé son avis... Il est temps pour Océanerosemarie de grandir un peu pour réussir à la conquérir. En sera-t-elle seulement capable ?", 14.99, 30, "2017-01-01 00:00:00")
 (100,"La soupe aux choux","La-soupe-aux-choux.jpg","Le Claude et le Bombé, deux paysans du Bourbonnais portés sur la bouteille et la misanthropie, vivent dans un petit hameau, à la périphérie d'un village. Le premier est veuf, et le second célibataire. Une nuit, ils font la connaissance d'un extra-terrestre qui atterrit dans le champ du Claude dit le Glaude. L'extra-terrestre surnommé la Denrée découvre la soupe aux choux qui mijote chez le veuf et en apporte sur sa planète...
 ",8,50,"1981-01-01 00:00:00"),
 (101,"L'avare","L'avare.jpg","En 1668, l'Avare nous conte les aventures d'Harpagon, riche veuf qui vit avec ses enfants Cléante et Elise. Il désire pour eux un mariage d'agent dont il serait pleinement bénéficiaire. De plus, il soupçonne tout le monde d'en avoir après son argent qu'il a enterré dans son jardin... 
@@ -96,7 +95,7 @@ Cet artefact égyptien serait en effet un premier pas sur le chemin de l'Arche d
 ",8,50,"1972-01-01 00:00:00"),
 (107,"Mon nom est Personne","Mon-nom-est-Personne.jpg"," Jack Beauregard, légende de l'Ouest, désire mettre un terme à sa carrière de pistolero et envisage de s'embarquer pour l'Europe. Mais un jeune admirateur, affirmant s'appeler Personne, ne l'entend pas de cette oreille. Il veut faire entrer Beauregard dans l'Histoire en l'amenant à combattre la Horde sauvage.
 ",8,50,"1973-01-01 00:00:00"),
-(108,"Cul et chemise","Cul-et-Chemise.jpg,""En Afrique, deux cousins blancs, Slim et Tom, passent leur temps à se jouer de mauvais tours. Mais, face à la menace d'un trafiquant d'ivoire, ils vont devoir faire équipe. En effet, le terrible Jack Hammer Ormond prévoit de détruire le village où habitent les autochtones ainsi que les deux compères. Tom, véritable force de la nature qui impressionne les hommes d'Ormond, se voit offrir de l'argent contre sa collaboration : c'est pour lui l'ocassion de jouer l'ultime farce à son cher cousin...
+(108,"Cul et chemise","Cul-et-Chemise.jpg","En Afrique, deux cousins blancs, Slim et Tom, passent leur temps à se jouer de mauvais tours. Mais, face à la menace d'un trafiquant d'ivoire, ils vont devoir faire équipe. En effet, le terrible Jack Hammer Ormond prévoit de détruire le village où habitent les autochtones ainsi que les deux compères. Tom, véritable force de la nature qui impressionne les hommes d'Ormond, se voit offrir de l'argent contre sa collaboration : c'est pour lui l'ocassion de jouer l'ultime farce à son cher cousin...
 ",7,50,"1979-01-01 00:00:00"),
 (109,"Le Bon, la brute et le truand","Le-bon-la-brute-et-le-truand","Pendant la Guerre de Sécession, trois hommes, préférant s'intéresser à leur profit personnel, se lancent à la recherche d'un coffre contenant 200 000 dollars en pièces d'or volés à l'armée sudiste. Tuco sait que le trésor se trouve dans un cimetière, tandis que Joe connaît le nom inscrit sur la pierre tombale qui sert de cache. Chacun a besoin de l'autre. Mais un troisième homme entre dans la course : Setenza, une brute qui n'hésite pas à massacrer femmes et enfants pour parvenir à ses fins. 
 ",15,50,"1966-01-01 00:00:00"),
@@ -131,7 +130,7 @@ Cet artefact égyptien serait en effet un premier pas sur le chemin de l'Arche d
 (124,"Get Out","Get-out.jpg","Couple mixte, Chris et sa petite amie Rose  filent le parfait amour. Le moment est donc venu de rencontrer la belle famille, Missy et Dean lors d’un week-end sur leur domaine dans le nord de l’État. Chris commence par penser que l’atmosphère tendue est liée à leur différence de couleur de peau, mais très vite une série d’incidents de plus en plus inquiétants lui permet de découvrir l’inimaginable. 
 ",14,50,"2017-01-01 00:00:00"),
 (125,"Virtual Revolution","Virtual-revolution.jpg","A Paris, en 2047, alors que la population vit connectée en permanence à des mondes virtuels, un agent employé par une multinationale est chargé de traquer des terroristes qui menacent le système. 
-",15,50,"2016-01-01 00:00:00")
+",15,50,"2016-01-01 00:00:00"),
 (126,"Fast and Furious 8","Fast-and-furious-8.jpg","Maintenant que Dom et Letty sont en lune de miel, que Brian et Mia se sont rangés et que le reste de l’équipe a été disculpé, la bande de globetrotteurs retrouve un semblant de vie normale. Mais quand une mystérieuse femme entraîne Dom dans le monde de la criminalité, ce dernier ne pourra éviter de trahir ses proches qui vont faire face à des épreuves qu’ils n’avaient jamais rencontrées jusqu’alors. Des rivages de Cuba au rues de New York en passant par les plaines gelées de la mer arctique de Barrents, notre équipe va sillonner le globe pour tenter d'empêcher une anarchiste de déchaîner un chaos mondial et de ramener à la maison l’homme qui a fait d’eux une famille. 
 ",25,50,"2016-01-01 00:00:00"),
 (127,"Moonlight","Moonlight.jpg","Après avoir grandi dans un quartier difficile de Miami, Chiron, un jeune homme tente de trouver sa place dans le monde. Moonlight évoque son parcours, de l’enfance à l’âge adulte. 
@@ -161,6 +160,7 @@ Cet artefact égyptien serait en effet un premier pas sur le chemin de l'Arche d
 (139,"Traque a boston","Traque-a-boston.jpg","Alors que la ville de Boston est sous le choc de multiples explosions, le sergent de police Tommy Saunders rejoint les enquêteurs sur le terrain dans une course contre la montre pour traquer et arrêter les auteurs avant qu'ils ne frappent à nouveau. Croisant les parcours de l'agent spécial Richard Deslauriers, du commissaire Ed Davis, du sergent Jeffrey Pugliese et de l'infirmière Carol Saunders, ce récit sans concession évoque la chasse à l'homme la plus complexe jamais mise en œuvre par la police américaine – et rend un vibrant hommage aux héros du quotidien.
 ",15,50,"2016-01-01 00:00:00");
 
+
 --
 -- Contenu de la table `category`
 --
@@ -177,7 +177,7 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (9,"Policier"),
 (10,"Historique"),
 (11,"Guerre"),
-(12,"Romance"),
+(12,"Romance");
 
 --
 -- Contenu de la table `movie_category`
@@ -222,14 +222,13 @@ INSERT INTO `movie_category` (`movie_id`, `category_id`) VALUES
 (36, 1),
 (37, 1),
 (38, 2),
-(39, 2),
-(100,2),
-(101,2),
-(102,2),
-(103,3),
-(104,3),
-(105,3),
-(106,3),
+(100, 2),
+(101, 2),
+(102, 2),
+(103, 2),
+(104, 3),
+(105, 3),
+(106, 3),
 (107,3),
 (108,5),
 (108,4),
@@ -289,4 +288,5 @@ INSERT INTO `movie_category` (`movie_id`, `category_id`) VALUES
 (138,6),
 (138,8),
 (139,6),
-(139,8);
+(139,8)
+;
