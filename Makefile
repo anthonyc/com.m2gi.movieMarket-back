@@ -19,7 +19,7 @@ init-db:
 	mysql -hdb -uroot -proot -e "CREATE DATABASE movieMarket DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;"
 	
 fixtures:
-	mvn liquibase:update
+	#mvn liquibase:update
 	mysql -hdb -uroot -proot movieMarket < ./fixture/movieMarket.sql
 
 init: init-db build fixtures

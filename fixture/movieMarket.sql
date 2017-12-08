@@ -12,10 +12,6 @@
 
 charset utf8;
 
-ALTER TABLE `movie` CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-ALTER TABLE `category` CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-ALTER TABLE `movie_category` CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
 --
 -- Contenu de la table `movie`
 --
@@ -35,7 +31,7 @@ Certains sénateurs demandent à ce que la République soit dotée d'une solide 
 (9, "Star Wars - Episode 3 - La revanche des Sith", "star-wars-3.jpg", "La Guerre des Clones fait rage. Une franche hostilité oppose désormais le Chancelier Palpatine au Conseil Jedi. Anakin Skywalker, jeune Chevalier Jedi pris entre deux feux, hésite sur la conduite à tenir. Séduit par la promesse d'un pouvoir sans précédent, tenté par le côté obscur de la Force, il prête allégeance au maléfique Darth Sidious et devient Dark Vador.
 Les Seigneurs Sith s'unissent alors pour préparer leur revanche, qui commence par l'extermination des Jedi. Seuls rescapés du massacre, Yoda et Obi Wan se lancent à la poursuite des Sith. La traque se conclut par un spectaculaire combat au sabre entre Anakin et Obi Wan, qui décidera du sort de la galaxie.", 14.99, 50, "2005-01-01 00:00:00"),
 (10, "Star Wars - Episode 7 : Le réveil de la force", "star-wars-7.jpg", "Dans une galaxie lointaine, très lointaine, un nouvel épisode de la saga \"Star Wars\", 30 ans après les événements du \"Retour du Jedi\".", 14.99, 50, "2015-01-01 00:00:00"),
-(11, "Rogue One - A Star Wars Story", "star-wars-rogue-one", "Situé entre les épisodes III et IV de la saga Star Wars, le film nous entraîne aux côtés d’individus ordinaires qui, pour rester fidèles à leurs valeurs, vont tenter l’impossible au péril de leur vie. Ils n’avaient pas prévu de devenir des héros, mais dans une époque de plus en plus sombre, ils vont devoir dérober les plans de l’Étoile de la Mort, l’arme de destruction ultime de l’Empire.", 14.99, 50, "2016-01-01 00:00:00"),
+(11, "Rogue One - A Star Wars Story", "star-wars-rogue-one.jpg", "Situé entre les épisodes III et IV de la saga Star Wars, le film nous entraîne aux côtés d’individus ordinaires qui, pour rester fidèles à leurs valeurs, vont tenter l’impossible au péril de leur vie. Ils n’avaient pas prévu de devenir des héros, mais dans une époque de plus en plus sombre, ils vont devoir dérober les plans de l’Étoile de la Mort, l’arme de destruction ultime de l’Empire.", 14.99, 50, "2016-01-01 00:00:00"),
 (12, "Matrix", "matrix-1.jpg", "Programmeur anonyme dans un service administratif le jour, Thomas Anderson devient Neo la nuit venue. Sous ce pseudonyme, il est l'un des pirates les plus recherchés du cyber-espace. A cheval entre deux mondes, Neo est assailli par d'étranges songes et des messages cryptés provenant d'un certain Morpheus. Celui-ci l'exhorte à aller au-delà des apparences et à trouver la réponse à la question qui hante constamment ses pensées : qu'est-ce que la Matrice ? Nul ne le sait, et aucun homme n'est encore parvenu à en percer les defenses. Mais Morpheus est persuadé que Neo est l'Elu, le libérateur mythique de l'humanité annoncé selon la prophétie. Ensemble, ils se lancent dans une lutte sans retour contre la Matrice et ses terribles agents...", 14.99, 50, "1999-01-01 00:00:00"),
 (13, "Matrix - Reloaded", "matrix-2.jpg", "Neo apprend à mieux contrôler ses dons naturels, alors même que Sion s'apprête à tomber sous l'assaut de l'Armée des Machines. D'ici quelques heures, 250 000 Sentinelles programmées pour anéantir notre espèce envahiront la dernière enclave humaine de la Terre.
 Mais Morpheus galvanise les citoyens de Sion en leur rappelant la Parole de l'Oracle : il est encore temps pour l'Elu d'arrêter la guerre contre les Machines. Tous les espoirs se reportent dès lors sur Neo. Au long de sa périlleuse plongée au sein de la Matrix et de sa propre destinée, ce dernier sera confronté à une résistance croissante, une vérité encore plus aveuglante, un choix encore plus douloureux que tout ce qu'il avait jamais imaginé.", 14.99, 50, "2003-01-01 00:00:00"),
@@ -82,6 +78,8 @@ Cet artefact égyptien serait en effet un premier pas sur le chemin de l'Arche d
 (36, "Indiana Jones et la Dernière Croisade", "indiana-jones-3.jpg", "L'archéologue aventurier Indiana Jones se retrouve aux prises avec un maléfique milliardaire. Aux côtés de la cupide Elsa et de son père, il part à la recherche du Graal.", 14.99, 50, "1989-01-01 00:00:00"),
 (37, "Indiana Jones et le Crane de Crystal", "indiana-jones-4.jpg", "La nouvelle aventure d'Indiana Jones débute dans un désert du sud-ouest des Etats-Unis. Nous sommes en 1957, en pleine Guerre Froide. Indy et son copain Mac viennent tout juste d'échapper à une bande d'agents soviétiques à la recherche d'une mystérieuse relique surgie du fond des temps. De retour au Marshall College, le Professeur Jones apprend une très mauvaise nouvelle : ses récentes activités l'ont rendu suspect aux yeux du gouvernement américain. Le doyen Stanforth, qui est aussi un proche ami, se voit contraint de le licencier. A la sortie de la ville, Indiana fait la connaissance d'un jeune motard rebelle, Mutt, qui lui fait une proposition inattendue. En échange de son aide, il le mettra sur la piste du Crâne de Cristal d'Akator, relique mystérieuse qui suscite depuis des siècles autant de fascination que de craintes. Ce serait à coup sûr la plus belle trouvaille de l'histoire de l'archéologie. Indy et Mutt font route vers le Pérou, terre de mystères et de superstitions, où tant d'explorateurs ont trouvé la mort ou sombré dans la folie, à la recherche d'hypothétiques et insaisissables trésors. Mais ils réalisent très vite qu'ils ne sont pas seuls dans leur quête : les agents soviétiques sont eux aussi à la recherche du Crâne de Cristal, car il est dit que celui qui possède le Crâne et en déchiffre les énigmes s'assure du même coup le contrôle absolu de l'univers. Le chef de cette bande est la cruelle et somptueuse Irina Spalko. Indy n'aura jamais d'ennemie plus implacable... Indy et Mutt réuissiront-ils à semer leurs poursuivants, à déjouer les pièges de leurs faux amis et surtout à éviter que le Crâne de Cristal ne tombe entre les mains avides d'Irina et ses sinistres sbires ?
 ", 14.99, 50, "2008-01-01 00:00:00");
+(38, "Coexister", "Coexister.jpg", "Un producteur de musique à la dérive décide de monter un groupe constitué d'un rabbin, un curé et un imam afin de leur faire chanter le vivre-ensemble. Mais les religieux qu’il recrute sont loin d’être des saints…", 10.99, 40, "2017-01-01 00:00:00"),
+(39, "Embrasse-moi !", "Embrasse-moi.jpg", "Océanerosemarie déborde de vie, d’amis et surtout d’ex-petites amies. Mais elle vient de rencontrer Cécile, la \"cette-fois-c'est-vraiment-la-bonne\" femme de sa vie ! Même si elle ne lui a pas vraiment demandé son avis... Il est temps pour Océanerosemarie de grandir un peu pour réussir à la conquérir. En sera-t-elle seulement capable ?", 14.99, 30, "2017-01-01 00:00:00")
 (100,"La soupe aux choux","La-soupe-aux-choux.jpg","Le Claude et le Bombé, deux paysans du Bourbonnais portés sur la bouteille et la misanthropie, vivent dans un petit hameau, à la périphérie d'un village. Le premier est veuf, et le second célibataire. Une nuit, ils font la connaissance d'un extra-terrestre qui atterrit dans le champ du Claude dit le Glaude. L'extra-terrestre surnommé la Denrée découvre la soupe aux choux qui mijote chez le veuf et en apporte sur sa planète...
 ",8,50,"1981-01-01 00:00:00"),
 (101,"L'avare","L'avare.jpg","En 1668, l'Avare nous conte les aventures d'Harpagon, riche veuf qui vit avec ses enfants Cléante et Elise. Il désire pour eux un mariage d'agent dont il serait pleinement bénéficiaire. De plus, il soupçonne tout le monde d'en avoir après son argent qu'il a enterré dans son jardin... 
@@ -163,14 +161,13 @@ Cet artefact égyptien serait en effet un premier pas sur le chemin de l'Arche d
 (139,"Traque a boston","Traque-a-boston.jpg","Alors que la ville de Boston est sous le choc de multiples explosions, le sergent de police Tommy Saunders rejoint les enquêteurs sur le terrain dans une course contre la montre pour traquer et arrêter les auteurs avant qu'ils ne frappent à nouveau. Croisant les parcours de l'agent spécial Richard Deslauriers, du commissaire Ed Davis, du sergent Jeffrey Pugliese et de l'infirmière Carol Saunders, ce récit sans concession évoque la chasse à l'homme la plus complexe jamais mise en œuvre par la police américaine – et rend un vibrant hommage aux héros du quotidien.
 ",15,50,"2016-01-01 00:00:00");
 
-
 --
 -- Contenu de la table `category`
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES 
 (1, "Fantastique, Science-fiction"),
-(2, "Comedie"),
+(2, "Comédie"),
 (3, "Western"),
 (4,"Action"),
 (5,"Aventure"),
@@ -181,7 +178,6 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (10,"Historique"),
 (11,"Guerre"),
 (12,"Romance"),
-
 
 --
 -- Contenu de la table `movie_category`
@@ -225,6 +221,8 @@ INSERT INTO `movie_category` (`movie_id`, `category_id`) VALUES
 (35, 1),
 (36, 1),
 (37, 1),
+(38, 2),
+(39, 2),
 (100,2),
 (101,2),
 (102,2),
@@ -292,4 +290,3 @@ INSERT INTO `movie_category` (`movie_id`, `category_id`) VALUES
 (138,8),
 (139,6),
 (139,8);
-

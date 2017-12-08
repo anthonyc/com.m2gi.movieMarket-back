@@ -1,4 +1,4 @@
-package com.m2gi.movieMarket.domain.entity;
+package com.m2gi.movieMarket.domain.entity.movie;
 
 import java.io.Serializable;
 import java.text.DateFormat;
@@ -11,7 +11,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name="movie")
+@Table(name = "movie")
 public class Movie implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

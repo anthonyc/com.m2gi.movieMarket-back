@@ -86,7 +86,7 @@
 			<plugin>
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
-				<version>3.4.2</version>
+				<version>3.5.3</version>
 				<configuration>
 					<url>jdbc:mysql://${dbHost}/movieMarket?org.hibernate.dialect.MySQL5Dialect&amp;nullNamePatternMatchesAll=true&amp;useUnicode=yes&amp;characterEncoding=UTF-8</url>
 					<username>${dbUsername}</username>
@@ -95,13 +95,6 @@
 					<outputFileEncoding>UTF-8</outputFileEncoding>
 					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
 				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.liquibase.ext</groupId>
-						<artifactId>liquibase-hibernate4</artifactId>
-						<version>3.5</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
