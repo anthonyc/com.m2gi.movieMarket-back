@@ -79,17 +79,105 @@ Cet artefact égyptien serait en effet un premier pas sur le chemin de l'Arche d
 (37, "Indiana Jones et le Crane de Crystal", "indiana-jones-4.jpg", "La nouvelle aventure d'Indiana Jones débute dans un désert du sud-ouest des Etats-Unis. Nous sommes en 1957, en pleine Guerre Froide. Indy et son copain Mac viennent tout juste d'échapper à une bande d'agents soviétiques à la recherche d'une mystérieuse relique surgie du fond des temps. De retour au Marshall College, le Professeur Jones apprend une très mauvaise nouvelle : ses récentes activités l'ont rendu suspect aux yeux du gouvernement américain. Le doyen Stanforth, qui est aussi un proche ami, se voit contraint de le licencier. A la sortie de la ville, Indiana fait la connaissance d'un jeune motard rebelle, Mutt, qui lui fait une proposition inattendue. En échange de son aide, il le mettra sur la piste du Crâne de Cristal d'Akator, relique mystérieuse qui suscite depuis des siècles autant de fascination que de craintes. Ce serait à coup sûr la plus belle trouvaille de l'histoire de l'archéologie. Indy et Mutt font route vers le Pérou, terre de mystères et de superstitions, où tant d'explorateurs ont trouvé la mort ou sombré dans la folie, à la recherche d'hypothétiques et insaisissables trésors. Mais ils réalisent très vite qu'ils ne sont pas seuls dans leur quête : les agents soviétiques sont eux aussi à la recherche du Crâne de Cristal, car il est dit que celui qui possède le Crâne et en déchiffre les énigmes s'assure du même coup le contrôle absolu de l'univers. Le chef de cette bande est la cruelle et somptueuse Irina Spalko. Indy n'aura jamais d'ennemie plus implacable... Indy et Mutt réuissiront-ils à semer leurs poursuivants, à déjouer les pièges de leurs faux amis et surtout à éviter que le Crâne de Cristal ne tombe entre les mains avides d'Irina et ses sinistres sbires ?
 ", 14.99, 50, "2008-01-01 00:00:00"),
 (38, "Coexister", "Coexister.jpg", "Un producteur de musique à la dérive décide de monter un groupe constitué d'un rabbin, un curé et un imam afin de leur faire chanter le vivre-ensemble. Mais les religieux qu’il recrute sont loin d’être des saints…", 10.99, 40, "2017-01-01 00:00:00"),
-(39, "Embrasse-moi !", "Embrasse-moi.jpg", "Océanerosemarie déborde de vie, d’amis et surtout d’ex-petites amies. Mais elle vient de rencontrer Cécile, la \"cette-fois-c'est-vraiment-la-bonne\" femme de sa vie ! Même si elle ne lui a pas vraiment demandé son avis... Il est temps pour Océanerosemarie de grandir un peu pour réussir à la conquérir. En sera-t-elle seulement capable ?", 14.99, 30, "2017-01-01 00:00:00")
-;
+(100,"La soupe aux choux","La-soupe-aux-choux.jpg","Le Claude et le Bombé, deux paysans du Bourbonnais portés sur la bouteille et la misanthropie, vivent dans un petit hameau, à la périphérie d'un village. Le premier est veuf, et le second célibataire. Une nuit, ils font la connaissance d'un extra-terrestre qui atterrit dans le champ du Claude dit le Glaude. L'extra-terrestre surnommé la Denrée découvre la soupe aux choux qui mijote chez le veuf et en apporte sur sa planète...
+",8,50,"1981-01-01 00:00:00"),
+(101,"L'avare","L'avare.jpg","En 1668, l'Avare nous conte les aventures d'Harpagon, riche veuf qui vit avec ses enfants Cléante et Elise. Il désire pour eux un mariage d'agent dont il serait pleinement bénéficiaire. De plus, il soupçonne tout le monde d'en avoir après son argent qu'il a enterré dans son jardin... 
+",9,50,"1980-01-01 00:00:00"),
+(102,"Le Gendarme et les extraterrestres","Le-gendarme-et-les-extraterrestes.jpg","Les membres de la brigade de St-Tropez tombent des nues lorsqu'ils rencontrent, les uns après les autres, leurs doubles sous forme d'extra-terrestre se disant pacifiques. La venue d'une soucoupe volante, la peur de l'inconnu et l'émotion qu'elle déclenche, va faire venir la presse du monde entier dans cette jolie petite ville du bord de mer. Mais comment reconnaître les vrais gendarmes des faux ? Comment reconnaître les humains de ces E.T. pas si gentils que ça et qui prennent l'apparence de tout un chacun ?
+",5,50,"1979-01-01 00:00:00"),
+(103,"T'as le bonjour de Trinita","T'as-le-bonjour-de-Trinita.jpg","Au coeur du Texas, un important convoi devient vite la cible de nombreux aventuriers, parmi lesquels Django, Ringo et Trinita qui ne reculent devant rien pour une poignée de dollars et n'hésitent pas à régler leurs comptes entre eux. Une femme bien singulière réussit par la ruse à substituer l'or avec la complicité des Indiens. Le butin ne restera cependant pas longtemps dans leurs mains. Trinita, en effet, qui a juré d'en faire sa possession, utilisera jusqu'à la séduction pour réaliser ses desseins. Pris, il lui faudra affronter jour et nuit la cruauté des hommes. Evadé, il déploiera toute la force et la violence qu'on lui connaît pour réduire ses ennemis à l'impuissance.
+",5,50,"1967-01-01 00:00:00"),
+(104,"On l'appelle Trinita","On-l'appelle-trinita.jpg","Trinita tireur émérite, retrouve par hasard son frère Bambino qui a usurpé l'identité du shérif local. Dans la vallée voisine, les menaces que subit une communauté de mormons de la part d'un terrible homme d'affaires et de ses hommes de main, va obliger les deux frères à venir faire le ménage...
+",5,50,"1971-01-01 00:00:00"),
+(105,"On continue à l'appeler Trinita","Trinita.jpg","Trinita et Bambino jurent à leur père mourant de respecter sa dernière volonté : devenir de vrais bandits et que leurs têtes respectives soient mises à prix généreusement. Mais la tâche va s'avérer plus difficile que prévue... 
+",9,50,"1971-01-01 00:00:00"),
+(106,"Et maintenant on l'appelle El Magnifico","Et-maintenant-on-l'appelle-El-Magnifico .jpg","Tom Moore est un étudiant assidu d’une grande école britannique. Lorsque son père, Joe, un célèbre cow-boy de l’Ouest américain, décède, Tom retourne dans sa ville natale où il rencontre les amis de son père : Bull, Holy Joe et Monkey, des hommes rustres sans aucune notion de politesse. Déçu d’imaginer son père côtoyer de telles personnes, Tom entreprend de les remettre sur le droit chemin. Mais les hommes du Far Ouest ne se laissent pas faire et décident à la place d’apprendre au jeune anglais à devenir un véritable cow-boy.
+",8,50,"1972-01-01 00:00:00"),
+(107,"Mon nom est Personne","Mon-nom-est-personne.jpg"," Jack Beauregard, légende de l'Ouest, désire mettre un terme à sa carrière de pistolero et envisage de s'embarquer pour l'Europe. Mais un jeune admirateur, affirmant s'appeler Personne, ne l'entend pas de cette oreille. Il veut faire entrer Beauregard dans l'Histoire en l'amenant à combattre la Horde sauvage.
+",8,50,"1973-01-01 00:00:00"),
+(108,"Cul et chemise","Culchemise.jpg","En Afrique, deux cousins blancs, Slim et Tom, passent leur temps à se jouer de mauvais tours. Mais, face à la menace d'un trafiquant d'ivoire, ils vont devoir faire équipe. En effet, le terrible Jack Hammer Ormond prévoit de détruire le village où habitent les autochtones ainsi que les deux compères. Tom, véritable force de la nature qui impressionne les hommes d'Ormond, se voit offrir de l'argent contre sa collaboration : c'est pour lui l'ocassion de jouer l'ultime farce à son cher cousin...
+",7,50,"1979-01-01 00:00:00"),
+(109,"Le Bon, la brute et le truand","Le-bon-la-brute-et-le-truand.jpg","Pendant la Guerre de Sécession, trois hommes, préférant s'intéresser à leur profit personnel, se lancent à la recherche d'un coffre contenant 200 000 dollars en pièces d'or volés à l'armée sudiste. Tuco sait que le trésor se trouve dans un cimetière, tandis que Joe connaît le nom inscrit sur la pierre tombale qui sert de cache. Chacun a besoin de l'autre. Mais un troisième homme entre dans la course : Setenza, une brute qui n'hésite pas à massacrer femmes et enfants pour parvenir à ses fins. 
+",15,50,"1966-01-01 00:00:00"),
+(110,"Lion","Lion.jpg","Une incroyable histoire vraie : à 5 ans, Saroo se retrouve seul dans un train traversant l'Inde qui l'emmène malgré lui à des milliers de kilomètres de sa famille. Perdu, le petit garçon doit apprendre à survivre seul dans l'immense ville de Calcutta. Après des mois d'errance, il est recueilli dans un orphelinat et adopté par un couple d'Australiens. 25 ans plus tard, Saroo est devenu un véritable Australien, mais il pense toujours à sa famille en Inde. Armé de quelques rares souvenirs et d'une inébranlable détermination, il commence à parcourir des photos satellites sur Google Earth, dans l'espoir de reconnaître son village. Mais peut-on imaginer retrouver une simple famille dans un pays d'un milliard d'habitants ?
+",20,50,"2016-01-01 00:00:00"),
+(111,"Baisers cachés","Baisers-caches.jpg","Nouveau venu au lycée, Nathan, 16 ans, vit seul avec son père policier, Stéphane. Leurs rapports sont complices. Nathan est invité à une soirée où il flashe sur un garçon de sa classe. Ils se retrouvent à l’abri des regards et s’embrassent.Mais quelqu’un les observe en cachette et publie la photo de leur baiser sur facebook : la rumeur se répand sur le net et provoque le scandale au lycée et dans les familles. Stéphane découvre l’homosexualité de son fils. Il est choqué et se détourne de Nathan. Au lycée, les élèves harcèlent Nathan et s’interrogent sur l’identité de l’autre garçon. Nathan, amoureux, refuse de révéler l’identité de son amoureux et fait front contre les moqueries et le violence. Pourra-t-il compter sur son père ? Et sur celui qu’il aime ?
+", 12,50,"2016-01-01 00:00:00"),
+(112,"Les Figures de l'ombre","Les-figures-de-l'ombre.jpg","Le destin extraordinaire des trois scientifiques afro-américaines qui ont permis aux États-Unis de prendre la tête de la conquête spatiale, grâce à la mise en orbite de l’astronaute John Glenn.Maintenues dans l’ombre de leurs collègues masculins et dans celle d’un pays en proie à de profondes inégalités, leur histoire longtemps restée méconnue est enfin portée à l’écran.
+",15,50,"2016-01-01 00:00:00"),
+(113,"Patients","Patients.jpg"," Se laver, s'habiller, marcher, jouer au basket, voici ce que Ben ne peut plus faire à son arrivée dans un centre de rééducation suite à un grave accident. Ses nouveaux amis sont tétras, paras, traumas crâniens.... Bref, toute la crème du handicap. Ensemble ils vont apprendre la patience. Ils vont résister, se vanner, s'engueuler, se séduire mais surtout trouver l'énergie pour réapprendre à vivre. Patients est l'histoire d'une renaissance, d'un voyage chaotique fait de victoires et de défaites, de larmes et d’éclats de rire, mais surtout de rencontres : on ne guérit pas seul. 
+",15,50,"2017-01-01 00:00:00"),
+(114,"I Am Not Your Negro","I-Am-Not-Your-Negro.jpg","À travers les propos et les écrits de l’écrivain noir américain James Baldwin, Raoul Peck propose un film qui revisite les luttes sociales et politiques des Afro-Américains au cours de ces dernières décennies.
+",15,50,"2016-01-01 00:00:00"),
+(115,"L'Accusé","L'accuse.jpg","Après s’être réveillé à côté du corps sans vie de sa petite amie à l’hôtel, un homme d’affaires engage une grande avocate pour comprendre ce qui s’est passé. 
+",15,50,"2016-01-01 00:00:00"),
+(116,"Logan","Logan.jpg","Dans un futur proche, un certain Logan, épuisé de fatigue, s’occupe d’un Professeur X souffrant, dans un lieu gardé secret à la frontière Mexicaine. Mais les tentatives de Logan pour se retrancher du monde et rompre avec son passé vont s’épuiser lorsqu’une jeune mutante traquée par de sombres individus va se retrouver soudainement face à lui.
+",30,50,"2017-01-01 00:00:00"),
+(117,"Les Oubliés","Les-oublies.jpg","1945. Danemark. Fin de la Seconde Guerre Mondiale. Plusieurs soldats allemands, à peine sortis de l’adolescence, sont faits prisonniers par l’armée danoise et envoyés en première ligne pour désamorcer les mines enfouies le long de la côte. Pour eux, la guerre est loin d’être terminée. Inspiré de faits réels, Les Oubliés raconte cet épisode tragique de l’Histoire.
+",25,50,"2015-01-01 00:00:00"),
+(118,"Les Gardiens de la Galaxie 2","Les-Gardiens-de-la-Galaxie-2.jpg","Musicalement accompagné de la 'Awesome Mixtape n°2' (la musique qu'écoute Star-Lord dans le film), Les Gardiens de la galaxie 2 poursuit les aventures de l'équipe alors qu'elle traverse les confins du cosmos. Les gardiens doivent combattre pour rester unis alors qu'ils découvrent les mystères de la filiation de Peter Quill. Les vieux ennemis vont devenir de nouveaux alliés et des personnages bien connus des fans de comics vont venir aider nos héros et continuer à étendre l'univers Marvel. 
+",20,50,"2017-01-01 00:00:00"),
+(119,"La Cigale, le corbeau et les poulets","La-Cigale-le-corbeau-et-les-poulets.jpg","Début 2009. Des balles de 9 mm et des lettres de menaces sont envoyées au président de la République, Nicolas Sarkozy. Pierrot, Tintin, le Suisse et leurs compères, dont le QG est un bureau de tabac nommé La Cigale à Saint-Pons-de-Thomières (Hérault), vont être accusés d’être le corbeau et poursuivis par tous les poulets antiterroristes de France. Mais pourquoi eux ? 
+",10,50,"2016-01-01 00:00:00"),
+(120,"Miss Sloane","Miss-Sloane.jpg","Elizabeth Sloane est une femme d’influence brillante et sans scrupules qui opère dans les coulisses de Washington. Face au plus grand défi de sa carrière, elle va redoubler de manigances et manipulations pour atteindre une victoire qui pourrait s’avérer éclatante. Mais les méthodes dont elle use pour parvenir à ses fins menacent à la fois sa carrière et ses proches. Miss Sloane pourrait bien avoir enfin trouvé un adversaire à sa taille. 
+",15,50,"2016-01-01 00:00:00"),
+(121,"Baby Driver","Baby-driver.jpg","Chauffeur pour des braqueurs de banque, Baby a un truc pour être le meilleur dans sa partie : il roule au rythme de sa propre playlist. Lorsqu’il rencontre la fille de ses rêves, Baby cherche à mettre fin à ses activités criminelles pour revenir dans le droit chemin. Mais il est forcé de travailler pour un grand patron du crime et le braquage tourne mal… Désormais, sa liberté, son avenir avec la fille qu’il aime et sa vie sont en jeu. 
+", 17,50,"2017-01-01 00:00:00"),
+(122,"Split","Split.jpg","Kevin a déjà révélé 23 personnalités, avec des attributs physiques différents pour chacune, à sa psychiatre dévouée, la docteure Fletcher, mais l’une d’elles reste enfouie au plus profond de lui. Elle va bientôt se manifester et prendre le pas sur toutes les autres. Poussé à kidnapper trois adolescentes, dont la jeune Casey, aussi déterminée que perspicace, Kevin devient dans son âme et sa chair, le foyer d’une guerre que se livrent ses multiples personnalités, alors que les divisions qui régnaient jusqu’alors dans son subconscient volent en éclats. 
+",19,50,"2017-01-01 00:00:00"),
+(123,"La Belle et la Bête","La-belle-et-la-bete-.jpg","Fin du XVIIIè siècle, dans un petit village français. Belle, jeune fille rêveuse et passionnée de littérature, vit avec son père, un vieil inventeur farfelu. S'étant perdu une nuit dans la fôret, ce dernier se réfugie au château de la Bête, qui le jette au cachot. Ne pouvant supporter de voir son père emprisonné, Belle accepte alors de prendre sa place, ignorant que sous le masque du monstre se cache un Prince Charmant tremblant d'amour pour elle, mais victime d'une terrible malédiction. 
+",18,50,"2017-01-01 00:00:00"),
+(124,"Get Out","Get-out.jpg","Couple mixte, Chris et sa petite amie Rose  filent le parfait amour. Le moment est donc venu de rencontrer la belle famille, Missy et Dean lors d’un week-end sur leur domaine dans le nord de l’État. Chris commence par penser que l’atmosphère tendue est liée à leur différence de couleur de peau, mais très vite une série d’incidents de plus en plus inquiétants lui permet de découvrir l’inimaginable. 
+",14,50,"2017-01-01 00:00:00"),
+(125,"Virtual Revolution","Virtual-revolution.jpg","A Paris, en 2047, alors que la population vit connectée en permanence à des mondes virtuels, un agent employé par une multinationale est chargé de traquer des terroristes qui menacent le système. 
+",15,50,"2016-01-01 00:00:00"),
+(126,"Fast and Furious 8","Fast-and-furious-8.jpg","Maintenant que Dom et Letty sont en lune de miel, que Brian et Mia se sont rangés et que le reste de l’équipe a été disculpé, la bande de globetrotteurs retrouve un semblant de vie normale. Mais quand une mystérieuse femme entraîne Dom dans le monde de la criminalité, ce dernier ne pourra éviter de trahir ses proches qui vont faire face à des épreuves qu’ils n’avaient jamais rencontrées jusqu’alors. Des rivages de Cuba au rues de New York en passant par les plaines gelées de la mer arctique de Barrents, notre équipe va sillonner le globe pour tenter d'empêcher une anarchiste de déchaîner un chaos mondial et de ramener à la maison l’homme qui a fait d’eux une famille. 
+",25,50,"2016-01-01 00:00:00"),
+(127,"Moonlight","Moonlight.jpg","Après avoir grandi dans un quartier difficile de Miami, Chiron, un jeune homme tente de trouver sa place dans le monde. Moonlight évoque son parcours, de l’enfance à l’âge adulte. 
+",15,50,"2017-01-01 00:00:00"),
+(128,"American Honey","American-hooney.jpg","Star, 17 ans, croise le chemin de Jake et sa bande. Sillonant le midwest à bord d’un van, ils vivent de vente en porte à porte. En rupture totale avec sa famille, elle s’embarque dans l’aventure. Ce roadtrip, ponctué de rencontres, fêtes et arnaques lui apporte ce qu’elle cherche depuis toujours: la liberté ! Jusqu’à ce qu’elle tombe amoureuse de Jake, aussi charismatique que dangereux…. 
+",15,50,"2016-01-01 00:00:00"),
+(129,"Alibi.com","Alibi-com.jpg","Greg a fondé une entreprise nommée Alibi.com qui crée tout type d'alibi. Avec Augustin son associé, et Medhi son nouvel employé, ils élaborent des stratagèmes et mises en scène imparables pour couvrir leurs clients. Mais la rencontre de Flo, une jolie blonde qui déteste les hommes qui mentent, va compliquer la vie de Greg, qui commence par lui cacher la vraie nature de son activité. Lors de la présentation aux parents, Greg comprend que Gérard, le père de Flo, est aussi un de leurs clients... 
+",15,50,"2017-01-01 00:00:00"),
+(130,"Le Caire Confidentiel","Le-caire-confidentiel.jpg","Le Caire, janvier 2011, quelques jours avant le début de la révolution. Une jeune chanteuse est assassinée dans une chambre d’un des grands hôtels de la ville. Noureddine, inspecteur revêche chargé de l’enquête, réalise au fil de ses investigations que les coupables pourraient bien être liés à la garde rapprochée du président Moubarak. 
+",15,50,"2017-01-01 00:00:00"),
+(131,"Corporate","Corporate.jpg","Emilie Tesson-Hansen est une jeune et brillante responsable des Ressources Humaines, une « killeuse ». Suite à un drame dans son entreprise, une enquête est ouverte. Elle se retrouve en première ligne. Elle doit faire face à la pression de l’inspectrice du travail, mais aussi à sa hiérarchie qui menace de se retourner contre elle. Emilie est bien décidée à sauver sa peau. Jusqu’où restera-t-elle corporate ? 
+",15,50,"2016-01-01 00:00:00"),
+(132,"John Wick 2","John-wick-2.jpg","John Wick est forcé de sortir de sa retraite volontaire par un de ses ex-associés qui cherche à prendre le contrôle d’une mystérieuse confrérie de tueurs internationaux. Parce qu’il est lié à cet homme par un serment, John se rend à Rome, où il va devoir affronter certains des tueurs les plus dangereux du monde. 
+",15,50,"2017-01-01 00:00:00"),
+(133,"Born to be blue","Born-to-be-blue.jpg"," Le jour où il est passé à tabac, la vie de Chet bascule. Les mâchoires fracassées, il se voit contraint de laisser derrière lui sa carrière de trompettiste de jazz. Avec à la clé, la dépression et l’appel irrépressible de la drogue. Mais Jane, sa compagne, ne l’entend pas de cette oreille : la seule addiction qui vaille, c’est la musique. Il doit se ressaisir et regagner par son talent la reconnaissance de ses pairs. L’Histoire n’oubliera pas son nom : il s’appelle Chet Baker.
+",15,50,"2015-01-01 00:00:00"),
+(134,"Le Fondateur","Le-fondateur.jpg","Dans les années 50, Ray Kroc rencontre les frères McDonald qui tiennent un restaurant de burgers en Californie. Bluffé par leur concept, Ray leur propose de franchiser la marque et va s'en emparer pour bâtir l'empire que l'on connaît aujourd'hui. 
+",15,50,"2016-01-01 00:00:00"),
+(135,"Cessez-le-feu","Cessez-le-feu.jpg","1923. Georges, héros de 14 fuyant son passé, mène depuis quatre ans une vie nomade et aventureuse en Afrique lorsqu'il décide de rentrer en France. Il y retrouve sa mère et son frère Marcel, invalide de guerre muré dans le silence. Peinant à retrouver une place dans cet Après-guerre où la vie a continué sans lui, il fait la rencontre d'Hélène, professeure de langue des signes avec qui il noue une relation tourmentée... 
+",15,50,"2017-01-01 00:00:00"),
+(136,"The Lost City of Z","The-lost-city-of-Z.jpg","L’histoire vraie de Percival Harrison Fawcett, un des plus grands explorateurs du XXe siècle. Percy Fawcett est un colonel britannique reconnu et un mari aimant. En 1906, alors qu’il s’apprête à devenir père, la Société géographique royale d'Angleterre lui propose de partir en Amazonie afin de cartographier les frontières entre le Brésil et la Bolivie. Sur place, l’homme se prend de passion pour l’exploration et découvre des traces de ce qu’il pense être une cité perdue très ancienne. De retour en Angleterre, Fawcett n’a de cesse de penser à cette mystérieuse civilisation, tiraillé entre son amour pour sa famille et sa soif d’exploration et de gloire… 
+",15,50,"2016-01-01 00:00:00"),
+(137,"HHhH","HHhH.jpg"," L’ascension fulgurante de Reinhard Heydrich, militaire déchu, entraîné vers l’idéologie nazie par sa femme Lina. Bras droit d’Himmler et chef de la Gestapo, Heydrich devient l’un des hommes les plus dangereux du régime. Hitler le nomme à Prague pour prendre le commandement de la Bohême-Moravie et lui confie le soin d’imaginer un plan d’extermination définitif. Il est l’architecte de la Solution Finale. Face à lui, deux jeunes soldats, Jan Kubis et Jozef Gabcik. L’un est tchèque, l’autre slovaque. Tous deux se sont engagés aux côtés de la Résistance, pour libérer leur pays de l’occupation allemande. Ils ont suivi un entraînement à Londres et se sont portés volontaires pour accomplir l’une des missions secrètes les plus importantes, et l’une des plus risquées aussi : éliminer Heydrich. Au cours de l’infiltration, Jan rencontre Anna Novak, tentant d’endiguer les sentiments qui montent en lui. Car les résistants le savent tous : leur cause passe avant leur vie. Le 27 mai 1942, les destins d’Heydrich, Jan et Jozef basculent, renversant le cours de l’Histoire. 
+",15,50,"2016-01-01 00:00:00"),
+(138,"Brimstone","Brimstone.jpg","Dans l’Ouest américain, à la fin du XIX siècle. Liz, une jeune femme d’une vingtaine d’années, mène une vie paisible auprès de sa famille. Mais sa vie va basculer le jour où un sinistre prêcheur leur rend visite. Liz devra prendre la fuite face à cet homme qui la traque sans répit depuis l’enfance… 
+",15,50,"2016-01-01 00:00:00"),
+(139,"Traque a boston","Traque-a-boston.jpg","Alors que la ville de Boston est sous le choc de multiples explosions, le sergent de police Tommy Saunders rejoint les enquêteurs sur le terrain dans une course contre la montre pour traquer et arrêter les auteurs avant qu'ils ne frappent à nouveau. Croisant les parcours de l'agent spécial Richard Deslauriers, du commissaire Ed Davis, du sergent Jeffrey Pugliese et de l'infirmière Carol Saunders, ce récit sans concession évoque la chasse à l'homme la plus complexe jamais mise en œuvre par la police américaine – et rend un vibrant hommage aux héros du quotidien.
+",15,50,"2016-01-01 00:00:00");
+
 
 --
 -- Contenu de la table `category`
 --
 
-INSERT INTO `category` (`id`, `name`) VALUES
+INSERT INTO `category` (`id`, `name`) VALUES 
 (1, "Fantastique, Science-fiction"),
-(2, "Comédie")
-;
+(2, "Comédie"),
+(3, "Western"),
+(4,"Action"),
+(5,"Aventure"),
+(6,"Drame"),
+(7,"Documentaire"),
+(8,"Thriller"),
+(9,"Policier"),
+(10,"Historique"),
+(11,"Guerre"),
+(12,"Romance");
 
 --
 -- Contenu de la table `movie_category`
@@ -134,5 +222,71 @@ INSERT INTO `movie_category` (`movie_id`, `category_id`) VALUES
 (36, 1),
 (37, 1),
 (38, 2),
-(39, 2);
-
+(100, 2),
+(101, 2),
+(102, 2),
+(103, 2),
+(104, 3),
+(105, 3),
+(106, 3),
+(107,3),
+(108,5),
+(108,4),
+(108,2),
+(109,3),
+(110,5),
+(110,6),
+(111,6),
+(112,6),
+(113,2),
+(113,6),
+(114,7),
+(115,8),
+(115,9),
+(116,4),
+(116,1),
+(116,5),
+(117,10),
+(117,11),
+(117,6),
+(118,2),
+(118,4),
+(118,1),
+(119,2),
+(119,7),
+(120,6),
+(120,8),
+(121,2),
+(121,4),
+(121,9),
+(122,1),
+(122,8),
+(123,1),
+(123,12),
+(124,8),
+(125,1),
+(125,9),
+(126,4),
+(126,8),
+(127,6),
+(128,2),
+(128,6),
+(129,2),
+(130,8),
+(130,9),
+(131,6),
+(131,8),
+(132,4),
+(133,6),
+(134,6),
+(135,6),
+(136,5),
+(137,4),
+(137,8),
+(137,10),
+(138,3),
+(138,6),
+(138,8),
+(139,6),
+(139,8)
+;
