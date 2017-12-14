@@ -9,10 +9,19 @@ import { Movie } from '../../model/movie';
 export class StoreButtonComponentComponent implements OnInit {
 
   @Input() movie: Movie;
+  priceString: String;
 
   constructor() { }
 
   ngOnInit() {
+        // TODO: check what currency the user is using
+
+    this.priceString = this.movie.price.toString();
+    if (this.priceString.indexOf('.') <= 0) {
+      this.priceString += '.00';
+      console.log(this.priceString);
+    }
+    this.priceString += '€';
   }
 
 }

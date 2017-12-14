@@ -23,7 +23,10 @@
     background-color: #0e7218;
 }
 
-.blockMoviePrice:after {
-    content: '€';
-    margin-right: 5px;
+.blockMoviePrice {
+    margin-right: .3em;
+}
+
+.blockMovieCart>.blockMovieStoreButton>i {
+    font-size: 1.4em;
 }
