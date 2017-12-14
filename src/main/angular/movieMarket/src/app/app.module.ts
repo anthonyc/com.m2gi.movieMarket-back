@@ -23,12 +23,14 @@ import 'hammerjs';
 import { UserService } from './service/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreButtonComponentComponent } from './component/store-button-component/store-button-component.component';
+import { CartComponent } from './component/cart/cart.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomePageContentComponent },
   { path: 'movies', component: SearchResultContentComponent },
   { path: 'movies/:id', component: MovieDetailComponent },
-  { path: 'user/create', component: CreateUserComponent }
+  { path: 'user/create', component: CreateUserComponent },
+  { path: 'panier', component: CartComponent}
 ];
 
 @NgModule({
@@ -43,7 +45,8 @@ export const appRoutes: Routes = [
     SearchResultContentComponent,
     MovieHorizontalScrollComponent,
     CreateUserComponent,
-    StoreButtonComponentComponent
+    StoreButtonComponentComponent,
+    CartComponent
   ],
   imports: [
     LocalStorageModule.withConfig({

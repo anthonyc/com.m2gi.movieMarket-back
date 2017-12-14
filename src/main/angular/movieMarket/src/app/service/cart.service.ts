@@ -22,7 +22,7 @@ export class CartService {
   public get(): Cart {
     const cart = new Cart();
     if (this.localStorageService.get('cart') != null) {
-      cart.addMovies((this.localStorageService.get('cart') as Cart).movies);
+      cart.setCartDetail((this.localStorageService.get('cart') as Cart).cartDetails);
     }
 
     return cart;

@@ -37,7 +37,7 @@
                 <a class="nav-link" routerLink="???">Connexion</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" routerLink="panier"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ({{cs.get().movies.length}})</a>
+                <a class="nav-link" routerLink="panier"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ({{ cs.get().numberOfItem() }})</a>
             </li>
         </ul>
     </div>
