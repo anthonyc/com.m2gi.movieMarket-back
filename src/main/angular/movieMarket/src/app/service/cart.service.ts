@@ -10,10 +10,8 @@ export class CartService {
 
   public addMovie(movie: Movie) {
     let cart: Cart = this.get();
-    console.log(cart);
     if (!(cart instanceof Cart)) {
       cart = new Cart();
-      console.log('if plop');
     }
 
     cart.addMovie(movie);
@@ -22,9 +20,11 @@ export class CartService {
   }
 
   public get(): Cart {
-    let cart = new Cart();
-    cart.addMovies((this.localStorageService.get('cart') as Cart).movies);
-    
+    const cart = new Cart();
+    if (this.localStorageService.get('cart') != null) {
+      cart.addMovies((this.localStorageService.get('cart') as Cart).movies);
+    }
+
     return cart;
   }
 }

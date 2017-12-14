@@ -1,3 +1,4 @@
+import { CartService } from './../../service/cart.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from '../../model/movie';
 
@@ -9,19 +10,14 @@ import { Movie } from '../../model/movie';
 export class StoreButtonComponentComponent implements OnInit {
 
   @Input() movie: Movie;
-  priceString: String;
 
-  constructor() { }
+  constructor(private cs: CartService) { }
 
   ngOnInit() {
-        // TODO: check what currency the user is using
-
-    this.priceString = this.movie.price.toString();
-    if (this.priceString.indexOf('.') <= 0) {
-      this.priceString += '.00';
-      console.log(this.priceString);
-    }
-    this.priceString += '€';
   }
 
+  test(event) {
+    this.cs.addMovie(this.movie);
+    console.log(this.cs.get().toString());
+  }
 }

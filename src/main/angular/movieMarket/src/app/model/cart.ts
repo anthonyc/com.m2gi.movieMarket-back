@@ -11,4 +11,12 @@ export class Cart {
     public addMovies(movies: Movie[]) {
         this.movies = movies;
     }
+
+    public toString() {
+        let s: String = '';
+        for (const m of this.movies) {
+            s += m.name + ', ';
+        }
+        return 'id : ' + String(this.id) + ' ; movies : ' + s;
+    }
 }
