@@ -44,6 +44,7 @@
     height: 200px;
     margin: auto;
     margin-bottom: 1em;
+    overflow: hidden;
 }
 
 .blockMovie {
@@ -55,12 +56,18 @@
     padding-right: .6em;
 }
 
+ngx-tile {
+    min-width: 200px;
+    overflow: hidden;
+}
+
 .blockMovie:hover {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.64), 0 2px 10px 0 rgba(0, 0, 0, 0.30);
 }
 
 .blockMovieLink {
     display: block;
+    overflow: hidden;
     width: 100%;
     margin: 0;
     padding: 0;
