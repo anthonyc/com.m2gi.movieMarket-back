@@ -1,4 +1,4 @@
-package com.m2gi.movieMarket.services;
+package com.m2gi.movieMarket.api;
 
 import com.m2gi.movieMarket.domain.entity.movie.Category;
 import com.m2gi.movieMarket.domain.repository.movie.CategoryFacadeLocal;

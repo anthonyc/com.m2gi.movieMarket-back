@@ -6,3 +6,4 @@ target/
 src/main/webapp
 .idea
 *.iml
+/build/

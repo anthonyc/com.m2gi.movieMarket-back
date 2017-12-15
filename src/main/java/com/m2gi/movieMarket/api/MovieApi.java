@@ -1,4 +1,4 @@
-package com.m2gi.movieMarket.services;
+package com.m2gi.movieMarket.api;
 
 import java.util.List;
 
@@ -11,12 +11,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
 
 import com.m2gi.movieMarket.domain.entity.movie.Movie;
 import com.m2gi.movieMarket.domain.repository.movie.MovieFacadeLocal;
 
+import com.m2gi.movieMarket.services.security.Role;
 import io.swagger.annotations.Api;
 
 @Path("/movies")
@@ -63,9 +66,14 @@ public class MovieApi {
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Movie> findAll(
+			@Context SecurityContext securityContext,
 			@DefaultValue("") @QueryParam("category") String category,
 			@DefaultValue("0") @QueryParam("from") int from,
 			@DefaultValue("20") @QueryParam("to") int to) {
+
+		if (!securityContext.isUserInRole(String.valueOf(Role.ROLE_APP))) {
+			throw new NotAuthorizedException("Not Authorized");
+		}
 
 		if (category.isEmpty()) {
 			return this.movieReference.findAll(from, to);

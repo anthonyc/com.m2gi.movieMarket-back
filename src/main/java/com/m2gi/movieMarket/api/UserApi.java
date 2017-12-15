@@ -1,12 +1,10 @@
-package com.m2gi.movieMarket.services;
+package com.m2gi.movieMarket.api;
 
 import io.swagger.annotations.Api;
 
 import javax.ejb.EJB;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
-
-import org.jboss.resteasy.client.jaxrs.BasicAuthentication;
 
 import com.m2gi.movieMarket.domain.entity.person.User;
 import com.m2gi.movieMarket.domain.repository.person.UserFacadeLocal;
@@ -26,15 +24,13 @@ public class UserApi {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response find(@PathParam("id") int id, @Context SecurityContext securityContext) {
-        User user = this.userReference.find((Object) id);
+    public Response find(@PathParam("id") int id) {
 
+    	User user = this.userReference.find(id);
+    	
         if (user == null) {
             throw new NotFoundException("Entity not found for id : " + id);
         }
-
-        BasicAuthentication b = new BasicAuthentication(user.getEmail(), "toto");
-        System.out.println(b.toString());
 
         /*Email email = new Email();
 
@@ -51,6 +47,15 @@ public class UserApi {
 
         return Response.ok(user).build();
     }
+
+   /* @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response authenticate(Credentials credentials) {
+        User user = this.userReference.findByEmail(credentials.getLogin());
+
+
+    }*/
 
     @Path("/")
     @PUT
