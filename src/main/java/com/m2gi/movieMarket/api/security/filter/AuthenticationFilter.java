@@ -31,7 +31,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
         String authorizationHeader = requestContext.getHeaderString(HttpHeaders.AUTHORIZATION);
-        this.logger.info("#### authorizationHeader : " + authorizationHeader);
+        this.logger.info("#### AuthorizationHeader #### " + authorizationHeader);
 
 
         if (!isTokenBasedAuthentication(authorizationHeader)) {
