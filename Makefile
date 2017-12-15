@@ -22,4 +22,5 @@ fixtures:
 	#mvn liquibase:update
 	mysql -hdb -uroot -proot movieMarket < ./fixture/movieMarket.sql
 
-init: init-db build fixtures
+init: init-db build
+	echo "[INFO] If you want to add fixtures run make fixtures"

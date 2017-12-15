@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Http, HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 import { AppComponent } from './app.component';
 import { MovieComponent } from './component/movie/movie.component';
@@ -16,6 +17,7 @@ import { SearchResultContentComponent } from './component/search-result-content/
 import { MovieHorizontalScrollComponent } from './component/movie-horizontal-scroll/movie-horizontal-scroll.component';
 import { NgxCarouselModule } from 'ngx-carousel';
 import { CategoryService } from './service/category.service';
+import { CartService } from './service/cart.service';
 import { CreateUserComponent } from './component/create-user/create-user.component';
 import 'hammerjs';
 import { UserService } from './service/user.service';
@@ -42,6 +44,10 @@ export const appRoutes: Routes = [
     CreateUserComponent
   ],
   imports: [
+    LocalStorageModule.withConfig({
+      prefix: 'movie-market',
+      storageType: 'localStorage'
+    }),
     BrowserModule,
     HttpModule,
     HttpClientModule,
@@ -52,7 +58,8 @@ export const appRoutes: Routes = [
   providers: [
     MovieService,
     CategoryService,
-    UserService
+    UserService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })
