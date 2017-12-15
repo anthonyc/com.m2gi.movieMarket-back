@@ -1,4 +1,4 @@
-package com.m2gi.movieMarket.config;
+package com.m2gi.movieMarket.api.config;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -30,7 +30,6 @@ public class ApplicationConfig extends Application {
         resources.add(MovieApi.class);
         resources.add(CategoryApi.class);
         resources.add(UserApi.class);
-        resources.add(AuthenticationApi.class);
         resources.add(AuthenticationFilter.class);
         resources.add(io.swagger.jaxrs.listing.ApiListingResource.class);
         resources.add(io.swagger.jaxrs.listing.SwaggerSerializers.class);

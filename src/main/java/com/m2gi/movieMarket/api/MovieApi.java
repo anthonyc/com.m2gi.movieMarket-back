@@ -19,7 +19,7 @@ import javax.ws.rs.core.SecurityContext;
 import com.m2gi.movieMarket.domain.entity.movie.Movie;
 import com.m2gi.movieMarket.domain.repository.movie.MovieFacadeLocal;
 
-import com.m2gi.movieMarket.services.security.Role;
+import com.m2gi.movieMarket.api.security.Role;
 import io.swagger.annotations.Api;
 
 @Path("/movies")
