@@ -13,15 +13,16 @@ public class Person implements Serializable {
     private int id;
 
     @Enumerated(EnumType.ORDINAL)
+    @Column(nullable = false)
     private Gender gender;
 
-    @Column(name = "firstname")
+    @Column(name = "firstname", nullable = false)
     private String firstname;
 
-    @Column(name = "lastname")
+    @Column(name = "lastname", nullable = false)
     private String lastname;
 
-    @Column(name = "birthday")
+    @Column(name = "birthday", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date birthday;
 

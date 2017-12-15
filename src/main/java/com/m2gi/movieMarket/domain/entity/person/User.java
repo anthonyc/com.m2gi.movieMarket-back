@@ -20,13 +20,13 @@ public class User extends Person implements Serializable, Principal {
     @JoinColumn(name = "user_id")
     private List<UserRole> userRoles = new ArrayList<>();
 
-    @Column(name = "username")
+    @Column(name = "username", nullable = false)
     private String username;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
 
     public User() {}
