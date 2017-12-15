@@ -11,7 +11,7 @@ export class TopNavBarComponent implements OnInit {
 
   title;
 
-  constructor(private cs: CartService) {
+  constructor() {
     this.title = 'Movie Market';
   }
 

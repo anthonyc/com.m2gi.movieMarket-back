@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { Http, HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LocalStorageModule } from 'angular-2-local-storage';
-
+import { WebStorageModule, LocalStorageService } from 'angular-localstorage';
 import { AppComponent } from './app.component';
 import { MovieComponent } from './component/movie/movie.component';
 import { MovieListComponent } from './component/movie-list/movie-list.component';
@@ -49,10 +48,7 @@ export const appRoutes: Routes = [
     CartComponent
   ],
   imports: [
-    LocalStorageModule.withConfig({
-      prefix: 'movie-market',
-      storageType: 'localStorage'
-    }),
+    WebStorageModule,
     BrowserModule,
     HttpModule,
     HttpClientModule,
@@ -61,6 +57,7 @@ export const appRoutes: Routes = [
     NgxCarouselModule
   ],
   providers: [
+    LocalStorageService,
     MovieService,
     CategoryService,
     UserService,
