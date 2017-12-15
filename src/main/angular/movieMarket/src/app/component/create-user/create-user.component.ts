@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../model/user';
-import { Gender } from '../../model/person';
 import { UserService } from '../../service/user.service';
+declare var $ :any;
 
 @Component({
   selector: 'app-create-user',
@@ -10,20 +10,32 @@ import { UserService } from '../../service/user.service';
 })
 export class CreateUserComponent implements OnInit {
   user: User = new User();
+  info = null;
   error = null;
   finished = false;
 
   constructor(private userService: UserService) { }
 
   create() {
-    console.log(this.user.username);
     this.userService.create(this.user).subscribe(
-      value => console.log(value),
-      error => this.error = 'movieService.all error',
-      () => this.finished = true
+      data => {
+        this.info = "Utilisateur créé";
+        $("#alert-info").show();
+      },
+      err => {
+        this.error = "Une erreur serveur est survenu. Veuillez réessayer dans quelques instants";
+
+        if (err.status === 400) {
+          this.error = "Veuillez remplir tous les champs obligatoire du formulaire";
+        }
+
+        $("#alert-danger").show();
+      }
   );
   }
 
   ngOnInit() {
+    $("#alert-danger").hide()
+    $("#alert-info").hide();
   }
 }

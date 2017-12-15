@@ -1,36 +1,49 @@
 <h2>Sign up template form</h2>
-<form (ngSubmit)="create()">
+<div class="alert alert-info alert-dismissible fade show" id="alert-info" role="alert">
+    {{info}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" id="alert-danger" role="alert">
+    {{error}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<form (ngSubmit)="create()" ngNativeValidate>
     <div class="form-group">
-        <select class="form-control" id="gender" required [(ngModel)]="user.gender">
-          <option value="MR">Mr</option>
-          <option value="MRS">Mme</option>
-          <option value="MISS">Mlle</option>
+        <select class="form-control" id="gender" [(ngModel)]="user.gender" name="gender" required>
+          <option [ngValue]="MR">Mr</option>
+          <option [ngValue]="MRS">Mme</option>
+          <option [ngValue]="MISS">Mlle</option>
       </select>
     </div>
     <div class="form-group">
         <label for="lastname">Nom</label>
-        <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="user.lastname">
+        <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="user.lastname" >
     </div>
     <div class="form-group">
         <label for="firstname">Prénom</label>
-        <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="user.firstname">
+        <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="user.firstname" >
     </div>
     <div class="form-group">
         <label for="username">Nom d'utilisateur</label>
-        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username">
+        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username" >
     </div>
     <div class="form-group">
         <label for="birthday">Date de naissance</label>
-        <input type="date" class="form-control" id="birthday" name="birthday" [(ngModel)]="user.birthday">
+        <input type="date" class="form-control" id="birthday" name="birthday" [(ngModel)]="user.birthday" >
     </div>
 
     <div class="form-group">
         <label for="username">Email</label>
-        <input type="text" class="form-control" id="email" name="email" [(ngModel)]="user.email">
+        <input type="text" class="form-control" id="email" name="email" [(ngModel)]="user.email" >
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password">
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" >
     </div>
-    <button type="submit">Créer l'utilisateur</button>
+    <button type="submit" class="btn btn-primary">Créer l'utilisateur</button>
 </form>
