@@ -2,12 +2,24 @@ package com.m2gi.movieMarket.domain.entity.person;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class User extends Person implements Serializable {
+@Table(name = "user")
+public class User extends Person implements Serializable, Principal {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private List<UserRole> userRoles = new ArrayList<>();
+
     @Column(name = "username")
     private String username;
 
@@ -16,6 +28,41 @@ public class User extends Person implements Serializable {
 
     @Column(name = "password")
     private String password;
+
+    public User() {}
+
+    @Override
+    public int getId() {
+        return this.id;
+    }
+
+    @Override
+    public User setId(int id) {
+        this.id = id;
+
+        return this;
+    }
+
+    public List<UserRole> getUserRoles() {
+        return this.userRoles;
+    }
+
+    public boolean hasRole(String role) {
+        for (UserRole userRole : this.getUserRoles()) {
+            if (userRole.hasRole(role)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public User addUserRole(UserRole userRole) {
+
+        this.userRoles.add(userRole);
+
+        return this;
+    }
 
     public String getUsername() {
         return this.username;
@@ -49,5 +96,10 @@ public class User extends Person implements Serializable {
         this.password = hashed;
 
         return this;
+    }
+
+    @Override
+    public String getName() {
+        return this.getFirstname() + " " + this.getLastname();
     }
 }
