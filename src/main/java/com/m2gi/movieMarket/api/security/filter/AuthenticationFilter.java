@@ -1,23 +1,16 @@
-package com.m2gi.movieMarket.api.filter;
+package com.m2gi.movieMarket.api.security.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.m2gi.movieMarket.api.CustomSecurityContext;
-import com.m2gi.movieMarket.api.JWT.JWTTokenNeeded;
-import com.m2gi.movieMarket.api.JWT.JwtSubject;
-import com.m2gi.movieMarket.api.property.PropertyHandler;
-import com.m2gi.movieMarket.api.security.ApiUser;
+import com.m2gi.movieMarket.api.security.CustomSecurityContext;
+import com.m2gi.movieMarket.api.security.user.ApiUser;
 import com.m2gi.movieMarket.api.security.KeyGenerator;
-import com.m2gi.movieMarket.api.security.Role;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureException;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Priority;
-import javax.crypto.spec.SecretKeySpec;
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.ContainerRequestContext;
@@ -26,7 +19,6 @@ import javax.ws.rs.container.PreMatching;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.ext.Provider;
 import java.io.IOException;
-import java.security.Key;
 
 @Provider
 @PreMatching

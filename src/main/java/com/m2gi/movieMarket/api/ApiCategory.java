@@ -14,7 +14,7 @@ import java.util.List;
 @Api(
 	value = "Category Entity"
 )
-public class CategoryApi {
+public class ApiCategory {
 	
 	@EJB
 	private CategoryFacadeLocal categoryReference;

@@ -1,6 +1,6 @@
-package com.m2gi.movieMarket.api;
+package com.m2gi.movieMarket.api.security;
 
-import com.m2gi.movieMarket.api.security.ApiUser;
+import com.m2gi.movieMarket.api.security.user.ApiUser;
 
 import javax.ws.rs.core.SecurityContext;
 import java.security.Principal;

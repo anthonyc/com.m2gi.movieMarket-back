@@ -7,7 +7,7 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 import com.m2gi.movieMarket.api.*;
-import com.m2gi.movieMarket.api.filter.AuthenticationFilter;
+import com.m2gi.movieMarket.api.security.filter.AuthenticationFilter;
 import io.swagger.jaxrs.config.BeanConfig;
 
 @ApplicationPath("/api")
@@ -27,9 +27,9 @@ public class ApplicationConfig extends Application {
     public Set<Class<?>> getClasses() {
         Set<Class<?>> resources = new HashSet();
 
-        resources.add(MovieApi.class);
-        resources.add(CategoryApi.class);
-        resources.add(UserApi.class);
+        resources.add(ApiMovie.class);
+        resources.add(ApiCategory.class);
+        resources.add(ApiUser.class);
         resources.add(AuthenticationFilter.class);
         resources.add(io.swagger.jaxrs.listing.ApiListingResource.class);
         resources.add(io.swagger.jaxrs.listing.SwaggerSerializers.class);

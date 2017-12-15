@@ -1,6 +1,6 @@
 package com.m2gi.movieMarket.api.JWT;
 
-import com.m2gi.movieMarket.api.security.Role;
+import com.m2gi.movieMarket.api.security.user.Role;
 
 import java.util.ArrayList;
 

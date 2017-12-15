@@ -1,4 +1,4 @@
-package com.m2gi.movieMarket.api.security;
+package com.m2gi.movieMarket.api.security.user;
 
 import java.security.Principal;
 import java.util.ArrayList;

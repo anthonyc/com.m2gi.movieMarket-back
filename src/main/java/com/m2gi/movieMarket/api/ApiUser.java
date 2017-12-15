@@ -2,17 +2,14 @@ package com.m2gi.movieMarket.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.m2gi.movieMarket.api.property.PropertyHandler;
-import com.m2gi.movieMarket.api.security.ApiUser;
-import com.m2gi.movieMarket.api.security.InvalidParameterException;
+import com.m2gi.movieMarket.api.security.user.InvalidParameterException;
 import com.m2gi.movieMarket.api.security.KeyGenerator;
-import com.m2gi.movieMarket.api.security.Role;
+import com.m2gi.movieMarket.api.security.user.Role;
 import com.m2gi.movieMarket.domain.entity.person.UserRole;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.swagger.annotations.Api;
 
-import javax.crypto.spec.SecretKeySpec;
 import javax.ejb.EJB;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
@@ -32,7 +29,7 @@ import java.security.Key;
 
 @Path("/user")
 @Api
-public class UserApi {
+public class ApiUser {
 
     @EJB
     private UserFacadeLocal userReference;
@@ -45,7 +42,7 @@ public class UserApi {
         try {
             User user = this.userReference.findByEmail(login);
 
-            ApiUser apiUser = new ApiUser(user.getId(), user.getUsername());
+            com.m2gi.movieMarket.api.security.user.ApiUser apiUser = new com.m2gi.movieMarket.api.security.user.ApiUser(user.getId(), user.getUsername());
 
             for (UserRole userRole : user.getUserRoles()) {
                 apiUser.addRole(Role.roleFromString(userRole.getRole()));
