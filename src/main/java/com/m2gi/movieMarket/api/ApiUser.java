@@ -100,17 +100,8 @@ public class ApiUser {
         return Response.ok(user).build();
     }
 
-   /* @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response authenticate(Credentials credentials) {
-        User user = this.userReference.findByEmail(credentials.getLogin());
-
-
-    }*/
-
     @Path("/")
-    @PUT
+    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(User user, @Context UriInfo uriInfo) {
         int id = this.userReference.create(user);
