@@ -11,13 +11,16 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.swagger.annotations.Api;
 
 import javax.ejb.EJB;
+import javax.ejb.EJBException;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
+import javax.persistence.PersistenceException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
 import com.m2gi.movieMarket.domain.entity.person.User;
 import com.m2gi.movieMarket.domain.repository.person.UserFacadeLocal;
+import org.hibernate.exception.ConstraintViolationException;
 
 import java.net.URI;
 import java.security.Key;
@@ -103,12 +106,20 @@ public class ApiUser {
     @Path("/")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response create(User user, @Context UriInfo uriInfo) {
-        int id = this.userReference.create(user);
-        UriBuilder builder = uriInfo.getAbsolutePathBuilder();
-        builder.path(Integer.toString(id));
+        try {
+            int id = this.userReference.create(user);
+            UriBuilder builder = uriInfo.getAbsolutePathBuilder();
+            builder.path(Integer.toString(id));
 
+            return Response.created(builder.build()).entity(new ApiMessage("User created")).build();
+        } catch (Exception exception) {
+            if (exception.getCause().getCause() instanceof ConstraintViolationException) {
+                throw new BadRequestException(exception.getCause().getCause().getMessage());
+            }
 
-        return Response.created(builder.build()).build();
+            throw new InternalServerException("Internal Server Exception " + exception.getClass().toString());
+        }
     }
 }

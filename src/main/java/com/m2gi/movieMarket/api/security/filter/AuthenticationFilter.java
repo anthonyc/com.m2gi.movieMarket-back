@@ -46,6 +46,8 @@ public class AuthenticationFilter implements ContainerRequestFilter {
             ObjectMapper mapper = new ObjectMapper();
             ApiUser apiUser = mapper.readValue(claimJws.getSubject(), ApiUser.class);
 
+            this.logger.info("#### User id #### " + apiUser.getId());
+
             String scheme = requestContext.getUriInfo().getRequestUri().getScheme();
             requestContext.setSecurityContext(new CustomSecurityContext(apiUser, scheme));
         } catch (SignatureException signatureException) {
