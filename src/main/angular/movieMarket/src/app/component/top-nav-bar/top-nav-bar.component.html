@@ -16,13 +16,11 @@
                 <a class="nav-link" routerLink="/deals">Deals !</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="categorieDropdown" role="button" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="movies" id="categorieDropdown" role="button" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" aria-haspopup="true" aria-expanded="false">
                     Categories
                 </a>
                 <div class="dropdown-menu" aria-labelledby="categorieDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Science Fiction</a>
-                    <a class="dropdown-item" href="#">Comédie gold</a>
+                    <a class="dropdown-item" *ngFor="let category of categories" [routerLink]="['category/movie/', category.name]">{{ category.name }}</a>
                 </div>
             </li>
         </ul>

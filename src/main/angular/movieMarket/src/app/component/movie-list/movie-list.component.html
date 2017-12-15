@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-3">bandeau</div>
+    <div class="col">
+        <div class="card" *ngFor="let movie of movies">
+            <img src="assets/img/movies/{{ movie.img }}" width="50">
+            {{ movie.name }}
+        </div>
+    </div>
+</div>

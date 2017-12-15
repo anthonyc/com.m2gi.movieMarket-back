@@ -27,6 +27,7 @@ export const appRoutes: Routes = [
   { path: '', component: HomePageContentComponent },
   { path: 'movies', component: SearchResultContentComponent },
   { path: 'movies/:id', component: MovieDetailComponent },
+  { path: 'category/movie/:category', component: MovieListComponent },
   { path: 'user/create', component: CreateUserComponent }
 ];
 

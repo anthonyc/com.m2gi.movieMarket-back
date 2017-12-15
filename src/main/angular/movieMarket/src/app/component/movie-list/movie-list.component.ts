@@ -1,6 +1,7 @@
 import { Movie } from '../../model/movie';
 import { MovieService } from '../../service/movie.service';
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-movie-list',
@@ -8,15 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  
   movies: Movie[] = [];
-  finished: boolean = false;
+  finished: Boolean = false;
   error: string;
+  from: 0;
+  to: 20;
 
-  constructor(private movieService: MovieService) {
+  constructor(private movieService: MovieService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    
+    this.movieService.allByCategory(this.route.snapshot.paramMap.get('category'), this.from, this.to).subscribe(
+      value => this.movies = value,
+      error => this.error = 'movieService.all error',
+      () => this.finished = true
+    );
   }
 }
