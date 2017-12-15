@@ -1,5 +1,5 @@
 import { CartService } from './../../service/cart.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Cart } from '../../model/cart';
 
 @Component({
@@ -11,7 +11,7 @@ export class TopNavBarComponent implements OnInit {
 
   title;
 
-  constructor() {
+  constructor(private cs: CartService) {
     this.title = 'Movie Market';
   }
 

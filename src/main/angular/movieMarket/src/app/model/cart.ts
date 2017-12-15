@@ -5,7 +5,10 @@ export class Cart {
     id: number;
     cartDetails: CartDetail[] = [];
 
+    counter: number;
+
     constructor () {
+        this.counter = 0;
     }
 
     public addMovie(movie: Movie) {
@@ -17,6 +20,7 @@ export class Cart {
         }
         const cd = new CartDetail(movie);
         this.cartDetails.push(cd);
+        this.counter++;
     }
 
     public addMovies(movies: Movie[]) {
@@ -43,5 +47,11 @@ export class Cart {
             nb += cartDetail.quantity;
         }
         return nb;
+    }
+
+    public copy(c: Cart) {
+        this.id = c.id;
+        this.cartDetails = c.cartDetails;
+        this.counter = c.counter;
     }
 }
