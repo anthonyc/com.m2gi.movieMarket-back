@@ -16,5 +16,7 @@ public interface UserFacadeLocal {
 
 	User find(Object id);
 	
+	User findByEmail(String email);
+	
 	List<User> findAll(int from, int to);
 }
