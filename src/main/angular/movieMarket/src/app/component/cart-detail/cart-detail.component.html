@@ -1,0 +1,21 @@
+<form>
+    <div class="cartDetail row">
+        <div class="cartDetailImg col">
+            <img src="assets/img/movies/{{element.movie.img}}">
+        </div>
+        <div class="col">
+            <span class="cartDetailTitle">{{element.movie.name}}</span>
+            <span class="cartDetailPrice">Price : {{element.movie.price}}</span>
+        </div>
+        <div class="col-6">
+            {{element.movie.description}}
+        </div>
+        <div class="col">
+            <span class="cartDetailQuantity">Quantity : {{element.quantity}}
+            <input name="test" type="number" [(ngModel)]="element.quantity">
+        </span>
+
+            <span class="cartDetailTotalPrice">Total Price : {{element.quantity * element.movie.price}}</span>
+        </div>
+    </div>
+</form>

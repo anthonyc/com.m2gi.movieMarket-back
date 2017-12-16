@@ -13,7 +13,8 @@ export class Cart {
 
     public addMovie(movie: Movie) {
         for (const cartDetail of this.cartDetails) {
-            if (movie === cartDetail.movie) {
+            // Not a good way to check if movies are equal but works
+            if (movie.name === cartDetail.movie.name) {
                 cartDetail.quantity++;
                 return;
             }

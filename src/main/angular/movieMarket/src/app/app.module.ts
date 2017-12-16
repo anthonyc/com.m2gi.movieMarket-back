@@ -22,6 +22,7 @@ import { UserService } from './service/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreButtonComponentComponent } from './component/store-button-component/store-button-component.component';
 import { CartComponent } from './component/cart/cart.component';
+import { CartDetailComponent } from './component/cart-detail/cart-detail.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomePageContentComponent },
@@ -44,7 +45,8 @@ export const appRoutes: Routes = [
     MovieHorizontalScrollComponent,
     CreateUserComponent,
     StoreButtonComponentComponent,
-    CartComponent
+    CartComponent,
+    CartDetailComponent
   ],
   imports: [
     BrowserModule,
