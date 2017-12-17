@@ -11,28 +11,29 @@ import java.util.Set;
 import javax.persistence.*;
 
 import com.m2gi.movieMarket.domain.entity.movie.*;
+
 @Entity
-@Table(name="cartDetail")
+@Table(name="cart_detail")
 public class CartDetail implements Serializable {
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO )
     private int id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "cart", referencedColumnName = "cart_id")
-    private Cart cart;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "movie", referencedColumnName = "movie_id")
+    @JoinColumn(name = "movie", referencedColumnName = "id")
     private Movie movie;
-
-    // @ManyToOne(optionnal = false, targetEntity = Movie.Class);
 
     @Column(name = "quantity")
     private int quantity;
     
     public int getId() {
         return this.id;
+    }
+
+    public CartDetail setId(int id) {
+        this.id = id;
+
+        return this;
     }
 
     public int getQuantity() {

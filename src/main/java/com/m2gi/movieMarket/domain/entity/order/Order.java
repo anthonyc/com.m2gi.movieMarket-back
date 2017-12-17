@@ -7,7 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
-import java.util.Collection;
+import java.util.List;
+import java.util.ArrayList;
 
 import javax.persistence.*;
 
@@ -18,10 +19,17 @@ public class Order implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
     
-    @OneToMany(mappedBy = "order")
-    private Collection<OrderDetail> orderDetailCollection;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name="order_id", referencedColumnName="id")
+    private List<OrderDetail> orderDetailList = new ArrayList<OrderDetail>();
     
     public int getId() {
         return this.id;
+    }
+
+    public Order setId(int id) {
+        this.id = id;
+
+        return this;
     }
 }

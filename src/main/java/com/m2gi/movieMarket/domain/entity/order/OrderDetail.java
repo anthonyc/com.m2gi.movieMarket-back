@@ -13,18 +13,14 @@ import javax.persistence.*;
 import com.m2gi.movieMarket.domain.entity.movie.*;
 
 @Entity
-@Table(name="orderDetail")
+@Table(name="order_detail")
 public class OrderDetail implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "order", referencedColumnName = "order_id")
-    private Order order;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "movie", referencedColumnName = "movie_id")
+    @JoinColumn(name = "movie", referencedColumnName = "id")
     private Movie movie;
 
     @Column(name = "quantity")
@@ -32,6 +28,12 @@ public class OrderDetail implements Serializable {
     
     public int getId() {
         return this.id;
+    }
+
+    public OrderDetail setId(int id) {
+        this.id = id;
+
+        return this;
     }
 
     public int getQuantity() {

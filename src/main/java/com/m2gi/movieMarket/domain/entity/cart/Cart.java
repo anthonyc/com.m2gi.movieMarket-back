@@ -7,7 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
-import java.util.Collection;
+import java.util.List;
+import java.util.ArrayList;
 
 import javax.persistence.*;
 
@@ -15,15 +16,21 @@ import javax.persistence.*;
 @Table(name="cart")
 public class Cart implements Serializable {
     @Id
-    @Column(name="cart_id")
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
 
-    @OneToMany(mappedBy = "cart")
-    private Collection<CartDetail> cartDetailCollection;
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name="cart_id", referencedColumnName="id")
+    private List<CartDetail> cartDetailList = new ArrayList<CartDetail>();
     
     
     public int getId() {
         return this.id;
+    }
+
+    public Cart setId(int id) {
+        this.id = id;
+
+        return this;
     }
 }
