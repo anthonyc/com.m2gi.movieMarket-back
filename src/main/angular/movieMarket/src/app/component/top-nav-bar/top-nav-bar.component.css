@@ -1,3 +1,21 @@
+.navbar-header {
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.logo, .logo-title {
+  font-family: "Open Sans Condensed", Helvetica, Arial, sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #78abc0;
+}
+
+.logo-title span {
+  font-weight: lighter;
+}
+
+/*
 #rechercheForm {
     margin: 0 !important
 }
@@ -58,3 +76,4 @@
     visibility: hidden !important;
     transition: visibility 0s 0.3s !important;
 }
+*/

@@ -1,12 +1,12 @@
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
+<!--<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    &lt;!&ndash; Indicators &ndash;&gt;
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
 
-    <!-- Wrapper for slides -->
+    &lt;!&ndash; Wrapper for slides &ndash;&gt;
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="https://www.w3schools.com/bootstrap/la.jpg" alt="Los Angeles">
@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <!-- Left and right controls -->
+    &lt;!&ndash; Left and right controls &ndash;&gt;
     <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
         <span class="carousel-control-prev-icon"></span>
         <span class="sr-only">Previous</span>
@@ -30,9 +30,7 @@
         <span class="carousel-control-next-icon"></span>
         <span class="sr-only">Next</span>
     </a>
-</div>
-
-<app-breadcrumb></app-breadcrumb>
+</div>-->
 
 <div *ngFor="let category of categories">
     <app-movie-horizontal-scroll [categoryName]=category.name [from]=0 [to]=10></app-movie-horizontal-scroll>

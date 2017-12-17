@@ -11,11 +11,8 @@ export class TopNavBarComponent implements OnInit {
   categories: Category[];
   error = null;
   finished = false;
-  title;
 
-  constructor(private categoryService: CategoryService) {
-    this.title = 'Movie Market';
-  }
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit() {
     this.categoryService.all().subscribe(
