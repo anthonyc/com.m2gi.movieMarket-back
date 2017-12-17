@@ -38,6 +38,15 @@
   width: 100%;
 }
 
+.box-product h5 {
+  padding-top: 15px;
+}
+
+.box-product a {
+  text-decoration: none;
+  color: #606060;
+}
+
 .filter-sidebar {
   margin-bottom: 25px;
 }
