@@ -22,18 +22,4 @@ public class ApplicationConfig extends Application {
         beanConfig.setResourcePackage("com.m2gi.movieMarket.api");
         beanConfig.setScan(true);
     }
-
-	@Override
-    public Set<Class<?>> getClasses() {
-        Set<Class<?>> resources = new HashSet();
-
-        resources.add(ApiMovie.class);
-        resources.add(ApiCategory.class);
-        resources.add(ApiUser.class);
-        resources.add(AuthenticationFilter.class);
-        resources.add(io.swagger.jaxrs.listing.ApiListingResource.class);
-        resources.add(io.swagger.jaxrs.listing.SwaggerSerializers.class);
-
-        return resources;
-    }
 }

@@ -3,19 +3,19 @@ package com.m2gi.movieMarket.api.security.user;
 import java.security.Principal;
 import java.util.ArrayList;
 
-public class ApiUser implements Principal {
+public class User implements Principal {
     private int id;
     private String name;
     private ArrayList<Role> roles = new ArrayList<>();
 
-    public ApiUser() {}
+    public User() {}
 
-    public ApiUser(int id, String name) {
+    public User(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public ApiUser(String name, Role role) {
+    public User(String name, Role role) {
         this.name = name;
         this.addRole(role);
     }
@@ -33,7 +33,7 @@ public class ApiUser implements Principal {
         return roles;
     }
 
-    public ApiUser addRole(Role role) {
+    public User addRole(Role role) {
         this.roles.add(role);
 
         return this;

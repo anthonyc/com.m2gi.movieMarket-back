@@ -1,7 +1,6 @@
 package com.m2gi.movieMarket.api.security.user;
 
 public enum Role {
-    ROLE_APP ("ROLE_APP"),
     ROLE_USER("ROLE_USER");
 
     private String role;
@@ -22,8 +21,6 @@ public enum Role {
 
     public static Role roleFromString(String stringRole) {
         switch (stringRole) {
-            case "ROLE_APP":
-                return Role.ROLE_APP;
             case "ROLE_USER":
                 return Role.ROLE_USER;
             default:

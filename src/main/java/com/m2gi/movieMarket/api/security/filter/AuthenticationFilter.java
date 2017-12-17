@@ -1,8 +1,10 @@
 package com.m2gi.movieMarket.api.security.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.m2gi.movieMarket.api.JWT.JWTTokenNeeded;
+import com.m2gi.movieMarket.api.NotAuthorizedException;
 import com.m2gi.movieMarket.api.security.CustomSecurityContext;
-import com.m2gi.movieMarket.api.security.user.ApiUser;
+import com.m2gi.movieMarket.api.security.user.User;
 import com.m2gi.movieMarket.api.security.KeyGenerator;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -11,17 +13,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Priority;
-import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
-import javax.ws.rs.container.PreMatching;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 
 @Provider
-@PreMatching
+@JWTTokenNeeded
 @Priority(Priorities.AUTHENTICATION)
 public class AuthenticationFilter implements ContainerRequestFilter {
     private static final String AUTHENTICATION_SCHEME = "Bearer";
@@ -44,7 +44,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
             Claims claimJws =  this.validateToken(token);
 
             ObjectMapper mapper = new ObjectMapper();
-            ApiUser apiUser = mapper.readValue(claimJws.getSubject(), ApiUser.class);
+            User apiUser = mapper.readValue(claimJws.getSubject(), User.class);
 
             this.logger.info("#### User id #### " + apiUser.getId());
 

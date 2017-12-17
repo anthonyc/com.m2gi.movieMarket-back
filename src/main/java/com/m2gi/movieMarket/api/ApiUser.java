@@ -2,6 +2,7 @@ package com.m2gi.movieMarket.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.m2gi.movieMarket.api.JWT.JWTTokenNeeded;
 import com.m2gi.movieMarket.api.security.user.InvalidParameterException;
 import com.m2gi.movieMarket.api.security.KeyGenerator;
 import com.m2gi.movieMarket.api.security.user.Role;
@@ -11,16 +12,16 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.swagger.annotations.Api;
 
 import javax.ejb.EJB;
-import javax.ejb.EJBException;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
-import javax.persistence.PersistenceException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
 import com.m2gi.movieMarket.domain.entity.person.User;
 import com.m2gi.movieMarket.domain.repository.person.UserFacadeLocal;
 import org.hibernate.exception.ConstraintViolationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URI;
 import java.security.Key;
@@ -37,6 +38,8 @@ public class ApiUser {
     @EJB
     private UserFacadeLocal userReference;
 
+    private Logger logger = LoggerFactory.getLogger(ApiUser.class);
+
     @POST
     @Path("/login")
     @Produces(MediaType.APPLICATION_JSON)
@@ -45,7 +48,7 @@ public class ApiUser {
         try {
             User user = this.userReference.findByEmail(login);
 
-            com.m2gi.movieMarket.api.security.user.ApiUser apiUser = new com.m2gi.movieMarket.api.security.user.ApiUser(user.getId(), user.getUsername());
+            com.m2gi.movieMarket.api.security.user.User apiUser = new com.m2gi.movieMarket.api.security.user.User(user.getId(), user.getUsername());
 
             for (UserRole userRole : user.getUserRoles()) {
                 apiUser.addRole(Role.roleFromString(userRole.getRole()));
@@ -60,18 +63,23 @@ public class ApiUser {
                     .signWith(SignatureAlgorithm.HS512, key)
                     .compact();
 
-            if (!Jwts.parser().setSigningKey(key).parseClaimsJws(compactJws).getBody().getSubject().equals(user.getEmail())) {
+            if (!Jwts.parser().setSigningKey(key).parseClaimsJws(compactJws).getBody().getSubject().equals(objectMapper.writeValueAsString(apiUser))) {
+                this.logger.error("Error during JWT token verification");
                 throw new InternalServerException("Internal server error");
             }
 
             return Response.created(URI.create("/auth")).entity(new ApiMessage(compactJws)).build();
         } catch (NoResultException noResultException) {
+            this.logger.error(noResultException.getStackTrace().toString());
             throw new NotFoundException("Entity User not found with login : " + login);
         } catch (NonUniqueResultException nonUniqueResultException) {
+            this.logger.error(nonUniqueResultException.getStackTrace().toString());
             return Response.serverError().build();
         } catch (InvalidParameterException invalidParameterException) {
+            this.logger.error(invalidParameterException.getStackTrace().toString());
             throw new InternalServerException("Internal server error");
         } catch (JsonProcessingException jsonProcessingException) {
+            this.logger.error(jsonProcessingException.getStackTrace().toString());
             throw new InternalServerException("Internal server error");
         }
     }
@@ -79,7 +87,12 @@ public class ApiUser {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response find(@PathParam("id") int id) {
+    @JWTTokenNeeded
+    public Response find(@Context SecurityContext securityContext, @PathParam("id") int id) {
+
+        if (!securityContext.isUserInRole(String.valueOf(Role.ROLE_USER))) {
+            throw new NotAuthorizedException("You are not authorized at find the user : " + id);
+        }
 
     	User user = this.userReference.find(id);
     	
