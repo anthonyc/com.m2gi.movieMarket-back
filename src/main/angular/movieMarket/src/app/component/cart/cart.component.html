@@ -1,7 +1,8 @@
 <h1>
     Bienvenue sur le panier !
 </h1>
-<div *ngFor="let movie of cs.get().cartDetails">
-    <app-cart-detail [element]="movie"></app-cart-detail>
-
-</div>
+<form>
+    <div *ngFor="let movie of cart.cartDetails; let i = index">
+        <app-cart-detail [idx]="i" [element]="movie"></app-cart-detail>
+    </div>
+</form>

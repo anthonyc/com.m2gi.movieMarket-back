@@ -1,3 +1,4 @@
+import { CartService } from './../../service/cart.service';
 import { CartDetail } from './../../model/cart-detail';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -11,11 +12,22 @@ export class CartDetailComponent implements OnInit {
   @Input()
   element: CartDetail;
 
-  constructor() {
+  @Input()
+  idx: number;
+
+  constructor(private cs: CartService) {
   }
 
   ngOnInit() {
+    console.log(this.idx);
   }
 
+  test(event) {
+    console.log(event);
+  }
 
+  valueChanged(event) {
+    console.log(event.target.value);
+    this.element.quantity = event.target.value;
+  }
 }

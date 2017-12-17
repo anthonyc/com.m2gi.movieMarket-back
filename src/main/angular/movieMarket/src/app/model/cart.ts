@@ -34,6 +34,26 @@ export class Cart {
         this.cartDetails = movies;
     }
 
+    public changeMovieQuantity(movie: CartDetail | Movie, quantity) {
+        // get the actual film we want to increase the quantity of within the cart
+        let film: Movie;
+        if (movie instanceof CartDetail) {
+            console.log('PLOP');
+            film = movie.movie;
+        } else {
+            film = movie;
+        }
+
+        // get the cartDetail associated with the film
+        for (const cartDetail of this.cartDetails) {
+            if (cartDetail.movie.name === film.name) {
+                cartDetail.quantity = quantity;
+                return;
+            }
+        }
+        // Potentially an error
+    }
+
     public toString(): String {
         let s: String = '';
         for (const m of this.cartDetails) {
