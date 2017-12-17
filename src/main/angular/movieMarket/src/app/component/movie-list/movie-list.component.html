@@ -1,9 +1,34 @@
 <div class="row">
-    <div class="col-3">bandeau</div>
-    <div class="col">
-        <div class="card" *ngFor="let movie of movies">
-            <img src="assets/img/movies/{{ movie.img }}" width="50">
-            {{ movie.name }}
+    <div class="col-md-3">
+      <div class="inner-box">
+        <h5>Price</h5>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="category-list">
+        <div class="tab-box ">
+          <div class="tab-filter">
+            <select class="form-control col-md-2">
+              <option>Sort by </option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+            </select>
+          </div>
         </div>
+        <div class="item-list" *ngFor="let movie of movies">
+          <div class="row">
+            <div class="col-md2">
+              <img src="assets/img/movies/{{ movie.img }}" width="80px">
+            </div>
+            <div class="col-sm-7">
+              <h5>{{ movie.name }}</h5>
+              <span class="info-raw">
+                {{ movie.description.substr(0, 50) }}...
+              </span>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+      </div>
     </div>
 </div>
