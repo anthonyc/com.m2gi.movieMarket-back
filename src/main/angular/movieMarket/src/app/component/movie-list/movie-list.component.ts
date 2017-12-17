@@ -9,6 +9,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
+  categoryName: String = this.route.snapshot.paramMap.get('category');
   movies: Movie[] = [];
   finished: Boolean = false;
   error: string;
@@ -19,7 +20,7 @@ export class MovieListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movieService.allByCategory(this.route.snapshot.paramMap.get('category'), this.from, this.to).subscribe(
+    this.movieService.allByCategory(this.categoryName, this.from, this.to).subscribe(
       value => this.movies = value,
       error => this.error = 'movieService.all error',
       () => this.finished = true

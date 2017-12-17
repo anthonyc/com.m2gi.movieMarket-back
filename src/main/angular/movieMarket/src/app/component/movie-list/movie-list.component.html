@@ -1,32 +1,60 @@
 <div class="row">
     <div class="col-md-3">
-      <div class="inner-box">
-        <h5>Price</h5>
+      <div class="filter-sidebar">
+        <div class="title">
+          <h5>Filtre Actif</h5>
+        </div>
+        <ul>
+          <li>
+            Categories: T-Shirts <a href="" class="remove-filter" data-toggle="tooltip" title="" data-original-title="Remove">
+            <i class="fa fa-remove"></i></a>
+          </li>
+        </ul>
       </div>
     </div>
+
     <div class="col-md-9">
-      <div class="category-list">
-        <div class="tab-box ">
-          <div class="tab-filter">
-            <select class="form-control col-md-2">
-              <option>Sort by </option>
-              <option>Price: Low to High</option>
-              <option>Price: High to Low</option>
+      <div class="title">
+        <h5>{{ categoryName }}</h5>
+      </div>
+
+      <div class="product-sorting-bar">
+        <div>
+          <form class="form-inline">
+            <label class="mr-sm-2" for="inlineFormCustomSelectPref">Preference</label>
+            <select class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelectPref">
+              <option selected>Choose...</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
             </select>
-          </div>
+          </form>
         </div>
-        <div class="item-list" *ngFor="let movie of movies">
-          <div class="row">
-            <div class="col-md2">
-              <img src="assets/img/movies/{{ movie.img }}" width="80px">
+        <div>
+          <form class="form-inline">
+            <label class="mr-sm-2" for="inlineFormCustomSelectPref">Preference</label>
+            <select class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelectPref">
+              <option selected>Choose...</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div *ngFor="let movie of movies; let i = index" class="col-xs-6 col-md-4 col-lg-3 box-product-outer">
+          <div class="box-product">
+            <div class="img-wrapper">
+              <a href="#">
+                <img src="assets/img/movies/{{ movie.img }}">
+              </a>
             </div>
-            <div class="col-sm-7">
-              <h5>{{ movie.name }}</h5>
-              <span class="info-raw">
-                {{ movie.description.substr(0, 50) }}...
-              </span>
+            <h5>{{ movie.name }}</h5>
+            {{ movie.description.substr(0, 50) }}...
+            <div class="price">
+              {{ movie.price }}
             </div>
-            <div class="col-md-3"></div>
           </div>
         </div>
       </div>
