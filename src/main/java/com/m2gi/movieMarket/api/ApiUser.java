@@ -14,12 +14,12 @@ import io.swagger.annotations.Api;
 import javax.ejb.EJB;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
 import com.m2gi.movieMarket.domain.entity.person.User;
 import com.m2gi.movieMarket.domain.repository.person.UserFacadeLocal;
-import org.hibernate.exception.ConstraintViolationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -120,7 +120,7 @@ public class ApiUser {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(User user, @Context UriInfo uriInfo) {
+    public Response create(@Valid User user, @Context UriInfo uriInfo) {
         try {
             int id = this.userReference.create(user);
             UriBuilder builder = uriInfo.getAbsolutePathBuilder();
@@ -128,11 +128,7 @@ public class ApiUser {
 
             return Response.created(builder.build()).entity(new ApiMessage("User created")).build();
         } catch (Exception exception) {
-            if (exception.getCause().getCause() instanceof ConstraintViolationException) {
-                throw new BadRequestException(exception.getCause().getCause().getMessage());
-            }
-
-            throw new InternalServerException("Internal Server Exception " + exception.getClass().toString());
+            throw new InternalServerException("Internal Server Exception ");
         }
     }
 }
