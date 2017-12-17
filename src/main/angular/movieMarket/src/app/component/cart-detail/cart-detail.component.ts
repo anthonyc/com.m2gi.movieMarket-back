@@ -1,3 +1,4 @@
+import { CartComponent } from './../cart/cart.component';
 import { CartService } from './../../service/cart.service';
 import { CartDetail } from './../../model/cart-detail';
 import { Component, OnInit, Input } from '@angular/core';
@@ -26,8 +27,7 @@ export class CartDetailComponent implements OnInit {
     console.log(event);
   }
 
-  valueChanged(event) {
-    console.log(event.target.value);
-    this.element.quantity = event.target.value;
+  removeMovie(event) {
+    console.log(event);
   }
 }

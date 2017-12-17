@@ -35,8 +35,23 @@ export class Cart {
     }
 
     public changeMovieQuantity(movie: CartDetail | Movie, quantity) {
-        // get the actual film we want to increase the quantity of within the cart
+        const cartDetailIdx = this.getCartDetailIdx(movie);
+        if (cartDetailIdx !== -1) {
+            this.cartDetails[cartDetailIdx].quantity = quantity;
+        }
+    }
+
+    public removeMovie(movie: CartDetail | Movie) {
+        const cartDetailIdx = this.getCartDetailIdx(movie);
+        console.log(typeof movie);
+        if (cartDetailIdx !== -1) {
+            this.cartDetails.splice(cartDetailIdx, 1);
+        }
+    }
+
+    private getCartDetailIdx(movie: CartDetail | Movie): number {
         let film: Movie;
+
         if (movie instanceof CartDetail) {
             console.log('PLOP');
             film = movie.movie;
@@ -45,13 +60,12 @@ export class Cart {
         }
 
         // get the cartDetail associated with the film
-        for (const cartDetail of this.cartDetails) {
-            if (cartDetail.movie.name === film.name) {
-                cartDetail.quantity = quantity;
-                return;
+        for (let i = 0; i < this.cartDetails.length; i++) {
+            if (this.cartDetails[i].movie.name === film.name) {
+                return i;
             }
         }
-        // Potentially an error
+        return -1;
     }
 
     public toString(): String {

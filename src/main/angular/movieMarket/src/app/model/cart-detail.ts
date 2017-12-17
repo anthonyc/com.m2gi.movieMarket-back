@@ -5,8 +5,8 @@ export class CartDetail {
     movie: Movie;
     quantity: number;
 
-    constructor(m: Movie) {
+    constructor(m: Movie, qt: number = 1) {
         this.movie = m;
-        this.quantity = 1;
+        this.quantity = qt;
     }
 }

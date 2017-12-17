@@ -11,8 +11,9 @@
     </div>
     <div class="col">
         <span class="cartDetailQuantity">Quantity : {{element.quantity}}
-                <input min="1" name="qt{{idx}}" type="number" [(ngModel)]="element.quantity" />
-            </span>
+                <input min="1" max="{{element.movie.quantity}}"name="qt{{idx}}" type="number" [(ngModel)]="element.quantity" />
+        </span>
+        <button class="deleteMovie" (click)="removeMovie($event)">Supprimer le film du panier</button>
 
         <span class="cartDetailTotalPrice">Total Price : {{element.quantity * element.movie.price}}</span>
     </div>
