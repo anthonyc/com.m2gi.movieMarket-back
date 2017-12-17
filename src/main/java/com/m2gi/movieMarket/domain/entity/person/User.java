@@ -3,6 +3,8 @@ package com.m2gi.movieMarket.domain.entity.person;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.security.Principal;
 import java.util.ArrayList;
@@ -21,12 +23,16 @@ public class User extends Person implements Serializable, Principal {
     private List<UserRole> userRoles = new ArrayList<>();
 
     @Column(name = "username", nullable = false)
+    @NotNull
     private String username;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
+    @NotNull
     private String email;
 
     @Column(name = "password", nullable = false)
+    @NotNull
+    @Min(8)
     private String password;
 
     public User() {}
