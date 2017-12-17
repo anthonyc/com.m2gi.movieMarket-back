@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Http, HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocalStorageModule } from 'angular-2-local-storage';
@@ -19,9 +19,12 @@ import { NgxCarouselModule } from 'ngx-carousel';
 import { CategoryService } from './service/category.service';
 import { CartService } from './service/cart.service';
 import { CreateUserComponent } from './component/create-user/create-user.component';
-import 'hammerjs';
 import { UserService } from './service/user.service';
-import { HttpClientModule } from '@angular/common/http';
+import { ShowErrorsComponent } from './component/show-errors/show-errors.component';
+import { FormsHelperService } from "./service/forms-helper.service";
+import { HttpClientModule } from "@angular/common/http";
+import 'hammerjs';
+import {DatePickerModule} from "angular-io-datepicker";
 
 export const appRoutes: Routes = [
   { path: '', component: HomePageContentComponent },
@@ -41,7 +44,8 @@ export const appRoutes: Routes = [
     BreadcrumbComponent,
     SearchResultContentComponent,
     MovieHorizontalScrollComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    ShowErrorsComponent
   ],
   imports: [
     LocalStorageModule.withConfig({
@@ -53,13 +57,16 @@ export const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    NgxCarouselModule
+    ReactiveFormsModule,
+    NgxCarouselModule,
+    DatePickerModule
   ],
   providers: [
     MovieService,
     CategoryService,
     UserService,
-    CartService
+    CartService,
+    FormsHelperService
   ],
   bootstrap: [AppComponent]
 })
