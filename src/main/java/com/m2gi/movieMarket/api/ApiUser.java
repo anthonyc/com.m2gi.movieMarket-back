@@ -32,7 +32,9 @@ import java.security.Key;
 //import org.simplejavamail.mailer.config.TransportStrategy;
 
 @Path("/user")
-@Api
+@Api(
+    value = "User Entity"
+)
 public class ApiUser {
 
     @EJB
