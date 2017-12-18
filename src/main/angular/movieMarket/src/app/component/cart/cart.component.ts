@@ -20,4 +20,12 @@ export class CartComponent implements OnInit, OnChanges {
   ngOnChanges() {
   }
 
+  cartPrice(): number {
+    let res = 0;
+    const cart = this.cartService.get().cartDetails.forEach(
+      cd => res += cd.quantity * cd.movie.price
+    );
+    return res;
+  }
+
 }

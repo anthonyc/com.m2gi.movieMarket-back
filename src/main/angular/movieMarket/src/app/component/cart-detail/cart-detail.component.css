@@ -1,12 +1,13 @@
 .cartDetail {
-    border: solid 1px black;
+    margin-bottom: 1em;
+    padding: 1em;
 }
 
 .cartDetailImg img {
     display: block;
     margin-top: auto;
-    max-width: 150px;
-    max-height: 200px;
+    width: 150px;
+    height: 190px;
 }
 
 .cartDetailImg {
