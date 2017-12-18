@@ -6,7 +6,7 @@
         </div>
         <ul>
           <li>
-            Categories: T-Shirts <a href="" class="remove-filter" data-toggle="tooltip" title="" data-original-title="Remove">
+            Categories: {{ categoryName }} <a href="" class="remove-filter" data-toggle="tooltip" title="" data-original-title="Remove">
             <i class="fa fa-remove"></i></a>
           </li>
         </ul>
@@ -22,18 +22,18 @@
         <div>
           <form class="form-inline">
             <label class="mr-sm-2" for="inlineFormCustomSelectPref">Preference</label>
-            <select class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelectPref">
+            <select class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelectPref" [(ngModel)]="priceFilter">
               <option selected>Choose...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option value="1">Prix croissant</option>
+              <option value="2">Prix décroissant</option>
+              <option value="3">Nom</option>
             </select>
           </form>
         </div>
         <div>
           <form class="form-inline">
             <label class="mr-sm-2" for="inlineFormCustomSelectPref">Preference</label>
-            <select class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelectPref">
+            <select class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelectPref2">
               <option selected>Choose...</option>
               <option value="1">One</option>
               <option value="2">Two</option>
@@ -52,11 +52,8 @@
             </div>
             <a [routerLink]="['/movies', movie.id]">
               <h5>{{ movie.name }}</h5>
-              {{ movie.description.substr(0, 50) }}...
-              <div class="price">
-                {{ movie.price }}
-              </div>
             </a>
+            <app-store-button-component [movie]="movie"></app-store-button-component>
           </div>
         </div>
       </div>
