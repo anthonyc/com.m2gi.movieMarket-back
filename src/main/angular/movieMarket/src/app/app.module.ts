@@ -25,6 +25,7 @@ import { StoreButtonComponentComponent } from './component/store-button-componen
 import { CartComponent } from './component/cart/cart.component';
 import { CartDetailComponent } from './component/cart-detail/cart-detail.component';
 import 'hammerjs';
+import { LoginComponent } from './component/login/login.component';
 
 
 export const appRoutes: Routes = [
@@ -51,7 +52,8 @@ export const appRoutes: Routes = [
     ShowErrorsComponent,
     StoreButtonComponentComponent,
     CartComponent,
-    CartDetailComponent
+    CartDetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

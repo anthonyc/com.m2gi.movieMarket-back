@@ -48,6 +48,7 @@ public class ApiUser {
     public Response login(@FormParam("login") String login, @FormParam("password") String password) {
 
         try {
+            this.logger.info("#### ApiUser:login login parameter : " + login);
             User user = this.userReference.findByEmail(login);
 
             com.m2gi.movieMarket.api.security.user.User apiUser = new com.m2gi.movieMarket.api.security.user.User(user.getId(), user.getUsername());

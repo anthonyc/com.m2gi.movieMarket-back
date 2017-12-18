@@ -55,7 +55,7 @@
         <label for="email" class="control-label required">Email</label>
         <input type="email" class="form-control" id="email" formControlName="email"
                [ngClass]="formsHelper.displayFieldCss(userForm.controls.email)"  [(ngModel)]="user.email"
-                placeholder="Entrez votre email">
+                placeholder="email@example.com">
         <show-errors [control]="userForm.controls.email"></show-errors>
     </div>
     <div formGroupName="passwords" class="well well-lg">
