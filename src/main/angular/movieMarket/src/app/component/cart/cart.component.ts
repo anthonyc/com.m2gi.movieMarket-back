@@ -28,4 +28,8 @@ export class CartComponent implements OnInit, OnChanges {
     return res;
   }
 
+  validate() {
+    console.log('Validation du form');
+  }
+
 }

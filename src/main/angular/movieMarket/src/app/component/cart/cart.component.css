@@ -1,26 +1,26 @@
-.cartDetail {
-    border: solid 1px black;
+.infoValidate .btn {
+    float: right
 }
 
-.cartDetailImg img {
-    display: block;
-    margin-top: auto;
-    max-width: 150px;
-    max-height: 200px;
+.prixTotal {
+    line-height: 34px;
 }
 
-.cartDetailImg {
-    width: 150px;
-    height: 200px;
+.alert>div:after {
+    clear: both;
+    content: '';
+    display: table;
 }
 
-.cartDetailQuantity,
-.cartDetailTotalPrice,
-.cartDetailTitle,
-.cartDetailPrice {
-    display: block;
-}
 
-.vide {
-    color: red !important;
-}
+/* 
+@media(min-width: 400px) {
+    .infoValidate {
+        position: fixed;
+        bottom: 0px;
+        left: 20%;
+        width: 60%;
+        z-index: 9999999;
+        opacity: .8;
+    }
+} */
