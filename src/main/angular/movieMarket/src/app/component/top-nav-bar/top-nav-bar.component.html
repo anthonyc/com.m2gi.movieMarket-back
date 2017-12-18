@@ -26,12 +26,13 @@
         <div class="btn-group">
           <button type="button" class="btn btn-light btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-user" aria-hidden="true"></i>
+            {{ authenticateService.getName() }}
           </button>
           <div class="dropdown-menu">
             <app-login></app-login>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">New around here? Sign up</a>
-            <a class="dropdown-item" href="#">Forgot password?</a>
+            <a class="dropdown-item" href="#">Nouvel utilisateur ? Créez un compte</a>
+            <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
           </div>
         </div>
       </li>

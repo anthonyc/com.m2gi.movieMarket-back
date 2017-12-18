@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { User } from '../model/user';
 import { Response } from '@angular/http/src/static_response';
 import {log} from "util";
+import {Authenticate} from "../model/authenticate";
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -29,13 +30,13 @@ export class UserService {
       httpOptions);
   }
 
-  public login(login: string, password: string): Observable<String> {
+  public login(login: string, password: string): Observable<Authenticate> {
     const body = new HttpParams()
       .set('login', login)
       .set('password', password);
 
-    return this.http.post(
-      '/api/user/login', body.toString(),
+    return this.http.post<Authenticate>(
+      '/api/authenticate', body.toString(),
       httpOptionsForm
     );
   }

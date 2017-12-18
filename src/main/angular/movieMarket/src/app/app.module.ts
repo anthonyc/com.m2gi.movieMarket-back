@@ -26,6 +26,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { CartDetailComponent } from './component/cart-detail/cart-detail.component';
 import 'hammerjs';
 import { LoginComponent } from './component/login/login.component';
+import {AuthenticateService} from "./service/authenticate.service";
 
 
 export const appRoutes: Routes = [
@@ -69,7 +70,8 @@ export const appRoutes: Routes = [
     CategoryService,
     UserService,
     CartService,
-    FormsHelperService
+    FormsHelperService,
+    AuthenticateService
   ],
   bootstrap: [AppComponent]
 })
