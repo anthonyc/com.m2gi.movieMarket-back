@@ -20,6 +20,15 @@
 
       </form>
     </div>
+
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="???">Connexion</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ({{ cartService.get().numberOfItem() }})</a>
+      </li>
+    </ul>
   </div>
 </nav>
 
@@ -44,15 +53,6 @@
                 <div class="dropdown-menu" aria-labelledby="categorieDropdown">
                     <a class="dropdown-item" *ngFor="let category of categories" [routerLink]="['category/movie/', category.name]">{{ category.name }}</a>
                 </div>
-            </li>
-        </ul>
-
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" routerLink="???">Connexion</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" routerLink="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ({{ cartService.get().numberOfItem() }})</a>
             </li>
         </ul>
     </div>
