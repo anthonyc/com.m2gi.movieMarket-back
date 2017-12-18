@@ -21,7 +21,6 @@ import { UserService } from './service/user.service';
 import { ShowErrorsComponent } from './component/show-errors/show-errors.component';
 import { FormsHelperService } from "./service/forms-helper.service";
 import { HttpClientModule } from "@angular/common/http";
-import {DatePickerModule} from "angular-io-datepicker";
 import { StoreButtonComponentComponent } from './component/store-button-component/store-button-component.component';
 import { CartComponent } from './component/cart/cart.component';
 import { CartDetailComponent } from './component/cart-detail/cart-detail.component';
@@ -61,8 +60,7 @@ export const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
-    NgxCarouselModule,
-    DatePickerModule
+    NgxCarouselModule
   ],
   providers: [
     MovieService,

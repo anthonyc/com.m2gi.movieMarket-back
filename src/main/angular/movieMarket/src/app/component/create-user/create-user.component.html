@@ -25,24 +25,25 @@
     <div class="form-group">
         <label for="lastname" class="control-label required">Nom :</label>
         <input type="text" class="form-control" id="lastname" formControlName="lastname"
-               [ngClass]="formsHelper.displayFieldCss(userForm.controls.password)" [(ngModel)]="user.lastname">
+               [ngClass]="formsHelper.displayFieldCss(userForm.controls.lastname)" [(ngModel)]="user.lastname">
         <show-errors [control]="userForm.controls.lastname"></show-errors>
     </div>
     <div class="form-group">
         <label for="firstname" class="control-label required">Prénom</label>
         <input type="text" class="form-control" id="firstname" formControlName="firstname"
-               [ngClass]="formsHelper.displayFieldCss(userForm.controls.password)" [(ngModel)]="user.firstname">
+               [ngClass]="formsHelper.displayFieldCss(userForm.controls.firstname)" [(ngModel)]="user.firstname">
         <show-errors [control]="userForm.controls.firstname"></show-errors>
     </div>
     <div class="form-group">
         <label for="username" class="control-label required">Nom d'utilisateur</label>
         <input type="text" class="form-control" id="username" formControlName="username"
-               [ngClass]="formsHelper.displayFieldCss(userForm.controls.password)" [(ngModel)]="user.username">
+               [ngClass]="formsHelper.displayFieldCss(userForm.controls.username)" [(ngModel)]="user.username">
         <show-errors [control]="userForm.controls.username"></show-errors>
     </div>
     <div class="form-group">
         <label for="birthday" class="control-label required">Date de naissance</label>
-        <date-picker formControlName="birthday" [ngClass]="formsHelper.displayFieldCss(userForm.controls.birthday)" [(ngModel)]="user.birthday"></date-picker>
+      <input type="date" class="form-control" id="birthday" formControlName="birthday"
+             [ngClass]="formsHelper.displayFieldCss(userForm.controls.birthday)" [(ngModel)]="user.birthday">
         <show-errors [control]="userForm.controls.birthday"></show-errors>
     </div>
 
