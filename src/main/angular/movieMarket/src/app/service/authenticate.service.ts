@@ -22,8 +22,15 @@ export class AuthenticateService {
     localStorage.setItem('authenticate', JSON.stringify(authenticate));
   }
 
+  public loggout() {
+    localStorage.removeItem('authenticate');
+  }
+
   public getName() {
-    console.log('plop : '+this.get().name);
     return this.get().name;
+  }
+
+  public isLogged(): boolean {
+    return this.get().token ? true : false;
   }
 }

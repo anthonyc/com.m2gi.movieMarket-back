@@ -29,10 +29,16 @@
             {{ authenticateService.getName() }}
           </button>
           <div class="dropdown-menu">
-            <app-login></app-login>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Nouvel utilisateur ? Créez un compte</a>
-            <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
+            <span *ngIf="!authenticateService.isLogged(); else isLogged">
+              <app-login></app-login>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Nouvel utilisateur ? Créez un compte</a>
+              <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
+            </span>
+            <template #isLogged>
+              <a class="dropdown-item" href="#">Voir mon compte</a>
+              <a (click)="authenticateService.loggout()" class="dropdown-item" href="#">Se deconnecter</a>
+            </template>
           </div>
         </div>
       </li>

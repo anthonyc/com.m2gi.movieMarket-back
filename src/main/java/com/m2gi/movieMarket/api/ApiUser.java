@@ -38,7 +38,7 @@ public class ApiUser {
     public Response find(@Context SecurityContext securityContext, @PathParam("id") int id) {
 
         if (!securityContext.isUserInRole(String.valueOf(Role.ROLE_USER))) {
-            throw new NotAuthorizedException("You are not authorized at find the user : " + id);
+            throw new NotAuthorizedException("You are not authorized to execute this operation");
         }
 
     	User user = this.userReference.find(id);
