@@ -5,23 +5,18 @@ export class Cart {
     id: number;
     cartDetails: CartDetail[] = [];
 
-    counter: number;
-
-    constructor () {
-        this.counter = 0;
-    }
+    constructor () {}
 
     public addMovie(movie: Movie) {
         for (const cartDetail of this.cartDetails) {
-            // Not a good way to check if movies are equal but works
-            if (movie.name === cartDetail.movie.name) {
+            if (movie.id === cartDetail.movie.id) {
                 cartDetail.quantity++;
                 return;
             }
         }
-        const cd = new CartDetail(movie);
-        this.cartDetails.push(cd);
-        this.counter++;
+
+        const cartDetail = new CartDetail(movie);
+        this.cartDetails.push(cartDetail);
     }
 
     public addMovies(movies: Movie[]) {
@@ -30,63 +25,56 @@ export class Cart {
         }
     }
 
+    public hasMovie(): boolean {
+      if (this.cartDetails.length > 0) {
+        return true;
+      }
+
+      return false;
+    }
+
     public setCartDetail(movies: CartDetail[]) {
         this.cartDetails = movies;
     }
 
-    public changeMovieQuantity(movie: CartDetail | Movie, quantity) {
-        const cartDetailIdx = this.getCartDetailIdx(movie);
-        if (cartDetailIdx !== -1) {
-            this.cartDetails[cartDetailIdx].quantity = quantity;
-        }
-    }
+    public removeMovie(movie: Movie) {
+        this.cartDetails.forEach((cartDetail, key) => {
+            if (cartDetail.movie.id === movie.id && cartDetail.quantity > 1) {
+                cartDetail.quantity--;
 
-    public removeMovie(movie: CartDetail | Movie) {
-        const cartDetailIdx = this.getCartDetailIdx(movie);
-        console.log(typeof movie);
-        if (cartDetailIdx !== -1) {
-            this.cartDetails.splice(cartDetailIdx, 1);
-        }
-    }
-
-    private getCartDetailIdx(movie: CartDetail | Movie): number {
-        let film: Movie;
-
-        if (movie instanceof CartDetail) {
-            console.log('PLOP');
-            film = movie.movie;
-        } else {
-            film = movie;
-        }
-
-        // get the cartDetail associated with the film
-        for (let i = 0; i < this.cartDetails.length; i++) {
-            if (this.cartDetails[i].movie.name === film.name) {
-                return i;
+                return true;
             }
-        }
-        return -1;
+
+            if (cartDetail.movie.id === movie.id && cartDetail.quantity == 1) {
+                this.cartDetails.splice(key, 1);
+
+                return true;
+            }
+        });
     }
 
     public toString(): String {
         let s: String = '';
+
         for (const m of this.cartDetails) {
             s += m.movie.name + ', ';
         }
+
         return 'id : ' + String(this.id) + ' ; movies : ' + s;
     }
 
     public numberOfItem(): number {
         let nb = 0;
+
         for (const cartDetail of this.cartDetails) {
             nb += cartDetail.quantity;
         }
+
         return nb;
     }
 
-    public copy(c: Cart) {
-        this.id = c.id;
-        this.cartDetails = c.cartDetails;
-        this.counter = c.counter;
+    public copy(cart: Cart) {
+        this.id = cart.id;
+        this.cartDetails = cart.cartDetails;
     }
 }

@@ -29,7 +29,7 @@ export const appRoutes: Routes = [
   { path: 'movies', component: SearchResultContentComponent },
   { path: 'movies/:id', component: MovieDetailComponent },
   { path: 'user/create', component: CreateUserComponent },
-  { path: 'panier', component: CartComponent}
+  { path: 'cart', component: CartComponent}
 ];
 
 @NgModule({

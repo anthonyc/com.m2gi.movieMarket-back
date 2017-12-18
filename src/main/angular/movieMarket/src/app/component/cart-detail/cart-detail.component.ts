@@ -1,33 +1,29 @@
-import { CartComponent } from './../cart/cart.component';
 import { CartService } from './../../service/cart.service';
 import { CartDetail } from './../../model/cart-detail';
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 
 @Component({
   selector: 'app-cart-detail',
   templateUrl: './cart-detail.component.html',
   styleUrls: ['./cart-detail.component.css']
 })
-export class CartDetailComponent implements OnInit {
+export class CartDetailComponent implements OnChanges {
 
   @Input()
-  element: CartDetail;
+  cartDetail: CartDetail;
 
   @Input()
   idx: number;
 
-  constructor(private cs: CartService) {
+  constructor(private cartService: CartService) {}
+
+  ngOnChanges() { }
+
+  addMovie() {
+    this.cartDetail = this.cartService.addMovie(this.cartDetail.movie);
   }
 
-  ngOnInit() {
-    console.log(this.idx);
-  }
-
-  test(event) {
-    console.log(event);
-  }
-
-  removeMovie(event) {
-    console.log(event);
+  removeMovie() {
+    this.cartDetail = this.cartService.removeMovie(this.cartDetail.movie);
   }
 }

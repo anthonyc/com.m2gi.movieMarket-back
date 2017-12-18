@@ -1,8 +1,13 @@
-<h1>
+<h5>
     Bienvenue sur le panier !
-</h1>
-<form>
-    <div *ngFor="let movie of cart.cartDetails; let i = index">
-        <app-cart-detail [idx]="i" [element]="movie"></app-cart-detail>
+</h5>
+<form *ngIf="cart.hasMovie(); else other_content">
+    <div *ngFor="let cartDetail of cart.cartDetails">
+        <app-cart-detail [cartDetail]="cartDetail"></app-cart-detail>
     </div>
 </form>
+
+
+<ng-template #other_content>
+  <h5>Votre panier est vide</h5>
+</ng-template>
