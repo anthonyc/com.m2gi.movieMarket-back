@@ -35,7 +35,12 @@ public class UserFacade implements UserFacadeLocal {
 	}
 
 	public User find(Object id) {
-		return this.em.find(User.class, id);
+
+		User user = this.em.find(User.class, id);
+
+		Hibernate.initialize(user.getUserRoles());
+
+		return user;
 	}
 
 	public User findByEmail(String email) {
