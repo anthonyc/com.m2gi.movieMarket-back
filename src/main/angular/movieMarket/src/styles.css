@@ -24,3 +24,11 @@ a {
   margin-bottom: 30px;
   padding: 20px 15px;
 }
+
+.custom-breadcrumb {
+  background-color: #f5f5f5 !important;
+}
+
+.breadcrumb {
+  background-color: transparent;
+}
