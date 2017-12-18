@@ -1,7 +1,7 @@
 <h5>
     Bienvenue sur le panier !
 </h5>
-<form *ngIf="cart.hasMovie(); else other_content">
+<form *ngIf="cartService.get().numberOfItem() > 0; else other_content">
     <div *ngFor="let cartDetail of cart.cartDetails">
         <app-cart-detail [cartDetail]="cartDetail"></app-cart-detail>
     </div>
@@ -9,5 +9,5 @@
 
 
 <ng-template #other_content>
-  <h5>Votre panier est vide</h5>
+    <h5>Votre panier est vide</h5>
 </ng-template>

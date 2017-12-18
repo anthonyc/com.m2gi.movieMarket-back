@@ -1,5 +1,5 @@
 import { CartService } from './../../service/cart.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { Cart } from '../../model/cart';
 
 @Component({
@@ -7,7 +7,7 @@ import { Cart } from '../../model/cart';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnChanges {
 
   cart: Cart;
 
@@ -15,7 +15,9 @@ export class CartComponent implements OnInit {
     this.cart = this.cartService.get();
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ngOnChanges() {
   }
 
 }
