@@ -3,7 +3,6 @@ package com.m2gi.movieMarket.domain.entity.person;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.security.Principal;
@@ -32,7 +31,6 @@ public class User extends Person implements Serializable, Principal {
 
     @Column(name = "password", nullable = false)
     @NotNull
-    @Min(8)
     private String password;
 
     public User() {}
@@ -91,8 +89,6 @@ public class User extends Person implements Serializable, Principal {
     }
 
     public boolean checkPassword(String password) {
-        //String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
-        System.out.println(this.password);
         return BCrypt.checkpw(password, this.password);
     }
 

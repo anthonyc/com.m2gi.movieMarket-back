@@ -22,7 +22,6 @@
     "@angular/platform-browser-dynamic": "^4.3.2",
     "@angular/router": "^4.3.2",
     "bootstrap": "^4.0.0-beta.2",
-    "angular-io-datepicker": "^1.3.1",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",

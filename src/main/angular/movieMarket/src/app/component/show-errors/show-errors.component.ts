@@ -18,7 +18,8 @@ export class ShowErrorsComponent {
     'uniqueName': (params) => params.message,
     'telephoneNumbers': (params) => params.message,
     'telephoneNumber': (params) => params.message,
-    'email': () => 'Veuillez entrer un email valid'
+    'email': () => 'Veuillez entrer un email valid',
+    'passwordConfirming': () => 'Les mots de passe doivent être identiques et comportés au moins 8 caractères'
   };
 
   @Input()
