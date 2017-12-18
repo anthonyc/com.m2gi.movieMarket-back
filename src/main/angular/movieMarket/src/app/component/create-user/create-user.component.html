@@ -14,30 +14,26 @@
 
 <form [formGroup]="userForm" (ngSubmit)="create()" novalidate>
     <div class="form-group">
-        <select class="form-control" id="gender" formControlName="gender"
-                [ngClass]="formsHelper.displayFieldCss(userForm.controls.gender)" [(ngModel)]="user.gender">
+        <select class="form-control" id="gender" formControlName="gender" [ngClass]="formsHelper.displayFieldCss(userForm.controls.gender)" [(ngModel)]="user.gender">
           <option value="0">Mr</option>
           <option value="1">Mme</option>
           <option value="2">Mlle</option>
       </select>
-      <show-errors [control]="userForm.controls.gender"></show-errors>
+        <show-errors [control]="userForm.controls.gender"></show-errors>
     </div>
     <div class="form-group">
         <label for="lastname" class="control-label required">Nom :</label>
-        <input type="text" class="form-control" id="lastname" formControlName="lastname"
-               [ngClass]="formsHelper.displayFieldCss(userForm.controls.password)" [(ngModel)]="user.lastname">
+        <input type="text" class="form-control" id="lastname" formControlName="lastname" [ngClass]="formsHelper.displayFieldCss(userForm.controls.lastname)" [(ngModel)]="user.lastname">
         <show-errors [control]="userForm.controls.lastname"></show-errors>
     </div>
     <div class="form-group">
         <label for="firstname" class="control-label required">Prénom</label>
-        <input type="text" class="form-control" id="firstname" formControlName="firstname"
-               [ngClass]="formsHelper.displayFieldCss(userForm.controls.password)" [(ngModel)]="user.firstname">
+        <input type="text" class="form-control" id="firstname" formControlName="firstname" [ngClass]="formsHelper.displayFieldCss(userForm.controls.password)" [(ngModel)]="user.firstname">
         <show-errors [control]="userForm.controls.firstname"></show-errors>
     </div>
     <div class="form-group">
         <label for="username" class="control-label required">Nom d'utilisateur</label>
-        <input type="text" class="form-control" id="username" formControlName="username"
-               [ngClass]="formsHelper.displayFieldCss(userForm.controls.password)" [(ngModel)]="user.username">
+        <input type="text" class="form-control" id="username" formControlName="username" [ngClass]="formsHelper.displayFieldCss(userForm.controls.password)" [(ngModel)]="user.username">
         <show-errors [control]="userForm.controls.username"></show-errors>
     </div>
     <div class="form-group">
@@ -48,14 +44,12 @@
 
     <div class="form-group has-danger">
         <label for="email" class="control-label required">Email</label>
-        <input type="email" class="form-control" id="email" formControlName="email"
-               [ngClass]="formsHelper.displayFieldCss(userForm.controls.email)"  [(ngModel)]="user.email">
+        <input type="email" class="form-control" id="email" formControlName="email" [ngClass]="formsHelper.displayFieldCss(userForm.controls.email)" [(ngModel)]="user.email">
         <show-errors [control]="userForm.controls.email"></show-errors>
     </div>
     <div class="form-group">
         <label for="password" class="control-label required">Password</label>
-        <input type="password" class="form-control" id="password" formControlName="password"
-               [ngClass]="formsHelper.displayFieldCss(userForm.controls.password)" [(ngModel)]="user.password">
+        <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="formsHelper.displayFieldCss(userForm.controls.password)" [(ngModel)]="user.password">
         <show-errors [control]="userForm.controls.password"></show-errors>
     </div>
     <button type="submit" class="btn btn-primary">Créer l'utilisateur</button>

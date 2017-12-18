@@ -20,3 +20,20 @@
 .cartDetailPrice {
     display: block;
 }
+
+.btn>i {
+    cursor: pointer;
+    color: white;
+}
+
+.increaseQuantity {
+    background-color: #0e7218 !important;
+}
+
+.decreaseQuantity {
+    background-color: #cf0e0e !important;
+}
+
+.vide {
+    color: red !important;
+}

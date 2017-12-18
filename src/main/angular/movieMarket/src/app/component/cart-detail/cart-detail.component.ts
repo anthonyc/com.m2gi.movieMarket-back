@@ -1,6 +1,7 @@
+import { CartComponent } from './../cart/cart.component';
 import { CartService } from './../../service/cart.service';
 import { CartDetail } from './../../model/cart-detail';
-import {Component, Input, OnChanges} from '@angular/core';
+import {Component, Input, OnChanges, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-cart-detail',
@@ -12,9 +13,6 @@ export class CartDetailComponent implements OnChanges {
   @Input()
   cartDetail: CartDetail;
 
-  @Input()
-  idx: number;
-
   constructor(private cartService: CartService) {}
 
   ngOnChanges() { }
@@ -24,6 +22,13 @@ export class CartDetailComponent implements OnChanges {
   }
 
   removeMovie() {
-    this.cartDetail = this.cartService.removeMovie(this.cartDetail.movie);
+    return this.cartDetail = this.cartService.removeMovie(this.cartDetail.movie);
+  }
+
+  removeAllMovies() {
+    let r = this.removeMovie();
+    while (r != null) {
+      r = this.removeMovie();
+    }
   }
 }

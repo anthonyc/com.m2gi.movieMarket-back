@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Movie } from '../model/movie';
 import { Cart } from '../model/cart';
-import {CartDetail} from "../model/cart-detail";
+import {CartDetail} from '../model/cart-detail';
 
 
 @Injectable()
 export class CartService {
-
 
   constructor() {}
 
@@ -21,7 +20,7 @@ export class CartService {
     cart.copy(JSON.parse(cartStorage) as Cart);
 
     if (!cart.hasMovie()) {
-      return null
+      return null;
     }
 
     return cart;
@@ -61,4 +60,6 @@ export class CartService {
 
     return null;
   }
+
+
 }

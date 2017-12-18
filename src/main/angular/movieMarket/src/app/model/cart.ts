@@ -45,7 +45,7 @@ export class Cart {
                 return true;
             }
 
-            if (cartDetail.movie.id === movie.id && cartDetail.quantity == 1) {
+            if (cartDetail.movie.id === movie.id && cartDetail.quantity === 1) {
                 this.cartDetails.splice(key, 1);
 
                 return true;
