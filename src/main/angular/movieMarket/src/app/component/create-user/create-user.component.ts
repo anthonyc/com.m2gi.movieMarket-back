@@ -39,8 +39,6 @@ export class CreateUserComponent implements OnInit {
   }
 
   create() {
-    console.log(this.user.gender);
-
     if (this.userForm.valid) {
       this.userService.create(this.user).subscribe(
         data => {
