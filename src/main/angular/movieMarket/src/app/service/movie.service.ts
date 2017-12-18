@@ -14,22 +14,22 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  public all(from: number = 0, to: number = 20): Observable<any> {
-    return this.http.get(
+  public all(from: number = 0, to: number = 20): Observable<Movie[]> {
+    return this.http.get<Movie[]>(
       '/api/movies?from=' + String(from) + '&to=' + String(to), httpOptions)
       .map(res => res
     );
   }
 
-  public allByCategory(category: String, from: number = 0, to: number = 20): Observable<any> {
-    return this.http.get(
+  public allByCategory(category: String, from: number = 0, to: number = 20): Observable<Movie[]> {
+    return this.http.get<Movie[]>(
       '/api/movies?category=' + category + '&from=' + String(from) + '&to=' + String(to), httpOptions)
       .map(res => res
     );
   }
 
   public find(id: string): Observable<Movie> {
-    return this.http.get(
+    return this.http.get<Movie>(
       'api/movies/' + id)
       .map(res => res
     );

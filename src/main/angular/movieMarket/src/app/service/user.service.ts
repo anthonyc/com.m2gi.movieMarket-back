@@ -7,8 +7,7 @@ import { Response } from '@angular/http/src/static_response';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJuYW1lXCI6XCJhcHBcIixcInJvbGVzXCI6W1wiUk9MRV9BUFBcIl19In0.DJnQ-R-nWxjwQ1Xt9j7EEI5LJUf8TsCpV8LAvf1M5DQgXGUigorVsmS0gcoKnxped99pmXyXNQa04kU0C30A8A'
+    'Content-Type': 'application/json'
   })
 };
 
