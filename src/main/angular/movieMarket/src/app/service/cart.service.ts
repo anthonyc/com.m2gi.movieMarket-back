@@ -1,30 +1,64 @@
 import { Injectable } from '@angular/core';
-import { LocalStorageService } from 'angular-2-local-storage';
 import { Movie } from '../model/movie';
 import { Cart } from '../model/cart';
+import {CartDetail} from "../model/cart-detail";
+
 
 @Injectable()
 export class CartService {
 
-  constructor(private localStorageService: LocalStorageService) { }
 
-  public addMovie(movie: Movie) {
-    let cart: Cart = this.get();
-    console.log(cart);
-    if (!(cart instanceof Cart)) {
-      cart = new Cart();
-      console.log('if plop');
-    }
-
-    cart.addMovie(movie);
-
-    this.localStorageService.add('cart', cart);
-  }
+  constructor() {}
 
   public get(): Cart {
-    let cart = new Cart();
-    cart.addMovies((this.localStorageService.get('cart') as Cart).movies);
-    
+    const cartStorage = localStorage.getItem('cart');
+
+    if (cartStorage == null) {
+      return new Cart();
+    }
+
+    const cart =  new Cart();
+    cart.copy(JSON.parse(cartStorage) as Cart);
+
+    if (!cart.hasMovie()) {
+      return null
+    }
+
     return cart;
+  }
+
+  public addMovie(movie: Movie): CartDetail {
+    const cart = this.get();
+    cart.addMovie(movie);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    return this.findCartDetailByMovie(movie);
+  }
+
+  public removeMovie(movie: Movie): CartDetail {
+    const cart = this.get();
+
+    cart.removeMovie(movie);
+
+    if (cart.hasMovie()) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      return this.findCartDetailByMovie(movie);
+    }
+
+    localStorage.clear();
+    return null;
+  }
+
+  private findCartDetailByMovie(movie: Movie): CartDetail {
+    const cart = this.get();
+
+    for (let cartDetail of cart.cartDetails) {
+      if (cartDetail.movie.id === movie.id) {
+        return cartDetail;
+      }
+    }
+
+    return null;
   }
 }

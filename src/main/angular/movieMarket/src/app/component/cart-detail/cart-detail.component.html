@@ -1,0 +1,29 @@
+<div *ngIf="cartDetail; else other_content" class="cartDetail row">
+    <div class="cartDetailImg col">
+        <img src="assets/img/movies/{{cartDetail.movie.img}}">
+    </div>
+    <div class="col">
+        <span class="cartDetailTitle">{{cartDetail.movie.name}}</span>
+        <span class="cartDetailPrice">Prix unitaire : {{cartDetail.movie.price}}</span>
+    </div>
+    <div class="col-6">
+        {{cartDetail.movie.description}}
+    </div>
+    <div class="col">
+        <span class="cartDetailQuantity">Quantity : {{cartDetail.quantity}}
+            <div class="btn" (click)="removeMovie()">
+                <i class="fa fa-minus-circle" aria-hidden="true" icon-3x></i>
+            </div>
+            <div class="btn" (click)="addMovie()">
+              <i class="fa fa-plus-circle" aria-hidden="true" icon-3x></i>
+            </div>
+        </span>
+        <button class="deleteMovie" (click)="removeMovie()">Supprimer le film du panier</button>
+
+        <span class="cartDetailTotalPrice">Total Price : {{cartDetail.quantity * cartDetail.movie.price}}</span>
+    </div>
+</div>
+
+<ng-template #other_content>
+  <h5>Votre panier est vide</h5>
+</ng-template>

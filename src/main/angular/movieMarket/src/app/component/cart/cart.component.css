@@ -1,0 +1,22 @@
+.cartDetail {
+    border: solid 1px black;
+}
+
+.cartDetailImg img {
+    display: block;
+    margin-top: auto;
+    max-width: 150px;
+    max-height: 200px;
+}
+
+.cartDetailImg {
+    width: 150px;
+    height: 200px;
+}
+
+.cartDetailQuantity,
+.cartDetailTotalPrice,
+.cartDetailTitle,
+.cartDetailPrice {
+    display: block;
+}

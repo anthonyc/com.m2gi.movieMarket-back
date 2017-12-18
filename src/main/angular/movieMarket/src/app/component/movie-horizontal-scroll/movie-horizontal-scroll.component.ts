@@ -17,13 +17,13 @@ export class MovieHorizontalScrollComponent implements OnInit {
   movies: Movie[] = [];
   error = null;
   finished = false;
-  
+
   public carouselTile: NgxCarousel;
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
-    
+
     this.carouselTile = {
       grid: {xs: 2, sm: 3, md: 3, lg: 5, all: 0},
       slide: 2,
@@ -34,9 +34,9 @@ export class MovieHorizontalScrollComponent implements OnInit {
       },
       load: 2,
       touch: true,
-      easing: 'ease'
-    }
-    
+      easing: 'ease',
+    };
+
     this.movieService.allByCategory(this.categoryName, this.from, this.to).subscribe(
       value => this.movies = value,
       error => this.error = 'movieService.all error',
