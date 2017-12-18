@@ -6,6 +6,7 @@ import { User } from '../model/user';
 import { Response } from '@angular/http/src/static_response';
 import {log} from "util";
 import {Authenticate} from "../model/authenticate";
+import {Movie} from "../model/movie";
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -38,6 +39,17 @@ export class UserService {
     return this.http.post<Authenticate>(
       '/api/authenticate', body.toString(),
       httpOptionsForm
+    );
+  }
+
+  public find(id: string, jwtToken): Observable<User> {
+    httpOptions.headers = httpOptions.headers.append('Authorization', 'Bearer ' + jwtToken);
+
+    return this.http.get<User>(
+      'api/user/' + id,
+        httpOptions
+      )
+      .map(res => res
     );
   }
 }

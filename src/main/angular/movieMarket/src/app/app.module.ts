@@ -27,6 +27,7 @@ import { CartDetailComponent } from './component/cart-detail/cart-detail.compone
 import 'hammerjs';
 import { LoginComponent } from './component/login/login.component';
 import {AuthenticateService} from "./service/authenticate.service";
+import { UserAccountComponent } from './component/user-account/user-account.component';
 
 
 export const appRoutes: Routes = [
@@ -35,7 +36,8 @@ export const appRoutes: Routes = [
   { path: 'movies/:id', component: MovieDetailComponent },
   { path: 'category/movie/:category', component: MovieListComponent },
   { path: 'user/create', component: CreateUserComponent },
-  { path: 'cart', component: CartComponent}
+  { path: 'cart', component: CartComponent},
+  { path: 'account/:id', component: UserAccountComponent }
 ];
 
 @NgModule({
@@ -54,7 +56,8 @@ export const appRoutes: Routes = [
     StoreButtonComponentComponent,
     CartComponent,
     CartDetailComponent,
-    LoginComponent
+    LoginComponent,
+    UserAccountComponent
   ],
   imports: [
     BrowserModule,
