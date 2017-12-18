@@ -10,7 +10,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class MovieDetailComponent implements OnInit {
   movie: Movie;
-  finished: boolean = false;
+  finished = false;
   error: string;
 
   constructor(
@@ -21,7 +21,7 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit() {
     this.movieService.find(this.route.snapshot.paramMap.get('id')).subscribe(
       value => this.movie = value,
-      error => this.error = "movieService.find error",
+      error => this.error = 'movieService.find error',
       () => this.finished = true
     );
   }

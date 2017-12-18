@@ -15,7 +15,7 @@ const httpOptions = {
 @Injectable()
 export class UserService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   public create(user: User): Observable<User> {
     return this.http.post<User>(

@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LocalStorageModule } from 'angular-2-local-storage';
-
 import { AppComponent } from './app.component';
 import { MovieComponent } from './component/movie/movie.component';
 import { MovieListComponent } from './component/movie-list/movie-list.component';
@@ -23,14 +21,20 @@ import { UserService } from './service/user.service';
 import { ShowErrorsComponent } from './component/show-errors/show-errors.component';
 import { FormsHelperService } from "./service/forms-helper.service";
 import { HttpClientModule } from "@angular/common/http";
-import 'hammerjs';
 import {DatePickerModule} from "angular-io-datepicker";
+import { StoreButtonComponentComponent } from './component/store-button-component/store-button-component.component';
+import { CartComponent } from './component/cart/cart.component';
+import { CartDetailComponent } from './component/cart-detail/cart-detail.component';
+import 'hammerjs';
+
 
 export const appRoutes: Routes = [
   { path: '', component: HomePageContentComponent },
   { path: 'movies', component: SearchResultContentComponent },
   { path: 'movies/:id', component: MovieDetailComponent },
-  { path: 'user/create', component: CreateUserComponent }
+  { path: 'category/movie/:category', component: MovieListComponent },
+  { path: 'user/create', component: CreateUserComponent },
+  { path: 'cart', component: CartComponent}
 ];
 
 @NgModule({
@@ -45,13 +49,12 @@ export const appRoutes: Routes = [
     SearchResultContentComponent,
     MovieHorizontalScrollComponent,
     CreateUserComponent,
-    ShowErrorsComponent
+    ShowErrorsComponent,
+    StoreButtonComponentComponent,
+    CartComponent,
+    CartDetailComponent
   ],
   imports: [
-    LocalStorageModule.withConfig({
-      prefix: 'movie-market',
-      storageType: 'localStorage'
-    }),
     BrowserModule,
     HttpModule,
     HttpClientModule,
