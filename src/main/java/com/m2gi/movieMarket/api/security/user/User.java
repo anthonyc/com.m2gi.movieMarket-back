@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class User implements Principal {
     private int id;
     private String name;
+    private String token;
     private ArrayList<Role> roles = new ArrayList<>();
 
     public User() {}
@@ -47,5 +48,15 @@ public class User implements Principal {
         }
 
         return false;
+    }
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public User setToken(String token) {
+        this.token = token;
+
+        return this;
     }
 }
