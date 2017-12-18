@@ -13,7 +13,7 @@ export class TopNavBarComponent implements OnInit {
   error = null;
   finished = false;
 
-  constructor(private categoryService: CategoryService, private cartService: CartService) { }
+  constructor(private categoryService: CategoryService, public cartService: CartService) { }
 
   ngOnInit() {
     this.categoryService.all().subscribe(
