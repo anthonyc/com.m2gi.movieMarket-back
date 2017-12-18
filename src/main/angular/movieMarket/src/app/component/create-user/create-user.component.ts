@@ -60,6 +60,7 @@ export class CreateUserComponent implements OnInit {
         const control = this.userForm.get(field);
         if (control.pristine) {
           control.markAsTouched({ onlySelf: true });
+          control.markAsDirty({ onlySelf: true });
         }
       });
     }
