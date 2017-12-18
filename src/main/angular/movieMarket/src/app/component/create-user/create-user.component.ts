@@ -1,10 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import { User } from '../../model/user';
 import { UserService } from '../../service/user.service';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {FormsHelperService} from "../../service/forms-helper.service";
 import {Gender} from "../../model/person";
+import 'rxjs/add/observable/of';
 declare var $ :any;
+
 
 @Component({
   selector: 'app-create-user',
@@ -32,10 +34,22 @@ export class CreateUserComponent implements OnInit {
       'username': ['', Validators.required ],
       'birthday': ['', Validators.required ],
       'email': ['', Validators.email ],
-      'password': ['', Validators.minLength(8) ]
+      'passwords': this.formBuilder.group({
+        'password': [''],
+        'confirmPassword': ['']
+      }, {validator: this.passwordConfirming})
     });
 
     this.user.gender = Gender.MR;
+  }
+
+
+  passwordConfirming(control: AbstractControl) {
+    if ((control.get('password').value !== control.get('confirmPassword').value) ||
+      control.get('password').value.length < 6 && control.get('confirmPassword').value.length < 6) {
+      return { passwordConfirming: true };
+    }
+    return null;
   }
 
   create() {
