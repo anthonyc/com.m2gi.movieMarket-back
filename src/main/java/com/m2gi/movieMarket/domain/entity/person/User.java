@@ -1,7 +1,6 @@
 package com.m2gi.movieMarket.domain.entity.person;
 
 import org.mindrot.jbcrypt.BCrypt;
-import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -95,8 +94,6 @@ public class User extends Person implements Serializable, Principal {
 
     public User setPassword(String password) {
         String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
-
-        LoggerFactory.getLogger(User.class).info("##### pass : " + hashed);
 
         this.password = hashed;
 
