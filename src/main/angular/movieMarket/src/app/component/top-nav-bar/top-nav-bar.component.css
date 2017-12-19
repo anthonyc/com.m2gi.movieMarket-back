@@ -20,3 +20,7 @@
     height: 64px;
     cursor: pointer;
 }
+
+.navbarCart .btn:hover a {
+    color: rgba(0, 0, 0, 0.7) !important;
+}
