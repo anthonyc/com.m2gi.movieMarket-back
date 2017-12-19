@@ -32,7 +32,7 @@
                         <span *ngIf="!authenticateService.isLogged(); else isLogged">
                             <app-login></app-login>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Nouvel utilisateur ? Créez un compte</a>
+                            <a class="dropdown-item" routerLink="/user/create">Nouvel utilisateur ? Créez un compte</a>
                             <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
                         </span>
                         <ng-template #isLogged>
