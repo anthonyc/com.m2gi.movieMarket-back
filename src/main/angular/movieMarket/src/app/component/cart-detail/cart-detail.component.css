@@ -54,6 +54,10 @@
     cursor: pointer;
 }
 
+.btn.disabled {
+    cursor: not-allowed;
+}
+
 .textQuantity {
     float: left;
     font-size: 1rem;
