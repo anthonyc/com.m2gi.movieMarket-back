@@ -61,17 +61,39 @@ export const routes: Routes = [
       breadcrumb: 'Panier'
     }
   },
-  { path: 'movies', component: SearchResultContentComponent, data: {
+  {
+    path: 'movies',
+    component: SearchResultContentComponent, data: {
       breadcrumb: 'Recherche'
     }
   },
-  { path: 'user/create', component: CreateUserComponent, data: {
+  {
+    path: 'user/create',
+    component: CreateUserComponent, data: {
       breadcrumb: 'Création utilisateur'
     }
   },
-  { path: 'account/:id', component: UserAccountComponent, data: {
+  {
+    path: 'account/:id',
+    data: {
       breadcrumb: 'Compte'
-    }
+    },
+    children: [
+      {
+        path: 'profile',
+        component: UserProfileComponent,
+        data: {
+          breadcrumb: 'Profile'
+        }
+      },
+      {
+        path: 'address',
+        component: UserAddressComponent,
+        data: {
+          breadcrumb: 'Adresse'
+        }
+      }
+    ]
   }
 ];
 

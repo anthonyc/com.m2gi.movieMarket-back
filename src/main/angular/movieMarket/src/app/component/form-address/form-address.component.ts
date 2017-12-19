@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {Address} from "../../model/address";
-import {FormsHelperService} from "../../service/forms-helper.service";
-import {AddressService} from "../../service/address.service";
-import {User} from "../../model/user";
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Address} from '../../model/address';
+import {FormsHelperService} from '../../service/forms-helper.service';
+import {AddressService} from '../../service/address.service';
+import {User} from '../../model/user';
 
 @Component({
   selector: 'app-form-address',
@@ -22,15 +22,15 @@ export class FormAddressComponent implements OnInit {
         public formsHelper: FormsHelperService,
         private addressService: AddressService) {
     if (!(this.address instanceof Address)) {
-      this.address = new Address()
+      this.address = new Address();
     }
 
     this.addressForm = this.formBuilder.group({
-      'streetNumber': [''],
-      'street': [''],
+      'streetNumber': ['', Validators.required],
+      'street': ['', Validators.required],
       'additionalInformation': [''],
-      'zipCode': [''],
-      'city': ['']
+      'zipCode': ['', Validators.pattern('[0-9]{5}')],
+      'city': ['', Validators.required]
     });
   }
 
@@ -41,17 +41,25 @@ export class FormAddressComponent implements OnInit {
     if (this.addressForm.valid) {
       this.addressService.add(this.address, String(this.user.id), this.user.jwtToken).subscribe(
         data => {
-          this.info = "Utilisateur créé";
+          this.info = 'Utilisateur créé';
         },
         err => {
-          this.error = "Une erreur serveur est survenue. Veuillez réessayer dans quelques instants";
+          this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
 
           if (err.status === 400) {
-            this.error = "Veuillez remplir tous les champs obligatoires du formulaire";
+            this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
           }
         },
       () => this.finished = true
       );
+    } else {
+      Object.keys(this.addressForm.controls).forEach(field => {
+        const control = this.addressForm.get(field);
+        if (control.pristine) {
+          control.markAsTouched({ onlySelf: true });
+          control.markAsDirty({ onlySelf: true });
+        }
+      });
     }
   }
 

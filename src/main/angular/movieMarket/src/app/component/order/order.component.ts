@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { FormsHelperService } from '../../service/forms-helper.service';
 import { User } from '../../model/user';
 import { Gender } from '../../model/person';
+import { Address } from '../../model/address';
 
 @Component({
   selector: 'app-order',
@@ -13,6 +14,7 @@ import { Gender } from '../../model/person';
 export class OrderComponent implements OnInit {
 
     user: User = new User();
+    deviveryAddress: Address;
     userForm: FormGroup;
     info = null;
     error = null;
@@ -44,6 +46,7 @@ export class OrderComponent implements OnInit {
             'username': ['', Validators.required ],
             'birthday': ['', Validators.required ],
             'email': ['', Validators.email ],
+            // 'address': ['', Validators.required ],
             'passwords': this.formBuilder.group({
             'password': [''],
             'confirmPassword': ['']

@@ -9,6 +9,11 @@ a {
   color: #666;
 }
 
+.required:after {
+  content:" *";
+  color: red;
+}
+
 .title {
   font-size: 18px;
   margin: 0 0 10px;
