@@ -65,12 +65,24 @@ public class MovieApi {
 	public List<Movie> findAll(
 			@DefaultValue("") @QueryParam("category") String category,
 			@DefaultValue("0") @QueryParam("from") int from,
-			@DefaultValue("20") @QueryParam("to") int to) {
+			@DefaultValue("20") @QueryParam("to") int to,
+			@DefaultValue("") @QueryParam("order") String order,
+			@DefaultValue("") @QueryParam("sort") String sort)
+			 {
 
 		if (category.isEmpty()) {
 			return this.movieReference.findAll(from, to);
 		}
+		if(order.isEmpty()){
+			return this.movieReference.findAllByCategory(category, from, to);
+		}
+		if(order.equals("name")){
+			return this.movieReference.findAllByCategoryFilterByName(category, from, to);
+		}
+		if(sort.equals("desc")){
+			return this.movieReference.findAllByCategoryFilterByPriceDesc(category, from, to);
+		}
+		return this.movieReference.findAllByCategoryFilterByPriceAsc(category, from, to);
 
-		return this.movieReference.findAllByCategory(category, from, to);
 	}
 }

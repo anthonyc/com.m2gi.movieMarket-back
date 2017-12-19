@@ -24,6 +24,27 @@ export class MovieService {
     );
   }
 
+  public allByCategoryFilterByName(category: String, from: number = 0, to: number = 20): Observable<Movie[]> {
+    return this.http.get(
+      '/api/movies?category=' + category + '&order=name' + '&from=' + String(from) + '&to=' + String(to))
+      .map(res => res.json()
+    );
+  }
+
+  public allByCategoryFilterByPriceAsc(category: String, from: number = 0, to: number = 20): Observable<Movie[]> {
+    return this.http.get(
+      '/api/movies?category=' + category + '&order=price&sort=asc' + '&from=' + String(from) + '&to=' + String(to))
+      .map(res => res.json()
+    );
+  }
+
+  public allByCategoryFilterByPriceDesc(category: String, from: number = 0, to: number = 20): Observable<Movie[]> {
+    return this.http.get(
+      '/api/movies?category=' + category + '&order=price&sort=desc' + '&from=' + String(from) + '&to=' + String(to))
+      .map(res => res.json()
+    );
+  }
+
   public find(id: string): Observable<Movie> {
     return this.http.get(
       'api/movies/' + id)

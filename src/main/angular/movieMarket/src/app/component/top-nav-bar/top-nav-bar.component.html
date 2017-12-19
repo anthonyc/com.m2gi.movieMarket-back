@@ -51,7 +51,7 @@
                     Categories
                 </a>
                 <div class="dropdown-menu" aria-labelledby="categorieDropdown">
-                    <a class="dropdown-item" *ngFor="let category of categories" [routerLink]="['category/movie/', category.name]">{{ category.name }}</a>
+                    <a class="dropdown-item" *ngFor="let category of categories" [routerLink]="['category/movie/', category.name,'']">{{ category.name }}</a>
                 </div>
             </li>
         </ul>

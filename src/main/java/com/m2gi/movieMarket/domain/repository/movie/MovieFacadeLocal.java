@@ -18,4 +18,10 @@ public interface MovieFacadeLocal {
 	List<Movie> findAll(int from, int to);
 
 	List<Movie> findAllByCategory(String Category, int from, int to);
+
+	List<Movie> findAllByCategoryFilterByName(String Category, int from, int to);
+
+	List<Movie> findAllByCategoryFilterByPriceAsc(String Category, int from, int to);
+
+	List<Movie> findAllByCategoryFilterByPriceDesc(String Category, int from, int to);
 }
