@@ -1,0 +1,43 @@
+<div *ngIf="finished" class="row">
+  <!-- Left -->
+  <div class="col-3">
+    <app-user-menu [user]="user" [classActive]="'address'"></app-user-menu>
+  </div>
+  <!-- Right -->
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <div class="title">
+          <h5>Adresse</h5>
+        </div>
+        <div *ngIf="addresses.length === 0" class="row">
+          <div class="col">
+            <app-form-address [address]="" [user]="user"></app-form-address>
+          </div>
+        </div>
+        <div *ngFor="let address of addresses" class="row">
+          <div class="col">
+            <ul class="list-group list-group-nav">
+              <li class="list-group-item">
+                <strong>Numéro de rue</strong>
+                <p>{{ address.streetNumber }}</p>
+              </li>
+              <li class="list-group-item">
+                <strong>Rue</strong>
+                <p>{{ address.street }}</p>
+              </li>
+              <li class="list-group-item">
+                <strong>Code postale</strong>
+                <p>{{ address.zipCode }}</p>
+              </li>
+              <li class="list-group-item">
+                <strong>Ville</strong>
+                <p>{{ address.city }}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

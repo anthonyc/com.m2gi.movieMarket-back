@@ -27,9 +27,15 @@ import { CartDetailComponent } from './component/cart-detail/cart-detail.compone
 import { LoginComponent } from './component/login/login.component';
 import {AuthenticateService} from './service/authenticate.service';
 import { UserAccountComponent } from './component/user-account/user-account.component';
-import 'hammerjs';
+import { UserMenuComponent } from './component/user-menu/user-menu.component';
+import { AddressComponent } from './component/address/address.component';
+import { UserAddressComponent } from './component/user-address/user-address.component';
+import { UserProfileComponent } from './component/user-profile/user-profile.component';
+import { FormAddressComponent } from './component/form-address/form-address.component';
+import {AddressService} from "./service/address.service";
 import { FooterComponent } from './component/footer/footer.component';
 import { OrderComponent } from './component/order/order.component';
+import 'hammerjs';
 
 
 export const routes: Routes = [
@@ -87,6 +93,11 @@ export const routes: Routes = [
     CartDetailComponent,
     LoginComponent,
     UserAccountComponent,
+    UserMenuComponent,
+    AddressComponent,
+    UserAddressComponent,
+    UserProfileComponent,
+    FormAddressComponent,
     FooterComponent,
     OrderComponent
   ],
@@ -105,7 +116,8 @@ export const routes: Routes = [
     UserService,
     CartService,
     FormsHelperService,
-    AuthenticateService
+    AuthenticateService,
+    AddressService
   ],
   bootstrap: [AppComponent]
 })

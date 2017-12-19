@@ -70,10 +70,8 @@ public class ApiUser {
     public Response create(@Valid User user, @Context UriInfo uriInfo) {
         try {
             int id = this.userReference.create(user);
-            UriBuilder builder = uriInfo.getAbsolutePathBuilder();
-            builder.path(Integer.toString(id));
 
-            return Response.created(builder.build()).entity(new ApiMessage("User created")).build();
+            return Response.status(Response.Status.CREATED).entity(new ApiMessage("User created with id : " + id)).build();
         } catch (Exception exception) {
             throw new InternalServerException("Internal Server Exception ");
         }
