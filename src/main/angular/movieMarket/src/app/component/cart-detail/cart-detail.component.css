@@ -1,0 +1,40 @@
+.cartDetail {
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+.cartDetailImg img {
+    display: block;
+    margin-top: auto;
+    width: 150px;
+    height: 190px;
+}
+
+.cartDetailImg {
+    width: 150px;
+    height: 200px;
+}
+
+.cartDetailQuantity,
+.cartDetailTotalPrice,
+.cartDetailTitle,
+.cartDetailPrice {
+    display: block;
+}
+
+.btn>i {
+    cursor: pointer;
+    color: white;
+}
+
+.increaseQuantity {
+    background-color: #0e7218 !important;
+}
+
+.decreaseQuantity {
+    background-color: #cf0e0e !important;
+}
+
+.vide {
+    color: red !important;
+}

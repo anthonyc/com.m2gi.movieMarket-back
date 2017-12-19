@@ -1,3 +1,6 @@
-<p>
-  search-result-content works!
-</p>
+<div *ngFor="let movie of movies">
+        <a [routerLink]="['/movies', movie.id]">
+            <img src="assets/img/movies/{{ movie.img }}" class="ngx-elements">
+        </a>
+</div>
+

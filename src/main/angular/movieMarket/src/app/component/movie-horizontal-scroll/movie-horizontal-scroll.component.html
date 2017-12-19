@@ -1,12 +1,19 @@
 <h2>{{ categoryName }}</h2>
-<ngx-carousel
-[inputs]="carouselTile"
-(carouselLoad)="carouselTileLoad($event)">
+<ngx-carousel [inputs]="carouselTile" (carouselLoad)="carouselTileLoad($event)" class="carouselMovies">
 
     <ngx-tile NgxCarouselItem *ngFor="let movie of movies">
-        <a [routerLink]="['/movies', movie.id]">
-            <img src="assets/img/movies/{{ movie.img }}" class="ngx-elements">
-        </a>
+        <div class="blockMovie">
+            <a [routerLink]="['/movies', movie.id]" class="blockMovieLink">
+                <div class="blockImg">
+                    <img src="assets/img/movies/{{ movie.img }}" class="ngx-elements">
+                </div>
+                <div class="blockMovieTitle">
+                    <a title="{{movie.name}}" class="movieTitle">{{ movie.name }}</a>
+                </div>
+            </a>
+            <app-store-button-component [movie]="movie"></app-store-button-component>
+        </div>
+
     </ngx-tile>
 
     <button NgxCarouselPrev class='leftRs'>&lt;</button>

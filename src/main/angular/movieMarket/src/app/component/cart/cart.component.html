@@ -1,0 +1,17 @@
+<h5>
+    Bienvenue sur le panier !
+</h5>
+<form *ngIf="cartService.get().numberOfItem() > 0; else other_content">
+    <div *ngFor="let cartDetail of cart.cartDetails">
+        <app-cart-detail [cartDetail]="cartDetail"></app-cart-detail>
+    </div>
+    <div class="totalPrice" style="float: left">
+        Prix total du panier : {{cartPrice().toFixed(2)}}€
+        <button class="validateButton btn" (click)="validate()">Valider ma commande</button>
+    </div>
+</form>
+
+
+<ng-template #other_content>
+    <h5>Votre panier est vide</h5>
+</ng-template>

@@ -1,27 +1,35 @@
 package com.m2gi.movieMarket.domain.entity.person;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "person")
 public class Person implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
+    @NotNull
     private int id;
 
     @Enumerated(EnumType.ORDINAL)
+    @Column(nullable = false)
+    @NotNull
     private Gender gender;
 
-    @Column(name = "firstname")
+    @Column(name = "firstname", nullable = false)
+    @NotNull
     private String firstname;
 
-    @Column(name = "lastname")
+    @Column(name = "lastname", nullable = false)
+    @NotNull
     private String lastname;
 
-    @Column(name = "birthday")
+    @Column(name = "birthday", nullable = false)
     @Temporal(TemporalType.DATE)
+    @NotNull
     private Date birthday;
 
     public int getId() {

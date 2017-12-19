@@ -1,0 +1,27 @@
+<div *ngIf="cartDetail; else other_content" class="cartDetail row">
+    <div class="cartDetailImg col">
+        <a [routerLink]="['/movies', cartDetail.movie.id]">
+            <img src="assets/img/movies/{{cartDetail.movie.img}}"></a>
+    </div>
+    <div class="col cartDetailTitle">
+        <a [routerLink]="['/movies', cartDetail.movie.id]">{{cartDetail.movie.name}}</a>
+        <span class="cartDetailPrice">Prix unitaire : {{cartDetail.movie.price.toFixed(2)}}€</span>
+    </div>
+    <div class="cartDetailDescription col-6">
+        <p>{{shortDesc}}</p>
+    </div>
+    <div class="col">
+        <span class="cartDetailQuantity">Quantity : {{cartDetail.quantity}}</span>
+
+        <button class="btn increaseQuantity" (click)="addMovie()">
+            <i class="fa fa-plus-circle" aria-hidden="true" icon-3x></i>
+        </button>
+        <button class="btn decreaseQuantity" (click)="removeMovie()">
+            <i class="fa fa-minus-circle" aria-hidden="true" icon-3x></i>
+        </button>
+
+        <button class="btn deleteMovie" (click)="removeAllMovies()">Supprimer le film du panier</button>
+
+        <span class="cartDetailTotalPrice">Prix total : {{(cartDetail.quantity * cartDetail.movie.price).toFixed(2)}}€</span>
+    </div>
+</div>
