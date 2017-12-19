@@ -19,13 +19,13 @@ import { CartService } from './service/cart.service';
 import { CreateUserComponent } from './component/create-user/create-user.component';
 import { UserService } from './service/user.service';
 import { ShowErrorsComponent } from './component/show-errors/show-errors.component';
-import { FormsHelperService } from "./service/forms-helper.service";
-import { HttpClientModule } from "@angular/common/http";
+import { FormsHelperService } from './service/forms-helper.service';
+import { HttpClientModule } from '@angular/common/http';
 import { StoreButtonComponentComponent } from './component/store-button-component/store-button-component.component';
 import { CartComponent } from './component/cart/cart.component';
 import { CartDetailComponent } from './component/cart-detail/cart-detail.component';
 import { LoginComponent } from './component/login/login.component';
-import {AuthenticateService} from "./service/authenticate.service";
+import {AuthenticateService} from './service/authenticate.service';
 import { UserAccountComponent } from './component/user-account/user-account.component';
 import { UserMenuComponent } from './component/user-menu/user-menu.component';
 import { AddressComponent } from './component/address/address.component';
@@ -33,6 +33,7 @@ import { UserAddressComponent } from './component/user-address/user-address.comp
 import { UserProfileComponent } from './component/user-profile/user-profile.component';
 import { FormAddressComponent } from './component/form-address/form-address.component';
 import {AddressService} from "./service/address.service";
+import { FooterComponent } from './component/footer/footer.component';
 import 'hammerjs';
 
 export const routes: Routes = [
@@ -44,18 +45,18 @@ export const routes: Routes = [
     path: 'category/movie/:category',
     component: MovieListComponent,
     data: {
-      breadcrumb: "Liste de films"
+      breadcrumb: 'Liste de films'
     },
   },
   {
     path: 'movies/:id',
     component: MovieDetailComponent,
     data: {
-      breadcrumb: "Détail"
+      breadcrumb: 'Détail'
     }
   },
   { path: 'cart', component: CartComponent, data: {
-      breadcrumb: "Panier"
+      breadcrumb: 'Panier'
     }
   },
   {
@@ -116,7 +117,8 @@ export const routes: Routes = [
     AddressComponent,
     UserAddressComponent,
     UserProfileComponent,
-    FormAddressComponent
+    FormAddressComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
