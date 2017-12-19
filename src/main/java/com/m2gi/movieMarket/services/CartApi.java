@@ -41,16 +41,6 @@ public class CartApi {
         this.cartReference.remove(cart);
     }
 
-    /* On veut lister tous les CartDetail associer à un Cart
-    Le Cart étant lié à un utilisateur, cet identifiant sera unique pour la session.
-    */
-    @GET
-    @Path{"/"}
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<CartDetail> listCartDetail() {
-        return this.cartReference.listCartDetail();
-    }
-
     /* On veut ajouter un film dans le panier,
     Il faut créer le panier si celui-ci n'existe pas,
     Il faut créer le CartDetail qui référence un film et une quantité
@@ -61,6 +51,16 @@ public class CartApi {
         @DefaultValue("") @QueryParam("movie") Movie movie,
         @DefaultValue("1") @QueryParam("quantite") int quantite) {
         this.cartReference.addMovie(movie, quantite);
+    }
+
+    /* On veut lister tous les CartDetail associer à un Cart
+    Le Cart étant lié à un utilisateur, cet identifiant sera unique pour la session.
+    */
+    @GET
+    @Path{"/"}
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<CartDetail> listCartDetail() {
+        return this.cartReference.listCartDetail();
     }
 
 }

@@ -22,10 +22,12 @@ public class CartFacade implements CartFacadeLocal {
         this.em.remove(cart);
     }
 
-    // public void addMovie(Cart cart);
+
     public void addMovie(Movie movie, int quantite) {
         CartDetail cartDetail = new CartDetail();
         cartDetail.setQuantite(quantite);
+
+        this.em.persist(cartDetail);
     }
 
     public List<CartDetail> listCartDetail(Cart cart) {
