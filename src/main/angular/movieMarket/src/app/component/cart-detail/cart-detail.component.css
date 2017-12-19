@@ -73,6 +73,12 @@
 
 .titleLink {
     float: left;
+    font-size: 1.2em;
+}
+
+.titleLink,
+.cartDetailPrice {
+    line-height: 1.8em;
 }
 
 .cartDetailPrice {
@@ -81,4 +87,5 @@
 
 .description {
     clear: both;
+    text-align: justify;
 }
