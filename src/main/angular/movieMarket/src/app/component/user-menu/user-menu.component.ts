@@ -8,10 +8,18 @@ import {User} from "../../model/user";
 })
 export class UserMenuComponent implements OnInit {
   @Input() user: User;
+  @Input() classActive: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  isActive(element: string) {
+    if (element === this.classActive) {
+      return 'active';
+    }
+
+    return null;
+  }
 }
