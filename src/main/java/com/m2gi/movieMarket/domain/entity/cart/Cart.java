@@ -19,9 +19,9 @@ public class Cart implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name="cart_id", referencedColumnName="id")
-    private List<CartDetail> cartDetailList = new ArrayList<CartDetail>();
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JoinColumn(name="cart_id")
+    private List<CartDetail> cartDetails = new ArrayList<>();
     
     
     public int getId() {
@@ -30,6 +30,16 @@ public class Cart implements Serializable {
 
     public Cart setId(int id) {
         this.id = id;
+
+        return this;
+    }
+
+    public List<CartDetail> getCartDetails() {
+        return this.cartDetails;
+    }
+
+    public Cart addCartDetail(CartDetail cartDetail) {
+        this.cartDetails.add(cartDetail);
 
         return this;
     }

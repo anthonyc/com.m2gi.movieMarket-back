@@ -1,6 +1,8 @@
 package com.m2gi.movieMarket.domain.repository.cart;
 
 import com.m2gi.movieMarket.domain.entity.cart.Cart;
+import com.m2gi.movieMarket.domain.entity.cart.CartDetail;
+
 import java.util.List;
 import javax.ejb.Local;
 

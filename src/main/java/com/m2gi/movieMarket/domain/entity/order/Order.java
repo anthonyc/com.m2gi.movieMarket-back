@@ -19,9 +19,9 @@ public class Order implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
     
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name="order_id", referencedColumnName="id")
-    private List<OrderDetail> orderDetailList = new ArrayList<OrderDetail>();
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JoinColumn(name="order_id")
+    private List<OrderDetail> orderDetails = new ArrayList<>();
     
     public int getId() {
         return this.id;
@@ -29,6 +29,16 @@ public class Order implements Serializable {
 
     public Order setId(int id) {
         this.id = id;
+
+        return this;
+    }
+
+    public List<OrderDetail> getOrderDetails() {
+        return this.orderDetails;
+    }
+
+    public Order AddOrder(OrderDetail orderDetail) {
+        this.orderDetails.add(orderDetail);
 
         return this;
     }

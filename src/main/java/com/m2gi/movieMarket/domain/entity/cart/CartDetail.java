@@ -20,7 +20,7 @@ public class CartDetail implements Serializable {
     private int id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "movie", referencedColumnName = "id")
+    @JoinColumn(name = "movie_id")
     private Movie movie;
 
     @Column(name = "quantity")
