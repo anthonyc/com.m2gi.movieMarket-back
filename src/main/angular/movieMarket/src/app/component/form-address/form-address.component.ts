@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Address} from "../../model/address";
 import {FormsHelperService} from "../../service/forms-helper.service";
 import {AddressService} from "../../service/address.service";
@@ -26,11 +26,11 @@ export class FormAddressComponent implements OnInit {
     }
 
     this.addressForm = this.formBuilder.group({
-      'streetNumber': [''],
-      'street': [''],
+      'streetNumber': ['', Validators.required],
+      'street': ['', Validators.required],
       'additionalInformation': [''],
-      'zipCode': [''],
-      'city': ['']
+      'zipCode': ['', Validators.pattern('[0-9]{5}')],
+      'city': ['', Validators.required]
     });
   }
 
@@ -52,6 +52,14 @@ export class FormAddressComponent implements OnInit {
         },
       () => this.finished = true
       );
+    } else {
+      Object.keys(this.addressForm.controls).forEach(field => {
+        const control = this.addressForm.get(field);
+        if (control.pristine) {
+          control.markAsTouched({ onlySelf: true });
+          control.markAsDirty({ onlySelf: true });
+        }
+      });
     }
   }
 

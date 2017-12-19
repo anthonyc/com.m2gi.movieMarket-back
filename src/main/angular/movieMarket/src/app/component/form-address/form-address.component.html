@@ -15,7 +15,7 @@
     <show-errors [control]="addressForm.controls.street"></show-errors>
   </div>
   <div class="form-group">
-    <label for="additionalInformation" class="control-label required">Information complémentaires</label>
+    <label for="additionalInformation" class="control-label">Information complémentaires</label>
     <input type="text" class="form-control" id="additionalInformation" formControlName="additionalInformation"
            [ngClass]="formsHelper.displayFieldCss(addressForm.controls.additionalInformation)" [(ngModel)]="address.additionalInformation"
            placeholder="Information complémentaires">
@@ -24,14 +24,14 @@
   <div class="form-group">
     <label for="zipCode" class="control-label required">Code postale</label>
     <input type="text" class="form-control" id="zipCode" formControlName="zipCode"
-           [ngClass]="formsHelper.displayFieldCss(addressForm.controls.zipCode)"  [(ngModel)]="address.zipCode"
+           [ngClass]="formsHelper.displayFieldCss(addressForm.controls.zipCode)" [(ngModel)]="address.zipCode"
            placeholder="Entrez votre code postal">
     <show-errors [control]="addressForm.controls.zipCode"></show-errors>
   </div>
   <div class="form-group">
     <label for="city" class="control-label required">Ville</label>
     <input type="text" class="form-control" id="city" formControlName="city"
-           [ngClass]="formsHelper.displayFieldCss(addressForm.controls.city)"  [(ngModel)]="address.city"
+           [ngClass]="formsHelper.displayFieldCss(addressForm.controls.city)" [(ngModel)]="address.city"
            placeholder="Entrez votre ville">
     <show-errors [control]="addressForm.controls.city"></show-errors>
   </div>
