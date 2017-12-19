@@ -4,3 +4,7 @@
   border-bottom: 1px dotted #ccc;
   background: transparent;
 }
+
+.separation-block {
+  padding-top: 50px;
+}
