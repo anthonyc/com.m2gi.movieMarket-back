@@ -20,38 +20,45 @@ export class MovieListComponent implements OnInit {
   to: 20;
 
 
-  constructor(private movieService: MovieService, private route: ActivatedRoute, private router: Router) { 
+  constructor(private movieService: MovieService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(params => {
       this.categoryName = params['category'];
       this.filter = params['filter'];
       this.ngOnInit();
-      });
+    });
    }
 
   ngOnInit() {
-    if ( this.filter === '') {
+    if (!this.filter) {
       this.movieService.allByCategory(this.categoryName, this.from, this.to).subscribe(
         value => this.movies = value,
         error => this.error = 'movieService.all error',
         () => this.finished = true
-    ); }
-    if ( this.filter === 'name') {
+      );
+    }
+
+    if (this.filter === 'name') {
       this.movieService.allByCategoryFilterByName(this.categoryName, this.from, this.to).subscribe(
         value => this.movies = value,
         error => this.error = 'movieService.all error',
         () => this.finished = true
-    ); }
-    if ( this.filter === 'priceasc') {
+      );
+    }
+
+    if (this.filter === 'priceasc') {
       this.movieService.allByCategoryFilterByPriceAsc(this.categoryName, this.from, this.to).subscribe(
         value => this.movies = value,
         error => this.error = 'movieService.all error',
         () => this.finished = true
-    ); }
-    if ( this.filter === 'pricedesc') {
+      );
+    }
+
+    if (this.filter === 'pricedesc') {
       this.movieService.allByCategoryFilterByPriceDesc(this.categoryName, this.from, this.to).subscribe(
         value => this.movies = value,
         error => this.error = 'movieService.all error',
         () => this.finished = true
-    ); }
+      );
+    }
   }
 }
