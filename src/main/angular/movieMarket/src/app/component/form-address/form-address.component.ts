@@ -52,6 +52,8 @@ export class FormAddressComponent implements OnInit {
         },
       () => this.finished = true
       );
+
+      location.reload();
     } else {
       Object.keys(this.addressForm.controls).forEach(field => {
         const control = this.addressForm.get(field);
