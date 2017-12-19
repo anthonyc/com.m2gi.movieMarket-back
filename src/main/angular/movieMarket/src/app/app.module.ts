@@ -27,7 +27,13 @@ import { CartDetailComponent } from './component/cart-detail/cart-detail.compone
 import { LoginComponent } from './component/login/login.component';
 import {AuthenticateService} from "./service/authenticate.service";
 import { UserAccountComponent } from './component/user-account/user-account.component';
+import { UserMenuComponent } from './component/user-menu/user-menu.component';
+import { AddressComponent } from './component/address/address.component';
+import { UserAddressComponent } from './component/user-address/user-address.component';
 import 'hammerjs';
+import { UserProfileComponent } from './component/user-profile/user-profile.component';
+import { FormAddressComponent } from './component/form-address/form-address.component';
+import {AddressService} from "./service/address.service";
 
 
 export const routes: Routes = [
@@ -61,9 +67,27 @@ export const routes: Routes = [
       breadcrumb: "Création utilisateur"
     }
   },
-  { path: 'account/:id', component: UserAccountComponent, data: {
+  {
+    path: 'account/:id',
+    data: {
       breadcrumb: "Compte"
-    }
+    },
+    children: [
+      {
+        path: 'profile',
+        component: UserProfileComponent,
+        data: {
+          breadcrumb: "Profile"
+        }
+      },
+      {
+        path: 'address',
+        component: UserAddressComponent,
+        data: {
+          breadcrumb: "Adresse"
+        }
+      }
+    ]
   }
 ];
 
@@ -84,7 +108,12 @@ export const routes: Routes = [
     CartComponent,
     CartDetailComponent,
     LoginComponent,
-    UserAccountComponent
+    UserAccountComponent,
+    UserMenuComponent,
+    AddressComponent,
+    UserAddressComponent,
+    UserProfileComponent,
+    FormAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +130,8 @@ export const routes: Routes = [
     UserService,
     CartService,
     FormsHelperService,
-    AuthenticateService
+    AuthenticateService,
+    AddressService
   ],
   bootstrap: [AppComponent]
 })

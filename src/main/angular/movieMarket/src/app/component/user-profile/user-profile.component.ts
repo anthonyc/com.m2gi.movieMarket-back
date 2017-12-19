@@ -1,23 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {User} from "../../model/user";
-import {UserService} from "../../service/user.service";
-import {AuthenticateService} from "../../service/authenticate.service";
 import {ActivatedRoute} from "@angular/router";
+import {AuthenticateService} from "../../service/authenticate.service";
+import {UserService} from "../../service/user.service";
 
 @Component({
-  selector: 'app-user-account',
-  templateUrl: './user-account.component.html',
-  styleUrls: ['./user-account.component.css']
+  selector: 'app-user-profile',
+  templateUrl: './user-profile.component.html',
+  styleUrls: ['./user-profile.component.css']
 })
-export class UserAccountComponent implements OnInit {
+export class UserProfileComponent implements OnInit {
   user: User;
   userId: string;
   finished = false;
   error: string;
 
   constructor(private userService: UserService,
-    private authenticateService: AuthenticateService,
-    private route: ActivatedRoute) {
+      private authenticateService: AuthenticateService,
+      private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.userId = params['id']
     });
