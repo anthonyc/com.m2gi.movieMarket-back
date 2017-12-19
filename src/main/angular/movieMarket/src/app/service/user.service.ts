@@ -43,13 +43,20 @@ export class UserService {
   }
 
   public find(id: string, jwtToken): Observable<User> {
-    httpOptions.headers = httpOptions.headers.append('Authorization', 'Bearer ' + jwtToken);
+    if (!httpOptions.headers.has('Authorization')) {
+      httpOptions.headers = httpOptions.headers.append('Authorization', 'Bearer ' + jwtToken);
+    }
 
     return this.http.get<User>(
       'api/user/' + id,
         httpOptions
       )
-      .map(res => res
+      .map(res => {
+        let user: User = res;
+        user.jwtToken = jwtToken;
+
+        return user;
+      }
     );
   }
 }

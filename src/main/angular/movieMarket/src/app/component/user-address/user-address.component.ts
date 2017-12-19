@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../../model/user";
-import {UserService} from "../../service/user.service";
 import {AuthenticateService} from "../../service/authenticate.service";
+import {UserService} from "../../service/user.service";
 import {ActivatedRoute} from "@angular/router";
+import {User} from "../../model/user";
+import {Address} from "../../model/address";
 
 @Component({
-  selector: 'app-user-account',
-  templateUrl: './user-account.component.html',
-  styleUrls: ['./user-account.component.css']
+  selector: 'app-user-address',
+  templateUrl: './user-address.component.html',
+  styleUrls: ['./user-address.component.css']
 })
-export class UserAccountComponent implements OnInit {
+export class UserAddressComponent implements OnInit {
   user: User;
+  addresses: Address[];
   userId: string;
   finished = false;
   error: string;
 
   constructor(private userService: UserService,
-    private authenticateService: AuthenticateService,
-    private route: ActivatedRoute) {
+              private authenticateService: AuthenticateService,
+              private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.userId = params['id']
     });
@@ -25,7 +27,10 @@ export class UserAccountComponent implements OnInit {
 
   ngOnInit() {
     this.userService.find(this.userId, this.authenticateService.get().token).subscribe(
-      value => this.user = value,
+      value => {
+        this.user = value;
+        this.addresses = this.user.addresses;
+      },
       error => this.error = 'movieService.find error',
       () => this.finished = true
     );
