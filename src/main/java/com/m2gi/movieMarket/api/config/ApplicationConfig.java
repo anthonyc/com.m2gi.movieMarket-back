@@ -1,13 +1,8 @@
 package com.m2gi.movieMarket.api.config;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-import com.m2gi.movieMarket.api.*;
-import com.m2gi.movieMarket.api.security.filter.AuthenticationFilter;
 import io.swagger.jaxrs.config.BeanConfig;
 
 @ApplicationPath("/api")

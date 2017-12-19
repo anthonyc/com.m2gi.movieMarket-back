@@ -21,6 +21,10 @@ public class User extends Person implements Serializable, Principal {
     @JoinColumn(name = "user_id")
     private List<UserRole> userRoles = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id")
+    private List<Address> addresses = new ArrayList<>();
+
     @Column(name = "username", nullable = false)
     @NotNull
     private String username;
@@ -64,6 +68,17 @@ public class User extends Person implements Serializable, Principal {
     public User addUserRole(UserRole userRole) {
 
         this.userRoles.add(userRole);
+
+        return this;
+    }
+
+    public List<Address> getAddresses() {
+        return this.addresses;
+    }
+
+    public User addAddress(Address address) {
+
+        this.addresses.add(address);
 
         return this;
     }

@@ -60,10 +60,10 @@ export class CreateUserComponent implements OnInit {
           $("#alert-info").show();
         },
         err => {
-          this.error = "Une erreur serveur est survenu. Veuillez réessayer dans quelques instants";
+          this.error = "Une erreur serveur est survenue. Veuillez réessayer dans quelques instants";
 
           if (err.status === 400) {
-            this.error = "Veuillez remplir tous les champs obligatoire du formulaire";
+            this.error = "Veuillez remplir tous les champs obligatoires du formulaire";
           }
 
           $("#alert-danger").show();

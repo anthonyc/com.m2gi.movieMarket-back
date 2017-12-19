@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -24,16 +24,47 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreButtonComponentComponent } from './component/store-button-component/store-button-component.component';
 import { CartComponent } from './component/cart/cart.component';
 import { CartDetailComponent } from './component/cart-detail/cart-detail.component';
+import { LoginComponent } from './component/login/login.component';
+import {AuthenticateService} from "./service/authenticate.service";
+import { UserAccountComponent } from './component/user-account/user-account.component';
 import 'hammerjs';
 
 
-export const appRoutes: Routes = [
-  { path: '', component: HomePageContentComponent },
-  { path: 'movies', component: SearchResultContentComponent },
-  { path: 'movies/:id', component: MovieDetailComponent },
-  { path: 'category/movie/:category', component: MovieListComponent },
-  { path: 'user/create', component: CreateUserComponent },
-  { path: 'cart', component: CartComponent}
+export const routes: Routes = [
+  {
+    path: '',
+    component: HomePageContentComponent,
+  },
+  {
+    path: 'category/movie/:category',
+    component: MovieListComponent,
+    data: {
+      breadcrumb: "Liste de films"
+    },
+  },
+  {
+    path: 'movies/:id',
+    component: MovieDetailComponent,
+    data: {
+      breadcrumb: "Détail"
+    }
+  },
+  { path: 'cart', component: CartComponent, data: {
+      breadcrumb: "Panier"
+    }
+  },
+  { path: 'movies', component: SearchResultContentComponent, data: {
+      breadcrumb: "Recherche"
+    }
+  },
+  { path: 'user/create', component: CreateUserComponent, data: {
+      breadcrumb: "Création utilisateur"
+    }
+  },
+  { path: 'account/:id', component: UserAccountComponent, data: {
+      breadcrumb: "Compte"
+    }
+  }
 ];
 
 @NgModule({
@@ -51,13 +82,15 @@ export const appRoutes: Routes = [
     ShowErrorsComponent,
     StoreButtonComponentComponent,
     CartComponent,
-    CartDetailComponent
+    CartDetailComponent,
+    LoginComponent,
+    UserAccountComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
     NgxCarouselModule
@@ -67,7 +100,8 @@ export const appRoutes: Routes = [
     CategoryService,
     UserService,
     CartService,
-    FormsHelperService
+    FormsHelperService,
+    AuthenticateService
   ],
   bootstrap: [AppComponent]
 })
