@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../service/category.service';
 import { Category } from '../../model/category';
 import { CartService } from './../../service/cart.service';
+import {AuthenticateService} from "../../service/authenticate.service";
 
 @Component({
   selector: 'app-top-nav-bar',
@@ -13,7 +14,9 @@ export class TopNavBarComponent implements OnInit {
   error = null;
   finished = false;
 
-  constructor(private categoryService: CategoryService, private cartService: CartService) {   }
+  constructor(private categoryService: CategoryService,
+      public cartService: CartService,
+      public authenticateService: AuthenticateService) { }
 
   ngOnInit() {
     this.categoryService.all().subscribe(

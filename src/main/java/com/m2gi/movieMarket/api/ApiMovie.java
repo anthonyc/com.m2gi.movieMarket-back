@@ -1,4 +1,4 @@
-package com.m2gi.movieMarket.services;
+package com.m2gi.movieMarket.api;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ import io.swagger.annotations.Api;
 @Api(
 	value = "Movies Entity"
 )
-public class MovieApi {
+public class ApiMovie {
 	
 	@EJB
 	private MovieFacadeLocal movieReference;

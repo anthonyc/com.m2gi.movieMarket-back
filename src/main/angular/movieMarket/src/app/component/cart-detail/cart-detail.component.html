@@ -1,29 +1,33 @@
-<div *ngIf="cartDetail; else other_content" class="cartDetail row">
+<div class="cartDetail row">
     <div class="cartDetailImg col">
-        <img src="assets/img/movies/{{cartDetail.movie.img}}">
+        <a [routerLink]="['/movies', cartDetail.movie.id]">
+            <img src="assets/img/movies/{{cartDetail.movie.img}}"></a>
     </div>
-    <div class="col">
-        <span class="cartDetailTitle">{{cartDetail.movie.name}}</span>
-        <span class="cartDetailPrice">Prix unitaire : {{cartDetail.movie.price}}</span>
+    <!-- <div class="col-2 cartDetailTitle">
+        <a [routerLink]="['/movies', cartDetail.movie.id]">{{cartDetail.movie.name}}</a>
+        <span class="cartDetailPrice">Prix unitaire : {{cartDetail.movie.price.toFixed(2)}}€</span>
+    </div> -->
+    <div class="cartDetailDescription col-6">
+        <a class="titleLink" [routerLink]="['/movies', cartDetail.movie.id]">{{cartDetail.movie.name}}</a>
+        <span class="cartDetailPrice">Prix unitaire : {{cartDetail.movie.price.toFixed(2)}}€</span>
+        <div class="description">{{shortDesc}}</div>
     </div>
-    <div class="col-6">
-        {{cartDetail.movie.description}}
-    </div>
-    <div class="col">
-        <span class="cartDetailQuantity">Quantity : {{cartDetail.quantity}}
-            <div class="btn" (click)="removeMovie()">
-                <i class="fa fa-minus-circle" aria-hidden="true" icon-3x></i>
-            </div>
-            <div class="btn" (click)="addMovie()">
-              <i class="fa fa-plus-circle" aria-hidden="true" icon-3x></i>
-            </div>
-        </span>
-        <button class="deleteMovie" (click)="removeMovie()">Supprimer le film du panier</button>
+    <div class="col colPrice">
+        <div class="cartDetailQuantity">
+            <span class="textQuantity">Quantity : {{cartDetail.quantity}}</span>
 
-        <span class="cartDetailTotalPrice">Total Price : {{cartDetail.quantity * cartDetail.movie.price}}</span>
+            <div class="btn-group">
+                <button class="btn btn-secondary" (click)="addMovie()">
+                    <i class="fa fa-plus-circle" aria-hidden="true" icon-3x></i>
+                </button>
+                <button class="btn btn-secondary" (click)="removeMovie()">
+                    <i class="fa fa-minus-circle" aria-hidden="true" icon-3x></i>
+                </button>
+            </div>
+        </div>
+
+        <button class="btn btn-warning deleteMovie" (click)="removeAllMovies()">Supprimer le film du panier</button>
+
+        <span class="cartDetailTotalPrice">Prix total : {{(cartDetail.quantity * cartDetail.movie.price).toFixed(2)}}€</span>
     </div>
 </div>
-
-<ng-template #other_content>
-  <h5>Votre panier est vide</h5>
-</ng-template>

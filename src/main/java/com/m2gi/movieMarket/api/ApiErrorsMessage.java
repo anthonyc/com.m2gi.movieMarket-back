@@ -1,4 +1,4 @@
-package com.m2gi.movieMarket.services;
+package com.m2gi.movieMarket.api;
 
 public class ApiErrorsMessage {
 	private int statusCode;

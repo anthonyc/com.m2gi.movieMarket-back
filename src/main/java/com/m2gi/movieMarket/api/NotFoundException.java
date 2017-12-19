@@ -1,4 +1,4 @@
-package com.m2gi.movieMarket.services;
+package com.m2gi.movieMarket.api;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
