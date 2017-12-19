@@ -3,21 +3,14 @@ package com.m2gi.movieMarket.api;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 import com.m2gi.movieMarket.domain.entity.cart.Cart;
-import com.m2gi.movieMarket.domain.entity.cart.CartDetail;
-import com.m2gi.movieMarket.domain.entity.movie.Movie;
 import com.m2gi.movieMarket.domain.repository.cart.CartFacadeLocal;
 
 import io.swagger.annotations.Api;
+import io.swagger.jaxrs.PATCH;
 
 @Path("/cart")
 @Api(
@@ -28,12 +21,12 @@ public class ApiCart {
     @EJB
     private CartFacadeLocal cartReference;
 
-    @POST
+    @PATCH
     @Path("/")
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void create(Cart cart) {
-        this.cartReference.create(cart);
+    public void addMovies(@FormParam("userId") int userId, @FormParam("movieIds") List<Integer> movieIds) {
+
+        this.cartReference.addMovies(userId, movieIds);
     }
 
     @POST

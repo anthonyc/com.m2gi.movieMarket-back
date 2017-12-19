@@ -1,13 +1,6 @@
 package com.m2gi.movieMarket.domain.entity.cart;
 
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Set;
-
 import javax.persistence.*;
 
 import com.m2gi.movieMarket.domain.entity.movie.*;
@@ -32,6 +25,16 @@ public class CartDetail implements Serializable {
 
     public CartDetail setId(int id) {
         this.id = id;
+
+        return this;
+    }
+
+    public Movie getMovie() {
+        return this.movie;
+    }
+
+    public CartDetail addMovie(Movie movie) {
+        this.movie = movie;
 
         return this;
     }
