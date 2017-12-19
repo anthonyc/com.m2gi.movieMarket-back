@@ -29,6 +29,7 @@ import {AuthenticateService} from './service/authenticate.service';
 import { UserAccountComponent } from './component/user-account/user-account.component';
 import 'hammerjs';
 import { FooterComponent } from './component/footer/footer.component';
+import { OrderComponent } from './component/order/order.component';
 
 
 export const routes: Routes = [
@@ -86,7 +87,8 @@ export const routes: Routes = [
     CartDetailComponent,
     LoginComponent,
     UserAccountComponent,
-    FooterComponent
+    FooterComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

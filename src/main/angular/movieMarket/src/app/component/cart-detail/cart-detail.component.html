@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <button class="btn btn-warning deleteMovie" (click)="removeAllMovies()">Supprimer le film du panier</button>
+        <button class="btn btn-danger deleteMovie" (click)="removeAllMovies()">Supprimer le film du panier</button>
 
         <span class="cartDetailTotalPrice">Prix total : {{(cartDetail.quantity * cartDetail.movie.price).toFixed(2)}}€</span>
     </div>

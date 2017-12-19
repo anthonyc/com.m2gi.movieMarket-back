@@ -8,10 +8,10 @@
         </div>
 
     </form>
-    <div class="alert alert-info infoValidate">
+    <div class="alert alert-secondary infoValidate">
         <div>
             <span class="prixTotal">Prix total du panier : {{cartPrice().toFixed(2)}}€</span>
-            <button class="validateButton btn btn-success" (click)="validate()">Valider ma commande</button>
+            <app-order></app-order>
         </div>
     </div>
 </div>

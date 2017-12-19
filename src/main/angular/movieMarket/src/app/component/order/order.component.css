@@ -1,0 +1,7 @@
+.modal-content:not(.show) {
+    display: none;
+}
+
+.connect {
+    margin-bottom: 1em;
+}
