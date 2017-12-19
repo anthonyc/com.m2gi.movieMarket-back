@@ -11,7 +11,7 @@ export class CartComponent implements OnInit, OnChanges {
 
   cart: Cart;
 
-  constructor(private cartService: CartService) {
+  constructor(public cartService: CartService) {
     this.cart = this.cartService.get();
   }
 
@@ -26,6 +26,10 @@ export class CartComponent implements OnInit, OnChanges {
       cd => res += cd.quantity * cd.movie.price
     );
     return res;
+  }
+
+  validate() {
+    console.log('Validation du form');
   }
 
 }

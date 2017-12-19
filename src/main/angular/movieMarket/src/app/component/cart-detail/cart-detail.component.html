@@ -1,26 +1,32 @@
-<div *ngIf="cartDetail; else other_content" class="cartDetail row">
+<div class="cartDetail row">
     <div class="cartDetailImg col">
         <a [routerLink]="['/movies', cartDetail.movie.id]">
             <img src="assets/img/movies/{{cartDetail.movie.img}}"></a>
     </div>
-    <div class="col cartDetailTitle">
+    <!-- <div class="col-2 cartDetailTitle">
         <a [routerLink]="['/movies', cartDetail.movie.id]">{{cartDetail.movie.name}}</a>
         <span class="cartDetailPrice">Prix unitaire : {{cartDetail.movie.price.toFixed(2)}}€</span>
-    </div>
+    </div> -->
     <div class="cartDetailDescription col-6">
-        <p>{{shortDesc}}</p>
+        <a class="titleLink" [routerLink]="['/movies', cartDetail.movie.id]">{{cartDetail.movie.name}}</a>
+        <span class="cartDetailPrice">Prix unitaire : {{cartDetail.movie.price.toFixed(2)}}€</span>
+        <div class="description">{{shortDesc}}</div>
     </div>
-    <div class="col">
-        <span class="cartDetailQuantity">Quantity : {{cartDetail.quantity}}</span>
+    <div class="col colPrice">
+        <div class="cartDetailQuantity">
+            <span class="textQuantity">Quantity : {{cartDetail.quantity}}</span>
 
-        <button class="btn increaseQuantity" (click)="addMovie()">
-            <i class="fa fa-plus-circle" aria-hidden="true" icon-3x></i>
-        </button>
-        <button class="btn decreaseQuantity" (click)="removeMovie()">
-            <i class="fa fa-minus-circle" aria-hidden="true" icon-3x></i>
-        </button>
+            <div class="btn-group">
+                <button class="btn btn-secondary" (click)="addMovie()">
+                    <i class="fa fa-plus-circle" aria-hidden="true" icon-3x></i>
+                </button>
+                <button class="btn btn-secondary" (click)="removeMovie()">
+                    <i class="fa fa-minus-circle" aria-hidden="true" icon-3x></i>
+                </button>
+            </div>
+        </div>
 
-        <button class="btn deleteMovie" (click)="removeAllMovies()">Supprimer le film du panier</button>
+        <button class="btn btn-warning deleteMovie" (click)="removeAllMovies()">Supprimer le film du panier</button>
 
         <span class="cartDetailTotalPrice">Prix total : {{(cartDetail.quantity * cartDetail.movie.price).toFixed(2)}}€</span>
     </div>

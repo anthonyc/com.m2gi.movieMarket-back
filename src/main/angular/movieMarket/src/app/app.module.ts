@@ -19,15 +19,16 @@ import { CartService } from './service/cart.service';
 import { CreateUserComponent } from './component/create-user/create-user.component';
 import { UserService } from './service/user.service';
 import { ShowErrorsComponent } from './component/show-errors/show-errors.component';
-import { FormsHelperService } from "./service/forms-helper.service";
-import { HttpClientModule } from "@angular/common/http";
+import { FormsHelperService } from './service/forms-helper.service';
+import { HttpClientModule } from '@angular/common/http';
 import { StoreButtonComponentComponent } from './component/store-button-component/store-button-component.component';
 import { CartComponent } from './component/cart/cart.component';
 import { CartDetailComponent } from './component/cart-detail/cart-detail.component';
 import { LoginComponent } from './component/login/login.component';
-import {AuthenticateService} from "./service/authenticate.service";
+import {AuthenticateService} from './service/authenticate.service';
 import { UserAccountComponent } from './component/user-account/user-account.component';
 import 'hammerjs';
+import { FooterComponent } from './component/footer/footer.component';
 
 
 export const routes: Routes = [
@@ -39,30 +40,30 @@ export const routes: Routes = [
     path: 'category/movie/:category',
     component: MovieListComponent,
     data: {
-      breadcrumb: "Liste de films"
+      breadcrumb: 'Liste de films'
     },
   },
   {
     path: 'movies/:id',
     component: MovieDetailComponent,
     data: {
-      breadcrumb: "Détail"
+      breadcrumb: 'Détail'
     }
   },
   { path: 'cart', component: CartComponent, data: {
-      breadcrumb: "Panier"
+      breadcrumb: 'Panier'
     }
   },
   { path: 'movies', component: SearchResultContentComponent, data: {
-      breadcrumb: "Recherche"
+      breadcrumb: 'Recherche'
     }
   },
   { path: 'user/create', component: CreateUserComponent, data: {
-      breadcrumb: "Création utilisateur"
+      breadcrumb: 'Création utilisateur'
     }
   },
   { path: 'account/:id', component: UserAccountComponent, data: {
-      breadcrumb: "Compte"
+      breadcrumb: 'Compte'
     }
   }
 ];
@@ -84,7 +85,8 @@ export const routes: Routes = [
     CartComponent,
     CartDetailComponent,
     LoginComponent,
-    UserAccountComponent
+    UserAccountComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
