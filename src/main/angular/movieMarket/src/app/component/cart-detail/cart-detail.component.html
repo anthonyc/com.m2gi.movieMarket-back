@@ -1,4 +1,4 @@
-<div *ngIf="cartDetail; else other_content" class="cartDetail row">
+<div class="cartDetail row">
     <div class="cartDetailImg col">
         <a [routerLink]="['/movies', cartDetail.movie.id]">
             <img src="assets/img/movies/{{cartDetail.movie.img}}"></a>

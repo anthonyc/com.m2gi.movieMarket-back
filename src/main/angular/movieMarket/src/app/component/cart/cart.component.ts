@@ -11,7 +11,7 @@ export class CartComponent implements OnInit, OnChanges {
 
   cart: Cart;
 
-  constructor(private cartService: CartService) {
+  constructor(public cartService: CartService) {
     this.cart = this.cartService.get();
   }
 
