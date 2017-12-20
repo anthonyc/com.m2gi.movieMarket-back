@@ -12,7 +12,7 @@ import javax.ejb.Local;
 @Local
 public interface OrderFacadeLocal {
 
-    void addCart(Cart cart, int userId, Address address);
+    void addCart(int cart_id, int userId, int address_id);
 
     void remove(Order order);
 }

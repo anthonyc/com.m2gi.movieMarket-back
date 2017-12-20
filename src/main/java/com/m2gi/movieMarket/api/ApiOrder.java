@@ -23,13 +23,15 @@ public class ApiOrder {
     @EJB
     private OrderFacadeLocal orderReference;
 
+    @PATCH
     @Path("/")
+    @Produces(MediaType.APPLICATION_JSON)
     public void addCart(
-        @FormParam("cart") Cart cart,
+        @FormParam("cart_id") int cart_id,
         @FormParam("userId") int userId,
-        @FormParam("address") Address address ) {
+        @FormParam("address_id") int address_id ) {
 
-        this.orderReference.addCart(cart, userId, address);
+        this.orderReference.addCart(cart_id, userId, address_id);
     }
 
     @POST
