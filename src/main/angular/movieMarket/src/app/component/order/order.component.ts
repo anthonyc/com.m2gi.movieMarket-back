@@ -1,3 +1,4 @@
+import { AddressService } from './../../service/address.service';
 import { Address } from './../../model/address';
 import { CreditCard } from './../../model/creditCard';
 import { AuthenticateService } from './../../service/authenticate.service';
@@ -7,6 +8,9 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { FormsHelperService } from '../../service/forms-helper.service';
 import { User } from '../../model/user';
 import { Gender } from '../../model/person';
+import { Authenticate } from '../../model/authenticate';
+declare var $: any;
+
 
 @Component({
   selector: 'app-order',
@@ -31,6 +35,7 @@ export class OrderComponent implements OnInit {
 
 
     constructor (private userService: UserService,
+                public addressService: AddressService,
                 public authenticateService: AuthenticateService,
                 private formBuilder: FormBuilder,
                 public formsHelper: FormsHelperService
@@ -164,16 +169,75 @@ export class OrderComponent implements OnInit {
     }
 
     create() {
-        console.log(this.user);
-        console.log(this.deliveryAddress);
-        console.log(this.creditCard);
-
+        console.log('On avant user form');
+        
+        if (this.userForm.valid){
+            console.log('On apsse dans le form vlaide');
+            this.userService.create(this.user).subscribe(
+                data => {
+                this.info = 'Utilisateur créé';
+                },
+                err => {
+                this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
+                if (err.status === 400) {
+                    this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
+                }
+                console.log(this.error);
+                },
+                () => {
+                    let authenticate: Authenticate;
+                    const email = this.userForm.get('email').value;
+                    console.log(this.userForm.get('passwords'));
+                    const pwd = this.userForm.get('passwords').value;
+                    console.log(email);
+                    this.userService.login(email, pwd).subscribe(
+                        data => {
+                          authenticate = data;
+                          this.authenticateService.set(authenticate);
+                        },
+                        err => {
+                          this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
+                          if (err.status === 400) {
+                            this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
+                          }
+                        },
+                        () => {this.finished = true;
+                            console.log('on devrait etre loggé');
+                        }
+                      );
+                      this.addressService.add(this.deliveryAddress, String(this.user.id), this.user.jwtToken).subscribe(
+                    data => {
+                      this.info = 'Utilisateur créé';
+                    },
+                    err => {
+                      this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
+                      if (err.status === 400) {
+                        this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
+                      }
+                    },
+                  () => console.log('adresse ajoutée')
+                  );
+                }
+            );
+        }else {
+            Object.keys(this.userForm.controls).forEach(field => {
+              const control = this.userForm.get(field);
+              if (control.pristine) {
+                console.log(field);
+                control.markAsTouched({ onlySelf: true });
+                control.markAsDirty({ onlySelf: true });
+              }
+            });
+          }
     }
-
+    createn() {
+        
+    }
     setAddress(event: Address) {
         console.log(event);
         this.deliveryAddress = event;
         this.showAddressDone = 'show';
+        this.showAddressDanger = '';
     }
 
 }

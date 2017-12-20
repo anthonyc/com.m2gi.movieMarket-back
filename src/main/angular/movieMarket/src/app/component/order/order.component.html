@@ -1,7 +1,7 @@
 <!-- Button trigger modal -->
 
 <!-- Modal -->
-<form [formGroup]="userForm" (ngSubmit)="create()" novalidate>
+<form [formGroup]="userForm" (ngSubmit)="createn()" novalidate>
     <button class="validateButton btn btn-info" data-toggle="modal" data-target="#exampleModal">Valider ma commande</button>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -167,14 +167,14 @@
                         <show-errors [control]="userForm.controls.expirationYear"></show-errors>
                     </div>
                     <div class="form-group">
-                        <label for="code" class="control-label required">Année d'expiration</label>
-                        <input type="text" class="form-control" id="code" formControlName="code" [ngClass]="formsHelper.displayFieldCss(userForm.controls.code)" [(ngModel)]="creditCard.code" placeholder="Code (au verso de la carte)">
+                        <label for="code" class="control-label required">Cryptogramme</label>
+                        <input type="text" class="form-control" id="code" formControlName="code" [ngClass]="formsHelper.displayFieldCss(userForm.controls.code)" [(ngModel)]="creditCard.code" placeholder="Cryptogramme">
                         <show-errors [control]="userForm.controls.code"></show-errors>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" (click)='showBeforePayment($event)'><i class="fa fa-arrow-left" aria-hidden="true"></i> Annuler</button>
-                    <button type="submit" class="btn btn-primary">Payer</button>
+                    <button type="button" class="btn btn-primary" (click)="create()" data-dismiss="modal">Payer</button>
                 </div>
             </div>
         </div>
