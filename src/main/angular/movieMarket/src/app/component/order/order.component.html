@@ -112,10 +112,12 @@
                 </div>
                 <div class="modal-body">
                     <app-form-address (createdAddress)="setAddress($event)"></app-form-address>
+                    <div class="alert alert-danger addressConfirm {{showAddressDanger}}">Appuyez sur le bouton "Ajouter l'adresse" pour la valider</div>
+                    <div class="alert alert-success addressConfirm {{showAddressDone}}">L'adresse a bien été ajoutée</div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" (click)='showBeforeAddress($event)'><i class="fa fa-arrow-left" aria-hidden="true"></i> Annuler</button>
-                    <button type="button" class="btn btn-primary" (click)="showPayment($event)">Continuer <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                    <button type="button" class="btn btn-secondary" (click)='showCreateAccount2($event)'><i class="fa fa-arrow-left" aria-hidden="true"></i> Annuler</button>
+                    <button type="button" class="btn btn-primary" (click)="showPaymentFromCreateAddress($event)">Continuer <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                 </div>
             </div>
 
@@ -149,11 +151,30 @@
                         </button>
                 </div>
                 <div class="modal-body">
-                    Payment
+                    <div class="form-group">
+                        <label for="cardNumber" class="control-label required">Numéros de carte</label>
+                        <input type="text" class="form-control" id="cardNumber" formControlName="cardNumber" [ngClass]="formsHelper.displayFieldCss(userForm.controls.cardNumber)" [(ngModel)]="creditCard.cardNumber" placeholder="Entrez votre numéros de carte">
+                        <show-errors [control]="userForm.controls.cardNumber"></show-errors>
+                    </div>
+                    <div class="form-group">
+                        <label for="expirationMonth" class="control-label required">Mois d'expiration</label>
+                        <input type="text" class="form-control" id="expirationMonth" formControlName="expirationMonth" [ngClass]="formsHelper.displayFieldCss(userForm.controls.expirationMonth)" [(ngModel)]="creditCard.expirationMonth" placeholder="MM">
+                        <show-errors [control]="userForm.controls.expirationMonth"></show-errors>
+                    </div>
+                    <div class="form-group">
+                        <label for="expirationYear" class="control-label required">Année d'expiration</label>
+                        <input type="text" class="form-control" id="expirationYear" formControlName="expirationYear" [ngClass]="formsHelper.displayFieldCss(userForm.controls.expirationYear)" [(ngModel)]="creditCard.expirationYear" placeholder="AAAA">
+                        <show-errors [control]="userForm.controls.expirationYear"></show-errors>
+                    </div>
+                    <div class="form-group">
+                        <label for="code" class="control-label required">Année d'expiration</label>
+                        <input type="text" class="form-control" id="code" formControlName="code" [ngClass]="formsHelper.displayFieldCss(userForm.controls.code)" [(ngModel)]="creditCard.code" placeholder="Code (au verso de la carte)">
+                        <show-errors [control]="userForm.controls.code"></show-errors>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" (click)='showBeforePayment($event)'><i class="fa fa-arrow-left" aria-hidden="true"></i> Annuler</button>
-                    <button type="button" class="btn btn-primary" (click)="pay($event)">Payer</button>
+                    <button type="submit" class="btn btn-primary">Payer</button>
                 </div>
             </div>
         </div>

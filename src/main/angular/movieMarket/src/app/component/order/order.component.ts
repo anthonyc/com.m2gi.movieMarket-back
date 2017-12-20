@@ -1,3 +1,5 @@
+import { Address } from './../../model/address';
+import { CreditCard } from './../../model/creditCard';
 import { AuthenticateService } from './../../service/authenticate.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
@@ -5,7 +7,6 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { FormsHelperService } from '../../service/forms-helper.service';
 import { User } from '../../model/user';
 import { Gender } from '../../model/person';
-import { Address } from '../../model/address';
 
 @Component({
   selector: 'app-order',
@@ -15,11 +16,15 @@ import { Address } from '../../model/address';
 export class OrderComponent implements OnInit {
     user: User = new User();
     deliveryAddress: Address;
+    creditCard: CreditCard = new CreditCard();
     userForm: FormGroup;
     info = null;
     error = null;
     finished = false;
     isLogged = false;
+
+    showAddressDanger = '';
+    showAddressDone = '';
 
 
     public steps: Map<string, string>;
@@ -49,6 +54,10 @@ export class OrderComponent implements OnInit {
             'firstname': ['', Validators.required ],
             'username': ['', Validators.required ],
             'birthday': ['', Validators.required ],
+            'cardNumber': ['', Validators.required ], // TODO: make a real validator
+            'expirationMonth': ['', Validators.required ],
+            'expirationYear': ['', Validators.required ],
+            'code': ['', Validators.required ],
             'email': ['', Validators.email ],
             'passwords': this.formBuilder.group({
             'password': [''],
@@ -136,13 +145,14 @@ export class OrderComponent implements OnInit {
         }
     }
 
-    showPayment(event) {
-        console.log(event);
-        this.setStep('payment');
-    }
-
-    showBeforeAddress(event) {
-        this.showCreateAccount2(event);
+    showPaymentFromCreateAddress(event) {
+        if (this.deliveryAddress) {
+            this.showAddressDanger = '';
+            this.showAddressDone = '';
+            this.setStep('payment');
+            return;
+        }
+        this.showAddressDanger = 'show';
     }
 
     showBeforePayment(event) {
@@ -154,12 +164,16 @@ export class OrderComponent implements OnInit {
     }
 
     create() {
-        console.log('creating ~~~~~~');
+        console.log(this.user);
+        console.log(this.deliveryAddress);
+        console.log(this.creditCard);
+
     }
 
     setAddress(event: Address) {
         console.log(event);
         this.deliveryAddress = event;
+        this.showAddressDone = 'show';
     }
 
 }
