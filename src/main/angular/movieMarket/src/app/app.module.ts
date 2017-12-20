@@ -33,6 +33,7 @@ import { UserAddressComponent } from './component/user-address/user-address.comp
 import { UserProfileComponent } from './component/user-profile/user-profile.component';
 import { FormAddressComponent } from './component/form-address/form-address.component';
 import {AddressService} from "./service/address.service";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FooterComponent } from './component/footer/footer.component';
 import 'hammerjs';
 
@@ -127,7 +128,8 @@ export const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
-    NgxCarouselModule
+    NgxCarouselModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     MovieService,
