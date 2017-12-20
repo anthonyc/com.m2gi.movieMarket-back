@@ -18,6 +18,12 @@ public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name="user_id")
+    private User user;
+
+    private String adress;
     
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name="order_id")
@@ -29,6 +35,26 @@ public class Order implements Serializable {
 
     public Order setId(int id) {
         this.id = id;
+
+        return this;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
+    public Order setUser(User user) {
+        this.user = user;
+
+        return this;
+    }
+
+    public String getAdress() {
+        return this.adress;
+    }
+
+    public Order setAdress(String adress) {
+        this.adress = adress;
 
         return this;
     }
