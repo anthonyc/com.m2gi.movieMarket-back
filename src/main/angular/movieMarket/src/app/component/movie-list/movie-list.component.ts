@@ -19,7 +19,10 @@ export class MovieListComponent implements OnInit {
   from: 0;
   to: 20;
 
-
+  test(event) {
+    console.log(event.target.value);
+    this.filter = event.target.value;
+  }
   constructor(private movieService: MovieService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(params => {
       this.categoryName = params['category'];
@@ -27,9 +30,9 @@ export class MovieListComponent implements OnInit {
       this.ngOnInit();
     });
    }
-
   ngOnInit() {
     if (!this.filter) {
+      this.filter = '';
       this.movieService.allByCategory(this.categoryName, this.from, this.to).subscribe(
         value => this.movies = value,
         error => this.error = 'movieService.all error',

@@ -11,7 +11,7 @@
           </li>
           <li>
             Trier par:
-            <form>
+            <!--<form>
               <a href="category/movie/{{categoryName}}/priceasc">
                 <input type="button" value="Prix croissant" >
               </a><br>
@@ -21,7 +21,15 @@
               <a href="category/movie/{{categoryName}}/name">
                 <input type="button" value="nom" >
               </a>
-            </form> 
+            </form> -->
+              <select (change)="test($event)">  
+                <option value="priceasc">Prix croissant</option>
+                <option value="pricedesc">Prix décroissant</option>
+                <option value="name">Nom</option>
+              </select>
+              <button type="submit" class="btn btn-primary" [routerLink]= "filter">Go</button>
+
+              
           </li>
         </ul>
       </div>
@@ -42,8 +50,8 @@
             <a [routerLink]="['/movies', movie.id]">
               <h5>{{ movie.name }}</h5>
             </a>
-            <app-store-button-component [movie]="movie"></app-store-button-component>
           </div>
+          <app-store-button-component [movie]="movie"></app-store-button-component>
         </div>
       </div>
     </div>
