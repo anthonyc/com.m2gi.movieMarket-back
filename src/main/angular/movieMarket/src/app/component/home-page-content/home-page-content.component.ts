@@ -20,25 +20,12 @@ export class HomePageContentComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.categoryService.all().subscribe(
+        this.categoryService.all(0, 5).subscribe(
             value => this.categories = value,
             error => this.error = 'movieService.all error',
             () => {
                 this.finished = true;
-                this.chooseCategories();
             }
         );
-    }
-
-    chooseCategories() {
-        const nbCategoriesShown = 5;
-        let i = 0;
-        const categoriesShown = new Array<Category>();
-        do {
-            const test = this.categories.splice(Math.floor(Math.random() * this.categories.length), 1)[0];
-            categoriesShown.push(test);
-            i++;
-        } while (i < nbCategoriesShown);
-        this.categories = categoriesShown;
     }
 }
