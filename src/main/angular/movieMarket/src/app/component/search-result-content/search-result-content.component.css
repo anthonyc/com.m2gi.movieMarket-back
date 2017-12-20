@@ -14,6 +14,7 @@
 .search-box a {
   text-decoration: none;
   border: none;
+  cursor: pointer;
 }
 
 .search-box a:hover {

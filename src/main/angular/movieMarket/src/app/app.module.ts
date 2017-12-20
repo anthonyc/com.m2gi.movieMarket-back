@@ -36,6 +36,7 @@ import {AddressService} from "./service/address.service";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FooterComponent } from './component/footer/footer.component';
 import 'hammerjs';
+import { SearchResultComponent } from './component/search-result/search-result.component';
 
 export const routes: Routes = [
   {
@@ -61,8 +62,8 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'movies',
-    component: SearchResultContentComponent, data: {
+    path: 'search',
+    component: SearchResultComponent, data: {
       breadcrumb: 'Recherche'
     }
   },
@@ -119,7 +120,8 @@ export const routes: Routes = [
     UserAddressComponent,
     UserProfileComponent,
     FormAddressComponent,
-    FooterComponent
+    FooterComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,

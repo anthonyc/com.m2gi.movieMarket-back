@@ -1,6 +1,7 @@
 import { Movie } from './../../model/movie';
 import { MovieService } from './../../service/movie.service';
 import { Component, OnInit, Input } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-search-result-content',
@@ -14,16 +15,7 @@ export class SearchResultContentComponent implements OnInit {
   finished = false;
   searchText: string = '';
 
-  characters = [
-    'Finn the human',
-    'Jake the dog',
-    'Princess bubblegum',
-    'Lumpy Space Princess',
-    'Beemo1',
-    'Beemo2'
-  ]
-
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit() {
 
@@ -34,10 +26,10 @@ export class SearchResultContentComponent implements OnInit {
       );
   }
 
-  searchVisibility() {
-    if (this.searchText.length >= 3) {
-      console.log('plop');
-    }
+  search() {
+    let name = this.searchText;
+    this.searchText = '';
+    this.router.navigate(['/search'], { queryParams: { name: name } });
   }
 
 }

@@ -1,22 +1,16 @@
-<form class="form-group w-100">
+<form (submit)="search()" class="form-group w-100">
   <label class="sr-only" for="inlineFormInputGroupSearch">Recherche</label>
   <div class="input-group w-100 mt-3">
     <input [(ngModel)]="searchText" (input)="searchVisibility($event)" name="search" type="text" class="form-control" id="inlineFormInputGroupSearch" placeholder="Recherche">
-    <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
+    <div class="input-group-btn"><button (click)="search()" class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button></div>
   </div>
   <div *ngIf="searchText.length >= 3" class="search-box position-absolute">
     <ul class="p-0 list-group">
-      <a *ngFor="let c of movies | filter : searchText" class="list-group-item list-group-item-action" href="#">
+      <a *ngFor="let c of movies | filter : searchText" class="list-group-item list-group-item-action"
+        (click)="search()">
         {{c.name}}
       </a>
     </ul>
   </div>
 </form>
-
-<!--<div *ngFor="let movie of characters | filter : searchText">
-
-  <a [routerLink]="['/movies', movie.id]">
-      <img src="assets/img/movies/{{ movie.img }}" class="ngx-elements">
-  </a>
-</div>-->
 
