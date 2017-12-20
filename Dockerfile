@@ -34,10 +34,11 @@ RUN	mkdir -p $JBOSS_HOME/modules/system/layers/base/com/mysql/driver/main && \
 	cp mysql-connector-java-5.1.45-bin.jar $JBOSS_HOME/modules/system/layers/base/com/mysql/driver/main/ && \
 	cp module.xml $JBOSS_HOME/modules/system/layers/base/com/mysql/driver/main/ &&\
 	rm mysql-connector-java-5.1.45-bin.jar && rm module.xml
-	
+
+COPY ./target/movieMarket-0.0.1.war $JBOSS_HOME/standalone/deployments/
+
 RUN mkdir -p /dev/movieMarket
 
 WORKDIR /dev/movieMarket
-	
+
 CMD ["/opt/wildfly-11.0.0.Final/bin/standalone.sh", "-b", "0.0.0.0"]
-	
