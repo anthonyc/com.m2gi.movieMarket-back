@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Authenticate} from "../model/authenticate";
+import {Authenticate} from '../model/authenticate';
 
 @Injectable()
 export class AuthenticateService {
@@ -13,7 +13,7 @@ export class AuthenticateService {
       return new Authenticate();
     }
 
-    let authenticate = (JSON.parse(authenticateStorage) as Authenticate);
+    const authenticate = (JSON.parse(authenticateStorage) as Authenticate);
 
     return authenticate;
   }

@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                 </div>
             </div>
 
@@ -111,7 +111,7 @@
                         </button>
                 </div>
                 <div class="modal-body">
-                    ADDRESS
+                    <app-form-address (createdAddress)="setAddress($event)"></app-form-address>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" (click)='showBeforeAddress($event)'><i class="fa fa-arrow-left" aria-hidden="true"></i> Annuler</button>
@@ -119,6 +119,43 @@
                 </div>
             </div>
 
+
+            <!-- Already connected -->
+            <div *ngIf="isLogged" class="modal-content {{steps.get('address_connected')}}">
+                <div class="modal-header">
+                    <h5 class="modal-title">Choississez une adresse de livraison</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    Adresse de livraison :
+                    <select name="addressIfConnected">
+                        <option *ngFor="let address of user.addresses" value="address">Adresse {{address.id}}</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" (click)="showPayment($event)">Continuer <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+
+            <!-- Payment -->
+            <div class="modal-content {{steps.get('payment')}}">
+                <div class="modal-header">
+                    <h5 class="modal-title">Entrez vos informations de paiement</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    Payment
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)='showBeforePayment($event)'><i class="fa fa-arrow-left" aria-hidden="true"></i> Annuler</button>
+                    <button type="button" class="btn btn-primary" (click)="pay($event)">Payer</button>
+                </div>
+            </div>
         </div>
 
     </div>

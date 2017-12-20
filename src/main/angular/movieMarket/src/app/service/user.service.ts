@@ -42,7 +42,7 @@ export class UserService {
     );
   }
 
-  public find(id: string, jwtToken): Observable<User> {
+  public find(id: string | number, jwtToken): Observable<User> {
     if (!httpOptions.headers.has('Authorization')) {
       httpOptions.headers = httpOptions.headers.append('Authorization', 'Bearer ' + jwtToken);
     }
@@ -52,7 +52,7 @@ export class UserService {
         httpOptions
       )
       .map(res => {
-        let user: User = res;
+        const user: User = res;
         user.jwtToken = jwtToken;
 
         return user;

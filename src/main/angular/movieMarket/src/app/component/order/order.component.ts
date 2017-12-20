@@ -1,3 +1,4 @@
+import { AuthenticateService } from './../../service/authenticate.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
@@ -12,21 +13,23 @@ import { Address } from '../../model/address';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-
     user: User = new User();
-    deviveryAddress: Address;
+    deliveryAddress: Address;
     userForm: FormGroup;
     info = null;
     error = null;
     finished = false;
+    isLogged = false;
 
 
     public steps: Map<string, string>;
 
 
     constructor (private userService: UserService,
+                public authenticateService: AuthenticateService,
                 private formBuilder: FormBuilder,
-                public formsHelper: FormsHelperService) {
+                public formsHelper: FormsHelperService
+            ) {
 
         this.createForm();
         this.steps = new Map<string, string>();
@@ -36,6 +39,7 @@ export class OrderComponent implements OnInit {
         this.steps.set('createAccount2', '');
         this.steps.set('address', '');
         this.steps.set('payment', '');
+        this.steps.set('address_connected', '');
     }
 
     createForm() {
@@ -46,7 +50,6 @@ export class OrderComponent implements OnInit {
             'username': ['', Validators.required ],
             'birthday': ['', Validators.required ],
             'email': ['', Validators.email ],
-            // 'address': ['', Validators.required ],
             'passwords': this.formBuilder.group({
             'password': [''],
             'confirmPassword': ['']
@@ -65,22 +68,36 @@ export class OrderComponent implements OnInit {
     }
 
     ngOnInit() {
-    }
-
-    private clearSteps() {
-        for (const key of Array.from(this.steps.keys())) {
-            this.steps.set(key, '');
+        if (this.authenticateService.isLogged()) {
+            this.userService.find(this.authenticateService.get().id, this.authenticateService.get().token).subscribe(
+                value => this.user,
+                error => this.error,
+                () => {
+                    this.isLogged = true;
+                    console.log(this.user);
+                    this.showStartConnected(null);
+                }
+            );
         }
     }
 
+    private setStep(stepName: string) {
+        for (const key of Array.from(this.steps.keys())) {
+            this.steps.set(key, '');
+        }
+        this.steps.set(stepName, 'show');
+    }
+
     showStart(event) {
-        this.clearSteps();
-        this.steps.set('start', 'show');
+        this.setStep('start');
+    }
+
+    showStartConnected(event) {
+        this.setStep('address_connected');
     }
 
     showCreateAccount1(event) {
-        this.clearSteps();
-        this.steps.set('createAccount1', 'show');
+        this.setStep('createAccount1');
     }
 
     showCreateAccount2(event) {
@@ -97,8 +114,7 @@ export class OrderComponent implements OnInit {
         });
 
         if (keepGoing) {
-            this.clearSteps();
-            this.steps.set('createAccount2', 'show');
+            this.setStep('createAccount2');
         }
     }
 
@@ -116,8 +132,24 @@ export class OrderComponent implements OnInit {
         });
 
         if (keepGoing) {
-            this.clearSteps();
-            this.steps.set('address', 'show');
+            this.setStep('address');
+        }
+    }
+
+    showPayment(event) {
+        console.log(event);
+        this.setStep('payment');
+    }
+
+    showBeforeAddress(event) {
+        this.showCreateAccount2(event);
+    }
+
+    showBeforePayment(event) {
+        if (this.isLogged) {
+            this.showStartConnected(event);
+        } else {
+            this.setStep('address');
         }
     }
 
@@ -125,12 +157,9 @@ export class OrderComponent implements OnInit {
         console.log('creating ~~~~~~');
     }
 
-    showPayment(event) {
-        console.log(event + 'payment');
-    }
-
-    showBeforeAddress(event) {
-        this.showCreateAccount2(event);
+    setAddress(event: Address) {
+        console.log(event);
+        this.deliveryAddress = event;
     }
 
 }

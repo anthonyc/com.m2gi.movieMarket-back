@@ -32,7 +32,7 @@ import { AddressComponent } from './component/address/address.component';
 import { UserAddressComponent } from './component/user-address/user-address.component';
 import { UserProfileComponent } from './component/user-profile/user-profile.component';
 import { FormAddressComponent } from './component/form-address/form-address.component';
-import {AddressService} from "./service/address.service";
+import {AddressService} from './service/address.service';
 import { FooterComponent } from './component/footer/footer.component';
 import { OrderComponent } from './component/order/order.component';
 import 'hammerjs';
