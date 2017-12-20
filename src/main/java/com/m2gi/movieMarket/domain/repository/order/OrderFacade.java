@@ -36,9 +36,15 @@ public class OrderFacade implements OrderFacadeLocal {
 
         List<CartDetail> cartDetails = cart.getCartDetails();
 
+        float totalCommande = 0.;
 
+        for (CartDetail cartDetail : cartDetails) {
+            OrderDetail orderDetail = new OrderDetail();
 
-        List<Movie> movies = (List<Movies>) this.em.createQuery
-            ("select m from Movie")
+            orderDetail.addMovie(cartDetail.getMovie());
+            orderDetail.setQuantity(cartDetail.getQuantity());
+
+            order.addOrder(orderDetail);
+        }
     }
 }

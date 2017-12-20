@@ -28,6 +28,9 @@ public class Order implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name="order_id")
     private List<OrderDetail> orderDetails = new ArrayList<>();
+
+    @Column(name = "price")
+    private float price;
     
     public int getId() {
         return this.id;
@@ -63,8 +66,23 @@ public class Order implements Serializable {
         return this.orderDetails;
     }
 
-    public Order AddOrder(OrderDetail orderDetail) {
+    public Order addOrder(OrderDetail orderDetail) {
         this.orderDetails.add(orderDetail);
+
+        float price = orderDetail.getMovie().getPrice() *
+                      orderDetail.getQuantity();
+
+        this.setPrice(this.getPrice() + price);
+
+        return this;
+    }
+
+    public float getPrice() {
+        return this.price;
+    }
+
+    public Order setPrice(float price) {
+        this.price = price;
 
         return this;
     }

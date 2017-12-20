@@ -31,5 +31,11 @@ public class ApiOrder {
         this.orderReference.addCart(cart, userId, adress);
     }
 
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void remove(Order order) {
+        this.orderReference.remove(order);
+    }
+
 
 }

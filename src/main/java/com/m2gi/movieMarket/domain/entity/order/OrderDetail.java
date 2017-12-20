@@ -36,6 +36,16 @@ public class OrderDetail implements Serializable {
         return this;
     }
 
+    public Movie getMovie() {
+        return this.movie;
+    }
+
+    public OrderDetail addMovie(Movie movie) {
+        this.movie = movie;
+
+        return this;
+    }
+
     public int getQuantity() {
         return this.quantity;
     }
