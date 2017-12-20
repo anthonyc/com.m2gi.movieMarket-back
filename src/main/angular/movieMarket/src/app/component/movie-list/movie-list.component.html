@@ -9,36 +9,25 @@
             Categories: {{ categoryName }} <a href="" class="remove-filter" data-toggle="tooltip" title="" data-original-title="Remove">
             <i class="fa fa-remove"></i></a>
           </li>
-          <li>
-            Trier par:
-            <!--<form>
-              <a href="category/movie/{{categoryName}}/priceasc">
-                <input type="button" value="Prix croissant" >
-              </a><br>
-              <a href="category/movie/{{categoryName}}/pricedesc">
-                <input type="button" value="Prix décroissant" >
-              </a><br>
-              <a href="category/movie/{{categoryName}}/name">
-                <input type="button" value="nom" >
-              </a>
-            </form> -->
-              <select (change)="test($event)">  
-                <option value="priceasc">Prix croissant</option>
-                <option value="pricedesc">Prix décroissant</option>
-                <option value="name">Nom</option>
-              </select>
-              <button type="submit" class="btn btn-primary" [routerLink]= "filter">Go</button>
-
-              
-          </li>
         </ul>
       </div>
     </div>
-
     <div class="col">
       <div class="title">
         <h5>{{ categoryName }}</h5>
       </div>
+      <div class="product-sorting-bar">
+          <div>
+              Trier par:
+              <select (change)="test($event)">
+                <option value=""></option>
+                <option value="priceasc">Prix croissant</option>
+                <option value="pricedesc">Prix décroissant</option>
+                <option value="name">Nom</option>
+              </select>
+              <button type="submit" class="btn btn-primary" [routerLink]= "['/category/movie', categoryName, filter]">Go</button>
+            </div>
+        </div>
       <div class="row">
         <div *ngFor="let movie of movies; let i = index" class="col-xs-6 col-md-4 col-lg-3 box-product-outer">
           <div class="box-product">
