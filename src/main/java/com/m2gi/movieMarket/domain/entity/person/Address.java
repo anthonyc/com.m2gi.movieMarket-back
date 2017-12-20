@@ -83,7 +83,7 @@ public class Address implements Serializable {
         String adress =
             getStreetNumber() + " " +
             getStreet() + " " +
-            getAdditionalInformation() + " "
+            getAdditionalInformation() + " " +
             getCity() + " " +
             getZipCode();
 

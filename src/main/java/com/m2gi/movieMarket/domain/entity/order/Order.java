@@ -12,6 +12,9 @@ import java.util.ArrayList;
 
 import javax.persistence.*;
 
+import com.m2gi.movieMarket.domain.entity.person.User;
+
+
 @Entity
 @Table(name="order")
 public class Order implements Serializable {
@@ -23,7 +26,7 @@ public class Order implements Serializable {
     @JoinColumn(name="user_id")
     private User user;
 
-    private String adress;
+    private String address;
     
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name="order_id")
@@ -52,12 +55,12 @@ public class Order implements Serializable {
         return this;
     }
 
-    public String getAdress() {
-        return this.adress;
+    public String getAddress() {
+        return this.address;
     }
 
-    public Order setAdress(String adress) {
-        this.adress = adress;
+    public Order setAddress(String address) {
+        this.address = address;
 
         return this;
     }

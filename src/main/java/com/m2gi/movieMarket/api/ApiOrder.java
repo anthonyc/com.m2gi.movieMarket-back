@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import com.m2gi.movieMarket.domain.entity.cart.Cart;
 import com.m2gi.movieMarket.domain.entity.order.Order;
 import com.m2gi.movieMarket.domain.repository.order.OrderFacadeLocal;
+import com.m2gi.movieMarket.domain.entity.person.Address;
 
 import io.swagger.annotations.Api;
 import io.swagger.jaxrs.PATCH;
@@ -26,9 +27,9 @@ public class ApiOrder {
     public void addCart(
         @FormParam("cart") Cart cart,
         @FormParam("userId") int userId,
-        @FormParam("userAdresse") Adress adress ) {
+        @FormParam("address") Address address ) {
 
-        this.orderReference.addCart(cart, userId, adress);
+        this.orderReference.addCart(cart, userId, address);
     }
 
     @POST

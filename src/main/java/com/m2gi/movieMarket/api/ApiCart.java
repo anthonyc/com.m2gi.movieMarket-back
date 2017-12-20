@@ -36,8 +36,8 @@ public class ApiCart {
     }
 
     /* On veut ajouter un film dans le panier,
-    Il faut créer le panier si celui-ci n'existe pas,
-    Il faut créer le CartDetail qui référence un film et une quantité
+    Il faut creer le panier si celui-ci n'existe pas,
+    Il faut creer le CartDetail qui reference un film et une quantite
     */
     /*@POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -47,8 +47,8 @@ public class ApiCart {
         this.cartReference.addMovie(movie, quantite);
     }
 
-    *//* On veut lister tous les CartDetail associer à un Cart
-    Le Cart étant lié à un utilisateur, cet identifiant sera unique pour la session.
+    *//* On veut lister tous les CartDetail associer a un Cart
+    Le Cart etant lie a un utilisateur, cet identifiant sera unique pour la session.
     *//*
     @GET
     @Path{"/"}
