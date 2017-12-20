@@ -2,7 +2,8 @@
 .project
 .classpath
 .settings
-target/
+target/*
+!target/movieMarket-0.0.1.war
 src/main/webapp
 .idea
 *.iml
