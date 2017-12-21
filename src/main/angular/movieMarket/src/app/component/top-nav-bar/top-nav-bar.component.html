@@ -10,15 +10,8 @@
                 Movie <span>Market</span>
             </a>
         </div>
-        <div class="navbar-search">
-            <form class="form-inline">
-                <label class="sr-only" for="inlineFormInputGroupSearch">Recherche</label>
-                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input type="text" class="form-control" id="inlineFormInputGroupSearch" placeholder="Recherche">
-                    <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
-                </div>
-
-            </form>
+        <div class="navbar-search w-50 mr-0">
+            <app-search-result-content></app-search-result-content>
         </div>
 
         <ul class="navbar-nav">
@@ -36,7 +29,7 @@
                             <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
                         </span>
                         <ng-template #isLogged>
-                            <a class="dropdown-item" [routerLink]="['/account', authenticateService.get().id]">Voir mon compte</a>
+                            <a class="dropdown-item" routerLink="/account/{{authenticateService.get().id}}/profile">Voir mon compte</a>
                             <a (click)="authenticateService.loggout()" class="dropdown-item" href="#">Se deconnecter</a>
                         </ng-template>
                     </div>
@@ -72,7 +65,7 @@
                     Categories
                 </a>
                     <div class="dropdown-menu" aria-labelledby="categorieDropdown">
-                        <a class="dropdown-item" *ngFor="let category of categories" [routerLink]="['category/movie/', category.name]">{{ category.name }}</a>
+                        <a class="dropdown-item" *ngFor="let category of categories" [routerLink]="['/category/movie']" [queryParams]="{category: category.name}">{{ category.name }}</a>
                     </div>
                 </li>
             </ul>

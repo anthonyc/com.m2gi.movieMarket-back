@@ -78,4 +78,15 @@ public class Address implements Serializable {
 
         return this;
     }
+
+    public String toString() {
+        String adress =
+            getStreetNumber() + " " +
+            getStreet() + " " +
+            getAdditionalInformation() + " " +
+            getCity() + " " +
+            getZipCode();
+
+        return adress;
+    }
 }

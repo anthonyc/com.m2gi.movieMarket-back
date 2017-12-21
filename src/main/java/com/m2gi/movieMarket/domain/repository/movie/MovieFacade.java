@@ -29,6 +29,12 @@ public class MovieFacade implements MovieFacadeLocal {
 	public Movie find(Object id) {
 		return this.em.find(Movie.class, id);
 	}
+
+	public List<Movie> search(String search) {
+		return this.em.createQuery("select m from Movie as m where m.name like '" + search +"%'")
+				.getResultList()
+		;
+	}
 	
 	public List<Movie> findAll(int from, int to) {
 		return this.em.createQuery("select m from Movie as m")
@@ -40,6 +46,42 @@ public class MovieFacade implements MovieFacadeLocal {
 
 	public List<Movie> findAllByCategory(String category, int from, int to) {
 		return this.em.createQuery("select m from Movie m join m.categories c where c.name = :category")
+				.setParameter("category", category)
+				.setFirstResult(from)
+				.setMaxResults(to)
+				.getResultList()
+		;
+	}
+
+	public List<Movie> findAllByCategoryFilterByName(String category, int from, int to) {
+		return this.em.createQuery("select m from Movie m join m.categories c where c.name = :category order by m.name")
+				.setParameter("category", category)
+				.setFirstResult(from)
+				.setMaxResults(to)
+				.getResultList()
+		;
+	}
+
+	public List<Movie> findAllByCategoryFilterByPriceDesc(String category, int from, int to) {
+		return this.em.createQuery("select m from Movie m join m.categories c where c.name = :category order by m.price desc")
+				.setParameter("category", category)
+				.setFirstResult(from)
+				.setMaxResults(to)
+				.getResultList()
+		;
+	}
+
+	public List<Movie> findAllByCategoryFilterByPriceAsc(String category, int from, int to) {
+		return this.em.createQuery("select m from Movie m join m.categories c where c.name = :category order by m.price asc")
+				.setParameter("category", category)
+				.setFirstResult(from)
+				.setMaxResults(to)
+				.getResultList()
+		;
+	}
+
+	public List<Movie> findAllByCategoryFilterByDate(String category, int from, int to) {
+		return this.em.createQuery("select m from Movie m join m.categories c where c.name = :category order by releaseYear")
 				.setParameter("category", category)
 				.setFirstResult(from)
 				.setMaxResults(to)

@@ -7,3 +7,5 @@ src/main/webapp
 .idea
 *.iml
 /build/
+/bin/
+.vscode/

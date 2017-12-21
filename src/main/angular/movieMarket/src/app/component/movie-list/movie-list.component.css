@@ -25,6 +25,10 @@
   padding: 10px;
 }
 
+.box-product {
+  min-height: 350px;
+}
+
 .box-product .img-wrapper {
   position: relative;
   overflow: hidden;
@@ -39,6 +43,8 @@
 
 .box-product h5 {
   padding-top: 15px;
+  font-size: 1em;
+
 }
 
 .box-product a {

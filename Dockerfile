@@ -35,7 +35,7 @@ RUN	mkdir -p $JBOSS_HOME/modules/system/layers/base/com/mysql/driver/main && \
 	cp module.xml $JBOSS_HOME/modules/system/layers/base/com/mysql/driver/main/ &&\
 	rm mysql-connector-java-5.1.45-bin.jar && rm module.xml
 
-COPY ./target/movieMarket-0.0.1.war $JBOSS_HOME/standalone/deployments/
+COPY ./docker/movieMarket-0.0.1.war $JBOSS_HOME/standalone/deployments/
 
 RUN mkdir -p /dev/movieMarket
 

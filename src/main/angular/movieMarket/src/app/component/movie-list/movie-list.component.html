@@ -6,39 +6,29 @@
         </div>
         <ul>
           <li>
-            Categories: T-Shirts <a href="" class="remove-filter" data-toggle="tooltip" title="" data-original-title="Remove">
+            Categories: {{ categoryName }} <a href="" class="remove-filter" data-toggle="tooltip" title="" data-original-title="Remove">
             <i class="fa fa-remove"></i></a>
           </li>
         </ul>
       </div>
     </div>
-
     <div class="col">
       <div class="title">
         <h5>{{ categoryName }}</h5>
       </div>
-
       <div class="product-sorting-bar">
         <div>
           <form class="form-inline">
-            <label class="mr-sm-2" for="inlineFormCustomSelectPref">Preference</label>
-            <select class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelectPref">
-              <option selected>Choose...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </form>
-        </div>
-        <div>
-          <form class="form-inline">
-            <label class="mr-sm-2" for="inlineFormCustomSelectPref">Preference</label>
-            <select class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelectPref">
-              <option selected>Choose...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
+            Trier par :&nbsp;
+              <select (change)="changeFilter($event)" class="form-control">
+                <option value="" *ngIf="filter"></option>
+                <option value="" *ngIf="!filter" selected></option>
+                <option value="priceasc">Prix croissant</option>
+                <option value="pricedesc">Prix décroissant</option>
+                <option value="name">Nom</option>
+                <option value="date">Date</option>
+              </select>
+            <button type="submit" (click)="filtre()" class="btn btn-primary" >Go</button>
           </form>
         </div>
       </div>
@@ -52,12 +42,9 @@
             </div>
             <a [routerLink]="['/movies', movie.id]">
               <h5>{{ movie.name }}</h5>
-              {{ movie.description.substr(0, 50) }}...
-              <div class="price">
-                {{ movie.price }}
-              </div>
             </a>
           </div>
+          <app-store-button-component [movie]="movie"></app-store-button-component>
         </div>
       </div>
     </div>

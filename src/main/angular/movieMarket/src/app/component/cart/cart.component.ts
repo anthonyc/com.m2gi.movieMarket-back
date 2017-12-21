@@ -10,6 +10,7 @@ import { Cart } from '../../model/cart';
 export class CartComponent implements OnInit, OnChanges {
 
   cart: Cart;
+  affichagePanier = 'Votre panier est vide !';
 
   constructor(public cartService: CartService) {
     this.cart = this.cartService.get();
@@ -30,6 +31,11 @@ export class CartComponent implements OnInit, OnChanges {
 
   validate() {
     console.log('Validation du form');
+  }
+
+  setBought(event: boolean) {
+    this.cartService.clearCart();
+    this.affichagePanier = 'Votre panier a été validé';
   }
 
 }

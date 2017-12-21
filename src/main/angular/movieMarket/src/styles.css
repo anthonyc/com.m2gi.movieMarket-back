@@ -22,6 +22,10 @@ a {
   color: #606060;
 }
 
+.separation-block {
+  padding-top: 50px;
+}
+
 .inner-box {
   background: #ffffff;
   border-radius: 3px 3px;

@@ -11,7 +11,7 @@ import { MovieDetailComponent } from './component/movie-detail/movie-detail.comp
 import { TopNavBarComponent } from './component/top-nav-bar/top-nav-bar.component';
 import { HomePageContentComponent } from './component/home-page-content/home-page-content.component';
 import { BreadcrumbComponent } from './component/breadcrumb/breadcrumb.component';
-import { SearchResultContentComponent } from './component/search-result-content/search-result-content.component';
+import { SearchResultContentComponent } from './component/search/search.component';
 import { MovieHorizontalScrollComponent } from './component/movie-horizontal-scroll/movie-horizontal-scroll.component';
 import { NgxCarouselModule } from 'ngx-carousel';
 import { CategoryService } from './service/category.service';
@@ -32,9 +32,14 @@ import { AddressComponent } from './component/address/address.component';
 import { UserAddressComponent } from './component/user-address/user-address.component';
 import { UserProfileComponent } from './component/user-profile/user-profile.component';
 import { FormAddressComponent } from './component/form-address/form-address.component';
-import {AddressService} from "./service/address.service";
+import {AddressService} from './service/address.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FooterComponent } from './component/footer/footer.component';
+import { OrderComponent } from './component/order/order.component';
 import 'hammerjs';
+import { SearchResultComponent } from './component/search-result/search-result.component';
+import {OrderService} from "./service/order.service";
+
 
 export const routes: Routes = [
   {
@@ -42,7 +47,7 @@ export const routes: Routes = [
     component: HomePageContentComponent,
   },
   {
-    path: 'category/movie/:category',
+    path: 'category/movie',
     component: MovieListComponent,
     data: {
       breadcrumb: 'Liste de films'
@@ -60,8 +65,8 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'movies',
-    component: SearchResultContentComponent, data: {
+    path: 'search',
+    component: SearchResultComponent, data: {
       breadcrumb: 'Recherche'
     }
   },
@@ -118,7 +123,9 @@ export const routes: Routes = [
     UserAddressComponent,
     UserProfileComponent,
     FormAddressComponent,
-    FooterComponent
+    FooterComponent,
+    OrderComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
@@ -127,7 +134,8 @@ export const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
-    NgxCarouselModule
+    NgxCarouselModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     MovieService,
@@ -136,7 +144,8 @@ export const routes: Routes = [
     CartService,
     FormsHelperService,
     AuthenticateService,
-    AddressService
+    AddressService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })
