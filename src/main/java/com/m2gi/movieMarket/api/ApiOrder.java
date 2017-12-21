@@ -1,15 +1,13 @@
 package com.m2gi.movieMarket.api;
 
-import java.util.List;
-
 import javax.ejb.EJB;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.m2gi.movieMarket.domain.entity.cart.Cart;
 import com.m2gi.movieMarket.domain.entity.order.Order;
 import com.m2gi.movieMarket.domain.repository.order.OrderFacadeLocal;
-import com.m2gi.movieMarket.domain.entity.person.Address;
 
 import io.swagger.annotations.Api;
 import io.swagger.jaxrs.PATCH;
@@ -24,14 +22,21 @@ public class ApiOrder {
     private OrderFacadeLocal orderReference;
 
     @PATCH
-    @Path("/")
+    @Path("/user/{userId}/address/{addressId}")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void addCart(
-        @FormParam("cart_id") int cart_id,
-        @FormParam("userId") int userId,
-        @FormParam("address_id") int address_id ) {
+    public Response add (
+        Cart cart,
+        @PathParam("userId") int userId,
+        @PathParam("addressId") int addressId ) {
 
-        this.orderReference.addCart(cart_id, userId, address_id);
+        try {
+            int id = this.orderReference.add(cart, userId, addressId);
+
+            return Response.status(Response.Status.CREATED).entity(new ApiMessage("Address created with id : " + id)).build();
+        } catch (Exception exception) {
+            throw new InternalServerException("Internal Server Exception ");
+        }
     }
 
     @POST

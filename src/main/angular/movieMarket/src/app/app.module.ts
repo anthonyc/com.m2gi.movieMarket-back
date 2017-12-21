@@ -38,6 +38,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { OrderComponent } from './component/order/order.component';
 import 'hammerjs';
 import { SearchResultComponent } from './component/search-result/search-result.component';
+import {OrderService} from "./service/order.service";
 
 
 export const routes: Routes = [
@@ -143,7 +144,8 @@ export const routes: Routes = [
     CartService,
     FormsHelperService,
     AuthenticateService,
-    AddressService
+    AddressService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })

@@ -28,57 +28,45 @@ public class OrderFacade implements OrderFacadeLocal {
     private Logger logger = LoggerFactory.getLogger(OrderFacade.class);
 
     @Override
-    public void addCart(int cart_id, int userId, int address_id) {
-        User user = this.em.find(User.class, userId);
-
-        Hibernate.initialize(user.getUserRoles());
-        Hibernate.initialize(user.getAddresses());
-
-        Order order = new Order();
-
-        order.setUser(user);
-
-
-        Cart cart = new Cart();
-
+    public int add(Cart cart, int userId, int addressId) {
         try {
-            cart = (Cart) this.em.createQuery("select c from Cart c where c.id = :cart_id")
-                    .setParameter("cart_id", cart_id)
-                    .getSingleResult();
+            User user = this.em.find(User.class, userId);
+
+            Hibernate.initialize(user.getUserRoles());
+            Hibernate.initialize(user.getAddresses());
+
+            Order order = new Order();
+
+            order.setUser(user);
+
+            Address address = (Address) this.em.find(Address.class, addressId);
+
+            order.setAddress(address.toString());
+
+            List<CartDetail> cartDetails = cart.getCartDetails();
+
+            float totalCommande = 0;
+
+            for (CartDetail cartDetail : cartDetails) {
+                OrderDetail orderDetail = new OrderDetail();
+
+                orderDetail.addMovie(cartDetail.getMovie());
+                orderDetail.setQuantity(cartDetail.getQuantity());
+
+                order.addOrder(orderDetail);
+            }
+
+            this.em.persist(order);
+            this.em.flush();
+
+            return order.getId();
+
         } catch (NoResultException noResultException) {
-            this.logger.info("####### No cart find for user : " + userId);
-            this.logger.info("####### New Cart return");
-        }
-
-
-        Address address = new Address();
-
-        try {
-            address = (Address) this.em.createQuery("select a from Address a where a.id = :address_id")
-                    .setParameter("address_id", address_id)
-                    .getSingleResult();
-        } catch (NoResultException noResultException) {
-            this.logger.info("####### No address find with id : " + address_id);
+            this.logger.info("####### No address find with id : " + addressId);
             this.logger.info("####### Address empty");
+
+            throw new NoResultException();
         }
-
-        order.setAddress(address.toString());
-
-        List<CartDetail> cartDetails = cart.getCartDetails();
-
-        float totalCommande = 0;
-
-        for (CartDetail cartDetail : cartDetails) {
-            OrderDetail orderDetail = new OrderDetail();
-
-            orderDetail.addMovie(cartDetail.getMovie());
-            orderDetail.setQuantity(cartDetail.getQuantity());
-
-            order.addOrder(orderDetail);
-        }
-
-        this.em.persist(order);
-        this.em.flush();
     }
 
     @Override
