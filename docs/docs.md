@@ -17,4 +17,4 @@
 
 ![general-architecture](diagrams/general-architecture.png "general-architecture")
 ![api-architecture](diagrams/api-architecture.png "api-architecture")
-![domain-architecture](/diagrams/domain-architecture.png "domain-architecture")
+![domain-architecture](diagrams/domain-architecture.png "domain-architecture")
