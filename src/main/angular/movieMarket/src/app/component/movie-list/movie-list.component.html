@@ -17,18 +17,21 @@
         <h5>{{ categoryName }}</h5>
       </div>
       <div class="product-sorting-bar">
-          <div>
-              Trier par:
-              <select (change)="test($event)">
-                <option value=""></option>
+        <div>
+          <form class="form-inline">
+            Trier par :&nbsp;
+              <select (change)="changeFilter($event)" class="form-control">
+                <option value="" *ngIf="filter"></option>
+                <option value="" *ngIf="!filter" selected></option>
                 <option value="priceasc">Prix croissant</option>
                 <option value="pricedesc">Prix décroissant</option>
                 <option value="name">Nom</option>
                 <option value="date">Date</option>
               </select>
-              <button (click)="filtre()" class="btn btn-primary" >Go</button>
-            </div>
+            <button type="submit" (click)="filtre()" class="btn btn-primary" >Go</button>
+          </form>
         </div>
+      </div>
       <div class="row">
         <div *ngFor="let movie of movies; let i = index" class="col-xs-6 col-md-4 col-lg-3 box-product-outer">
           <div class="box-product">

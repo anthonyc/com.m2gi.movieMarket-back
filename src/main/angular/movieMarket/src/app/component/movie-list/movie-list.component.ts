@@ -4,7 +4,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 
-
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
@@ -20,16 +19,17 @@ export class MovieListComponent implements OnInit {
   from: 0;
   to: 20;
 
-  constructor(private movieService: MovieService, private route: ActivatedRoute, private router: Router) {
+  constructor( private movieService: MovieService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(params => {
       this.categoryName = params['category'];
+      this.filter = null;
       this.ngOnInit();
     });
     this.route.queryParams.subscribe(params => {
       this.ngOnInit();
     });
   }
-  test(event) {
+  changeFilter(event) {
     console.log(event.target.value);
     this.filter = event.target.value;
   }
