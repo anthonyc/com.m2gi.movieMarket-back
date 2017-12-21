@@ -12,6 +12,10 @@ public class AddressFacade implements AddressFacadeLocal {
     @PersistenceContext()
     private EntityManager em;
 
+    @Override
+    public void remove(Address address) {
+        this.em.remove(address);
+    }
 
     @Override
     public int create(Address address, int userId) {
