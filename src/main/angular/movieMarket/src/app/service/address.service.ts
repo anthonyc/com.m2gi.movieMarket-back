@@ -25,6 +25,6 @@ export class AddressService {
 
   public remove(address: Address, userId: string, jwtToken: string) {
     httpOptions.headers = httpOptions.headers.append('Authorization', 'Bearer ' + jwtToken);
-    this.http.delete<Address>('/api/address/user/' + userId, httpOptions);
+    this.http.delete<Address>('/api/address/' + address.id + '/user/' + userId, httpOptions);
   }
 }

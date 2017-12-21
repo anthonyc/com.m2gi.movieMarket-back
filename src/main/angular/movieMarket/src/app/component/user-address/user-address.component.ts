@@ -1,3 +1,4 @@
+import { AddressService } from './../../service/address.service';
 import { Component, OnInit } from '@angular/core';
 import {AuthenticateService} from '../../service/authenticate.service';
 import {UserService} from '../../service/user.service';
@@ -19,6 +20,7 @@ export class UserAddressComponent implements OnInit {
 
   constructor(private userService: UserService,
               private authenticateService: AuthenticateService,
+              private addressService: AddressService,
               private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.userId = params['id']
@@ -37,6 +39,8 @@ export class UserAddressComponent implements OnInit {
   }
 
   removeAddress(index: number) {
+    console.log(index);
+    this.addressService.remove(this.addresses[index], this.user.id.toString(), this.user.jwtToken);
   }
 
 }
