@@ -36,6 +36,7 @@ public class ApiAddress {
 
             return Response.status(Response.Status.CREATED).entity(id).build();
         } catch (Exception exception) {
+            // Todo Add other return status
             throw new InternalServerException("Internal Server Exception ");
         }
     }
@@ -51,8 +52,13 @@ public class ApiAddress {
             throw new NotAuthorizedException("You are not authorized to execute this operation");
         }
 
-        this.addressReference.remove(id, userId);
+        try {
+            this.addressReference.remove(id, userId);
 
-        return Response.status(Response.Status.CREATED).entity(id).build();
+            return Response.status(Response.Status.CREATED).entity(id).build();
+        } catch (Exception exception) {
+            // Todo Add other return status
+            throw new InternalServerException("Internal Server Exception ");
+        }
     }
 }

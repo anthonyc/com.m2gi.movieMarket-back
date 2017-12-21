@@ -12,13 +12,5 @@ public interface CartFacadeLocal {
 
     void addMovies(int userId, List<Integer> movieId);
 
-    void addMovie(Cart cart);
-
-    void removeMovie(Cart cart);
-
     void remove(Cart cart);
-
-    Cart find(Cart cart);
-
-    List<CartDetail> listCartDetail(Cart cart);
 }

@@ -24,19 +24,34 @@ public class ApiMovie {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void create(Movie movie) {
-		this.movieReference.create(movie);
+		try {
+			this.movieReference.create(movie);
+		} catch (Exception exception) {
+			// Todo Add other return status
+			throw new InternalServerException("Internal Server Exception ");
+		}
 	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void edit(Movie movie) {
-		this.movieReference.edit(movie);
+		try {
+			this.movieReference.edit(movie);
+		} catch (Exception exception) {
+			// Todo Add other return status
+			throw new InternalServerException("Internal Server Exception ");
+		}
 	}
 	
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void remove(Movie movie) {
-		this.movieReference.remove(movie);
+		try {
+			this.movieReference.remove(movie);
+		} catch (Exception exception) {
+			// Todo Add other return status
+			throw new InternalServerException("Internal Server Exception ");
+		}
 	}
 	
 	@GET

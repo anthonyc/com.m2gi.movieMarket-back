@@ -22,25 +22,41 @@ public class ApiCategory {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void create(Category category) {
-		this.categoryReference.create(category);
+		try {
+			this.categoryReference.create(category);
+		} catch (Exception exception) {
+			// Todo Add other return status
+			throw new InternalServerException("Internal Server Exception ");
+		}
 	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void edit(Category category) {
-		this.categoryReference.edit(category);
+		try {
+			this.categoryReference.edit(category);
+		} catch (Exception exception) {
+			// Todo Add other return status
+			throw new InternalServerException("Internal Server Exception ");
+		}
 	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void remove(Category category) {
-		this.categoryReference.remove(category);
+		try {
+			this.categoryReference.remove(category);
+		} catch (Exception exception) {
+			// Todo Add other return status
+			throw new InternalServerException("Internal Server Exception ");
+		}
 	}
 	
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response find(@PathParam("id") int id) {
+
 		Category category = this.categoryReference.find((Object) id);
 		
 		if (category == null) {
@@ -57,6 +73,11 @@ public class ApiCategory {
 			@DefaultValue("0") @QueryParam("from") int from,
 			@DefaultValue("20") @QueryParam("to") int to) {
 
-		return this.categoryReference.findAll(from, to);
+		try {
+			return this.categoryReference.findAll(from, to);
+		} catch (Exception exception) {
+			// Todo Add other return status
+			throw new InternalServerException("Internal Server Exception ");
+		}
 	}
 }
