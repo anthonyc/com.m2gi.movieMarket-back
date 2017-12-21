@@ -45,20 +45,24 @@ export class CartService {
       return this.findCartDetailByMovie(movie);
     }
 
-    localStorage.clear();
+    localStorage.removeItem('cart');
     return null;
   }
 
   private findCartDetailByMovie(movie: Movie): CartDetail {
     const cart = this.get();
 
-    for (let cartDetail of cart.cartDetails) {
+    for (const cartDetail of cart.cartDetails) {
       if (cartDetail.movie.id === movie.id) {
         return cartDetail;
       }
     }
 
     return null;
+  }
+
+  public clearCart() {
+    localStorage.removeItem('cart');
   }
 
 

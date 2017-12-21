@@ -42,7 +42,7 @@ export class FormAddressComponent implements OnInit {
   create() {
     if (this.addressForm.valid) {
       this.createdAddress.emit(this.address);
-      if (this.user != null) {
+      if (this.user && this.user != null) {
         this.addressService.add(this.address, String(this.user.id), this.user.jwtToken).subscribe(
           data => {
             this.info = 'Utilisateur créé';

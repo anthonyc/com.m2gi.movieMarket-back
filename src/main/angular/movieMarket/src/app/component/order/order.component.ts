@@ -2,15 +2,15 @@ import { AddressService } from './../../service/address.service';
 import { Address } from './../../model/address';
 import { CreditCard } from './../../model/creditCard';
 import { AuthenticateService } from './../../service/authenticate.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { FormsHelperService } from '../../service/forms-helper.service';
 import { User } from '../../model/user';
 import { Gender } from '../../model/person';
 import { Authenticate } from '../../model/authenticate';
-import {OrderService} from "../../service/order.service";
-import {CartService} from "../../service/cart.service";
+import {OrderService} from '../../service/order.service';
+import {CartService} from '../../service/cart.service';
 declare var $: any;
 
 
@@ -33,6 +33,8 @@ export class OrderComponent implements OnInit {
     showAddressDanger = '';
     showAddressDone = '';
 
+    @Output()
+    bought = new EventEmitter<boolean>();
 
     public steps: Map<string, string>;
 
@@ -249,7 +251,8 @@ export class OrderComponent implements OnInit {
                     );
                 }
             );
-        }else {
+            this.bought.emit(true);
+        } else {
             Object.keys(this.userForm.controls).forEach(field => {
               const control = this.userForm.get(field);
               if (control.pristine) {
