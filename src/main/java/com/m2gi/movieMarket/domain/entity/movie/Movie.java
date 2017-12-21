@@ -7,8 +7,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
+import java.util.Collection;
 
 import javax.persistence.*;
+
+import com.m2gi.movieMarket.domain.entity.cart.*;
+import com.m2gi.movieMarket.domain.entity.order.*;
 
 @Entity
 @Table(name = "movie")

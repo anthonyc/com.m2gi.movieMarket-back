@@ -12,14 +12,15 @@ export class ShowErrorsComponent {
     'required': () => 'Ce champ est obligatoire',
     'minlength': (params) => 'Le nombre de caractère minimum est  ' + params.requiredLength,
     'maxlength': (params) => 'Le nombre de caractère maximum est ' + params.requiredLength,
-    'pattern': (params) => 'The required pattern is: ' + params.requiredPattern,
+    'pattern': (params) => 'Veuillez entrer un code postal valid',
     'years': (params) => params.message,
     'countryCity': (params) => params.message,
     'uniqueName': (params) => params.message,
     'telephoneNumbers': (params) => params.message,
     'telephoneNumber': (params) => params.message,
     'email': () => 'Veuillez entrer un email valid',
-    'passwordConfirming': () => 'Les mots de passe doivent être identiques et comportés au moins 8 caractères'
+    'passwordConfirming': () => 'Les mots de passe doivent être identiques et comportés au moins 8 caractères',
+    'zipControl': () => 'Le code postal n\'est pas valid'
   };
 
   @Input()

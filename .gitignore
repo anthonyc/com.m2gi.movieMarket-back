@@ -2,9 +2,10 @@
 .project
 .classpath
 .settings
-target/
+target
 src/main/webapp
 .idea
 *.iml
 /build/
+/bin/
 .vscode/

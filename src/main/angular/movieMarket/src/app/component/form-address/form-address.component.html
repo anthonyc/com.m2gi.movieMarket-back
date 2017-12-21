@@ -1,0 +1,39 @@
+<h2>Ajouter une adresse</h2>
+<form [formGroup]="addressForm" (ngSubmit)="create()" novalidate>
+  <div class="form-group">
+    <label for="streetNumber" class="control-label required">Numéro de rue :</label>
+    <input type="number" class="form-control" id="streetNumber" formControlName="streetNumber"
+           [ngClass]="formsHelper.displayFieldCss(addressForm.controls.streetNumber)" [(ngModel)]="address.streetNumber"
+           >
+    <show-errors [control]="addressForm.controls.streetNumber"></show-errors>
+  </div>
+  <div class="form-group">
+    <label for="street" class="control-label required">Rue</label>
+    <input type="text" class="form-control" id="street" formControlName="street"
+           [ngClass]="formsHelper.displayFieldCss(addressForm.controls.street)" [(ngModel)]="address.street"
+           placeholder="Entrer le nom de votre rue">
+    <show-errors [control]="addressForm.controls.street"></show-errors>
+  </div>
+  <div class="form-group">
+    <label for="additionalInformation" class="control-label">Information complémentaires</label>
+    <input type="text" class="form-control" id="additionalInformation" formControlName="additionalInformation"
+           [ngClass]="formsHelper.displayFieldCss(addressForm.controls.additionalInformation)" [(ngModel)]="address.additionalInformation"
+           placeholder="Information complémentaires">
+    <show-errors [control]="addressForm.controls.additionalInformation"></show-errors>
+  </div>
+  <div class="form-group">
+    <label for="zipCode" class="control-label required">Code postale</label>
+    <input type="text" class="form-control" id="zipCode" formControlName="zipCode"
+           [ngClass]="formsHelper.displayFieldCss(addressForm.controls.zipCode)" [(ngModel)]="address.zipCode"
+           placeholder="Entrez votre code postal">
+    <show-errors [control]="addressForm.controls.zipCode"></show-errors>
+  </div>
+  <div class="form-group">
+    <label for="city" class="control-label required">Ville</label>
+    <input type="text" class="form-control" id="city" formControlName="city"
+           [ngClass]="formsHelper.displayFieldCss(addressForm.controls.city)" [(ngModel)]="address.city"
+           placeholder="Entrez votre ville">
+    <show-errors [control]="addressForm.controls.city"></show-errors>
+  </div>
+  <button type="submit" class="btn btn-primary">Ajouter l'adresse</button>
+</form>

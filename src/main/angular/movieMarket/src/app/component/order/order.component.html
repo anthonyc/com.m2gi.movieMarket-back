@@ -1,0 +1,185 @@
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<form [formGroup]="userForm" (ngSubmit)="createn()" novalidate>
+    <button class="validateButton btn btn-info" data-toggle="modal" data-target="#exampleModal">Valider ma commande</button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+
+            <!-- start -->
+            <div class="modal-content start {{steps.get('start')}}">
+                <div class="modal-header">
+                    <h5 class="modal-title">Possédez vous un compte ?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div class="connect"><button class="btn btn-primary">Me connecter</button></div>
+                    <div><button class="btn btn-primary" (click)="showCreateAccount1($event)">Continuer sans me connecter</button></div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+
+            <!-- createAccount1 -->
+            <div class="modal-content {{steps.get('createAccount1')}}">
+                <div class="modal-header">
+                    <h5 class="modal-title">Entrez vos informations personnelles</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <select class="form-control" id="gender" formControlName="gender" [ngClass]="formsHelper.displayFieldCss(userForm.controls.gender)" [(ngModel)]="user.gender">
+                            <option value="0">Mr</option>
+                            <option value="1">Mme</option>
+                            <option value="2">Mlle</option>
+                        </select>
+                        <show-errors [control]="userForm.controls.gender"></show-errors>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="control-label required">Nom :</label>
+                        <input type="text" class="form-control" id="lastname" formControlName="lastname" [ngClass]="formsHelper.displayFieldCss(userForm.controls.lastname)" [(ngModel)]="user.lastname" placeholder="Entrez votre nom">
+                        <show-errors [control]="userForm.controls.lastname"></show-errors>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstname" class="control-label required">Prénom</label>
+                        <input type="text" class="form-control" id="firstname" formControlName="firstname" [ngClass]="formsHelper.displayFieldCss(userForm.controls.firstname)" [(ngModel)]="user.firstname" placeholder="Entrer votre prenom">
+                        <show-errors [control]="userForm.controls.firstname"></show-errors>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday" class="control-label required">Date de naissance</label>
+                        <input type="date" class="form-control" id="birthday" formControlName="birthday" [ngClass]="formsHelper.displayFieldCss(userForm.controls.birthday)" [(ngModel)]="user.birthday" placeholder="Exemple 04/06/1983">
+                        <show-errors [control]="userForm.controls.birthday"></show-errors>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)='showStart($event)'><i class="fa fa-arrow-left" aria-hidden="true"></i> Annuler</button>
+                    <button type="button" class="btn btn-primary" (click)="showCreateAccount2($event)">Continuer <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+
+            <!-- createAccount2 -->
+            <div class="modal-content {{steps.get('createAccount2')}}">
+                <div class="modal-header">
+                    <h5 class="modal-title">Entrez vos informations de compte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="username" class="control-label required">Nom d'utilisateur</label>
+                        <input type="text" class="form-control" id="username" formControlName="username" [ngClass]="formsHelper.displayFieldCss(userForm.controls.username)" [(ngModel)]="user.username" placeholder="Entrez un nom d'utilisateur">
+                        <show-errors [control]="userForm.controls.username"></show-errors>
+                    </div>
+                    <div class="form-group has-danger">
+                        <label for="email" class="control-label required">Email</label>
+                        <input type="email" class="form-control" id="email" formControlName="email" [ngClass]="formsHelper.displayFieldCss(userForm.controls.email)" [(ngModel)]="user.email" placeholder="email@example.com">
+                        <show-errors [control]="userForm.controls.email"></show-errors>
+                    </div>
+                    <div formGroupName="passwords" class="well well-lg">
+                        <div class="form-group">
+                            <label for="password" class="control-label required">Mot de passe</label>
+                            <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="formsHelper.displayFieldCss(userForm.controls.passwords)" placeholder="Entrez un mot de passe">
+                            <show-errors [control]="userForm.controls.passwords"></show-errors>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword" class="control-label required">Confirmer votre mot de passe</label>
+                            <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" [ngClass]="formsHelper.displayFieldCss(userForm.controls.passwords)" [(ngModel)]="user.password" placeholder="Confirmer le mot de passe choisi">
+                            <show-errors [control]="userForm.controls.passwords"></show-errors>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)='showCreateAccount1($event)'><i class="fa fa-arrow-left" aria-hidden="true"></i> Annuler</button>
+                    <button type="button" class="btn btn-primary" (click)="showAddress($event)">Continuer <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+
+            <!-- address -->
+            <div class="modal-content {{steps.get('address')}}">
+                <div class="modal-header">
+                    <h5 class="modal-title">Entrez vos informations de compte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <app-form-address (createdAddress)="setAddress($event)"></app-form-address>
+                    <div class="alert alert-danger addressConfirm {{showAddressDanger}}">Appuyez sur le bouton "Ajouter l'adresse" pour la valider</div>
+                    <div class="alert alert-success addressConfirm {{showAddressDone}}">L'adresse a bien été ajoutée</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)='showCreateAccount2($event)'><i class="fa fa-arrow-left" aria-hidden="true"></i> Annuler</button>
+                    <button type="button" class="btn btn-primary" (click)="showPaymentFromCreateAddress($event)">Continuer <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+
+
+            <!-- Already connected -->
+            <div *ngIf="isLogged" class="modal-content {{steps.get('address_connected')}}">
+                <div class="modal-header">
+                    <h5 class="modal-title">Choississez une adresse de livraison</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Adresse de livraison :
+                    <select name="addressIfConnected">
+                        <option *ngFor="let address of user.addresses" value="address">{{getAddressString(address)}}</option>
+                    </select>
+                    <app-form-address (createdAddress)="setAddress($event)" [user]="user"></app-form-address>
+                    <div class="alert alert-success addressConfirm {{showAddressDone}}">L'adresse a bien été ajoutée</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" (click)="showPaymentFromChooseAddress($event)">Continuer <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+
+            <!-- Payment -->
+            <div class="modal-content {{steps.get('payment')}}">
+                <div class="modal-header">
+                    <h5 class="modal-title">Entrez vos informations de paiement</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="cardNumber" class="control-label required">Numéros de carte</label>
+                        <input type="text" class="form-control" id="cardNumber" formControlName="cardNumber" [ngClass]="formsHelper.displayFieldCss(userForm.controls.cardNumber)" [(ngModel)]="creditCard.cardNumber" placeholder="Entrez votre numéros de carte">
+                        <show-errors [control]="userForm.controls.cardNumber"></show-errors>
+                    </div>
+                    <div class="form-group">
+                        <label for="expirationMonth" class="control-label required">Mois d'expiration</label>
+                        <input type="text" class="form-control" id="expirationMonth" formControlName="expirationMonth" [ngClass]="formsHelper.displayFieldCss(userForm.controls.expirationMonth)" [(ngModel)]="creditCard.expirationMonth" placeholder="MM">
+                        <show-errors [control]="userForm.controls.expirationMonth"></show-errors>
+                    </div>
+                    <div class="form-group">
+                        <label for="expirationYear" class="control-label required">Année d'expiration</label>
+                        <input type="text" class="form-control" id="expirationYear" formControlName="expirationYear" [ngClass]="formsHelper.displayFieldCss(userForm.controls.expirationYear)" [(ngModel)]="creditCard.expirationYear" placeholder="AAAA">
+                        <show-errors [control]="userForm.controls.expirationYear"></show-errors>
+                    </div>
+                    <div class="form-group">
+                        <label for="code" class="control-label required">Cryptogramme</label>
+                        <input type="text" class="form-control" id="code" formControlName="code" [ngClass]="formsHelper.displayFieldCss(userForm.controls.code)" [(ngModel)]="creditCard.code" placeholder="Cryptogramme">
+                        <show-errors [control]="userForm.controls.code"></show-errors>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)='showBeforePayment($event)'><i class="fa fa-arrow-left" aria-hidden="true"></i> Annuler</button>
+                    <button type="button" class="btn btn-primary" (click)="create()" data-dismiss="modal">Payer</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>

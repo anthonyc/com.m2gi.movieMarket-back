@@ -3,14 +3,7 @@ package com.m2gi.movieMarket.api;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -40,7 +33,7 @@ public class ApiMovie {
 		this.movieReference.edit(movie);
 	}
 	
-	@POST
+	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void remove(Movie movie) {
 		this.movieReference.remove(movie);
@@ -64,28 +57,41 @@ public class ApiMovie {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Movie> findAll(
 			@DefaultValue("") @QueryParam("category") String category,
+			@DefaultValue("") @QueryParam("search") String search,
 			@DefaultValue("0") @QueryParam("from") int from,
 			@DefaultValue("20") @QueryParam("to") int to,
 			@DefaultValue("") @QueryParam("order") String order,
 			@DefaultValue("") @QueryParam("sort") String sort)
-			 {
+    {
 
-		if (category.isEmpty()) {
+		if (category.isEmpty() && search.isEmpty()) {
 			return this.movieReference.findAll(from, to);
 		}
-		if(order.isEmpty()){
-			return this.movieReference.findAllByCategory(category, from, to);
-		}
-		if(order.equals("date")){
-			return this.movieReference.findAllByCategoryFilterByDate(category, from, to);
-		}
-		if(order.equals("name")){
-			return this.movieReference.findAllByCategoryFilterByName(category, from, to);
-		}
-		if(sort.equals("desc")){
-			return this.movieReference.findAllByCategoryFilterByPriceDesc(category, from, to);
-		}
-		return this.movieReference.findAllByCategoryFilterByPriceAsc(category, from, to);
 
+		if (!search.isEmpty()) {
+			return this.movieReference.search(search);
+		}
+
+        if (order.isEmpty()) {
+            return this.movieReference.findAllByCategory(category, from, to);
+        }
+
+        if (order.equals("date")) {
+            return this.movieReference.findAllByCategoryFilterByDate(category, from, to);
+        }
+
+        if (order.equals("name")) {
+            return this.movieReference.findAllByCategoryFilterByName(category, from, to);
+        }
+
+        if (sort.equals("desc")) {
+            return this.movieReference.findAllByCategoryFilterByPriceDesc(category, from, to);
+        }
+
+        if (sort.equals("asc")) {
+            return this.movieReference.findAllByCategoryFilterByPriceAsc(category, from, to);
+        }
+
+		return this.movieReference.findAllByCategory(category, from, to);
 	}
 }

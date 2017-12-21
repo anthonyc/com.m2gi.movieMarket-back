@@ -11,6 +11,7 @@ import { Cart } from '../../model/cart';
 export class StoreButtonComponentComponent implements OnInit {
 
   @Input() movie: Movie;
+  inCart: number;
   private cs: CartService;
 
   constructor() {
@@ -18,9 +19,23 @@ export class StoreButtonComponentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.updateNumber();
   }
 
-  test(event) {
+  addMovie(event) {
     this.cs.addMovie(this.movie);
+    this.updateNumber();
   }
+
+  private updateNumber() {
+    for (const cartDetail of this.cs.get().cartDetails) {
+      if (cartDetail.movie.name === this.movie.name) {
+        this.inCart = cartDetail.quantity;
+        return;
+      }
+    }
+    this.inCart = 0;
+  }
+
+
 }

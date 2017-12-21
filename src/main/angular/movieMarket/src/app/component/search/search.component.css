@@ -1,0 +1,22 @@
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.search-box {
+  background: #ffffff;
+  border-radius: 3px 3px;
+  box-shadow: 0 3px 3px rgba(180, 180, 180, 0.5);
+  margin-bottom: 30px;
+  padding: 20px 15px;
+}
+
+.search-box a {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-box a:hover {
+  background-color: #7bbed6;
+}
