@@ -4,9 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { catchError, map, tap } from 'rxjs/operators';
 import { User } from '../model/user';
 import { Response } from '@angular/http/src/static_response';
-import {log} from "util";
-import {Authenticate} from "../model/authenticate";
-import {Movie} from "../model/movie";
+import {log} from 'util';
+import {Authenticate} from '../model/authenticate';
+import {Movie} from '../model/movie';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -55,7 +55,6 @@ export class UserService {
       .map(res => {
         const user: User = res;
         user.jwtToken = jwtToken;
-
         return user;
       }
     );
