@@ -15,6 +15,6 @@
 
 ## Diagrams
 
-![general-architecture](docs/digrams/homepage.png "general-architecture")
-![api-architecture](docs/digrams/homepage.png "api-architecture")
-![domain-architecture](docs/digrams/domain-architecture.png "domain-architecture")
+![general-architecture](docs/diagrams/homepage.png "general-architecture")
+![api-architecture](docs/diagrams/homepage.png "api-architecture")
+![domain-architecture](docs/diagrams/domain-architecture.png "domain-architecture")
