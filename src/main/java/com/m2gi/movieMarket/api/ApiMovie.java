@@ -57,11 +57,16 @@ public class ApiMovie {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Movie> findAll(
 			@DefaultValue("") @QueryParam("category") String category,
+			@DefaultValue("") @QueryParam("search") String search,
 			@DefaultValue("0") @QueryParam("from") int from,
 			@DefaultValue("20") @QueryParam("to") int to) {
 
-		if (category.isEmpty()) {
+		if (category.isEmpty() && search.isEmpty()) {
 			return this.movieReference.findAll(from, to);
+		}
+
+		if (!search.isEmpty()) {
+			return this.movieReference.search(search);
 		}
 
 		return this.movieReference.findAllByCategory(category, from, to);
