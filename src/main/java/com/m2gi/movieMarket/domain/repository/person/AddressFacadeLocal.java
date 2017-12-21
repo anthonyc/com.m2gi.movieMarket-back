@@ -7,4 +7,6 @@ import javax.ejb.Local;
 @Local
 public interface AddressFacadeLocal {
     int create(Address address, int userId);
+
+    void remove(Address address);
 }

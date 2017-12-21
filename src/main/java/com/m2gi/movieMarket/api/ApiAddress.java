@@ -35,4 +35,10 @@ public class ApiAddress {
             throw new InternalServerException("Internal Server Exception ");
         }
     }
+
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void remove(Address address) {
+        this.addressReference.remove(address);
+    }
 }
