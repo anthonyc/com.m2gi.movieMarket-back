@@ -14,3 +14,7 @@
 .addressConfirm.show {
     display: block !important;
 }
+
+.btn:not(.disabled) {
+    cursor: pointer;
+}

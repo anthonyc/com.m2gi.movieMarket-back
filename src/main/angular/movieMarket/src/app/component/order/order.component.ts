@@ -170,7 +170,7 @@ export class OrderComponent implements OnInit {
 
     create() {
         console.log('On avant user form');
-        
+
         if (this.userForm.valid){
             console.log('On apsse dans le form vlaide');
             this.userService.create(this.user).subscribe(
@@ -192,31 +192,33 @@ export class OrderComponent implements OnInit {
                     console.log(email);
                     this.userService.login(email, pwd).subscribe(
                         data => {
-                          authenticate = data;
-                          this.authenticateService.set(authenticate);
+                            authenticate = data;
+                            this.authenticateService.set(authenticate);
                         },
                         err => {
-                          this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
-                          if (err.status === 400) {
-                            this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
-                          }
+                            this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
+                            if (err.status === 400) {
+                                this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
+                            }
                         },
-                        () => {this.finished = true;
+                        () => {
+                            this.finished = true;
                             console.log('on devrait etre loggé');
+                            this.addressService.add(this.deliveryAddress, String(this.user.id),
+                                                    this.authenticateService.get().token).subscribe(
+                                data => {
+                                    this.info = 'Adresse ajoutée';
+                                },
+                                err => {
+                                    this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
+                                    if (err.status === 400) {
+                                        this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
+                                    }
+                                },
+                                () => console.log('adresse ajoutée')
+                            );
                         }
-                      );
-                      this.addressService.add(this.deliveryAddress, String(this.user.id), this.user.jwtToken).subscribe(
-                    data => {
-                      this.info = 'Utilisateur créé';
-                    },
-                    err => {
-                      this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
-                      if (err.status === 400) {
-                        this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
-                      }
-                    },
-                  () => console.log('adresse ajoutée')
-                  );
+                    );
                 }
             );
         }else {
