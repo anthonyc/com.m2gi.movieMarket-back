@@ -76,6 +76,9 @@ public class ApiMovie {
 		if(order.isEmpty()){
 			return this.movieReference.findAllByCategory(category, from, to);
 		}
+		if(order.equals("date")){
+			return this.movieReference.findAllByCategoryFilterByDate(category, from, to);
+		}
 		if(order.equals("name")){
 			return this.movieReference.findAllByCategoryFilterByName(category, from, to);
 		}

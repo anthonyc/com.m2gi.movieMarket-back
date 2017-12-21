@@ -24,4 +24,6 @@ public interface MovieFacadeLocal {
 	List<Movie> findAllByCategoryFilterByPriceAsc(String Category, int from, int to);
 
 	List<Movie> findAllByCategoryFilterByPriceDesc(String Category, int from, int to);
+
+	List<Movie> findAllByCategoryFilterByDate(String Category, int from, int to);
 }

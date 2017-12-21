@@ -73,4 +73,13 @@ public class MovieFacade implements MovieFacadeLocal {
 				.getResultList()
 		;
 	}
+
+	public List<Movie> findAllByCategoryFilterByDate(String category, int from, int to) {
+		return this.em.createQuery("select m from Movie m join m.categories c where c.name = :category order by releaseYear")
+				.setParameter("category", category)
+				.setFirstResult(from)
+				.setMaxResults(to)
+				.getResultList()
+		;
+	}
 }

@@ -69,5 +69,13 @@ export class MovieListComponent implements OnInit {
         () => this.finished = true
       );
     }
+
+    if (this.filter === 'date') {
+      this.movieService.allByCategoryFilterByPriceDesc(this.categoryName, this.from, this.to).subscribe(
+        value => this.movies = value,
+        error => this.error = 'movieService.all error',
+        () => this.finished = true
+      );
+    }
   }
 }
