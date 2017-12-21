@@ -34,7 +34,7 @@ public class ApiAddress {
         try {
             int id = this.addressReference.create(address, userId);
 
-            return Response.status(Response.Status.CREATED).entity(new ApiMessage("Address created with id : " + id)).build();
+            return Response.status(Response.Status.CREATED).entity(id).build();
         } catch (Exception exception) {
             throw new InternalServerException("Internal Server Exception ");
         }

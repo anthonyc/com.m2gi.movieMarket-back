@@ -15,10 +15,10 @@ export class AddressService {
 
   constructor(private http: HttpClient) { }
 
-  public add(address: Address, userId: string, jwtToken: string): Observable<Address> {
+  public add(address: Address, userId: string, jwtToken: string): Observable<number> {
     httpOptions.headers = httpOptions.headers.append('Authorization', 'Bearer ' + jwtToken);
 
-    return this.http.post<Address>(
+    return this.http.post<number>(
       '/api/address/user/' + userId, address,
       httpOptions);
   }
