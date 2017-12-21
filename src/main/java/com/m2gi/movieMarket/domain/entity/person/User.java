@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -36,6 +37,10 @@ public class User extends Person implements Serializable, Principal {
     @Column(name = "password", nullable = false)
     @NotNull
     private String password;
+
+    private Date created;
+
+    private Date updated;
 
     public User() {}
 
@@ -118,5 +123,15 @@ public class User extends Person implements Serializable, Principal {
     @Override
     public String getName() {
         return this.getFirstname() + " " + this.getLastname();
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        created = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updated = new Date();
     }
 }

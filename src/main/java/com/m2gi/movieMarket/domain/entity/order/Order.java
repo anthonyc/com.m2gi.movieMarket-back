@@ -34,6 +34,10 @@ public class Order implements Serializable {
 
     @Column(name = "price")
     private float price;
+
+    private Date created;
+
+    private Date updated;
     
     public int getId() {
         return this.id;
@@ -88,5 +92,15 @@ public class Order implements Serializable {
         this.price = price;
 
         return this;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        created = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updated = new Date();
     }
 }

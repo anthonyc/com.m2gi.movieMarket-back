@@ -33,26 +33,4 @@ public class JwtSubject {
         return roles;
     }
 
-    /*public String toString() {
-        StringBuilder subject = new StringBuilder();
-
-        subject.append("{id:\"");
-        subject.append(this.id);
-        subject.append("\",");
-        subject.append("name:\"");
-        subject.append(this.username);
-        subject.append("\",");
-        subject.append("roles:{");
-
-        for (Role apiUserRole : this.roles) {
-            subject.append("role:\"");
-            subject.append(apiUserRole.getRole());
-            subject.append("\",");
-        }
-
-        subject.deleteCharAt(subject.length() - 1);
-        subject.append("}");
-
-        return subject.toString();
-    }*/
 }

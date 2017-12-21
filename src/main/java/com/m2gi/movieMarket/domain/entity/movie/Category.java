@@ -1,15 +1,10 @@
 package com.m2gi.movieMarket.domain.entity.movie;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="category")
@@ -24,6 +19,10 @@ public class Category implements Serializable {
 	@Column(name = "name")
 	private String name;
 
+	private Date created;
+
+	private Date updated;
+
 	public int getId() {
 		return id;
 	}
@@ -36,5 +35,15 @@ public class Category implements Serializable {
 		this.name = name;
 		
 		return this;
+	}
+
+	@PrePersist
+	protected void onCreate() {
+		created = new Date();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		updated = new Date();
 	}
 }
