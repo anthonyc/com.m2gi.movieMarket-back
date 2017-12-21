@@ -1,6 +1,6 @@
+import { Category } from './../../model/category';
 import { CategoryService } from './../../service/category.service';
 import { Component, OnInit } from '@angular/core';
-import { Category } from '../../model/category';
 
 @Component({
   selector: 'app-home-page-content',
@@ -20,10 +20,12 @@ export class HomePageContentComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.categoryService.all().subscribe(
+        this.categoryService.all(0, 5).subscribe(
             value => this.categories = value,
             error => this.error = 'movieService.all error',
-            () => this.finished = true
+            () => {
+                this.finished = true;
+            }
         );
     }
 }
