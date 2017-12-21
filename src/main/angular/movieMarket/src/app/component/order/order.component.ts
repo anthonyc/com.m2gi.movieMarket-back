@@ -9,6 +9,8 @@ import { FormsHelperService } from '../../service/forms-helper.service';
 import { User } from '../../model/user';
 import { Gender } from '../../model/person';
 import { Authenticate } from '../../model/authenticate';
+import {OrderService} from "../../service/order.service";
+import {CartService} from "../../service/cart.service";
 declare var $: any;
 
 
@@ -26,6 +28,7 @@ export class OrderComponent implements OnInit {
     error = null;
     finished = false;
     isLogged = false;
+    orderFinished = false;
 
     showAddressDanger = '';
     showAddressDone = '';
@@ -35,11 +38,13 @@ export class OrderComponent implements OnInit {
 
 
     constructor (private userService: UserService,
-                public addressService: AddressService,
-                public authenticateService: AuthenticateService,
-                private formBuilder: FormBuilder,
-                public formsHelper: FormsHelperService
-            ) {
+          public addressService: AddressService,
+          public authenticateService: AuthenticateService,
+          private formBuilder: FormBuilder,
+          public formsHelper: FormsHelperService,
+          private orderService: OrderService,
+          private cartService: CartService
+      ) {
 
         this.createForm();
         this.steps = new Map<string, string>();
@@ -210,21 +215,37 @@ export class OrderComponent implements OnInit {
                             }
                         },
                         () => {
-                            this.finished = true;
-                            console.log('on devrait etre loggé');
-                            this.addressService.add(this.deliveryAddress, String(this.user.id),
-                                                    this.authenticateService.get().token).subscribe(
+                          this.finished = true;
+
+                          this.userService.find(authenticate.id, authenticate.token).subscribe(
+                            res => {
+
+                              this.user = res
+
+                              console.log('on devrait etre loggé');
+
+                              this.addressService.add(this.deliveryAddress, authenticate.id.toString(),
+                                this.authenticateService.get().token).subscribe(
                                 data => {
-                                    this.info = 'Adresse ajoutée';
+                                  this.info = 'Adresse ajoutée';
                                 },
                                 err => {
-                                    this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
-                                    if (err.status === 400) {
-                                        this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
-                                    }
+                                  this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
+                                  if (err.status === 400) {
+                                    this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
+                                  }
                                 },
-                                () => console.log('adresse ajoutée')
-                            );
+                                () => {
+                                  this.orderService.add(this.cartService.get(), this.user.id.toString(),
+                                    this.deliveryAddress.id.toString(), this.user.jwtToken).subscribe(
+                                    res => console.log('youpi'),
+                                    err => this.error = err,
+                                    () => this.orderFinished = true
+                                  );
+                                }
+                              );
+                            }
+                          );
                         }
                     );
                 }
@@ -233,15 +254,17 @@ export class OrderComponent implements OnInit {
             Object.keys(this.userForm.controls).forEach(field => {
               const control = this.userForm.get(field);
               if (control.pristine) {
-                console.log(field);
+                 console.log(field);
                 control.markAsTouched({ onlySelf: true });
                 control.markAsDirty({ onlySelf: true });
               }
             });
           }
     }
+
     createn() {
     }
+
     setAddress(event: Address) {
         console.log(event);
         this.deliveryAddress = event;
