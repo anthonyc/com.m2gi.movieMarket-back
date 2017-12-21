@@ -249,4 +249,8 @@ export class OrderComponent implements OnInit {
         this.showAddressDanger = '';
     }
 
+    getAddressString(address: Address) {
+        return address.streetNumber + ' ' + address.street + ' à ' + address.city + ' (' + address.zipCode + ')';
+    }
+
 }
