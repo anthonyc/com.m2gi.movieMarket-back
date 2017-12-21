@@ -8,5 +8,5 @@ import javax.ejb.Local;
 public interface AddressFacadeLocal {
     int create(Address address, int userId);
 
-    void remove(Address address);
+    void remove(int id,  int userId);
 }

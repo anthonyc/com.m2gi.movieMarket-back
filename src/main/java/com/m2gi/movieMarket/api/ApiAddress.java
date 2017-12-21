@@ -41,14 +41,16 @@ public class ApiAddress {
     }
 
     @DELETE
-    @Path("/user/{userId}")
+    @Path("/{{id}}/user/{userId}")
     @JWTTokenNeeded
     @Consumes(MediaType.APPLICATION_JSON)
-    public void remove(Address address, @Context SecurityContext securityContext) {
+    public void remove(@PathParam("id") int id,
+               @PathParam("userId") int userId,
+               @Context SecurityContext securityContext) {
         if (!securityContext.isUserInRole(String.valueOf(Role.ROLE_USER))) {
             throw new NotAuthorizedException("You are not authorized to execute this operation");
         }
 
-        this.addressReference.remove(address);
+        this.addressReference.remove(id, userId);
     }
 }

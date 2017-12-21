@@ -16,12 +16,13 @@
         <div class="cartDetailQuantity">
             <span class="textQuantity">Quantity : {{cartDetail.quantity}}</span>
 
+
             <div class="btn-group">
-                <button class="btn btn-secondary btn-md {{add}}" (click)="addMovie()">
-                    <i class="fa fa-plus-circle" aria-hidden="true" icon-3x></i>
-                </button>
                 <button class="btn btn-secondary btn-md {{remove}}" (click)="removeMovie()">
                     <i class="fa fa-minus-circle" aria-hidden="true" icon-3x></i>
+                </button>
+                <button class="btn btn-secondary btn-md {{add}}" (click)="addMovie()">
+                    <i class="fa fa-plus-circle" aria-hidden="true" icon-3x></i>
                 </button>
             </div>
         </div>

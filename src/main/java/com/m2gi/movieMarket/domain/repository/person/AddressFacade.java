@@ -13,8 +13,14 @@ public class AddressFacade implements AddressFacadeLocal {
     private EntityManager em;
 
     @Override
-    public void remove(Address address) {
-        this.em.remove(address);
+    public void remove(int id, int userId) {
+        User user = this.em.find(User.class, userId);
+
+        for (Address address : user.getAddresses()) {
+            if (address.getId() == id) {
+                this.em.remove(address);
+            }
+        }
     }
 
     @Override
