@@ -5,8 +5,8 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-search-result-content',
-  templateUrl: './search-result-content.component.html',
-  styleUrls: ['./search-result-content.component.css']
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
 export class SearchResultContentComponent implements OnInit {
   categoryName: String = 'Action';

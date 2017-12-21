@@ -11,7 +11,7 @@ import { MovieDetailComponent } from './component/movie-detail/movie-detail.comp
 import { TopNavBarComponent } from './component/top-nav-bar/top-nav-bar.component';
 import { HomePageContentComponent } from './component/home-page-content/home-page-content.component';
 import { BreadcrumbComponent } from './component/breadcrumb/breadcrumb.component';
-import { SearchResultContentComponent } from './component/search-result-content/search-result-content.component';
+import { SearchResultContentComponent } from './component/search/search.component';
 import { MovieHorizontalScrollComponent } from './component/movie-horizontal-scroll/movie-horizontal-scroll.component';
 import { NgxCarouselModule } from 'ngx-carousel';
 import { CategoryService } from './service/category.service';
