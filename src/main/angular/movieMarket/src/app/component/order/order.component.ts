@@ -215,6 +215,7 @@ export class OrderComponent implements OnInit {
                             data => {
                               this.info = 'Adresse ajoutée';
                               console.log(data);
+                              this.deliveryAddress.id = data;
                             },
                             err => {
                               this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';

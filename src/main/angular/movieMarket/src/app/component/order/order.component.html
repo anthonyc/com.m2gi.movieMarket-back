@@ -111,7 +111,7 @@
                         </button>
                 </div>
                 <div class="modal-body">
-                    <app-form-address (createdAddress)="setAddress($event)"></app-form-address>
+                    <app-form-address [id]="1" (createdAddress)="setAddress($event)"></app-form-address>
                     <div class="alert alert-danger addressConfirm {{showAddressDanger}}">Appuyez sur le bouton "Ajouter l'adresse" pour la valider</div>
                     <div class="alert alert-success addressConfirm {{showAddressDone}}">L'adresse a bien été ajoutée</div>
                 </div>
@@ -135,7 +135,7 @@
                     <select name="addressIfConnected">
                         <option *ngFor="let address of user.addresses" value="address">{{getAddressString(address)}}</option>
                     </select>
-                    <app-form-address (createdAddress)="setAddress($event)" [user]="user"></app-form-address>
+                    <app-form-address [id]="2" (createdAddress)="setAddress($event)" [user]="user"></app-form-address>
                     <div class="alert alert-success addressConfirm {{showAddressDone}}">L'adresse a bien été ajoutée</div>
                 </div>
                 <div class="modal-footer">

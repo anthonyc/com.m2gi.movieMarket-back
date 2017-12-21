@@ -20,6 +20,9 @@ export class FormAddressComponent implements OnInit {
   error = null;
   finished = false;
 
+  @Input()
+  id = '';
+
   constructor(private formBuilder: FormBuilder,
         public formsHelper: FormsHelperService,
         private addressService: AddressService) {

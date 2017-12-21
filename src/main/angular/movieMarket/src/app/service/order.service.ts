@@ -20,7 +20,7 @@ export class OrderService {
     httpOptions.headers = httpOptions.headers.append('Authorization', 'Bearer ' + jwtToken);
 
     return this.http.patch<number>(
-      '/api/address/user/' + userId + '/address/' + addressId, cart,
+      '/api/order/user/' + userId + '/address/' + addressId, cart,
       httpOptions);
   }
 }
