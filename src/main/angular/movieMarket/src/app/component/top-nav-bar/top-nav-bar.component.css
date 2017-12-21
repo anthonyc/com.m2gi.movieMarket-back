@@ -24,3 +24,11 @@
 .navbarCart .btn:hover a {
     color: rgba(0, 0, 0, 0.7) !important;
 }
+
+@media(max-width: 767px) {
+    .navbar-menu {
+        position: relative;
+        top: 130px;
+        margin-bottom: 130px;
+    }
+}

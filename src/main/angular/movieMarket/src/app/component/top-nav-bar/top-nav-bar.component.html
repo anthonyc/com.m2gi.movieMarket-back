@@ -3,9 +3,9 @@
         <div class="navbar-identity">
             <a class="navbar-brand logo logo-title" routerLink="/">
                 <span class="logo-icon">
-            <span class="logo-icon">
-              <img src="assets/img/logo.png">
-            </span>
+                    <span class="logo-icon">
+                        <img src="assets/img/logo.png">
+                    </span>
                 </span>
                 Movie <span>Market</span>
             </a>
@@ -13,36 +13,37 @@
         <div class="navbar-search w-50 mr-0">
             <app-search-result-content></app-search-result-content>
         </div>
-
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <div class="btn-group">
-                    <button type="button" class="nav-link btn btn-light btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div>
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <div class="btn-group">
+                        <button type="button" class="nav-link btn btn-light btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-user" aria-hidden="true"></i>
                         {{ authenticateService.getName() }}
                     </button>
-                    <div class="dropdown-menu">
-                        <span *ngIf="!authenticateService.isLogged(); else isLogged">
+                        <div class="dropdown-menu">
+                            <span *ngIf="!authenticateService.isLogged(); else isLogged">
                             <app-login></app-login>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" routerLink="/user/create">Nouvel utilisateur ? Créez un compte</a>
                             <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
                         </span>
-                        <ng-template #isLogged>
-                            <a class="dropdown-item" routerLink="/account/{{authenticateService.get().id}}/profile">Voir mon compte</a>
-                            <a (click)="authenticateService.loggout()" class="dropdown-item" href="#">Se deconnecter</a>
-                        </ng-template>
+                            <ng-template #isLogged>
+                                <a class="dropdown-item" routerLink="/account/{{authenticateService.get().id}}/profile">Voir mon compte</a>
+                                <a (click)="authenticateService.loggout()" class="dropdown-item" href="#">Se deconnecter</a>
+                            </ng-template>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li class="nav-item active navbarCart">
-                <button type="button" class="btn btn-light btn-lg" routerLink="cart">
+                </li>
+                <li class="nav-item active navbarCart">
+                    <button type="button" class="btn btn-light btn-lg" routerLink="cart">
                     <a class="nav-link">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i> ({{ cartService.get().numberOfItem() }})
                     </a>
                 </button>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 
