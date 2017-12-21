@@ -32,6 +32,10 @@ public class Person implements Serializable {
     @NotNull
     private Date birthday;
 
+    private Date created;
+
+    private Date updated;
+
     public int getId() {
         return this.id;
     }
@@ -80,5 +84,15 @@ public class Person implements Serializable {
         this.birthday = birthday;
 
         return this;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        created = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updated = new Date();
     }
 }

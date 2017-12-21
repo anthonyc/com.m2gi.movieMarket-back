@@ -2,6 +2,7 @@ package com.m2gi.movieMarket.domain.entity.person;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name="user_role")
@@ -13,6 +14,10 @@ public class UserRole implements Serializable {
 
     @Column(name = "role")
     private String role;
+
+    private Date created;
+
+    private Date updated;
 
     public UserRole() {}
 
@@ -40,5 +45,15 @@ public class UserRole implements Serializable {
         this.role = role;
 
         return this;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        created = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updated = new Date();
     }
 }

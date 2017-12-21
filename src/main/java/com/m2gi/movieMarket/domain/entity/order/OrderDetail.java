@@ -25,6 +25,10 @@ public class OrderDetail implements Serializable {
 
     @Column(name = "quantity")
     private int quantity;
+
+    private Date created;
+
+    private Date updated;
     
     public int getId() {
         return this.id;
@@ -54,5 +58,15 @@ public class OrderDetail implements Serializable {
         this.quantity = quantity;
         
         return this;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        created = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updated = new Date();
     }
 }
