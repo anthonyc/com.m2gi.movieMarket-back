@@ -26,7 +26,7 @@ export class SearchResultContentComponent implements OnInit {
       );
   }
 
-  search(linkText: string) {
+  search(linkText: string = null) {
     let name = this.searchText;
     this.searchText = '';
 
