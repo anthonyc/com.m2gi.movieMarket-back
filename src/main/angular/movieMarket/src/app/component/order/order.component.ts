@@ -217,31 +217,30 @@ export class OrderComponent implements OnInit {
                         () => {
                           this.finished = true;
 
-                          this.userService.find(authenticate.id, authenticate.token).subscribe(
-                            res => {
 
-                              this.user = res
 
-                              console.log('on devrait etre loggé');
+                          console.log('on devrait etre loggé');
 
-                              this.addressService.add(this.deliveryAddress, authenticate.id.toString(),
-                                this.authenticateService.get().token).subscribe(
-                                data => {
-                                  this.info = 'Adresse ajoutée';
-                                },
-                                err => {
-                                  this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
-                                  if (err.status === 400) {
-                                    this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
-                                  }
-                                },
+                          this.addressService.add(this.deliveryAddress, authenticate.id.toString(),
+                            this.authenticateService.get().token).subscribe(
+                            data => {
+                              this.info = 'Adresse ajoutée';
+                            },
+                            err => {
+                              this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
+                              if (err.status === 400) {
+                                this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
+                              }
+                            },
+                            () => {
+                              console.log('OrderService:add call');
+                              this.orderService.add(this.cartService.get(), authenticate.id.toString(),
+                                this.deliveryAddress.id.toString(), authenticate.token).subscribe(
+                                res => console.log('youpi'),
+                                err => this.error = err,
                                 () => {
-                                  this.orderService.add(this.cartService.get(), this.user.id.toString(),
-                                    this.deliveryAddress.id.toString(), this.user.jwtToken).subscribe(
-                                    res => console.log('youpi'),
-                                    err => this.error = err,
-                                    () => this.orderFinished = true
-                                  );
+                                  this.orderFinished = true;
+                                  console.log('OrderService:add complete');
                                 }
                               );
                             }
