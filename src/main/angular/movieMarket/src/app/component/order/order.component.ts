@@ -96,6 +96,9 @@ export class OrderComponent implements OnInit {
                 () => {
                     this.isLogged = true;
                     console.log(this.user);
+                    if (this.user.addresses && this.user.addresses.length > 0) {
+                        this.deliveryAddress = this.user.addresses[0];
+                    }
                     this.showStartConnected(null);
                 }
             );
@@ -169,7 +172,15 @@ export class OrderComponent implements OnInit {
 
     showPaymentFromChooseAddress(event) {
         // Get the selected address
-        this.setStep('payment');
+        let keepGoing = true;
+        if (!this.deliveryAddress || this.deliveryAddress === null) {
+            this.showAddressDanger = 'show';
+            this.showAddressDone = '';
+            keepGoing = false;
+        }
+        if (keepGoing) {
+         this.setStep('payment');
+        }
     }
 
     showBeforePayment(event) {
@@ -184,6 +195,43 @@ export class OrderComponent implements OnInit {
         console.log('On avant user form');
 
         // Do something different if we already were connected
+        if (this.isLogged) {
+            console.log('On était loggé');
+            console.log(this.deliveryAddress);
+            if (!this.deliveryAddress.id ) {
+                this.userService.find(this.user.id, this.user.jwtToken).subscribe(
+                    data => this.user = data ,
+                    err => null,
+                    () => {
+                        this.deliveryAddress = this.user.addresses[this.user.addresses.length - 1];
+                        this.orderService.add(
+                        this.cartService.get(), this.authenticateService.get().id.toString(),
+                        this.deliveryAddress.id.toString(), this.authenticateService.get().token).subscribe(
+                            res => console.log('youpi2'),
+                            err => this.error = err,
+                            () => {
+                                this.orderFinished = true;
+                                console.log('OrderService3:add complete');
+                                this.bought.emit(true);
+                            }
+                        );
+                    }
+                );
+                return;
+            }
+            this.orderService.add(
+            this.cartService.get(), this.authenticateService.get().id.toString(),
+            this.deliveryAddress.id.toString(), this.authenticateService.get().token).subscribe(
+                res => console.log('youpi2'),
+                err => this.error = err,
+                () => {
+                    this.orderFinished = true;
+                    console.log('OrderService2:add complete');
+                    this.bought.emit(true);
+                }
+            );
+            return;
+         }
 
         // Do something if we need to create a new user
         if (this.userForm.valid) {
@@ -269,6 +317,10 @@ export class OrderComponent implements OnInit {
 
     getAddressString(address: Address) {
         return address.streetNumber + ' ' + address.street + ' à ' + address.city + ' (' + address.zipCode + ')';
+    }
+    setDeliveryAddress(event) {
+        this.deliveryAddress = event.target.value;
+
     }
 
 }
