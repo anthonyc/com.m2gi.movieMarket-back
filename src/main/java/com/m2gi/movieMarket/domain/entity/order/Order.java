@@ -16,7 +16,7 @@ import com.m2gi.movieMarket.domain.entity.person.User;
 
 
 @Entity
-@Table(name="order")
+@Table(name="purchase_order")
 public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
