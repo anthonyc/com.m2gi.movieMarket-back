@@ -41,10 +41,10 @@ public class ApiAddress {
     }
 
     @DELETE
-    @Path("/{{id}}/user/{userId}")
+    @Path("/{id}/user/{userId}")
     @JWTTokenNeeded
     @Consumes(MediaType.APPLICATION_JSON)
-    public void remove(@PathParam("id") int id,
+    public Response remove(@PathParam("id") int id,
                @PathParam("userId") int userId,
                @Context SecurityContext securityContext) {
         if (!securityContext.isUserInRole(String.valueOf(Role.ROLE_USER))) {
@@ -52,5 +52,7 @@ public class ApiAddress {
         }
 
         this.addressReference.remove(id, userId);
+
+        return Response.status(Response.Status.CREATED).entity(id).build();
     }
 }
