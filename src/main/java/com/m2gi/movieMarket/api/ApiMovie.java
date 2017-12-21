@@ -59,7 +59,10 @@ public class ApiMovie {
 			@DefaultValue("") @QueryParam("category") String category,
 			@DefaultValue("") @QueryParam("search") String search,
 			@DefaultValue("0") @QueryParam("from") int from,
-			@DefaultValue("20") @QueryParam("to") int to) {
+			@DefaultValue("20") @QueryParam("to") int to,
+			@DefaultValue("") @QueryParam("order") String order,
+			@DefaultValue("") @QueryParam("sort") String sort)
+    {
 
 		if (category.isEmpty() && search.isEmpty()) {
 			return this.movieReference.findAll(from, to);
@@ -68,6 +71,26 @@ public class ApiMovie {
 		if (!search.isEmpty()) {
 			return this.movieReference.search(search);
 		}
+
+        if (order.isEmpty()) {
+            return this.movieReference.findAllByCategory(category, from, to);
+        }
+
+        if (order.equals("date")) {
+            return this.movieReference.findAllByCategoryFilterByDate(category, from, to);
+        }
+
+        if (order.equals("name")) {
+            return this.movieReference.findAllByCategoryFilterByName(category, from, to);
+        }
+
+        if (sort.equals("desc")) {
+            return this.movieReference.findAllByCategoryFilterByPriceDesc(category, from, to);
+        }
+
+        if (sort.equals("asc")) {
+            return this.movieReference.findAllByCategoryFilterByPriceAsc(category, from, to);
+        }
 
 		return this.movieReference.findAllByCategory(category, from, to);
 	}
