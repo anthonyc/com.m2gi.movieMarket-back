@@ -37,7 +37,7 @@ export const routes: Routes = [
     component: HomePageContentComponent,
   },
   {
-    path: 'category/movie/:category',
+    path: 'category/movie',
     component: MovieListComponent,
     data: {
       breadcrumb: 'Liste de films'
