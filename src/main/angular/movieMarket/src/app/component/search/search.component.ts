@@ -1,7 +1,7 @@
 import { Movie } from './../../model/movie';
 import { MovieService } from './../../service/movie.service';
 import { Component, OnInit, Input } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-search-result-content',
