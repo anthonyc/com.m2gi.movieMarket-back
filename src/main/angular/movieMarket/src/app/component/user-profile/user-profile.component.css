@@ -1,0 +1,6 @@
+.list-group-nav .list-group-item {
+  padding-left: 10px;
+  border: 0;
+  border-bottom: 1px dotted #ccc;
+  background: transparent;
+}

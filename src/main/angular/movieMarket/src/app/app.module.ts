@@ -27,9 +27,14 @@ import { CartDetailComponent } from './component/cart-detail/cart-detail.compone
 import { LoginComponent } from './component/login/login.component';
 import {AuthenticateService} from './service/authenticate.service';
 import { UserAccountComponent } from './component/user-account/user-account.component';
-import 'hammerjs';
+import { UserMenuComponent } from './component/user-menu/user-menu.component';
+import { AddressComponent } from './component/address/address.component';
+import { UserAddressComponent } from './component/user-address/user-address.component';
+import { UserProfileComponent } from './component/user-profile/user-profile.component';
+import { FormAddressComponent } from './component/form-address/form-address.component';
+import {AddressService} from "./service/address.service";
 import { FooterComponent } from './component/footer/footer.component';
-
+import 'hammerjs';
 
 export const routes: Routes = [
   {
@@ -54,17 +59,39 @@ export const routes: Routes = [
       breadcrumb: 'Panier'
     }
   },
-  { path: 'movies', component: SearchResultContentComponent, data: {
+  {
+    path: 'movies',
+    component: SearchResultContentComponent, data: {
       breadcrumb: 'Recherche'
     }
   },
-  { path: 'user/create', component: CreateUserComponent, data: {
+  {
+    path: 'user/create',
+    component: CreateUserComponent, data: {
       breadcrumb: 'Création utilisateur'
     }
   },
-  { path: 'account/:id', component: UserAccountComponent, data: {
+  {
+    path: 'account/:id',
+    data: {
       breadcrumb: 'Compte'
-    }
+    },
+    children: [
+      {
+        path: 'profile',
+        component: UserProfileComponent,
+        data: {
+          breadcrumb: 'Profile'
+        }
+      },
+      {
+        path: 'address',
+        component: UserAddressComponent,
+        data: {
+          breadcrumb: 'Adresse'
+        }
+      }
+    ]
   }
 ];
 
@@ -86,6 +113,11 @@ export const routes: Routes = [
     CartDetailComponent,
     LoginComponent,
     UserAccountComponent,
+    UserMenuComponent,
+    AddressComponent,
+    UserAddressComponent,
+    UserProfileComponent,
+    FormAddressComponent,
     FooterComponent
   ],
   imports: [
@@ -103,7 +135,8 @@ export const routes: Routes = [
     UserService,
     CartService,
     FormsHelperService,
-    AuthenticateService
+    AuthenticateService,
+    AddressService
   ],
   bootstrap: [AppComponent]
 })

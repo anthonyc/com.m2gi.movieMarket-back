@@ -1,0 +1,32 @@
+.account-picture {
+  padding: 0 50px;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.control-label.required:after {
+  color: #d00;
+  content: "*";
+  margin-left: 5px;
+  top:7px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background-color: #78abc0;
+}
+
+.nav-link:hover {
+  background-color: #ecebef;
+}
+
+.nav-pills > li > a {
+  border-radius: 4px;
+}
+
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
