@@ -189,22 +189,12 @@ export class OrderComponent implements OnInit {
         if (this.userForm.valid) {
             console.log('On apsse dans le form vlaide');
             this.userService.create(this.user).subscribe(
-                data => {
-                this.info = 'Utilisateur créé';
-                },
-                err => {
-                this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
-                if (err.status === 400) {
-                    this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
-                }
-                console.log(this.error);
-                },
+                data => this.info = 'Utilisateur créé',
+                err => this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants',
                 () => {
                     let authenticate: Authenticate;
                     const email = this.userForm.get('email').value;
-                    console.log(this.userForm.get('passwords'));
                     const pwd = this.userForm.get('passwords').value;
-                    console.log(email);
                     this.userService.login(email, pwd).subscribe(
                         data => {
                             authenticate = data;
@@ -218,15 +208,13 @@ export class OrderComponent implements OnInit {
                         },
                         () => {
                           this.finished = true;
-
-
-
                           console.log('on devrait etre loggé');
 
                           this.addressService.add(this.deliveryAddress, authenticate.id.toString(),
                             this.authenticateService.get().token).subscribe(
                             data => {
                               this.info = 'Adresse ajoutée';
+                              console.log(data);
                             },
                             err => {
                               this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
@@ -236,13 +224,18 @@ export class OrderComponent implements OnInit {
                             },
                             () => {
                               console.log('OrderService:add call');
-                              this.orderService.add(this.cartService.get(), authenticate.id.toString(),
+                              console.log(authenticate);
+                              console.log(this.cartService.get());
+                              console.log(this.deliveryAddress);
+                              this.orderService.add(
+                                  this.cartService.get(), authenticate.id.toString(),
                                 this.deliveryAddress.id.toString(), authenticate.token).subscribe(
                                 res => console.log('youpi'),
                                 err => this.error = err,
                                 () => {
                                   this.orderFinished = true;
                                   console.log('OrderService:add complete');
+                                  this.bought.emit(true);
                                 }
                               );
                             }
@@ -251,7 +244,6 @@ export class OrderComponent implements OnInit {
                     );
                 }
             );
-            this.bought.emit(true);
         } else {
             Object.keys(this.userForm.controls).forEach(field => {
               const control = this.userForm.get(field);

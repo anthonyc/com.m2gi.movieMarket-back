@@ -2,7 +2,7 @@ import { Movie } from './movie';
 import { CartDetail } from './cart-detail';
 
 export class Cart {
-    id: number;
+    id = 0;
     cartDetails: CartDetail[] = [];
 
     constructor () {}
