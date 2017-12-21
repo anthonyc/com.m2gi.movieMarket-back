@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import { User } from '../../model/user';
 import { UserService } from '../../service/user.service';
-import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
-import {FormsHelperService} from "../../service/forms-helper.service";
-import {Gender} from "../../model/person";
+import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {FormsHelperService} from '../../service/forms-helper.service';
+import {Gender} from '../../model/person';
 import 'rxjs/add/observable/of';
-declare var $ :any;
+declare var $: any;
 
 
 @Component({
@@ -56,17 +56,17 @@ export class CreateUserComponent implements OnInit {
     if (this.userForm.valid) {
       this.userService.create(this.user).subscribe(
         data => {
-          this.info = "Utilisateur créé";
-          $("#alert-info").show();
+          this.info = 'Utilisateur créé';
+          $('#alert-info').show();
         },
         err => {
-          this.error = "Une erreur serveur est survenue. Veuillez réessayer dans quelques instants";
+          this.error = 'Une erreur serveur est survenue. Veuillez réessayer dans quelques instants';
 
           if (err.status === 400) {
-            this.error = "Veuillez remplir tous les champs obligatoires du formulaire";
+            this.error = 'Veuillez remplir tous les champs obligatoires du formulaire';
           }
 
-          $("#alert-danger").show();
+          $('#alert-danger').show();
         }
       );
     } else {
@@ -81,8 +81,8 @@ export class CreateUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    $("#alert-danger").hide()
-    $("#alert-info").hide();
+    $('#alert-danger').hide();
+    $('#alert-info').hide();
 
   }
 }

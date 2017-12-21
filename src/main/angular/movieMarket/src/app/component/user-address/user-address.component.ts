@@ -1,9 +1,10 @@
+import { AddressService } from './../../service/address.service';
 import { Component, OnInit } from '@angular/core';
-import {AuthenticateService} from "../../service/authenticate.service";
-import {UserService} from "../../service/user.service";
-import {ActivatedRoute} from "@angular/router";
-import {User} from "../../model/user";
-import {Address} from "../../model/address";
+import {AuthenticateService} from '../../service/authenticate.service';
+import {UserService} from '../../service/user.service';
+import {ActivatedRoute} from '@angular/router';
+import {User} from '../../model/user';
+import {Address} from '../../model/address';
 
 @Component({
   selector: 'app-user-address',
@@ -19,6 +20,7 @@ export class UserAddressComponent implements OnInit {
 
   constructor(private userService: UserService,
               private authenticateService: AuthenticateService,
+              private addressService: AddressService,
               private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.userId = params['id']
@@ -34,6 +36,11 @@ export class UserAddressComponent implements OnInit {
       error => this.error = 'movieService.find error',
       () => this.finished = true
     );
+  }
+
+  removeAddress(index: number) {
+    console.log(index);
+    this.addressService.remove(this.addresses[index], this.user.id.toString(), this.user.jwtToken);
   }
 
 }

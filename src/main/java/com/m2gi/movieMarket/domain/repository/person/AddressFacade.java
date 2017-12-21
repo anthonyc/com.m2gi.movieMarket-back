@@ -12,6 +12,16 @@ public class AddressFacade implements AddressFacadeLocal {
     @PersistenceContext()
     private EntityManager em;
 
+    @Override
+    public void remove(int id, int userId) {
+        User user = this.em.find(User.class, userId);
+
+        for (Address address : user.getAddresses()) {
+            if (address.getId() == id) {
+                this.em.remove(address);
+            }
+        }
+    }
 
     @Override
     public int create(Address address, int userId) {

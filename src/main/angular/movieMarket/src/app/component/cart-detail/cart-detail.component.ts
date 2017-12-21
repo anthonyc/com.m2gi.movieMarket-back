@@ -12,12 +12,16 @@ export class CartDetailComponent implements OnChanges, OnInit {
 
   @Input()
   cartDetail: CartDetail;
-
   shortDesc: string;
+
+  add: string;
+  remove: string;
 
   constructor(private cartService: CartService) {}
 
-  ngOnChanges() { }
+
+  ngOnChanges() {
+  }
 
   ngOnInit() {
     this.shortDesc = this.cartDetail.movie.description.substring(0, 300);
@@ -28,20 +32,40 @@ export class CartDetailComponent implements OnChanges, OnInit {
       this.shortDesc += '...';
     }
 
+    this.updateQuantityButtons();
   }
 
   addMovie() {
-    this.cartDetail = this.cartService.addMovie(this.cartDetail.movie);
+    if (this.cartDetail === null) {
+      return;
+    }
+    if (this.cartDetail.quantity < this.cartDetail.movie.quantity) {
+      this.cartDetail = this.cartService.addMovie(this.cartDetail.movie);
+      this.updateQuantityButtons();
+    }
+    return this.cartDetail;
   }
 
   removeMovie() {
-    return this.cartDetail = this.cartService.removeMovie(this.cartDetail.movie);
+    if (this.cartDetail === null) {
+      return;
+    }
+    if (this.cartDetail.quantity > 1) {
+      this.cartDetail = this.cartService.removeMovie(this.cartDetail.movie);
+      this.updateQuantityButtons();
+    }
+    return this.cartDetail;
   }
 
   removeAllMovies() {
-    let r = this.removeMovie();
-    while (r != null) {
-      r = this.removeMovie();
-    }
+    do {
+      this.cartDetail = this.cartService.removeMovie(this.cartDetail.movie);
+    } while (this.cartDetail != null);
+  }
+
+  private updateQuantityButtons() {
+    console.log('Updating quantity : ' + this.cartDetail.quantity);
+    this.add = (this.cartDetail.quantity >= this.cartDetail.movie.quantity) ? 'disabled' : '';
+    this.remove = (this.cartDetail.quantity === 1) ? 'disabled' : '';
   }
 }

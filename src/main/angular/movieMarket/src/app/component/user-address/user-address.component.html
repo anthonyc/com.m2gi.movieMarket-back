@@ -1,71 +1,76 @@
 <div *ngIf="finished" class="row">
-  <!-- Left -->
-  <div class="col-3">
-    <app-user-menu [user]="user" [classActive]="'address'"></app-user-menu>
-  </div>
-  <!-- Right -->
-  <div class="col">
-    <div class="row">
-      <div class="col">
-        <div *ngIf="addresses.length === 0" class="row">
-          <div class="col">
-            <app-form-address [address]="" [user]="user"></app-form-address>
-          </div>
-        </div>
-        <div *ngFor="let address of addresses; let index = index" class="row">
-          <div class="col">
-            <div class="title">
-              <h5>Adresse {{ index+1 }}</h5>
-            </div>
-            <ul class="list-group list-group-nav">
-              <li class="list-group-item">
-                <strong>Numéro de rue</strong>
-                <p>{{ address.streetNumber }}</p>
-              </li>
-              <li class="list-group-item">
-                <strong>Rue</strong>
-                <p>{{ address.street }}</p>
-              </li>
-              <li class="list-group-item">
-                <strong>Code postale</strong>
-                <p>{{ address.zipCode }}</p>
-              </li>
-              <li class="list-group-item">
-                <strong>Ville</strong>
-                <p>{{ address.city }}</p>
-              </li>
-            </ul>
-            <div class="separation-block"></div>
-          </div>
-        </div>
+    <!-- Left -->
+    <div class="col-3">
+        <app-user-menu [user]="user" [classActive]="'address'"></app-user-menu>
+    </div>
+    <!-- Right -->
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <div *ngIf="addresses.length === 0" class="row">
+                    <div class="col">
+                        <app-form-address [address]="" [user]="user"></app-form-address>
+                    </div>
+                </div>
+                <div *ngFor="let address of addresses; let index = index" class="row">
+                    <div class="col">
+                        <div class="title">
+                            <h5>Adresse {{ index+1 }}
+                                <button title="supprimer" type="button" class="close" (click)="removeAddress(index)" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </h5>
 
-        <div class="col">
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+                        </div>
+                        <ul class="list-group list-group-nav">
+                            <li class="list-group-item">
+                                <strong>Numéro de rue</strong>
+                                <p>{{ address.streetNumber }}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Rue</strong>
+                                <p>{{ address.street }}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Code postale</strong>
+                                <p>{{ address.zipCode }}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Ville</strong>
+                                <p>{{ address.city }}</p>
+                            </li>
+                        </ul>
+                        <div class="separation-block"></div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-plus" aria-hidden="true"></i> Ajouter une adresse
           </button>
 
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
-                </div>
-                <div class="modal-body">
-                  <app-form-address [address]="" [user]="user"></app-form-address>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
+                                </div>
+                                <div class="modal-body">
+                                    <app-form-address [address]="" [user]="user"></app-form-address>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

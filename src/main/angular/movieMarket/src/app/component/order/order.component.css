@@ -1,0 +1,20 @@
+.modal-content:not(.show) {
+    display: none;
+}
+
+.connect {
+    margin-bottom: 1em;
+}
+
+.addressConfirm {
+    margin-top: 1em;
+    display: none;
+}
+
+.addressConfirm.show {
+    display: block !important;
+}
+
+.btn:not(.disabled) {
+    cursor: pointer;
+}

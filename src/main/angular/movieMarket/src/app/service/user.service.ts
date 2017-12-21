@@ -4,9 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { catchError, map, tap } from 'rxjs/operators';
 import { User } from '../model/user';
 import { Response } from '@angular/http/src/static_response';
-import {log} from "util";
-import {Authenticate} from "../model/authenticate";
-import {Movie} from "../model/movie";
+import {log} from 'util';
+import {Authenticate} from '../model/authenticate';
+import {Movie} from '../model/movie';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -26,6 +26,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public create(user: User): Observable<User> {
+    console.log('Create user ?');
     return this.http.post<User>(
       '/api/user', user,
       httpOptions);
@@ -42,7 +43,7 @@ export class UserService {
     );
   }
 
-  public find(id: string, jwtToken): Observable<User> {
+  public find(id: string | number, jwtToken): Observable<User> {
     if (!httpOptions.headers.has('Authorization')) {
       httpOptions.headers = httpOptions.headers.append('Authorization', 'Bearer ' + jwtToken);
     }
@@ -52,9 +53,8 @@ export class UserService {
         httpOptions
       )
       .map(res => {
-        let user: User = res;
+        const user: User = res;
         user.jwtToken = jwtToken;
-
         return user;
       }
     );

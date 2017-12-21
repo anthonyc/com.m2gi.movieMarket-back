@@ -28,6 +28,13 @@ export class MovieService {
     );
   }
 
+  public search(search: String): Observable<Movie[]> {
+    return this.http.get<Movie[]>(
+      '/api/movies?search=' + search, httpOptions)
+      .map(res => res
+      );
+  }
+
   public find(id: string): Observable<Movie> {
     return this.http.get<Movie>(
       'api/movies/' + id)

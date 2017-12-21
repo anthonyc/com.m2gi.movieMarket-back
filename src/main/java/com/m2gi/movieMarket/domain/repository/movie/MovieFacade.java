@@ -29,6 +29,12 @@ public class MovieFacade implements MovieFacadeLocal {
 	public Movie find(Object id) {
 		return this.em.find(Movie.class, id);
 	}
+
+	public List<Movie> search(String search) {
+		return this.em.createQuery("select m from Movie as m where m.name like '" + search +"%'")
+				.getResultList()
+		;
+	}
 	
 	public List<Movie> findAll(int from, int to) {
 		return this.em.createQuery("select m from Movie as m")
