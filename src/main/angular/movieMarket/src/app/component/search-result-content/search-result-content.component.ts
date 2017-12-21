@@ -26,9 +26,14 @@ export class SearchResultContentComponent implements OnInit {
       );
   }
 
-  search() {
+  search(linkText: string) {
     let name = this.searchText;
     this.searchText = '';
+
+    if (linkText) {
+      name = linkText;
+    }
+
     this.router.navigate(['/search'], { queryParams: { name: name } });
   }
 

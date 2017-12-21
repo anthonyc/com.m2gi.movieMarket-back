@@ -6,9 +6,9 @@
   </div>
   <div *ngIf="searchText.length >= 3" class="search-box position-absolute">
     <ul class="p-0 list-group">
-      <a *ngFor="let c of movies | filter : searchText" class="list-group-item list-group-item-action"
-        (click)="search()">
-        {{c.name}}
+      <a *ngFor="let movie of movies | filter : searchText" class="list-group-item list-group-item-action"
+        (click)="search(movie.name)">
+        {{movie.name}}
       </a>
     </ul>
   </div>
