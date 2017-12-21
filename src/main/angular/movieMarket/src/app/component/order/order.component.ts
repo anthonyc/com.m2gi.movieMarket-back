@@ -84,8 +84,8 @@ export class OrderComponent implements OnInit {
     ngOnInit() {
         if (this.authenticateService.isLogged()) {
             this.userService.find(this.authenticateService.get().id, this.authenticateService.get().token).subscribe(
-                value => this.user,
-                error => this.error,
+                value => this.user = value,
+                error => this.error = error,
                 () => {
                     this.isLogged = true;
                     console.log(this.user);

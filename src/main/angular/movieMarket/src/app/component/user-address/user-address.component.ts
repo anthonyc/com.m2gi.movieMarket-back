@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticateService} from "../../service/authenticate.service";
-import {UserService} from "../../service/user.service";
-import {ActivatedRoute} from "@angular/router";
-import {User} from "../../model/user";
-import {Address} from "../../model/address";
+import {AuthenticateService} from '../../service/authenticate.service';
+import {UserService} from '../../service/user.service';
+import {ActivatedRoute} from '@angular/router';
+import {User} from '../../model/user';
+import {Address} from '../../model/address';
 
 @Component({
   selector: 'app-user-address',
@@ -34,6 +34,9 @@ export class UserAddressComponent implements OnInit {
       error => this.error = 'movieService.find error',
       () => this.finished = true
     );
+  }
+
+  removeAddress(index: number) {
   }
 
 }
