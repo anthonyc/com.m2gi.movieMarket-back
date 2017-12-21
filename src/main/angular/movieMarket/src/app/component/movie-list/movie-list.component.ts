@@ -20,11 +20,6 @@ export class MovieListComponent implements OnInit {
   to = 200;
 
   constructor( private movieService: MovieService, private route: ActivatedRoute, private router: Router) {
-    /*this.route.params.subscribe(params => {
-      this.categoryName = params['category'];
-      this.filter = null;
-      this.ngOnInit();
-    });*/
 
     this.route.queryParams.subscribe(params => {
       this.categoryName = params['category'];
