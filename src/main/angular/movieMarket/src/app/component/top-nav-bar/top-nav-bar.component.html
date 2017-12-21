@@ -16,18 +16,18 @@
         <div>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <div class="btn-group">
+                    <div id="#login"class="btn-group">
                         <button type="button" class="nav-link btn btn-light btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        {{ authenticateService.getName() }}
-                    </button>
+                          <i class="fa fa-user" aria-hidden="true"></i>
+                          {{ authenticateService.getName() }}
+                        </button>
                         <div class="dropdown-menu">
                             <span *ngIf="!authenticateService.isLogged(); else isLogged">
-                            <app-login></app-login>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" routerLink="/user/create">Nouvel utilisateur ? Créez un compte</a>
-                            <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
-                        </span>
+                              <app-login></app-login>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" routerLink="/user/create">Nouvel utilisateur ? Créez un compte</a>
+                              <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
+                            </span>
                             <ng-template #isLogged>
                                 <a class="dropdown-item" routerLink="/account/{{authenticateService.get().id}}/profile">Voir mon compte</a>
                                 <a (click)="authenticateService.loggout()" class="dropdown-item" href="#">Se deconnecter</a>
@@ -67,3 +67,4 @@
         </div>
     </div>
 </nav>
+

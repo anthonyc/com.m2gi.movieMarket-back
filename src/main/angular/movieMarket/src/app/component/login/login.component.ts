@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   token = null;
   error = null;
   finished = false;
+  loginFailed = false;
 
   constructor(private formBuilder: FormBuilder,
     public formsHelper: FormsHelperService,
@@ -41,8 +42,8 @@ export class LoginComponent implements OnInit {
         err => {
           this.error = "Une erreur serveur est survenue. Veuillez réessayer dans quelques instants";
 
-          if (err.status === 400) {
-            this.error = "Veuillez remplir tous les champs obligatoires du formulaire";
+          if (err.status === 404) {
+            this.loginFailed = true;
           }
         },
         () => this.finished = true

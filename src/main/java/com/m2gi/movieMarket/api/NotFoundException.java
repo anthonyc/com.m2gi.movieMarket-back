@@ -8,8 +8,8 @@ public class NotFoundException extends WebApplicationException {
 	public NotFoundException(String message) {
 		super(Response.status(
 				Response.Status.NOT_FOUND)
-					.entity(new ApiErrorsMessage(Response.Status.NOT_FOUND.getStatusCode(), message))
-					.type(MediaType.APPLICATION_JSON)
-					.build());
+				.entity(new ApiErrorsMessage(Response.Status.NOT_FOUND.getStatusCode(), message))
+				.type(MediaType.APPLICATION_JSON)
+				.build());
 	}
 }

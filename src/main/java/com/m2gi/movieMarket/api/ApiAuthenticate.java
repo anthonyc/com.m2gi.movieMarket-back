@@ -15,7 +15,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ejb.EJB;
-import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
@@ -46,6 +45,11 @@ public class ApiAuthenticate {
             this.logger.info("#### ApiUser:login login parameter : " + login);
             User user = this.userReference.findByEmail(login);
 
+            if (!(user instanceof User)) {
+                this.logger.error("Authenticate:authenticate User not found with login : " + login);
+                return Response.status(Response.Status.NOT_FOUND).entity(new ApiMessage("Entity User not found with login : " + login)).build();
+            }
+
             com.m2gi.movieMarket.api.security.user.User apiUser = new com.m2gi.movieMarket.api.security.user.User(user.getId(), user.getUsername());
 
             for (UserRole userRole : user.getUserRoles()) {
@@ -69,9 +73,6 @@ public class ApiAuthenticate {
             apiUser.setToken(compactJws);
 
             return Response.created(URI.create("/auth")).entity(apiUser).build();
-        } catch (NoResultException noResultException) {
-            this.logger.error(noResultException.getStackTrace().toString());
-            throw new NotFoundException("Entity User not found with login : " + login);
         } catch (NonUniqueResultException nonUniqueResultException) {
             this.logger.error(nonUniqueResultException.getStackTrace().toString());
             return Response.serverError().build();
@@ -80,6 +81,9 @@ public class ApiAuthenticate {
             throw new InternalServerException("Internal server error");
         } catch (JsonProcessingException jsonProcessingException) {
             this.logger.error(jsonProcessingException.getStackTrace().toString());
+            throw new InternalServerException("Internal server error");
+        } catch (Exception exception) {
+            this.logger.error(exception.getStackTrace().toString());
             throw new InternalServerException("Internal server error");
         }
     }

@@ -23,7 +23,7 @@ export class TopNavBarComponent implements OnInit {
       value => this.categories = value,
       error => this.error = 'movieService.all error',
       () => this.finished = true
-  );
+    );
   }
 
 }
