@@ -44,13 +44,6 @@ export const routes: Routes = [
     },
   },
   {
-    path: 'category/movie/:category/:filter',
-    component: MovieListComponent,
-    data: {
-      breadcrumb: 'Liste de films'
-    },
-  },
-  {
     path: 'movies/:id',
     component: MovieDetailComponent,
     data: {

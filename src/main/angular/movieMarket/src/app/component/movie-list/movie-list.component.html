@@ -25,7 +25,7 @@
                 <option value="pricedesc">Prix décroissant</option>
                 <option value="name">Nom</option>
               </select>
-              <button type="submit" class="btn btn-primary" [routerLink]= "['/category/movie', categoryName, filter]">Go</button>
+              <button (click)="filtre()" class="btn btn-primary" >Go</button>
             </div>
         </div>
       <div class="row">

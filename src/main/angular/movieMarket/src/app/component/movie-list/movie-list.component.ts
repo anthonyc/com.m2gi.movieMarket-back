@@ -12,24 +12,30 @@ import { Subject } from 'rxjs/Subject';
 })
 export class MovieListComponent implements OnInit {
   @Input() categoryName: String = this.route.snapshot.paramMap.get('category');
-  @Input() filter: String = this.route.snapshot.paramMap.get('filter');
+  filter: String ;
+  sub;
   movies: Movie[] = [];
   finished: Boolean = false;
   error: string;
   from: 0;
   to: 20;
 
+  constructor(private movieService: MovieService, private route: ActivatedRoute, private router: Router) {
+    this.route.params.subscribe(params => {
+      this.categoryName = params['category'];
+      this.ngOnInit();
+    });
+    this.route.queryParams.subscribe(params => {
+      this.ngOnInit();
+    });
+  }
   test(event) {
     console.log(event.target.value);
     this.filter = event.target.value;
   }
-  constructor(private movieService: MovieService, private route: ActivatedRoute, private router: Router) {
-    this.route.params.subscribe(params => {
-      this.categoryName = params['category'];
-      this.filter = params['filter'];
-      this.ngOnInit();
-    });
-   }
+  filtre() {
+    this.router.navigate(['/category/movie/', this.categoryName], { queryParams: { order: this.filter } });
+  }
   ngOnInit() {
     if (!this.filter) {
       this.filter = '';
