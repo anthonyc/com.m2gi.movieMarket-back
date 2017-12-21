@@ -160,6 +160,11 @@ export class OrderComponent implements OnInit {
         this.showAddressDanger = 'show';
     }
 
+    showPaymentFromChooseAddress(event) {
+        // Get the selected address
+        this.setStep('payment');
+    }
+
     showBeforePayment(event) {
         if (this.isLogged) {
             this.showStartConnected(event);
@@ -171,7 +176,10 @@ export class OrderComponent implements OnInit {
     create() {
         console.log('On avant user form');
 
-        if (this.userForm.valid){
+        // Do something different if we already were connected
+
+        // Do something if we need to create a new user
+        if (this.userForm.valid) {
             console.log('On apsse dans le form vlaide');
             this.userService.create(this.user).subscribe(
                 data => {
@@ -233,7 +241,6 @@ export class OrderComponent implements OnInit {
           }
     }
     createn() {
-        
     }
     setAddress(event: Address) {
         console.log(event);
