@@ -76,6 +76,9 @@ public class OrderFacade implements OrderFacadeLocal {
 
             order.addOrder(orderDetail);
         }
+
+        this.em.persist(order);
+        this.em.flush();
     }
 
     @Override
