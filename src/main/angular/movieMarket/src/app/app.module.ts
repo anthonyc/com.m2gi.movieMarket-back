@@ -39,6 +39,7 @@ import { OrderComponent } from './component/order/order.component';
 import 'hammerjs';
 import { SearchResultComponent } from './component/search-result/search-result.component';
 import {OrderService} from "./service/order.service";
+import { UserOrderComponent } from './component/user-order/user-order.component';
 
 
 export const routes: Routes = [
@@ -95,6 +96,13 @@ export const routes: Routes = [
         data: {
           breadcrumb: 'Adresse'
         }
+      },
+      {
+        path: 'order',
+        component: UserOrderComponent,
+        data: {
+          breadcrumb: 'Achat'
+        }
       }
     ]
   }
@@ -125,7 +133,8 @@ export const routes: Routes = [
     FormAddressComponent,
     FooterComponent,
     OrderComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    UserOrderComponent
   ],
   imports: [
     BrowserModule,

@@ -28,6 +28,20 @@ public class OrderFacade implements OrderFacadeLocal {
     private Logger logger = LoggerFactory.getLogger(OrderFacade.class);
 
     @Override
+    public List<Order> findAll(Object userId) {
+
+        User user = this.em.find(User.class, userId);
+
+        Hibernate.initialize(user.getUserRoles());
+        Hibernate.initialize(user.getAddresses());
+
+        return this.em.createQuery("select o from Order o where o.user = :user")
+            .setParameter("user", user)
+            .getResultList();
+
+    }
+
+    @Override
     public int add(Cart cart, int userId, int addressId) {
         try {
             User user = this.em.find(User.class, userId);

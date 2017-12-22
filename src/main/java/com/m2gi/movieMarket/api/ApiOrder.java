@@ -50,5 +50,15 @@ public class ApiOrder {
         }
     }
 
-
+    @GET
+    @Path("/user/{userId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findAll(@PathParam("userId") int userId) {
+        try {
+            this.orderReference.findAll((Object) userId);
+        } catch (Exception exception) {
+            // Todo Add other return status
+            throw new InternalServerException("Internal Server Exception ");
+        }
+    }
 }

@@ -12,6 +12,8 @@ import javax.ejb.Local;
 @Local
 public interface OrderFacadeLocal {
 
+    List<Order> findAll(Object userId);
+
     int add(Cart cart, int userId, int address_id);
 
     void remove(Order order);
