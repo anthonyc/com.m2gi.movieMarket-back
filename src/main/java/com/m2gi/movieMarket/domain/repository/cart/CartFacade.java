@@ -58,35 +58,8 @@ public class CartFacade implements CartFacadeLocal {
         this.em.flush();
     }
 
-    @Override
-    public void addMovie(Cart cart) {
-
-    }
-
-    @Override
-    public void removeMovie(Cart cart) {
-
-    }
-
     public void remove(Cart cart) {
         this.em.remove(cart);
     }
 
-    @Override
-    public Cart find(Cart cart) {
-        return null;
-    }
-
-    /*@Override
-    public void addMovie(Movie movie, int quantite) {
-        CartDetail cartDetail = new CartDetail();
-        cartDetail.setQuantity(quantite);
-
-        this.em.persist(cartDetail);
-    }*/
-
-    @Override
-    public List<CartDetail> listCartDetail(Cart cart) {
-        return new ArrayList<CartDetail>();
-    }
 }

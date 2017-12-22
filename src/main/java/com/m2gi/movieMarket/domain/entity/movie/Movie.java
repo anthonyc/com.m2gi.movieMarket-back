@@ -48,6 +48,10 @@ public class Movie implements Serializable {
 	@Column(name = "releaseYear", columnDefinition = "DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date releaseYear;
+
+	private Date created;
+
+	private Date updated;
 	
 	public int getId() {
 		return this.id;
@@ -130,5 +134,15 @@ public class Movie implements Serializable {
 		}
 
 		return this;
+	}
+
+	@PrePersist
+	protected void onCreate() {
+		created = new Date();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		updated = new Date();
 	}
 }

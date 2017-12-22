@@ -2,6 +2,7 @@ package com.m2gi.movieMarket.domain.entity.person;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "address")
@@ -24,6 +25,10 @@ public class Address implements Serializable {
 
     @Column(name = "city")
     private String city;
+
+    private Date created;
+
+    private Date updated;
 
     public int getId() {
         return this.id;
@@ -88,5 +93,15 @@ public class Address implements Serializable {
             getZipCode();
 
         return adress;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        created = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updated = new Date();
     }
 }

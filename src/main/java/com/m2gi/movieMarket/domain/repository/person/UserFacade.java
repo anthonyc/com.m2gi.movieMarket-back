@@ -6,6 +6,7 @@ import org.hibernate.Hibernate;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
@@ -45,14 +46,18 @@ public class UserFacade implements UserFacadeLocal {
 	}
 
 	public User findByEmail(String email) {
-		User user = (User) this.em.createQuery("select u from User as u where u.email = :email")
-				.setParameter("email", email)
-				.getSingleResult();
+		try {
+			User user = (User) this.em.createQuery("select u from User as u where u.email = :email")
+					.setParameter("email", email)
+					.getSingleResult();
 
-		Hibernate.initialize(user.getUserRoles());
-		Hibernate.initialize(user.getAddresses());
+			Hibernate.initialize(user.getUserRoles());
+			Hibernate.initialize(user.getAddresses());
 
-		return user;
+			return user;
+		} catch (NoResultException noResultException) {
+			return null;
+		}
 
 	}
 	

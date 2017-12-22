@@ -36,21 +36,29 @@ public class ApiAddress {
 
             return Response.status(Response.Status.CREATED).entity(id).build();
         } catch (Exception exception) {
+            // Todo Add other return status
             throw new InternalServerException("Internal Server Exception ");
         }
     }
 
     @DELETE
-    @Path("/{{id}}/user/{userId}")
+    @Path("/{id}/user/{userId}")
     @JWTTokenNeeded
     @Consumes(MediaType.APPLICATION_JSON)
-    public void remove(@PathParam("id") int id,
+    public Response remove(@PathParam("id") int id,
                @PathParam("userId") int userId,
                @Context SecurityContext securityContext) {
         if (!securityContext.isUserInRole(String.valueOf(Role.ROLE_USER))) {
             throw new NotAuthorizedException("You are not authorized to execute this operation");
         }
 
-        this.addressReference.remove(id, userId);
+        try {
+            this.addressReference.remove(id, userId);
+
+            return Response.status(Response.Status.CREATED).entity(id).build();
+        } catch (Exception exception) {
+            // Todo Add other return status
+            throw new InternalServerException("Internal Server Exception ");
+        }
     }
 }

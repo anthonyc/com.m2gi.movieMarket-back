@@ -42,7 +42,12 @@ public class ApiOrder {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void remove(Order order) {
-        this.orderReference.remove(order);
+        try {
+            this.orderReference.remove(order);
+        } catch (Exception exception) {
+            // Todo Add other return status
+            throw new InternalServerException("Internal Server Exception ");
+        }
     }
 
 

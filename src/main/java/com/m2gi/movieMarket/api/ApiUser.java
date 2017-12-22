@@ -14,11 +14,6 @@ import com.m2gi.movieMarket.domain.repository.person.UserFacadeLocal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//import org.simplejavamail.email.Email;
-//import org.simplejavamail.mailer.Mailer;
-//import org.simplejavamail.mailer.config.ProxyConfig;
-//import org.simplejavamail.mailer.config.ServerConfig;
-//import org.simplejavamail.mailer.config.TransportStrategy;
 
 @Path("/user")
 @Api(
@@ -47,18 +42,6 @@ public class ApiUser {
             throw new NotFoundException("Entity not found for id : " + id);
         }
 
-        /*Email email = new Email();
-
-        email.setFromAddress("movieMArket", "no-reply@movie-market.com");
-        email.addNamedToRecipients(user.getUsername(), "chavoutier.anthony@gmail.com");
-        email.setSubject("Validation inscription");
-        email.setText("test");
-        
-        new Mailer(
-			new ServerConfig("localhost", 587, "user@host.com", "password"),
-			TransportStrategy.SMTP_TLS
-    	).sendMail(email);*/
-        
 
         return Response.ok(user).build();
     }

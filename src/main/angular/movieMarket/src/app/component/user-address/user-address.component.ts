@@ -39,8 +39,10 @@ export class UserAddressComponent implements OnInit {
   }
 
   removeAddress(index: number) {
-    console.log(index);
-    this.addressService.remove(this.addresses[index], this.user.id.toString(), this.user.jwtToken);
+    console.log(this.addresses[index]);
+    this.addressService.remove(this.addresses[index], this.user.id.toString(), this.user.jwtToken).subscribe(
+      res => this.ngOnInit()
+    );
   }
 
 }

@@ -23,8 +23,11 @@ export class AddressService {
       httpOptions);
   }
 
-  public remove(address: Address, userId: string, jwtToken: string) {
+  public remove(address: Address, userId: string, jwtToken: string): Observable<number> {
     httpOptions.headers = httpOptions.headers.append('Authorization', 'Bearer ' + jwtToken);
-    this.http.delete<Address>('/api/address/' + address.id + '/user/' + userId, httpOptions);
+
+    return this.http.delete<number>(
+      '/api/address/' + address.id + '/user/' + userId,
+      httpOptions);
   }
 }

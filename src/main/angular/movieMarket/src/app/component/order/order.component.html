@@ -132,10 +132,11 @@
                 </div>
                 <div class="modal-body">
                     Adresse de livraison :
-                    <select name="addressIfConnected">
+                    <select (change)='setDeliveryAddress($event)' name="addressIfConnected">
                         <option *ngFor="let address of user.addresses" value="address">{{getAddressString(address)}}</option>
                     </select>
                     <app-form-address [id]="2" (createdAddress)="setAddress($event)" [user]="user"></app-form-address>
+                    <div class="alert alert-danger addressConfirm {{showAddressDanger}}">Vous n'avez pas sélectionné d'adresse</div>
                     <div class="alert alert-success addressConfirm {{showAddressDone}}">L'adresse a bien été ajoutée</div>
                 </div>
                 <div class="modal-footer">

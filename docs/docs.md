@@ -11,4 +11,10 @@
 ## Summary
 
 1. [Building applications](building-apps.md)
-2. [Database migration](databases/migration.md)
+2. [Database migration](databases/migration.md) (Work in progress)
+
+## Diagrams
+
+![general-architecture](diagrams/general-architecture.png "general-architecture")
+![api-architecture](diagrams/api-architecture.png "api-architecture")
+![domain-architecture](diagrams/domain-architecture.png "domain-architecture")
